@@ -124,6 +124,18 @@ body:not(:has(.nav-drawer)) {
     }
   }
 
+  .site-logo {
+    a {
+      display: flex;
+      align-items: center;
+    }
+
+    svg {
+      block-size: 1.125rem;
+      inline-size: 1.125rem;
+    }
+  }
+
   .gretel-breadcrumbs,
   .title-text {
     display: flex !important;

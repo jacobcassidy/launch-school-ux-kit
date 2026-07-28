@@ -411,7 +411,6 @@ export function watchViewSolutionBtn(btn, svgIcons) {
   if (!parent) return;
 
   let previousState = parent.classList.contains("open") ? "open" : "closed";
-  console.log(previousState);
 
   const handleUpdatedSolutionBtn = () => {
     svgIcons.forEach((svg) => {
