@@ -66,11 +66,17 @@ let ctx = await createContext();
 if (isWatchMode) {
   await ctx.watch();
 
+  let headerMtimeMs = fs.statSync(headerFile).mtimeMs;
   let headerChangeTimeout;
 
   fs.watch(headerFile, () => {
     clearTimeout(headerChangeTimeout);
+
     headerChangeTimeout = setTimeout(async () => {
+      const nextMtimeMs = fs.statSync(headerFile).mtimeMs;
+      if (nextMtimeMs === headerMtimeMs) return;
+      headerMtimeMs = nextMtimeMs;
+
       console.log(`Build started (change: "${headerFile}")`);
       await ctx.dispose();
       ctx = await createContext();
