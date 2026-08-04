@@ -3,28 +3,11 @@
  * @module components/sidebar
  */
 
-import { setSidebarListsElement, sidebarLists } from "../helpers/state";
+// Import Components
+import { icons } from "./icons.js";
 
-import {
-  archiveIconEl,
-  bookshelfIconEl,
-  chatRoomIconEl,
-  coursesIconEl,
-  eventsIconEl,
-  exercisesIconEl,
-  fileIconEl,
-  forumIconEl,
-  modifiedLogoIconEl,
-  myAccountIconEl,
-  myAssessmentsIconEl,
-  myExercisesIconEl,
-  pagesIconEl,
-  resourcesIconEl,
-  sharingIconEl,
-  signOutIconEl,
-  toggleIconEl,
-  videosIconEl,
-} from "./icons";
+// Import Utils
+import { setSidebarListsElement, sidebarLists } from "../utils/state.js";
 
 export function updateSidebar() {
   const sidebarItemLinks = document.querySelectorAll(".nav-drawer > ul > li > a");
@@ -59,78 +42,78 @@ export function updateSidebar() {
       switch (true) {
         case linkClassStr.includes("courses"):
           linkLabel = "courses";
-          linkIconEl = coursesIconEl;
+          linkIconEl = icons.sidebarIcons.courses();
           tooltipFallback = "Courses";
           break;
         case linkClassStr.includes("forum"):
           linkLabel = "forum";
-          linkIconEl = forumIconEl;
+          linkIconEl = icons.sidebarIcons.forum();
           tooltipFallback = "Forum";
           break;
         case linkClassStr.includes("events"):
           linkLabel = "events";
-          linkIconEl = eventsIconEl;
+          linkIconEl = icons.sidebarIcons.events();
           tooltipFallback = "Events";
           break;
         case linkClassStr.includes("social"):
           linkLabel = "social";
-          linkIconEl = sharingIconEl;
+          linkIconEl = icons.sidebarIcons.sharing();
           tooltipFallback = "Sharing";
           break;
         case linkClassStr.includes("videos"):
           linkLabel = "videos";
-          linkIconEl = videosIconEl;
+          linkIconEl = icons.sidebarIcons.videos();
           tooltipFallback = "Videos";
           break;
         case linkClassStr.includes("resources"):
           linkLabel = "resources";
-          linkIconEl = resourcesIconEl;
+          linkIconEl = icons.sidebarIcons.resources();
           tooltipFallback = "Resources";
           break;
         case linkClassStr.includes("my-exercises"):
           linkLabel = "my-exercises";
-          linkIconEl = myExercisesIconEl;
+          linkIconEl = icons.sidebarIcons.myExercises();
           tooltipFallback = "My Exercises";
           break;
         case linkClassStr.includes("exercises"):
           linkLabel = "exercises";
-          linkIconEl = exercisesIconEl;
+          linkIconEl = icons.sidebarIcons.exercises();
           tooltipFallback = "Exercises";
           break;
         case linkClassStr.includes("bookshelf"):
           linkLabel = "bookshelf";
-          linkIconEl = bookshelfIconEl;
+          linkIconEl = icons.sidebarIcons.bookshelf();
           tooltipFallback = "Bookshelf";
           break;
         case linkClassStr.includes("pages"):
           linkLabel = "pages";
-          linkIconEl = toggleIconEl;
-          dropdownItemIconEl = fileIconEl;
+          linkIconEl = icons.sidebarIcons.pages();
+          dropdownItemIconEl = icons.sidebarIcons.page();
           tooltipFallback = "Pages";
           break;
         case linkClassStr.includes("archives"):
           linkLabel = "archives";
-          linkIconEl = archiveIconEl;
+          linkIconEl = icons.sidebarIcons.archives();
           tooltipFallback = "Archives";
           break;
         case linkClassStr.includes("chat"):
           linkLabel = "chat";
-          linkIconEl = chatRoomIconEl;
+          linkIconEl = icons.sidebarIcons.chat();
           tooltipFallback = "Chat Room";
           break;
         case linkClassStr.includes("my-account"):
           linkLabel = "my-account";
-          linkIconEl = myAccountIconEl;
+          linkIconEl = icons.sidebarIcons.myAccount();
           tooltipFallback = "My Account";
           break;
         case linkClassStr.includes("my-assessments"):
           linkLabel = "my-assessments";
-          linkIconEl = myAssessmentsIconEl;
+          linkIconEl = icons.sidebarIcons.myAssessments();
           tooltipFallback = "My Assessments";
           break;
         case linkClassStr.includes("exit"):
           linkLabel = "sign-out";
-          linkIconEl = signOutIconEl;
+          linkIconEl = icons.sidebarIcons.signOut();
           tooltipFallback = "Sign Out";
           break;
         default:
@@ -198,6 +181,7 @@ function injectSidebarHeader() {
     const sidebarLogoTextEl = document.createElement("span");
     sidebarLogoTextEl.className = "logo-title hidden-on-collapse";
     sidebarLogoTextEl.textContent = "LaunchSchool";
+    const modifiedLogoIconEl = icons.sidebarIcons.modifiedLogo();
     modifiedLogoIconEl.classList.add("logo-icon");
     sidebarHeaderLogoEl.appendChild(modifiedLogoIconEl);
     sidebarHeaderLogoEl.appendChild(sidebarLogoTextEl);

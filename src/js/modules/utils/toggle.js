@@ -1,8 +1,9 @@
 /**
  * TOGGLE
- * @module helpers/toggle
+ * @module utils/toggle
  */
 
+// Import Utils
 import { showHeader, showSettingsContainer, showSidebar, showTabsPanel, showToast, showTocMenu } from "./show.js";
 import { hideHeader, hideSettingsContainer, hideSidebar, hideTabsPanel, hideTocMenu } from "./hide.js";
 import { elements, states } from "./state.js";

@@ -3,13 +3,13 @@
  * @module components/icons
  */
 
-// Header icon imports
+// Import Header Icons
 import settings from "../../../svg/lucide/settings.svg";
 import sidebar from "../../../svg/lucide/panel-left.svg";
 import tabsPanel from "../../../svg/lucide/modified/tabs-panel.svg";
 import toc from "../../../svg/lucide/book-text.svg";
 
-// Panel icon imports
+// Import Panel Icons
 import checkmark from "../../../svg/lucide/check.svg";
 import conversationHistory from "../../../svg/lucide/gallery-vertical-end.svg";
 import conversationNew from "../../../svg/lucide/circle-plus.svg";
@@ -20,7 +20,7 @@ import viewHide from "../../../svg/lucide/eye-off.svg";
 import viewShow from "../../../svg/lucide/eye.svg";
 import nextExercise from "../../../svg/lucide/arrow-big-right.svg";
 
-// Sidebar icon imports
+// Import Sidebar Icons
 import archives from "../../../svg/lucide/sidebar/archives/archive.svg";
 import bookshelf from "../../../svg/lucide/sidebar/bookshelf/library.svg";
 import chat from "../../../svg/lucide/sidebar/chat-room/message-square-text.svg";
@@ -40,7 +40,7 @@ import signOut from "../../../svg/lucide/sidebar/sign-out/log-out.svg";
 import toggle from "../../../svg/lucide/sidebar/pages/chevron-down.svg";
 import videos from "../../../svg/lucide/sidebar/videos/monitor-play.svg";
 
-// Tabs icon imports
+// Import Tab Icons
 import community from "../../../svg/lucide/users-round.svg";
 import feedback from "../../../svg/lucide/send.svg";
 import instructions from "../../../svg/lucide/scroll.svg";

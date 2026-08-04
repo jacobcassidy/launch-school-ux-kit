@@ -1,11 +1,12 @@
 /**
  * FOCUS
- * @module helpers/focus
+ * @module utils/focus
  */
 
+// Import Utils
 import { flashActiveElement } from "./flash.js";
-import { states } from "./state.js";
 import { showTabsPanel } from "./show.js";
+import { states } from "./state.js";
 
 /**
  * HANDLE FOCUS

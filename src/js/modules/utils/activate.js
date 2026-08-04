@@ -1,9 +1,10 @@
 /**
  * ACTIVATE
- * @module helpers/activate
+ * @module utils/activate
  */
 
-import { states } from "./state";
+// Import Utils
+import { states } from "./state.js";
 
 /**
  * ACTIVATE HOTKEY

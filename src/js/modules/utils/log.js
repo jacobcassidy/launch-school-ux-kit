@@ -1,6 +1,6 @@
 /**
  * LOG
- * @module helpers/log
+ * @module utils/log
  */
 
 export const colorLog = {

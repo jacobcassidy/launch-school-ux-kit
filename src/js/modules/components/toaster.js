@@ -1,6 +1,6 @@
 /**
  * TOASTER
- * @module toaster
+ * @module components/toaster
  */
 
 /**

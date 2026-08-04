@@ -1,9 +1,12 @@
 /**
  * SHOW
- * @module helpers/show
+ * @module utils/show
  */
 
-import { handleOutsideSettingsContainerClick } from "../settings-container.js";
+// Import Components
+import { handleOutsideSettingsContainerClick } from "../components/settings.js";
+
+// Import Utils
 import { hideSettingsContainer } from "./hide.js";
 import { elements, setIsHeaderHidden, setIsSidebarHidden, setIsTabsPanelHidden } from "./state.js";
 

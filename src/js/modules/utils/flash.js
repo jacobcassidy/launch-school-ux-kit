@@ -1,6 +1,6 @@
 /**
  * FLASH
- * @module helpers/flash
+ * @module utils/flash
  */
 
 /**

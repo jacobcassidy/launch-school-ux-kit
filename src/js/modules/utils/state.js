@@ -1,6 +1,6 @@
 /**
  * STATE
- * @module helpers/state
+ * @module utils/state
  */
 
 export const elements = {

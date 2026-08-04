@@ -1,15 +1,16 @@
 /**
  * HEADER
- * @module header
+ * @module components/header
  */
 
-import { injectSettingsContainer } from "./settings-container.js";
+// Import Components
 import {
   injectSettingsContainerToggleButton,
   injectSidebarToggleButton,
   injectTabsPanelToggleButton,
   moveTocBtnToHeader,
 } from "./buttons.js";
+import { injectSettingsContainer } from "./settings.js";
 
 /**
  * INJECT SITE HEADER

@@ -1,6 +1,6 @@
 /**
  * STYLE
- * @module helpers/style
+ * @module utils/style
  */
 
 // eslint-disable-next-line import-x/no-unresolved -- Used for esbuild.config.js cssTextPlugin

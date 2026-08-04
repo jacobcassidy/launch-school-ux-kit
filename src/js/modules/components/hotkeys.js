@@ -1,9 +1,10 @@
 /**
  * HOTKEYS
- * @module hotkeys
+ * @module components/hotkeys
  */
 
-import { states } from "./helpers/state.js";
+// Import Utils
+import { states } from "../utils/state.js";
 
 /**
  * INJECT HOTKEYS SECTION

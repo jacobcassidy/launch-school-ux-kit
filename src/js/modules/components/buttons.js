@@ -1,31 +1,14 @@
 /**
  * BUTTONS
- * @module buttons
+ * @module components/buttons
  */
 
-import { elements } from "./helpers/state";
-import { watchMarkToggleBtn, watchViewSolutionBtn } from "./helpers/watch";
-import {
-  checkIconEl,
-  communityIconEl,
-  copyIconEl,
-  feedbackIconEl,
-  hideViewIconEl,
-  instructionsIconEl,
-  lsbotIconEl,
-  markCompleteIconEl,
-  markIncompleteIconEl,
-  newConversationIconEl,
-  nextExerciseIconEl,
-  scratchpadIconEl,
-  settingsIconEl,
-  showConversationHistoryIconEl,
-  showViewIconEl,
-  sidebarIconEl,
-  submitReviewIconEl,
-  tabsPanelIconEl,
-  tocIconEl,
-} from "./components/icons";
+// Import Components
+import { icons } from "./icons.js";
+
+// Import Utils
+import { elements } from "../utils/state.js";
+import { watchMarkToggleBtn, watchViewSolutionBtn } from "../utils/watch.js";
 
 /**
  * INJECT SETTINGS CONTAINER TOGGLE BUTTON
@@ -38,7 +21,7 @@ export function injectSettingsContainerToggleButton(containerEl) {
     const settingsContainerToggleButtonEl = document.createElement("button");
     settingsContainerToggleButtonEl.classList.add("site-header__button", "btn--toggle-settings", "has-dropdown");
     settingsContainerToggleButtonEl.title = "Toggle Hotkeys Container";
-    settingsContainerToggleButtonEl.appendChild(settingsIconEl);
+    settingsContainerToggleButtonEl.appendChild(icons.headerIcons.settings());
     return settingsContainerToggleButtonEl;
   };
 
@@ -56,7 +39,7 @@ export function injectSidebarToggleButton(containerEl) {
     const sidebarToggleButtonEl = document.createElement("button");
     sidebarToggleButtonEl.classList.add("site-header__button", "btn--toggle-sidebar");
     sidebarToggleButtonEl.title = "Toggle Sidebar";
-    sidebarToggleButtonEl.appendChild(sidebarIconEl);
+    sidebarToggleButtonEl.appendChild(icons.headerIcons.sidebar());
     return sidebarToggleButtonEl;
   };
 
@@ -77,7 +60,7 @@ export function injectTabsPanelToggleButton(containerEl) {
     const tabsPanelToggleButtonEl = document.createElement("button");
     tabsPanelToggleButtonEl.classList.add("site-header__button", "btn--toggle-tabs-panel");
     tabsPanelToggleButtonEl.title = "Toggle Tabs Panel";
-    tabsPanelToggleButtonEl.appendChild(tabsPanelIconEl);
+    tabsPanelToggleButtonEl.appendChild(icons.headerIcons.tabsPanel());
     return tabsPanelToggleButtonEl;
   };
 
@@ -108,35 +91,35 @@ export function updatePanelButtons() {
   const panelButtons = {
     copyCodeMarkup: {
       elements: document.querySelectorAll(".markup-copy-block button"),
-      icons: [copyIconEl, checkIconEl],
+      icons: [icons.panelIcons.copy(), icons.panelIcons.checkmark()],
     },
     copyCode: {
       elements: document.querySelectorAll(".btn-copy-code"),
-      icons: [copyIconEl],
+      icons: [icons.panelIcons.copy()],
     },
     exerciseMarkToggle: {
       elements: document.querySelectorAll(".edit_exercise_submission button"),
-      icons: [markCompleteIconEl, markIncompleteIconEl],
+      icons: [icons.panelIcons.markComplete(), icons.panelIcons.markIncomplete()],
     },
     newConversations: {
       elements: document.querySelectorAll(".new-conversation-button"),
-      icons: [newConversationIconEl],
+      icons: [icons.panelIcons.conversationNew()],
     },
     nextExercise: {
       elements: [elements.native.nextExerciseButton],
-      icons: [nextExerciseIconEl],
+      icons: [icons.panelIcons.nextExercise()],
     },
     showConversationHistory: {
       elements: document.querySelectorAll(".conversation-history-button"),
-      icons: [showConversationHistoryIconEl],
+      icons: [icons.panelIcons.conversationHistory()],
     },
     tableOfContents: {
       elements: document.querySelectorAll(".toc-toggle-button"),
-      icons: [tocIconEl],
+      icons: [icons.headerIcons.toc()],
     },
     viewSolution: {
       elements: document.querySelectorAll("button[data-target='#solution-analysis-collapse']"),
-      icons: [showViewIconEl, hideViewIconEl],
+      icons: [icons.panelIcons.viewShow(), icons.panelIcons.viewHide()],
     },
   };
 
@@ -211,27 +194,27 @@ export function updateTabButtons() {
 
     switch (btnDataTab) {
       case "instructions":
-        tabIconEl = instructionsIconEl;
+        tabIconEl = icons.tabIcons.instructions();
         tooltipFallback = "Instructions";
         break;
       case "lsbot-help":
-        tabIconEl = lsbotIconEl;
+        tabIconEl = icons.tabIcons.lsbot();
         tooltipFallback = "LSBot";
         break;
       case "submit-review":
-        tabIconEl = submitReviewIconEl;
+        tabIconEl = icons.tabIcons.review();
         tooltipFallback = "Submit Review";
         break;
       case "code-editor":
-        tabIconEl = scratchpadIconEl;
+        tabIconEl = icons.tabIcons.scratchpad();
         tooltipFallback = "Scratchpad";
         break;
       case "community":
-        tabIconEl = communityIconEl;
+        tabIconEl = icons.tabIcons.community();
         tooltipFallback = "Community Solutions";
         break;
       case "feedback":
-        tabIconEl = feedbackIconEl;
+        tabIconEl = icons.tabIcons.feedback();
         tooltipFallback = "Give Feedback";
         break;
       default:

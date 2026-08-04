@@ -1,8 +1,9 @@
 /**
  * SYNC
- * @module helpers/sync
+ * @module utils/sync
  */
 
+// Import Utils
 import { activateTab } from "./activate.js";
 import {
   elements,

@@ -1,13 +1,19 @@
 /**
  * LOAD
- * @module helpers/load
+ * @module utils/load
  */
 
+// Import Components
+import { updatePanelButtons, updateTabButtons } from "../components/buttons.js";
+import { injectHeader } from "../components/header.js";
+import { injectHotkeysSection } from "../components/hotkeys.js";
+import { updateSidebar } from "../components/sidebar.js";
+import { injectToaster } from "../components/toaster.js";
+
+// Import Utils
 // import { colorLog } from "./log.js";
-import { injectHeader } from "../header.js";
-import { injectStyles } from "./style.js";
-import { injectToaster } from "../toaster.js";
 import { setIsReloadScheduled, setLastUrl, states } from "./state.js";
+import { injectStyles } from "./style.js";
 import {
   syncAvailableHotkeys,
   syncElementsLoadState,
@@ -26,9 +32,6 @@ import {
   watchTabBtns,
   watchTabsPanelToggleBtn,
 } from "./watch.js";
-import { injectHotkeysSection } from "../hotkeys-section.js";
-import { updatePanelButtons, updateTabButtons } from "../buttons.js";
-import { updateSidebar } from "../components/sidebar.js";
 
 /**
  * LOAD UI

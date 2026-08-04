@@ -1,8 +1,9 @@
 /**
  * WATCH
- * @module helpers/watch
+ * @module utils/watch
  */
 
+// Import Utils
 import { activateHotkey } from "./activate.js";
 import { colorLog } from "./log.js";
 import { elements, states } from "./state.js";

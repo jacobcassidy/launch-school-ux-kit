@@ -3,22 +3,20 @@
 @import "./base/defaults";
 @import "./base/animations.css";
 
-/* --- LAYOUT --- */
-@import "./layout/header.css";
-@import "./layout/sidebar.css";
-@import "./layout/panels.css";
+/* --- PARTS --- */
+@import "./parts/header.css";
+@import "./parts/panels.css";
+@import "./parts/sidebar.css";
+@import "./parts/wrappers.css";
+@import "./parts/pages.css";
 
 /* --- COMPONENTS --- */
 @import "./components/buttons";
+@import "./components/editor.css";
+@import "./components/lsbot.css";
 @import "./components/settings";
 @import "./components/tabs.css";
 @import "./components/toasts.css";
 @import "./components/toc.css";
 @import "./components/toggler.css";
 @import "./components/tooltips.css";
-
-/* --- SECTIONS --- */
-@import "./sections/editor.css";
-@import "./sections/lsbot.css";
-@import "./sections/pages.css";
-@import "./sections/wrappers.css";

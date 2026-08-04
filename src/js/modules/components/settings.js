@@ -1,9 +1,11 @@
 /**
- * SETTINGS CONTAINER
- * @module settings-container
+ * SETTINGS
+ * @module component/settings
  */
-import { hideSettingsContainer } from "./helpers/hide";
-import { elements } from "./helpers/state";
+
+// Import Utils
+import { hideSettingsContainer } from "../utils/hide.js";
+import { elements } from "../utils/state.js";
 
 /**
  * INJECT SETTINGS CONTAINER
