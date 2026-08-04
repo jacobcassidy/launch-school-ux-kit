@@ -8,8 +8,8 @@ import { colorLog } from "./log.js";
 import { elements, states } from "./state.js";
 import { handleFocus } from "./focus.js";
 import { scheduleReload } from "./load.js";
-import { showSidebar } from "./show.js";
-import { toggleSettingsMenu, toggleTabsPanel } from "./toggle.js";
+import { toggleSettingsContainer, toggleSidebar, toggleTabsPanel } from "./toggle.js";
+import { showToast } from "./show.js";
 
 /**
  * WATCH FOR CONTENT CHANGE
@@ -152,20 +152,25 @@ export function watchHotkeys() {
     const keyCmd = event.metaKey;
     const keyCtrl = event.ctrlKey;
     const keyShift = event.shiftKey;
-    const isCmdShift = keyCmd && keyShift;
-    const isCmdCtrl = keyCmd && keyCtrl;
+    const isCmdCtrl = keyCmd && keyCtrl && !keyShift && !keyAlt;
+    const isCmdOnly = keyCmd && !keyAlt && !keyCtrl && !keyShift;
     let modifier;
 
-    if (isCmdShift) modifier = "cmdShift";
+    if (isCmdOnly) modifier = "cmdOnly";
     if (isCmdCtrl) modifier = "cmdCtrl";
 
-    // Disallowed key combos
-    if (event.repeat || (!isCmdShift && !isCmdCtrl) || (isCmdShift && keyCtrl) || (isCmdCtrl && keyShift) || keyAlt)
-      return;
+    if (event.repeat || (!isCmdOnly && !isCmdCtrl)) return;
 
-    // Allowed hotkey modifier
-    if (isCmdShift) {
-      if (event.code !== "Digit1" && event.code !== "Digit2" && event.code !== "KeyE") return;
+    if (isCmdOnly) {
+      if (event.code !== "Digit1" && event.code !== "Digit2" && event.code !== "Digit3") return;
+
+      event.preventDefault();
+      event.stopPropagation();
+      event.stopImmediatePropagation();
+
+      if (event.code === "Digit3" && !states.hotkeys.cmdOnly.Digit3) {
+        showToast("No Tabs Panel available on this page to toggle", "warn");
+      }
     } else if (isCmdCtrl) {
       if (
         event.code !== "Digit1" &&
@@ -173,7 +178,7 @@ export function watchHotkeys() {
         event.code !== "Digit3" &&
         event.code !== "Digit4" &&
         event.code !== "Digit5" &&
-        event.code !== "KeyB" &&
+        event.code !== "Digit6" &&
         event.code !== "KeyC" &&
         event.code !== "KeyE" &&
         event.code !== "KeyM" &&
@@ -246,9 +251,14 @@ export function watchQuestionBoxes() {
     handleFocus(lsbotTabBtn);
   };
 
-  const handleSubmitHotkey = () => {
+  const handleSubmitHotkey = (event) => {
     // colorLog.run("Running handleSubmitHotkey()");
-    const isCmdEnter = event.metaKey && !event.ctrlKey && !event.altKey && !event.shiftKey && event.key === "Enter";
+    const keyAlt = event.altKey;
+    const keyCmd = event.metaKey;
+    const keyCtrl = event.ctrlKey;
+    const keyEnter = event.key === "Enter";
+    const keyShift = event.shiftKey;
+    const isCmdEnter = keyCmd && keyEnter && !keyAlt && !keyCtrl && !keyShift;
     if (!isCmdEnter) return;
     handleFocus(lsbotTabBtn);
   };
@@ -272,39 +282,100 @@ export function watchQuestionBoxes() {
 }
 
 /**
- * WATCH SETTINGS MENU TOGGLE BUTTON
- * Toggles the settings menu when clicked.
+ * WATCH SETTINGS CONTAINER TOGGLE BUTTON
+ * Toggles the settings container when clicked.
  */
-export function watchSettingMenuToggleBtn() {
-  // colorLog.run("Running watchSettingMenuToggleBtn()");
-  const settingsMenuToggleBtn = elements.injected.settingsToggleButton;
-  if (!settingsMenuToggleBtn) return;
+export function watchSettingContainerToggleBtn() {
+  // colorLog.run("Running watchSettingContainerToggleBtn()");
+  const settingsContainerToggleBtn = elements.injected.settingsToggleButton;
+  if (!settingsContainerToggleBtn) return;
 
-  if (settingsMenuToggleBtn.dataset.settingsMenuToggleBtnEventBound) {
-    // colorLog.detail("Settings Menu Toggle Button watch already exist. Exited watchSettingMenuToggleBtn().");
+  if (settingsContainerToggleBtn.dataset.settingsContainerToggleBtnEventBound) {
+    // colorLog.detail("Settings Container Toggle Button watch already exist. Exited watchSettingContainerToggleBtn().");
     return;
   }
-  settingsMenuToggleBtn.dataset.settingsMenuToggleBtnEventBound = "true";
+  settingsContainerToggleBtn.dataset.settingsContainerToggleBtnEventBound = "true";
 
-  settingsMenuToggleBtn.addEventListener("click", () => toggleSettingsMenu());
+  settingsContainerToggleBtn.addEventListener("click", () => toggleSettingsContainer());
 }
 
 /**
- * WATCH SHOW SIDEBAR BUTTON
- * Shows the sidebar when the button is clicked
+ * WATCH SIDEBAR LINKS
  */
-export function watchShowSidebarBtn() {
-  // colorLog.run("Running watchShowSidebarBtn()");
-  const sidebarShowBtn = elements.injected.sidebarShowButton;
-  if (!sidebarShowBtn) return;
+export function watchSidebarLinks() {
+  // colorLog.run("Running watchSidebarLinks()");
+  const toggleListSection = () => {
+    const listHeaderBtns = document.querySelectorAll(".sidebar-list-toggle-btn");
 
-  if (sidebarShowBtn.dataset.sidebarBtnEventBound) {
-    // colorLog.detail("Show Sidebar Button watch already exist. Exited watchShowSidebarBtn().");
+    listHeaderBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        btn.classList.toggle("is-closed");
+      });
+    });
+  };
+
+  const togglePagesDropdown = () => {
+    const pagesLink = document.querySelector(".sidebar-list__item .pages");
+    const pagesDropdown = document.querySelector(".sidebar-list__item .pages + .dropdown");
+
+    pagesLink.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      event.stopImmediatePropagation();
+
+      pagesDropdown.classList.toggle("expanded");
+    });
+  };
+
+  const toggleTooltip = () => {
+    const sidebarLinks = document.querySelectorAll(".sidebar-lists a");
+    if (sidebarLinks.length < 1) return;
+
+    const handleTooltip = (link) => {
+      const linkDataTooltip = link.getAttribute("data-tooltip");
+      const linkTooltip = document.querySelector(`.sidebar-tooltip-${linkDataTooltip}`);
+
+      const handleTooltipRemoval = () => linkTooltip.classList.remove("active");
+
+      const linkWidth = link.offsetWidth;
+      const linkRect = link.getBoundingClientRect();
+
+      linkTooltip.classList.add("active");
+      linkTooltip.style.left = `${linkWidth + 4}px`;
+      linkTooltip.style.top = `${linkRect.top}px`;
+
+      link.addEventListener("mouseleave", handleTooltipRemoval, { once: true });
+    };
+
+    sidebarLinks.forEach((link) => {
+      if (link.dataset.sidebarLinkEventBound) return;
+      link.dataset.sidebarLinkEventBound = "true";
+
+      link.addEventListener("mouseenter", () => handleTooltip(link));
+    });
+  };
+
+  toggleListSection();
+  togglePagesDropdown();
+  toggleTooltip();
+}
+
+/**
+ * WATCH SIDEBAR TOGGLE BUTTON
+ * Toggles the sidebar when the button is clicked
+ */
+export function watchSidebarToggleBtn() {
+  // colorLog.run("Running watchSidebarToggleBtn()");
+  const sidebarToggleBtn = elements.injected.sidebarToggleButton;
+  if (!sidebarToggleBtn) return;
+
+  if (sidebarToggleBtn.dataset.sidebarBtnEventBound) {
+    // colorLog.detail("Sidebar Toggle Button watch already exist. Exited watchSidebarToggleBtn().");
     return;
   }
-  sidebarShowBtn.dataset.sidebarBtnEventBound = "true";
+  sidebarToggleBtn.dataset.sidebarBtnEventBound = "true";
 
-  sidebarShowBtn.addEventListener("click", () => showSidebar());
+  sidebarToggleBtn.addEventListener("click", () => toggleSidebar());
 }
 
 /**
@@ -318,7 +389,7 @@ export function watchTabBtns() {
 
   const handleTooltip = (tabBtn) => {
     const btnDataTabStr = tabBtn.getAttribute("data-tab");
-    const tabTooltip = document.querySelector(`.tooltip-${btnDataTabStr}`);
+    const tabTooltip = document.querySelector(`.tab-tooltip-${btnDataTabStr}`);
 
     const handleTooltipRemoval = () => {
       // colorLog.detail("Running removeTooltip()");

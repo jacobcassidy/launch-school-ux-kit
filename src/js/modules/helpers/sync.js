@@ -13,10 +13,10 @@ import {
   setElementInstructionsPanel,
   setElementNextExerciseButton,
   setElementScratchpad,
-  setElementSettingsMenu,
+  setElementSettingsContainer,
   setElementSettingsToggleBtn,
   setElementSidebar,
-  setElementSidebarShowButton,
+  setElementSidebarToggleButton,
   setElementTabNav,
   setElementTabsPanel,
   setElementTabsPanelToggleButton,
@@ -26,13 +26,14 @@ import {
 import {
   toggleExerciseStatus,
   toggleHeader,
-  toggleSettingsMenu,
+  toggleSettingsContainer,
   toggleSidebar,
   toggleTabsPanel,
   toggleTocMenu,
 } from "./toggle.js";
 import { handleFocus } from "./focus.js";
-import { showToast } from "./show.js";
+import { showTabsPanel, showToast } from "./show.js";
+import { hideHeader, hideTabsPanel } from "./hide.js";
 
 /**
  * SYNC AVAILABLE HOTKEYS
@@ -40,13 +41,13 @@ import { showToast } from "./show.js";
  */
 export function syncAvailableHotkeys() {
   // Clear any previous hotkeys when syncing.
-  states.hotkeys.cmdShift = {};
   states.hotkeys.cmdCtrl = {};
+  states.hotkeys.cmdOnly = {};
   states.hotkeys.native = {};
 
   // Injected elements
   const headerExists = elements.injected.header;
-  const settingsMenuExists = elements.injected.settingsMenu;
+  const settingsContainerExists = elements.injected.settingsContainer;
 
   // Native elements
   const copyCodeBtnExists = document.querySelector(".btn-copy-code");
@@ -87,12 +88,12 @@ export function syncAvailableHotkeys() {
   };
 
   /**
-   * SYNC CMD + SHIFT HOTKEYS
+   * SYNC CMD ONLY HOTKEYS
    */
-  const syncCmdShiftHotkeys = () => {
-    if (headerExists) setAvailableHotkey("cmdShift", "Digit1", 1, "Toggle Header", toggleHeader);
-    if (tabsPanelExists) setAvailableHotkey("cmdShift", "Digit2", 2, "Toggle Tabs Panel", toggleTabsPanel);
-    if (editorExists || scratchpadExists) handleEditorHotkey("cmdShift");
+  const syncCmdOnlyHotkeys = () => {
+    if (headerExists) setAvailableHotkey("cmdOnly", "Digit1", 1, "Toggle Header", toggleHeader);
+    if (sidebarExists) setAvailableHotkey("cmdOnly", "Digit2", 2, "Toggle Sidebar", toggleSidebar);
+    if (tabsPanelExists) setAvailableHotkey("cmdOnly", "Digit3", 3, "Toggle Tabs Panel", toggleTabsPanel);
   };
 
   /**
@@ -169,7 +170,6 @@ export function syncAvailableHotkeys() {
     };
 
     if (tabNavExists) handleTabsHotkeys();
-    if (sidebarExists) setAvailableHotkey("cmdCtrl", "KeyB", "B", "Toggle Sidebar Menu", toggleSidebar);
     if (copyCodeBtnExists) handleCopyCodeHotkey();
     if (editorExists || scratchpadExists) handleEditorHotkey("cmdCtrl");
     if (markExerciseBtnExists)
@@ -178,14 +178,46 @@ export function syncAvailableHotkeys() {
       setAvailableHotkey("cmdCtrl", "KeyN", "N", "Go to next exercise", handleNextExerciseHotkey);
     if (submitReviewBtnExists) setAvailableHotkey("cmdCtrl", "KeyR", "R", "Submit Review", handleSubmitReviewHotkey);
     if (tocButtonExists) setAvailableHotkey("cmdCtrl", "KeyT", "T", "Toggle Table of Content", toggleTocMenu);
-    if (settingsMenuExists) setAvailableHotkey("cmdCtrl", "Comma", ",", "Toggle Hotkeys Menu", toggleSettingsMenu);
+    if (settingsContainerExists)
+      setAvailableHotkey("cmdCtrl", "Comma", ",", "Toggle Settings", toggleSettingsContainer);
   };
 
   // const syncNativeHotkeys = () => {};
 
-  syncCmdShiftHotkeys();
   syncCmdCtrlHotkeys();
-  // syncNativeHotkeys();  // DISPLAY NATIVE HOTKEYS IN MENU
+  syncCmdOnlyHotkeys();
+  // syncNativeHotkeys();  // DISPLAY NATIVE HOTKEYS IN SETTINGS
+}
+
+/**
+ * SYNC ELEMENTS LOAD STATE
+ * Sets the last active state when loading elements
+ */
+export function syncElementsLoadState() {
+  const header = elements.injected.header;
+  const sidebar = elements.native.sidebar;
+  const tabsPanel = elements.native.tabsPanel;
+  const isHeaderHidden = states.hidden.isHeaderHidden;
+  const isSidebarHidden = states.hidden.isSidebarHidden;
+  const isTabsPanelHidden = states.hidden.isTabsPanelHidden;
+
+  // Set header load state.
+  if (header && isHeaderHidden) hideHeader();
+
+  // Set sidebar load state.
+  if (sidebar && isSidebarHidden) {
+    sidebar.classList.remove("active");
+  } else if (sidebar) {
+    const sidebarToggleBtn = document.querySelector(".btn--toggle-sidebar");
+    sidebarToggleBtn.classList.add("active");
+  }
+
+  // Set tabs panel load state.
+  if (tabsPanel && isTabsPanelHidden) {
+    hideTabsPanel();
+  } else if (tabsPanel) {
+    showTabsPanel();
+  }
 }
 
 /**
@@ -194,15 +226,15 @@ export function syncAvailableHotkeys() {
  */
 export function syncInjectedElementsState() {
   const header = document.querySelector(".site-header");
-  const settingsMenu = document.querySelector(".settings-menu");
+  const settingsContainer = document.querySelector(".settings-container");
   const settingsToggleBtn = document.querySelector(".btn--toggle-settings");
-  const sidebarShowBtn = document.querySelector(".btn--show-sidebar");
+  const sidebarToggleBtn = document.querySelector(".btn--toggle-sidebar");
   const tabsPanelToggleBtn = document.querySelector(".btn--toggle-tabs-panel");
 
   setElementHeader(header);
-  setElementSettingsMenu(settingsMenu);
+  setElementSettingsContainer(settingsContainer);
   setElementSettingsToggleBtn(settingsToggleBtn);
-  setElementSidebarShowButton(sidebarShowBtn);
+  setElementSidebarToggleButton(sidebarToggleBtn);
   setElementTabsPanelToggleButton(tabsPanelToggleBtn);
 }
 

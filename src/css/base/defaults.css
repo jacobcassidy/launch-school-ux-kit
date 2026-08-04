@@ -33,3 +33,18 @@ textarea {
     box-shadow: var(--input-box-shadow) !important;
   }
 }
+
+svg {
+  flex-shrink: 0;
+  block-size: 1.125rem;
+  inline-size: 1.125rem;
+}
+
+body {
+  display: flex;
+  flex-wrap: wrap;
+
+  > label {
+    margin: 0 !important;
+  }
+}

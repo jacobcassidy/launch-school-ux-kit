@@ -3,8 +3,8 @@
  * @module helpers/show
  */
 
-import { handleOutsideSettingsMenuClick } from "../settings-menu.js";
-import { hideSettingsMenu } from "./hide.js";
+import { handleOutsideSettingsContainerClick } from "../settings-container.js";
+import { hideSettingsContainer } from "./hide.js";
 import { elements, setIsHeaderHidden, setIsSidebarHidden, setIsTabsPanelHidden } from "./state.js";
 
 /**
@@ -15,19 +15,19 @@ export function showHeader() {
 }
 
 /**
- * SHOW SETTINGS MENU
+ * SHOW SETTINGS CONTAINER
  */
-export function showSettingsMenu() {
-  const settingsMenu = elements.injected.settingsMenu;
-  const settingsMenuToggleBtn = elements.injected.settingsToggleButton;
-  settingsMenu.classList.add("active");
-  settingsMenuToggleBtn.classList.add("active");
+export function showSettingsContainer() {
+  const settingsContainer = elements.injected.settingsContainer;
+  const settingsContainerToggleBtn = elements.injected.settingsToggleButton;
+  settingsContainer.classList.add("active");
+  settingsContainerToggleBtn.classList.add("active");
 
   // If TOC menu is open, click to close it.
   const openedTocMenu = document.querySelector(".toc-toggle-button.open");
   if (openedTocMenu) openedTocMenu.click();
 
-  document.addEventListener("pointerdown", handleOutsideSettingsMenuClick);
+  document.addEventListener("pointerdown", handleOutsideSettingsContainerClick);
 }
 
 /**
@@ -50,13 +50,21 @@ export function showTabsPanel() {
  * @param {string} message The text to display in the toast
  * @param {number} duration How long the toast should display
  */
-export function showToast(message, duration = 2500) {
+export function showToast(message, styleClass = null, duration = 2500) {
   const toastContainer = document.querySelector(".toast-container");
-  const toast = document.createElement("div");
 
-  toast.className = "toast";
-  toast.textContent = message;
-  toastContainer.appendChild(toast);
+  const createToastEl = () => {
+    const toastEl = document.createElement("div");
+    toastEl.className = "toast";
+    toastEl.textContent = message;
+    if (styleClass) toastEl.classList.add(styleClass);
+    toastContainer.appendChild(toastEl);
+    return toastEl;
+  };
+
+  const toast = createToastEl();
+
+  console.log(toast);
 
   // Trigger animation
   requestAnimationFrame(() => {
@@ -79,8 +87,8 @@ export function showTocMenu() {
   if (tocBtn) {
     tocBtn.click();
 
-    // If Settings Menu is open, close it.
-    const settingsMenu = elements.injected.settingsMenu;
-    if (settingsMenu && settingsMenu.classList.contains("active")) hideSettingsMenu();
+    // If Settings container is open, close it.
+    const settingsContainer = elements.injected.settingsContainer;
+    if (settingsContainer && settingsContainer.classList.contains("active")) hideSettingsContainer();
   }
 }

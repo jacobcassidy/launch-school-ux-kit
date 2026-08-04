@@ -22,6 +22,9 @@
   --color-blue-092: oklch(0.92 0.01 230);
   --color-blue-095: oklch(0.95 0.01 230);
 
+  /* Green Color */
+  --color-green-001: oklch(0.65 0.15 150);
+
   /* Brand Colors */
   --color-brand-001-alpha: #f258581a;
   --color-brand-001: #f25858;
@@ -43,20 +46,28 @@
   /* Border Radius */
   --border-radius-default: 6px;
 
-  /* Sizing */
-  --header-height: 2.5rem;
-  --nav-drawer-width: 12.1875rem;
-  --padding-inline-mw900: calc(50% - 450px); /* Gives it a max-width of 900px) */
+  /* Spacing */
   --inline-spacing: clamp(1.5rem, -0.5rem + 3.125vi, 3rem); /* 1024 = 24px, 1280 = 32px, 1536 = 40px, 1792= 48px */
+  --padding-inline-mw900: calc(50% - 450px); /* Gives it a max-width of 900px) */
+  --sidebar-inline-padding: 20px;
 
   /* Width of ((48px padding + 900px content + 48px padding) * 2) + 4px divider line = 1996px */
   @media (width < 1996px) {
     --padding-inline-mw900: var(--inline-spacing);
   }
 
+  /* Sizing */
+  --header-height: 2.5rem;
+  --sidebar-width: 12.1875rem;
+
   /* Transition */
   --duration-long: 500ms;
   --duration-short: 200ms;
   --transition-long: all var(--duration-long) ease;
   --transition-short: all var(--duration-short) ease;
+}
+
+body:has(#navbar-collapsor:checked) {
+  --sidebar-width: 2.5rem;
+  --sidebar-inline-padding: 11px;
 }

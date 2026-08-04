@@ -3,32 +3,31 @@
  * @module hotkeys
  */
 
-// import { colorLog } from "./helpers/log.js";
 import { states } from "./helpers/state.js";
 
 /**
- * INJECT HOTKEYS MENU
- * Injects the hotkeys menu as a section of the settings menu.
+ * INJECT HOTKEYS SECTION
+ * Injects the hotkeys as a section of the settings container.
  */
-export function injectHotkeysMenu() {
-  const settingsMenu = document.querySelector(".settings-menu");
-  if (!settingsMenu) return;
+export function injectHotkeysSection() {
+  const settingsContainer = document.querySelector(".settings-container");
+  if (!settingsContainer) return;
 
-  const createHotkeysMenu = () => {
-    const hotkeysMenuEl = document.createElement("section");
-    hotkeysMenuEl.classList.add("hotkeys-section");
+  const createHotkeysSection = () => {
+    const hotkeysSectionEl = document.createElement("section");
+    hotkeysSectionEl.classList.add("hotkeys-section");
 
-    const hotkeysMenuTitleEl = document.createElement("h3");
-    hotkeysMenuTitleEl.classList.add("section-title");
-    hotkeysMenuTitleEl.innerText = "Current Page Hotkeys";
-    hotkeysMenuEl.append(hotkeysMenuTitleEl);
+    const hotkeysSectionTitleEl = document.createElement("h3");
+    hotkeysSectionTitleEl.classList.add("section-title");
+    hotkeysSectionTitleEl.innerText = "Current Page Hotkeys";
+    hotkeysSectionEl.appendChild(hotkeysSectionTitleEl);
 
     const modifiersWrapperEl = document.createElement("div");
     modifiersWrapperEl.classList.add("settings-list-wrapper");
 
     for (const [modifierListKey, modifierListObj] of Object.entries(states.hotkeys)) {
       let modifierKey;
-      if (modifierListKey === "cmdShift") modifierKey = "Shift";
+      if (modifierListKey === "cmdOnly") modifierKey = null;
       if (modifierListKey === "cmdCtrl") modifierKey = "Ctrl";
 
       const modifierListEl = document.createElement("ul");
@@ -36,7 +35,7 @@ export function injectHotkeysMenu() {
       const modifierListTitleEl = document.createElement("li");
       modifierListTitleEl.classList.add("settings-list__title");
       modifierListTitleEl.innerText = `${modifierKey} Shortcuts`;
-      modifierListEl.append(modifierListTitleEl);
+      modifierListEl.appendChild(modifierListTitleEl);
 
       for (const hotkeyObj of Object.values(modifierListObj)) {
         const hotkeyItemEl = document.createElement("li");
@@ -51,33 +50,33 @@ export function injectHotkeysMenu() {
           const keySpan = document.createElement("span");
           keySpan.classList.add("key");
           keySpan.innerText = key;
-          hotkeyItemKeyEl.append(keySpan);
+          hotkeyItemKeyEl.appendChild(keySpan);
 
           // Add a `+` symbol after each key, except the last key.
           const isLast = index === keys.length - 1;
           if (isLast) return;
           const plusSpan = document.createElement("span");
           plusSpan.innerText = "+";
-          hotkeyItemKeyEl.append(plusSpan);
+          hotkeyItemKeyEl.appendChild(plusSpan);
         });
 
-        hotkeyItemEl.append(hotkeyItemKeyEl);
+        hotkeyItemEl.appendChild(hotkeyItemKeyEl);
 
         const hotkeyItemLabelEl = document.createElement("div");
         hotkeyItemLabelEl.classList.add("setting-desc", "hotkey-label");
         hotkeyItemLabelEl.innerText = hotkeyObj.label;
-        hotkeyItemEl.append(hotkeyItemLabelEl);
+        hotkeyItemEl.appendChild(hotkeyItemLabelEl);
 
-        modifierListEl.append(hotkeyItemEl);
+        modifierListEl.appendChild(hotkeyItemEl);
       }
 
-      modifiersWrapperEl.append(modifierListEl);
+      modifiersWrapperEl.appendChild(modifierListEl);
     }
 
-    hotkeysMenuEl.append(modifiersWrapperEl);
+    hotkeysSectionEl.appendChild(modifiersWrapperEl);
 
-    return hotkeysMenuEl;
+    return hotkeysSectionEl;
   };
 
-  settingsMenu.append(createHotkeysMenu());
+  settingsContainer.appendChild(createHotkeysSection());
 }

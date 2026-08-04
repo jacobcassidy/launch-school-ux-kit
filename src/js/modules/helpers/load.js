@@ -7,23 +7,28 @@
 import { injectHeader } from "../header.js";
 import { injectStyles } from "./style.js";
 import { injectToaster } from "../toaster.js";
-import { setIsReloadScheduled, setLastUrl, elements, states } from "./state.js";
-import { syncAvailableHotkeys, syncInjectedElementsState, syncNativeElementsState } from "./sync.js";
+import { setIsReloadScheduled, setLastUrl, states } from "./state.js";
+import {
+  syncAvailableHotkeys,
+  syncElementsLoadState,
+  syncInjectedElementsState,
+  syncNativeElementsState,
+} from "./sync.js";
 import {
   watchForMissingHeader,
   watchForUrlChange,
   watchHotkeys,
   watchPromptSubmission,
   watchQuestionBoxes,
-  watchSettingMenuToggleBtn,
-  watchShowSidebarBtn,
+  watchSettingContainerToggleBtn,
+  watchSidebarLinks,
+  watchSidebarToggleBtn,
   watchTabBtns,
   watchTabsPanelToggleBtn,
 } from "./watch.js";
-import { hideHeader, hideTabsPanel } from "./hide.js";
-import { showTabsPanel } from "./show.js";
-import { injectHotkeysMenu } from "../hotkeys-menu.js";
-import { replaceButtonTextAndIcons } from "../buttons.js";
+import { injectHotkeysSection } from "../hotkeys-section.js";
+import { updatePanelButtons, updateTabButtons } from "../buttons.js";
+import { updateSidebar } from "../components/sidebar.js";
 
 /**
  * LOAD UI
@@ -35,31 +40,23 @@ export function loadUI() {
   injectHeader();
   injectToaster();
   syncInjectedElementsState();
-  replaceButtonTextAndIcons();
+  updateTabButtons();
+  updatePanelButtons();
   syncAvailableHotkeys();
-  injectHotkeysMenu();
-
-  // Apply Tabs Panel hidden state on load
-  if (elements.native.tabsPanel) {
-    if (states.hidden.isTabsPanelHidden) {
-      hideTabsPanel();
-    } else {
-      showTabsPanel();
-    }
-  }
-
-  // Apply Header hidden state on load
-  if (elements.injected.header && states.hidden.isHeaderHidden) hideHeader();
+  injectHotkeysSection();
+  syncElementsLoadState();
+  updateSidebar();
 
   watchForUrlChange();
   watchForMissingHeader();
   watchHotkeys();
   watchPromptSubmission();
   watchQuestionBoxes();
-  watchShowSidebarBtn();
+  watchSidebarToggleBtn();
+  watchSidebarLinks();
   watchTabBtns();
   watchTabsPanelToggleBtn();
-  watchSettingMenuToggleBtn();
+  watchSettingContainerToggleBtn();
 }
 
 /**

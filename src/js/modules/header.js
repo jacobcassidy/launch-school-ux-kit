@@ -2,11 +2,11 @@
  * HEADER
  * @module header
  */
-// import { colorLog } from "./helpers/log.js";
-import { injectSettingsMenu } from "./settings-menu.js";
+
+import { injectSettingsContainer } from "./settings-container.js";
 import {
-  injectSettingsMenuToggleButton,
-  injectSidebarShowButton,
+  injectSettingsContainerToggleButton,
+  injectSidebarToggleButton,
   injectTabsPanelToggleButton,
   moveTocBtnToHeader,
 } from "./buttons.js";
@@ -18,10 +18,7 @@ import {
 export function injectHeader() {
   // colorLog.run("Running injectHeader()");
   const currentDomHeader = document.querySelector(".site-header");
-  if (currentDomHeader) {
-    // colorLog.detail(".site-header already exists. Exited injectHeader().");
-    return;
-  }
+  if (currentDomHeader) return;
 
   const createHeader = () => {
     // colorLog.run("Running createHeader()");
@@ -72,7 +69,7 @@ function injectHeaderContainers(headerEl) {
  */
 function injectContainerElements(containerEl, containerNum) {
   if (containerNum === 1) {
-    injectSidebarShowButton(containerEl);
+    injectSidebarToggleButton(containerEl);
     moveLoggedOutNavToHeader(containerEl);
   }
 
@@ -81,17 +78,17 @@ function injectContainerElements(containerEl, containerNum) {
     const breadcrumbs = document.querySelector(".gretel-breadcrumbs");
 
     if (breadcrumbs) {
-      containerEl.append(breadcrumbs);
+      containerEl.appendChild(breadcrumbs);
     } else {
       injectTitleToHeaderWithNoBreadcrumbs(containerEl);
     }
   }
 
   if (containerNum === 3) {
+    injectSettingsContainerToggleButton(containerEl);
+    injectSettingsContainer(containerEl);
     moveTocBtnToHeader(containerEl);
     injectTabsPanelToggleButton(containerEl);
-    injectSettingsMenuToggleButton(containerEl);
-    injectSettingsMenu(containerEl);
   }
 }
 
@@ -121,7 +118,7 @@ function injectTitleToHeaderWithNoBreadcrumbs(containerEl) {
     return headerTitleEl;
   };
 
-  containerEl.append(createHeaderTitle());
+  containerEl.appendChild(createHeaderTitle());
 }
 
 /**

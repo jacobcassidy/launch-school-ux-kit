@@ -2,7 +2,7 @@
  * SETTINGS
  */
 
-.settings-menu {
+.settings-container {
   position: absolute;
   z-index: 101;
   inset-block-start: calc(var(--header-height) + 8px);
@@ -39,8 +39,8 @@
     gap: 8px;
   }
 
-  .setting-menu__title {
-    display: none;
+  .setting-container__title {
+    /* display: none; */
     font-size: 1.25rem;
   }
 
@@ -82,6 +82,7 @@
     display: grid;
     grid-column: 1 / -1;
     grid-template-columns: subgrid;
+    align-items: center;
     border-block-end: 1px solid var(--border-color-default);
 
     .setting-status,

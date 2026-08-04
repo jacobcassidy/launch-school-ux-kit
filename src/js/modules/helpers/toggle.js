@@ -3,17 +3,15 @@
  * @module helpers/toggle
  */
 
-import { showHeader, showSettingsMenu, showSidebar, showTabsPanel, showToast, showTocMenu } from "./show.js";
-import { hideHeader, hideSettingsMenu, hideSidebar, hideTabsPanel, hideTocMenu } from "./hide.js";
+import { showHeader, showSettingsContainer, showSidebar, showTabsPanel, showToast, showTocMenu } from "./show.js";
+import { hideHeader, hideSettingsContainer, hideSidebar, hideTabsPanel, hideTocMenu } from "./hide.js";
 import { elements, states } from "./state.js";
 
 /**
  * TOGGLE HEADER
  */
 export function toggleHeader() {
-  const isHeaderHidden = states.hidden.isHeaderHidden;
-
-  if (isHeaderHidden) {
+  if (states.hidden.isHeaderHidden) {
     showHeader();
   } else {
     hideHeader();
@@ -27,17 +25,21 @@ export function toggleExerciseStatus() {
   const statusToggleButton = document.querySelector(".edit_exercise_submission .button");
 
   if (statusToggleButton.disabled) {
-    showToast("Warning: exercise status change is still in progress.");
+    showToast("Exercise status change is still in progress", "alert");
     return;
   }
 
   const markIncomplete = document.querySelector(".edit_exercise_submission input[value='delete']");
-  console.log(markIncomplete);
 
-  let toastMsg;
+  let toastMsg, toastStyle;
 
-  if (markIncomplete) toastMsg = "Exercise marked incomplete";
-  else toastMsg = "Exercise marked complete";
+  if (markIncomplete) {
+    toastMsg = "Exercise marked incomplete";
+    toastStyle = "notice";
+  } else {
+    toastMsg = "Exercise marked complete";
+    toastStyle = "success";
+  }
 
   statusToggleButton.dispatchEvent(
     new MouseEvent("mousedown", {
@@ -49,17 +51,17 @@ export function toggleExerciseStatus() {
 
   statusToggleButton.click();
 
-  showToast(toastMsg);
+  showToast(toastMsg, toastStyle);
 }
 
 /**
- * TOGGLE SETTINGS MENU
+ * TOGGLE SETTINGS CONTAINER
  */
-export function toggleSettingsMenu() {
-  if (elements.injected.settingsMenu.classList.contains("active")) {
-    hideSettingsMenu();
+export function toggleSettingsContainer() {
+  if (elements.injected.settingsContainer.classList.contains("active")) {
+    hideSettingsContainer();
   } else {
-    showSettingsMenu();
+    showSettingsContainer();
   }
 }
 

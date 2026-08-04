@@ -20,8 +20,9 @@ body:not(:has(.nav-drawer)) {
   position: fixed;
   z-index: 200;
   inset-block-start: 0;
-  inset-inline: 0;
+  inset-inline: var(--sidebar-width) 0;
   display: flex;
+  flex-grow: 1;
   align-items: center;
   justify-content: space-between;
   gap: var(--inline-spacing);
@@ -31,9 +32,9 @@ body:not(:has(.nav-drawer)) {
   padding: 4px 12px;
   transition: var(--transition-long);
 
-  body:has(.nav-drawer) & {
-    padding-inline-start: var(--nav-drawer-width);
-  }
+  /* body:has(.nav-drawer) & {
+    padding-inline-start: var(--sidebar-width);
+  } */
 
   /* Logged out elements when no sidebar */
   body:not(:has(.nav-drawer)) & {
@@ -124,18 +125,6 @@ body:not(:has(.nav-drawer)) {
     }
   }
 
-  .site-logo {
-    a {
-      display: flex;
-      align-items: center;
-    }
-
-    svg {
-      block-size: 1.125rem;
-      inline-size: 1.125rem;
-    }
-  }
-
   .gretel-breadcrumbs,
   .title-text {
     display: flex !important;
@@ -183,11 +172,5 @@ body:not(:has(.nav-drawer)) {
   body:has(#navbar-collapsor:checked) &,
   body:not(:has(.nav-drawer)) & {
     padding-inline-start: 12px !important;
-  }
-
-  body:not(:has(#navbar-collapsor:checked)) & {
-    .btn--show-sidebar {
-      display: none;
-    }
   }
 }

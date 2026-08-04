@@ -3,7 +3,7 @@
  * @module helpers/hide
  */
 
-import { handleOutsideSettingsMenuClick } from "../settings-menu.js";
+import { handleOutsideSettingsContainerClick } from "../settings-container.js";
 import { elements, setIsHeaderHidden, setIsSidebarHidden, setIsTabsPanelHidden } from "./state.js";
 
 /**
@@ -14,15 +14,15 @@ export function hideHeader() {
 }
 
 /**
- * HIDE SETTINGS MENU
+ * HIDE SETTINGS CONTAINER
  */
-export function hideSettingsMenu() {
-  const settingsMenu = elements.injected.settingsMenu;
-  const settingsMenuToggleBtn = elements.injected.settingsToggleButton;
-  settingsMenu.classList.remove("active");
-  settingsMenuToggleBtn.classList.remove("active");
+export function hideSettingsContainer() {
+  const settingsContainer = elements.injected.settingsContainer;
+  const settingsContainerToggleBtn = elements.injected.settingsToggleButton;
+  settingsContainer.classList.remove("active");
+  settingsContainerToggleBtn.classList.remove("active");
 
-  document.removeEventListener("pointerdown", handleOutsideSettingsMenuClick);
+  document.removeEventListener("pointerdown", handleOutsideSettingsContainerClick);
 }
 
 /**
@@ -40,7 +40,7 @@ export function hideTabsPanel() {
 }
 
 /**
- * HIDE TABLE OF CONTENTS MENU
+ * HIDE TABLE OF CONTENTS CONTAINER
  */
 export function hideTocMenu() {
   const tocBtn = elements.native.tocButton;

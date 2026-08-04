@@ -23,8 +23,8 @@
         }
 
         &::after {
-          background-color: #50ac5d;
-          animation-name: toggler-size2;
+          background-color: var(--color-green-001);
+          animation-name: toggler-size;
         }
       }
     }
@@ -33,12 +33,13 @@
   label {
     cursor: pointer;
     position: relative;
-    display: block;
-    background: #e4e8e8;
-    border: 1px solid #d6d6d6;
-    border-radius: 36px;
-    block-size: 36px;
-    inline-size: 72px;
+    display: block !important;
+    background: var(--background-color-002);
+    border: 1px solid var(--border-color-dark);
+    border-radius: 24px;
+    block-size: 24px;
+    inline-size: 48px;
+    margin: 0 !important;
 
     &::after,
     .toggler-on,
@@ -47,8 +48,8 @@
       inset-block-start: 50%;
       inset-inline-start: 25%;
       transform: translateY(-50%) translateX(-50%);
-      block-size: 26px;
-      inline-size: 26px;
+      block-size: 18px;
+      inline-size: 18px;
       transition:
         left 0.15s ease-in-out,
         background-color 0.2s ease-out,
@@ -60,7 +61,7 @@
     &::after {
       content: "";
       display: block;
-      background-color: #d7062a;
+      background-color: var(--color-grayscale-050);
       border-radius: 100%;
       animation-direction: forwards;
       animation-duration: 0.15s;
@@ -79,7 +80,7 @@
 
   .path {
     fill: none;
-    stroke: #fefefe;
+    stroke: var(--color-grayscale-098);
     stroke-linecap: round;
     stroke-miterlimit: 10;
     stroke-width: 7px;
@@ -89,25 +90,12 @@
 @keyframes toggler-size {
   0%,
   100% {
-    block-size: 26px;
-    inline-size: 26px;
+    block-size: 18px;
+    inline-size: 18px;
   }
 
   50% {
-    block-size: 20px;
-    inline-size: 20px;
-  }
-}
-
-@keyframes toggler-size2 {
-  0%,
-  100% {
-    block-size: 26px;
-    inline-size: 26px;
-  }
-
-  50% {
-    block-size: 20px;
-    inline-size: 20px;
+    block-size: 14px;
+    inline-size: 14px;
   }
 }
