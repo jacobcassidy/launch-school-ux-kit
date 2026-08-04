@@ -1,0 +1,113 @@
+/**
+ * TOGGLER
+ * A toggle switch component that allows users to switch between two states (on/off).
+ */
+
+.toggler {
+  input {
+    display: none;
+
+    &:checked + label .toggler-off,
+    &:not(:checked) + label .toggler-on {
+      opacity: 0;
+      block-size: 0;
+      inline-size: 0;
+    }
+
+    &:checked {
+      + label {
+        &::after,
+        .toggler-on,
+        .toggler-off {
+          inset-inline-start: 75%;
+        }
+
+        &::after {
+          background-color: #50ac5d;
+          animation-name: toggler-size2;
+        }
+      }
+    }
+  }
+
+  label {
+    cursor: pointer;
+    position: relative;
+    display: block;
+    background: #e4e8e8;
+    border: 1px solid #d6d6d6;
+    border-radius: 36px;
+    block-size: 36px;
+    inline-size: 72px;
+
+    &::after,
+    .toggler-on,
+    .toggler-off {
+      position: absolute;
+      inset-block-start: 50%;
+      inset-inline-start: 25%;
+      transform: translateY(-50%) translateX(-50%);
+      block-size: 26px;
+      inline-size: 26px;
+      transition:
+        left 0.15s ease-in-out,
+        background-color 0.2s ease-out,
+        width 0.15s ease-in-out,
+        height 0.15s ease-in-out,
+        opacity 0.15s ease-in-out;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      background-color: #d7062a;
+      border-radius: 100%;
+      animation-direction: forwards;
+      animation-duration: 0.15s;
+      animation-iteration-count: 1;
+      animation-name: toggler-size;
+      animation-play-state: running;
+      animation-timing-function: ease-out;
+    }
+  }
+
+  .toggler-on,
+  .toggler-off {
+    z-index: 2;
+    opacity: 1;
+  }
+
+  .path {
+    fill: none;
+    stroke: #fefefe;
+    stroke-linecap: round;
+    stroke-miterlimit: 10;
+    stroke-width: 7px;
+  }
+}
+
+@keyframes toggler-size {
+  0%,
+  100% {
+    block-size: 26px;
+    inline-size: 26px;
+  }
+
+  50% {
+    block-size: 20px;
+    inline-size: 20px;
+  }
+}
+
+@keyframes toggler-size2 {
+  0%,
+  100% {
+    block-size: 26px;
+    inline-size: 26px;
+  }
+
+  50% {
+    block-size: 20px;
+    inline-size: 20px;
+  }
+}
