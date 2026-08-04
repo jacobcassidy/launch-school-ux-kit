@@ -8,9 +8,10 @@ export const elements = {
     header: null,
     settingsContainer: null,
     settingsToggleButton: null,
+    sidebarHiddenHeadersToggler: null,
+    sidebarShrinkToggler: null,
     sidebarToggleButton: null,
     tabsPanelToggleButton: null,
-    sidebarShrinkToggler: null,
   },
   native: {
     contentPanel: null,
@@ -30,8 +31,8 @@ export const sidebarLists = {
     listElements: [],
     listOrder: {
       courses: 1,
-      exercises: 2,
-      bookshelf: 3,
+      bookshelf: 2,
+      exercises: 3,
     },
     listTitle: "Study",
   },
@@ -78,6 +79,7 @@ export const states = {
     sidebar: {
       isCollapsed:
         sessionStorage.getItem("isSidebarCollapsed") === "true" || document.querySelector("#navbar-collapsor").checked,
+      isSettingSidebarHiddenHeadersOn: sessionStorage.getItem("isSettingSidebarHiddenHeadersOn") === "true",
       isSettingSidebarShrinkOn: sessionStorage.getItem("isSettingSidebarShrinkOn") === "true",
     },
     tabsPanel: {
@@ -107,6 +109,10 @@ export function setElementSettingsContainer(el) {
 
 export function setElementSettingsToggleBtn(el) {
   elements.injected.settingsToggleButton = el;
+}
+
+export function setElementSidebarHiddenHeadersToggler(el) {
+  elements.injected.sidebarHiddenHeaderToggler = el;
 }
 
 export function setElementSidebarShrinkToggler(el) {
@@ -225,7 +231,7 @@ export function setIsReloadScheduled(value) {
 export function setIsSidebarCollapsed(value) {
   const sidebarCollapseCheckbox = document.querySelector("#navbar-collapsor");
   const sidebarCollapseBtn = document.querySelector("#navbar-collapse");
-  const sidebarToggleBtn = document.querySelector(".btn--toggle-sidebar");
+  // const sidebarToggleBtn = document.querySelector(".btn--toggle-sidebar");
 
   // If no sidebar found, set value to null.
   if (!sidebarCollapseCheckbox) {
@@ -235,7 +241,7 @@ export function setIsSidebarCollapsed(value) {
 
   const isActiveSidebar = !sidebarCollapseCheckbox.checked;
   if (value === true) {
-    sidebarToggleBtn.classList.remove("active");
+    // sidebarToggleBtn.classList.remove("active");
 
     if (isActiveSidebar) {
       sidebarCollapseBtn.dispatchEvent(
@@ -249,7 +255,7 @@ export function setIsSidebarCollapsed(value) {
       sidebarCollapseBtn.click();
     }
   } else {
-    sidebarToggleBtn.classList.add("active");
+    // sidebarToggleBtn.classList.add("active");
 
     const nativeSidebarShowBtn = document.querySelector("#navbar-expand");
     if (!isActiveSidebar) {
@@ -266,6 +272,18 @@ export function setIsSidebarCollapsed(value) {
   }
 
   states.elements.sidebar.isCollapsed = value;
+}
+
+// SET SETTING SIDEBAR HIDDEN HEADERS
+export function setSettingSidebarHiddenHeaders(value) {
+  if (value === true) {
+    elements.native.sidebar.classList.add("hide-section-headers");
+  } else {
+    elements.native.sidebar.classList.remove("hide-section-headers");
+  }
+
+  states.elements.sidebar.isSettingSidebarHiddenHeadersOn = value;
+  sessionStorage.setItem("isSettingSidebarHiddenHeadersOn", value);
 }
 
 // SET SETTING SIDEBAR SHRINK WHEN COLLAPSED

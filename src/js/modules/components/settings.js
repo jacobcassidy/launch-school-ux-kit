@@ -121,9 +121,9 @@ function injectUISettingsSection(containerEl) {
     const uiSettingsSectionEl = createNewSettingsSection("UI Settings");
     const uiSettingsListEl = uiSettingsSectionEl.querySelector(".settings-list");
 
-    const createHideSidebarSectionHeadersSettingEl = () => {
-      const settingDesc = "Hide expanded sidebar section headers";
-      const settingTogglerId = "setting--hide-sidebar-section-headers";
+    const createSettingSidebarHiddenHeadersEl = () => {
+      const settingDesc = "Hide expanded sidebar's section headers";
+      const settingTogglerId = "setting--sidebar-hidden-headers";
       return createNewSetting(settingDesc, settingTogglerId);
     };
 
@@ -133,7 +133,7 @@ function injectUISettingsSection(containerEl) {
       return createNewSetting(settingDesc, settingTogglerId);
     };
 
-    uiSettingsListEl.append(createHideSidebarSectionHeadersSettingEl());
+    uiSettingsListEl.append(createSettingSidebarHiddenHeadersEl());
     uiSettingsListEl.append(createSettingSidebarShrinkEl());
 
     return uiSettingsSectionEl;

@@ -44,3 +44,9 @@
     font-size: 1rem;
   }
 }
+
+body:not(:has(#navbar-collapsor:checked)) {
+  .sidebar-tooltip {
+    display: none;
+  }
+}

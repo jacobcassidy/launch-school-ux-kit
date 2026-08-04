@@ -28,6 +28,7 @@ import {
   watchQuestionBoxes,
   watchSettingContainerToggleBtn,
   watchSettingSidebarShrinkToggler,
+  watchSettingSidebarHiddenHeadersToggler,
   watchSidebarLinks,
   watchSidebarToggleBtn,
   watchTabBtns,
@@ -59,6 +60,7 @@ export function loadUI() {
   watchSidebarToggleBtn();
   watchSidebarLinks();
   watchSettingSidebarShrinkToggler();
+  watchSettingSidebarHiddenHeadersToggler();
   watchTabBtns();
   watchTabsPanelToggleBtn();
   watchSettingContainerToggleBtn();

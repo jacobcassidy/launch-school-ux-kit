@@ -30,10 +30,6 @@
       display: none !important;
     }
   }
-
-  /* &.is-hidden {
-    inline-size: 0;
-  } */
 }
 
 .nav-drawer {
@@ -144,6 +140,10 @@
     letter-spacing: 1px;
     text-transform: uppercase;
 
+    .hide-section-headers & {
+      display: none;
+    }
+
     svg {
       block-size: 1rem;
       inline-size: 1rem;
@@ -164,12 +164,22 @@
       + .sidebar-list {
         display: none;
       }
+
+      .hide-section-headers & {
+        + .sidebar-list {
+          display: block;
+        }
+      }
     }
   }
 
   .sidebar-list {
     overflow: initial !important;
     margin-block-end: 24px !important;
+
+    .hide-section-headers & {
+      margin-block-start: 24px !important;
+    }
   }
 
   .sidebar-list__item {

@@ -8,6 +8,8 @@ import settings from "../../../svg/lucide/settings.svg";
 import sidebar from "../../../svg/lucide/panel-left.svg";
 import tabsPanel from "../../../svg/lucide/modified/tabs-panel.svg";
 import toc from "../../../svg/lucide/book-text.svg";
+import sidebarOpen from "../../../svg/lucide/panel-left-open.svg";
+import sidebarClose from "../../../svg/lucide/panel-left-close.svg";
 
 // Import Panel Icons
 import checkmark from "../../../svg/lucide/check.svg";
@@ -55,6 +57,8 @@ export const icons = {
   headerIcons: {
     settings: createIcon(settings),
     sidebar: createIcon(sidebar),
+    sidebarOpen: createIcon(sidebarOpen),
+    sidebarClose: createIcon(sidebarClose),
     tabsPanel: createIcon(tabsPanel),
     toc: createIcon(toc),
   },

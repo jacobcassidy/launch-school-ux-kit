@@ -27,11 +27,11 @@
     color: var(--color-brand-002);
   }
 
-  &.btn--toggle-sidebar {
-    flex-direction: column;
-    gap: 3px;
+  /* &.btn--toggle-sidebar { */
+  /* flex-direction: column;
+    gap: 3px; */
 
-    .hamburger-line {
+  /* .hamburger-line {
       background-color: var(--color-grayscale-050);
       block-size: 2px;
       inline-size: 16px;
@@ -42,9 +42,8 @@
       .hamburger-line {
         background-color: var(--color-grayscale-100);
       }
-    }
-  }
-
+    } */
+  /* } */
   &.toc-toggle-button {
     &.open {
       background-color: var(--color-brand-001-alpha) !important;

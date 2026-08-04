@@ -17,13 +17,13 @@ import {
   setElementSettingsContainer,
   setElementSettingsToggleBtn,
   setElementSidebar,
+  setElementSidebarHiddenHeadersToggler,
   setElementSidebarShrinkToggler,
   setElementSidebarToggleButton,
   setElementTabNav,
   setElementTabsPanel,
   setElementTabsPanelToggleButton,
   setElementTocButton,
-  setSettingSidebarShrink,
   states,
 } from "./state.js";
 import {
@@ -202,7 +202,8 @@ export function syncElementsLoadState() {
   const sidebar = elements.native.sidebar;
   const tabsPanel = elements.native.tabsPanel;
   const isHeaderHidden = states.elements.header.isHidden;
-  const isSidebarCollapsed = states.elements.sidebar.isCollapsed;
+  // const isSidebarCollapsed = states.elements.sidebar.isCollapsed;
+  const isSettingSidebarHiddenHeadersOn = states.elements.sidebar.isSettingSidebarHiddenHeadersOn;
   const isSettingSidebarShrinkOn = states.elements.sidebar.isSettingSidebarShrinkOn;
   const isTabsPanelHidden = states.elements.tabsPanel.isHidden;
 
@@ -210,12 +211,12 @@ export function syncElementsLoadState() {
   if (header && isHeaderHidden) hideHeader();
 
   // Set sidebar load state.
-  if (sidebar && isSidebarCollapsed) {
-    sidebar.classList.remove("active");
-  } else if (sidebar) {
-    const sidebarToggleBtn = document.querySelector(".btn--toggle-sidebar");
-    sidebarToggleBtn.classList.add("active");
-  }
+  // if (sidebar && isSidebarCollapsed) {
+  //   sidebar.classList.remove("active");
+  // } else if (sidebar) {
+  //   const sidebarToggleBtn = document.querySelector(".btn--toggle-sidebar");
+  //   sidebarToggleBtn.classList.add("active");
+  // }
 
   // Set tabs panel load state.
   if (tabsPanel && isTabsPanelHidden) {
@@ -225,6 +226,12 @@ export function syncElementsLoadState() {
   }
 
   // Set settings load state
+
+  // Set Sidebar Hidden Headers setting load state
+  if (sidebar && isSettingSidebarHiddenHeadersOn) {
+    elements.native.sidebar.classList.add("hide-section-headers");
+  }
+
   // Set Sidebar Shrink setting load state
   if (sidebar && isSettingSidebarShrinkOn) {
     elements.native.sidebar.classList.add("shrink");
@@ -239,6 +246,7 @@ export function syncInjectedElementsState() {
   const header = document.querySelector(".site-header");
   const settingsContainer = document.querySelector(".settings-container");
   const settingsToggleBtn = document.querySelector(".btn--toggle-settings");
+  const sidebarHiddenHeadersToggler = document.querySelector("#setting--sidebar-hidden-headers");
   const sidebarShrinkToggler = document.querySelector("#setting--sidebar-shrink");
   const sidebarToggleBtn = document.querySelector(".btn--toggle-sidebar");
   const tabsPanelToggleBtn = document.querySelector(".btn--toggle-tabs-panel");
@@ -246,6 +254,7 @@ export function syncInjectedElementsState() {
   setElementHeader(header);
   setElementSettingsContainer(settingsContainer);
   setElementSettingsToggleBtn(settingsToggleBtn);
+  setElementSidebarHiddenHeadersToggler(sidebarHiddenHeadersToggler);
   setElementSidebarShrinkToggler(sidebarShrinkToggler);
   setElementSidebarToggleButton(sidebarToggleBtn);
   setElementTabsPanelToggleButton(tabsPanelToggleBtn);
@@ -254,6 +263,11 @@ export function syncInjectedElementsState() {
   const isSettingSidebarShrinkOn = states.elements.sidebar.isSettingSidebarShrinkOn;
   if (isSettingSidebarShrinkOn) {
     sidebarShrinkToggler.checked = true;
+  }
+
+  const isSettingSidebarHiddenHeadersOn = states.elements.sidebar.isSettingSidebarHiddenHeadersOn;
+  if (isSettingSidebarHiddenHeadersOn) {
+    sidebarHiddenHeadersToggler.checked = true;
   }
 }
 

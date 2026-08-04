@@ -86,10 +86,10 @@ function injectContainerElements(containerEl, containerNum) {
   }
 
   if (containerNum === 3) {
+    injectTabsPanelToggleButton(containerEl);
+    moveTocBtnToHeader(containerEl);
     injectSettingsContainerToggleButton(containerEl);
     injectSettingsContainer(containerEl);
-    moveTocBtnToHeader(containerEl);
-    injectTabsPanelToggleButton(containerEl);
   }
 }
 
@@ -134,16 +134,16 @@ function injectContainerStyleOffsets() {
   const container3Width = container3?.offsetWidth || 0;
   const siteHeaderInlinePadding = 12;
   const gapBetweenContainers = 24;
-  const sidebarWidth = 195;
-  const navExpandBtnWidth = 30;
+  // const sidebarWidth = 195;
+  // const navExpandBtnWidth = 30;
   const container2LeftOffset = container1Width + siteHeaderInlinePadding + gapBetweenContainers;
   const container2RightOffset = container3Width + siteHeaderInlinePadding + gapBetweenContainers;
-  const container2SidebarLeftOffset = sidebarWidth + navExpandBtnWidth + gapBetweenContainers;
+  // const container2SidebarLeftOffset = sidebarWidth + navExpandBtnWidth + gapBetweenContainers;
   const root = document.documentElement;
 
   root.style.setProperty("--header-container2-left-offset", `${container2LeftOffset}px`);
   root.style.setProperty("--header-container2-right-offset", `${container2RightOffset}px`);
-  root.style.setProperty("--header-container2-sidebar-left-offset", `${container2SidebarLeftOffset}px`);
+  // root.style.setProperty("--header-container2-sidebar-left-offset", `${container2SidebarLeftOffset}px`);
 }
 
 /**

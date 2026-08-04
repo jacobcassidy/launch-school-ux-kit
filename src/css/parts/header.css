@@ -105,6 +105,18 @@ body:not(:has(.nav-drawer)) {
       }
     }
 
+    body:has(#navbar-collapsor:checked) & {
+      .sidebar-close-icon {
+        display: none;
+      }
+    }
+
+    body:not(:has(#navbar-collapsor:checked)) & {
+      .sidebar-open-icon {
+        display: none;
+      }
+    }
+
     &.container-2 {
       position: absolute;
       inset-inline-start: var(--header-container2-left-offset);
@@ -114,10 +126,10 @@ body:not(:has(.nav-drawer)) {
       inline-size: calc(100% - var(--header-container2-left-offset) - var(--header-container2-right-offset));
       transition: var(--transition-long);
 
-      body:has(#navbar-collapsor):not(:has(#navbar-collapsor:checked)) & {
+      /* body:has(#navbar-collapsor):not(:has(#navbar-collapsor:checked)) & {
         inset-inline-start: var(--header-container2-sidebar-left-offset);
         inline-size: calc(100% - var(--header-container2-sidebar-left-offset) - var(--header-container2-right-offset));
-      }
+      } */
     }
 
     &.container-3 {

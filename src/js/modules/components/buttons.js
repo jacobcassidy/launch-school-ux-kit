@@ -39,7 +39,12 @@ export function injectSidebarToggleButton(containerEl) {
     const sidebarToggleButtonEl = document.createElement("button");
     sidebarToggleButtonEl.classList.add("site-header__button", "btn--toggle-sidebar");
     sidebarToggleButtonEl.title = "Toggle Sidebar";
-    sidebarToggleButtonEl.appendChild(icons.headerIcons.sidebar());
+    const sidebarOpenIconEl = icons.headerIcons.sidebarOpen();
+    sidebarOpenIconEl.classList.add("sidebar-open-icon");
+    const sidebarCloseIconEl = icons.headerIcons.sidebarClose();
+    sidebarCloseIconEl.classList.add("sidebar-close-icon");
+    sidebarToggleButtonEl.appendChild(sidebarOpenIconEl);
+    sidebarToggleButtonEl.appendChild(sidebarCloseIconEl);
     return sidebarToggleButtonEl;
   };
 

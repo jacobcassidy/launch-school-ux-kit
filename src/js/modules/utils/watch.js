@@ -6,7 +6,7 @@
 // Import Utils
 import { activateHotkey } from "./activate.js";
 import { colorLog } from "./log.js";
-import { elements, setSettingSidebarShrink, states } from "./state.js";
+import { elements, setSettingSidebarHiddenHeaders, setSettingSidebarShrink, states } from "./state.js";
 import { handleFocus } from "./focus.js";
 import { scheduleReload } from "./load.js";
 import { toggleSettingsContainer, toggleSidebar, toggleTabsPanel } from "./toggle.js";
@@ -329,10 +329,13 @@ export function watchSidebarLinks() {
   };
 
   const toggleTooltip = () => {
+    const sidebarToggle = document.querySelector("#navbar-collapsor");
     const sidebarLinks = document.querySelectorAll(".sidebar-lists a");
     if (sidebarLinks.length < 1) return;
 
     const handleTooltip = (link) => {
+      if (!sidebarToggle.checked) return;
+
       const linkDataTooltip = link.getAttribute("data-tooltip");
       const linkTooltip = document.querySelector(`.sidebar-tooltip-${linkDataTooltip}`);
 
@@ -379,22 +382,29 @@ export function watchSidebarToggleBtn() {
   sidebarToggleBtn.addEventListener("click", () => toggleSidebar());
 }
 
+export function watchSettingSidebarHiddenHeadersToggler() {
+  console.log("RUNNING watchSettingSidebarHiddenHeadersToggler()");
+
+  const settingSidebarHiddenHeadersToggler = document.querySelector("#setting--sidebar-hidden-headers");
+  if (!settingSidebarHiddenHeadersToggler) return;
+
+  settingSidebarHiddenHeadersToggler.addEventListener("change", () => {
+    if (settingSidebarHiddenHeadersToggler.checked) {
+      setSettingSidebarHiddenHeaders(true);
+    } else {
+      setSettingSidebarHiddenHeaders(false);
+    }
+  });
+}
+
 export function watchSettingSidebarShrinkToggler() {
-  console.log("RUNNING watchSettingSidebarShrinkToggler");
-
   const settingSidebarShrinkToggler = document.querySelector("#setting--sidebar-shrink");
-  console.log(settingSidebarShrinkToggler);
-
   if (!settingSidebarShrinkToggler) return;
 
   settingSidebarShrinkToggler.addEventListener("change", () => {
     if (settingSidebarShrinkToggler.checked) {
-      console.log("settingSidebarShrinkToggler.checked");
-
       setSettingSidebarShrink(true);
     } else {
-      console.log("NOT settingSidebarShrinkToggler.checked");
-
       setSettingSidebarShrink(false);
     }
   });
