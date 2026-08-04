@@ -27,6 +27,7 @@ import {
   watchPromptSubmission,
   watchQuestionBoxes,
   watchSettingContainerToggleBtn,
+  watchSettingSidebarShrinkToggler,
   watchSidebarLinks,
   watchSidebarToggleBtn,
   watchTabBtns,
@@ -57,6 +58,7 @@ export function loadUI() {
   watchQuestionBoxes();
   watchSidebarToggleBtn();
   watchSidebarLinks();
+  watchSettingSidebarShrinkToggler();
   watchTabBtns();
   watchTabsPanelToggleBtn();
   watchSettingContainerToggleBtn();

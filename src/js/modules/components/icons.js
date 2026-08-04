@@ -33,7 +33,6 @@ import myAccount from "../../../svg/lucide/sidebar/my-account/user-round.svg";
 import myAssessments from "../../../svg/lucide/sidebar/my-assessments/shield-check.svg";
 import myExercises from "../../../svg/lucide/sidebar/my-exercises/star-check.svg";
 import page from "../../../svg/lucide/sidebar/pages/file.svg";
-import pages from "../../../svg/lucide/sidebar/pages/app-window-mac.svg";
 import resources from "../../../svg/lucide/sidebar/resources/folder-open.svg";
 import sharing from "../../../svg/lucide/sidebar/sharing/share.svg";
 import signOut from "../../../svg/lucide/sidebar/sign-out/log-out.svg";
@@ -83,7 +82,7 @@ export const icons = {
     myAssessments: createIcon(myAssessments),
     myExercises: createIcon(myExercises),
     page: createIcon(page),
-    pages: createIcon(pages),
+    pages: createIcon(toggle),
     resources: createIcon(resources),
     sharing: createIcon(sharing),
     signOut: createIcon(signOut),

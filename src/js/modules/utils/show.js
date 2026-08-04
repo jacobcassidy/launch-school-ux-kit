@@ -8,7 +8,7 @@ import { handleOutsideSettingsContainerClick } from "../components/settings.js";
 
 // Import Utils
 import { hideSettingsContainer } from "./hide.js";
-import { elements, setIsHeaderHidden, setIsSidebarHidden, setIsTabsPanelHidden } from "./state.js";
+import { elements, setIsHeaderHidden, setIsSidebarCollapsed, setIsTabsPanelHidden } from "./state.js";
 
 /**
  * SHOW HEADER
@@ -37,7 +37,7 @@ export function showSettingsContainer() {
  * SHOW SIDEBAR
  */
 export function showSidebar() {
-  setIsSidebarHidden(false);
+  setIsSidebarCollapsed(false);
 }
 
 /**

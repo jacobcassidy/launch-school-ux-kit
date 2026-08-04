@@ -6,7 +6,7 @@
 // Import Utils
 import { activateHotkey } from "./activate.js";
 import { colorLog } from "./log.js";
-import { elements, states } from "./state.js";
+import { elements, setSettingSidebarShrink, states } from "./state.js";
 import { handleFocus } from "./focus.js";
 import { scheduleReload } from "./load.js";
 import { toggleSettingsContainer, toggleSidebar, toggleTabsPanel } from "./toggle.js";
@@ -170,7 +170,7 @@ export function watchHotkeys() {
       event.stopImmediatePropagation();
 
       if (event.code === "Digit3" && !states.hotkeys.cmdOnly.Digit3) {
-        showToast("No Tabs Panel available on this page to toggle", "warn");
+        showToast("No Tabs Panel available on this page to toggle");
       }
     } else if (isCmdCtrl) {
       if (
@@ -377,6 +377,27 @@ export function watchSidebarToggleBtn() {
   sidebarToggleBtn.dataset.sidebarBtnEventBound = "true";
 
   sidebarToggleBtn.addEventListener("click", () => toggleSidebar());
+}
+
+export function watchSettingSidebarShrinkToggler() {
+  console.log("RUNNING watchSettingSidebarShrinkToggler");
+
+  const settingSidebarShrinkToggler = document.querySelector("#setting--sidebar-shrink");
+  console.log(settingSidebarShrinkToggler);
+
+  if (!settingSidebarShrinkToggler) return;
+
+  settingSidebarShrinkToggler.addEventListener("change", () => {
+    if (settingSidebarShrinkToggler.checked) {
+      console.log("settingSidebarShrinkToggler.checked");
+
+      setSettingSidebarShrink(true);
+    } else {
+      console.log("NOT settingSidebarShrinkToggler.checked");
+
+      setSettingSidebarShrink(false);
+    }
+  });
 }
 
 /**

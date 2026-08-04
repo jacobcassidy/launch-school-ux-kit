@@ -61,7 +61,7 @@
     &::after {
       content: "";
       display: block;
-      background-color: var(--color-grayscale-050);
+      background-color: var(--color-grayscale-065);
       border-radius: 100%;
       animation-direction: forwards;
       animation-duration: 0.15s;

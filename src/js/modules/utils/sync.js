@@ -17,11 +17,13 @@ import {
   setElementSettingsContainer,
   setElementSettingsToggleBtn,
   setElementSidebar,
+  setElementSidebarShrinkToggler,
   setElementSidebarToggleButton,
   setElementTabNav,
   setElementTabsPanel,
   setElementTabsPanelToggleButton,
   setElementTocButton,
+  setSettingSidebarShrink,
   states,
 } from "./state.js";
 import {
@@ -92,9 +94,9 @@ export function syncAvailableHotkeys() {
    * SYNC CMD ONLY HOTKEYS
    */
   const syncCmdOnlyHotkeys = () => {
-    if (headerExists) setAvailableHotkey("cmdOnly", "Digit1", 1, "Toggle Header", toggleHeader);
-    if (sidebarExists) setAvailableHotkey("cmdOnly", "Digit2", 2, "Toggle Sidebar", toggleSidebar);
-    if (tabsPanelExists) setAvailableHotkey("cmdOnly", "Digit3", 3, "Toggle Tabs Panel", toggleTabsPanel);
+    if (headerExists) setAvailableHotkey("cmdOnly", "Digit1", 1, "Toggle Header Visibility", toggleHeader);
+    if (sidebarExists) setAvailableHotkey("cmdOnly", "Digit2", 2, "Toggle Sidebar Visibility", toggleSidebar);
+    if (tabsPanelExists) setAvailableHotkey("cmdOnly", "Digit3", 3, "Toggle Tabs Panel Visibility", toggleTabsPanel);
   };
 
   /**
@@ -178,9 +180,10 @@ export function syncAvailableHotkeys() {
     if (nextExerciseBtnExists)
       setAvailableHotkey("cmdCtrl", "KeyN", "N", "Go to next exercise", handleNextExerciseHotkey);
     if (submitReviewBtnExists) setAvailableHotkey("cmdCtrl", "KeyR", "R", "Submit Review", handleSubmitReviewHotkey);
-    if (tocButtonExists) setAvailableHotkey("cmdCtrl", "KeyT", "T", "Toggle Table of Content", toggleTocMenu);
+    if (tocButtonExists)
+      setAvailableHotkey("cmdCtrl", "KeyT", "T", "Toggle Table of Content Visibility", toggleTocMenu);
     if (settingsContainerExists)
-      setAvailableHotkey("cmdCtrl", "Comma", ",", "Toggle Settings", toggleSettingsContainer);
+      setAvailableHotkey("cmdCtrl", "Comma", ",", "Toggle Settings Visibility", toggleSettingsContainer);
   };
 
   // const syncNativeHotkeys = () => {};
@@ -198,15 +201,16 @@ export function syncElementsLoadState() {
   const header = elements.injected.header;
   const sidebar = elements.native.sidebar;
   const tabsPanel = elements.native.tabsPanel;
-  const isHeaderHidden = states.hidden.isHeaderHidden;
-  const isSidebarHidden = states.hidden.isSidebarHidden;
-  const isTabsPanelHidden = states.hidden.isTabsPanelHidden;
+  const isHeaderHidden = states.elements.header.isHidden;
+  const isSidebarCollapsed = states.elements.sidebar.isCollapsed;
+  const isSettingSidebarShrinkOn = states.elements.sidebar.isSettingSidebarShrinkOn;
+  const isTabsPanelHidden = states.elements.tabsPanel.isHidden;
 
   // Set header load state.
   if (header && isHeaderHidden) hideHeader();
 
   // Set sidebar load state.
-  if (sidebar && isSidebarHidden) {
+  if (sidebar && isSidebarCollapsed) {
     sidebar.classList.remove("active");
   } else if (sidebar) {
     const sidebarToggleBtn = document.querySelector(".btn--toggle-sidebar");
@@ -219,6 +223,12 @@ export function syncElementsLoadState() {
   } else if (tabsPanel) {
     showTabsPanel();
   }
+
+  // Set settings load state
+  // Set Sidebar Shrink setting load state
+  if (sidebar && isSettingSidebarShrinkOn) {
+    elements.native.sidebar.classList.add("shrink");
+  }
 }
 
 /**
@@ -229,14 +239,22 @@ export function syncInjectedElementsState() {
   const header = document.querySelector(".site-header");
   const settingsContainer = document.querySelector(".settings-container");
   const settingsToggleBtn = document.querySelector(".btn--toggle-settings");
+  const sidebarShrinkToggler = document.querySelector("#setting--sidebar-shrink");
   const sidebarToggleBtn = document.querySelector(".btn--toggle-sidebar");
   const tabsPanelToggleBtn = document.querySelector(".btn--toggle-tabs-panel");
 
   setElementHeader(header);
   setElementSettingsContainer(settingsContainer);
   setElementSettingsToggleBtn(settingsToggleBtn);
+  setElementSidebarShrinkToggler(sidebarShrinkToggler);
   setElementSidebarToggleButton(sidebarToggleBtn);
   setElementTabsPanelToggleButton(tabsPanelToggleBtn);
+
+  // Sync setting togglers
+  const isSettingSidebarShrinkOn = states.elements.sidebar.isSettingSidebarShrinkOn;
+  if (isSettingSidebarShrinkOn) {
+    sidebarShrinkToggler.checked = true;
+  }
 }
 
 /**

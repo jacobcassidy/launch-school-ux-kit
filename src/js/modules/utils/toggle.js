@@ -12,7 +12,7 @@ import { elements, states } from "./state.js";
  * TOGGLE HEADER
  */
 export function toggleHeader() {
-  if (states.hidden.isHeaderHidden) {
+  if (states.elements.header.isHidden) {
     showHeader();
   } else {
     hideHeader();
@@ -70,9 +70,9 @@ export function toggleSettingsContainer() {
  * TOGGLE SIDEBAR
  */
 export function toggleSidebar() {
-  const isSidebarHidden = states.hidden.isSidebarHidden;
+  const isSidebarCollapsed = states.elements.sidebar.isCollapsed;
 
-  if (isSidebarHidden) {
+  if (isSidebarCollapsed) {
     showSidebar();
   } else {
     hideSidebar();
@@ -83,7 +83,7 @@ export function toggleSidebar() {
  * TOGGLE TABS PANEL
  */
 export function toggleTabsPanel() {
-  const isTabsPanelHidden = states.hidden.isTabsPanelHidden;
+  const isTabsPanelHidden = states.elements.tabsPanel.isHidden;
 
   if (isTabsPanelHidden) {
     showTabsPanel();

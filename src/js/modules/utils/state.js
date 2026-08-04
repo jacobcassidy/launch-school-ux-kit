@@ -10,6 +10,7 @@ export const elements = {
     settingsToggleButton: null,
     sidebarToggleButton: null,
     tabsPanelToggleButton: null,
+    sidebarShrinkToggler: null,
   },
   native: {
     contentPanel: null,
@@ -70,15 +71,22 @@ export const sidebarLists = {
 };
 
 export const states = {
-  hidden: {
-    isHeaderHidden: sessionStorage.getItem("isHeaderHidden") === "true",
-    isSidebarHidden:
-      sessionStorage.getItem("isSidebarHidden") === "true" || document.querySelector("#navbar-collapsor").checked,
-    isTabsPanelHidden: sessionStorage.getItem("isTabsPanelHidden") === "true",
+  elements: {
+    header: {
+      isHidden: sessionStorage.getItem("isHeaderHidden") === "true",
+    },
+    sidebar: {
+      isCollapsed:
+        sessionStorage.getItem("isSidebarCollapsed") === "true" || document.querySelector("#navbar-collapsor").checked,
+      isSettingSidebarShrinkOn: sessionStorage.getItem("isSettingSidebarShrinkOn") === "true",
+    },
+    tabsPanel: {
+      isHidden: sessionStorage.getItem("isTabsPanelHidden") === "true",
+    },
   },
   hotkeys: {
-    cmdCtrl: {},
     cmdOnly: {},
+    cmdCtrl: {},
     native: {},
   },
   load: {
@@ -99,6 +107,10 @@ export function setElementSettingsContainer(el) {
 
 export function setElementSettingsToggleBtn(el) {
   elements.injected.settingsToggleButton = el;
+}
+
+export function setElementSidebarShrinkToggler(el) {
+  elements.injected.sidebarShrinkToggler = el;
 }
 
 export function setElementSidebarToggleButton(el) {
@@ -200,32 +212,33 @@ export function setIsHeaderHidden(value) {
     elements.injected.header.classList.remove("is-hidden");
   }
 
-  states.hidden.isHeaderHidden = value;
+  states.elements.header.isHidden = value;
   sessionStorage.setItem("isHeaderHidden", value);
 }
+
 // SET IS RELOAD SCHEDULED STATE
 export function setIsReloadScheduled(value) {
   states.load.isReloadScheduled = value;
 }
 
-// SET IS SIDEBAR HIDDEN STATE
-export function setIsSidebarHidden(value) {
-  const sidebarHideCheckbox = document.querySelector("#navbar-collapsor");
-  const sidebarHideBtn = document.querySelector("#navbar-collapse");
+// SET IS SIDEBAR COLLAPSED STATE
+export function setIsSidebarCollapsed(value) {
+  const sidebarCollapseCheckbox = document.querySelector("#navbar-collapsor");
+  const sidebarCollapseBtn = document.querySelector("#navbar-collapse");
   const sidebarToggleBtn = document.querySelector(".btn--toggle-sidebar");
 
   // If no sidebar found, set value to null.
-  if (!sidebarHideCheckbox) {
-    states.hidden.isSidebarHidden = null;
+  if (!sidebarCollapseCheckbox) {
+    states.elements.sidebar.isCollapsed = null;
     return;
   }
 
-  const isActiveSidebar = !sidebarHideCheckbox.checked;
+  const isActiveSidebar = !sidebarCollapseCheckbox.checked;
   if (value === true) {
     sidebarToggleBtn.classList.remove("active");
 
     if (isActiveSidebar) {
-      sidebarHideBtn.dispatchEvent(
+      sidebarCollapseBtn.dispatchEvent(
         new MouseEvent("mousedown", {
           bubbles: true,
           cancelable: true,
@@ -233,7 +246,7 @@ export function setIsSidebarHidden(value) {
         }),
       );
 
-      sidebarHideBtn.click();
+      sidebarCollapseBtn.click();
     }
   } else {
     sidebarToggleBtn.classList.add("active");
@@ -252,8 +265,19 @@ export function setIsSidebarHidden(value) {
     }
   }
 
-  states.hidden.isSidebarHidden = value;
-  sessionStorage.setItem("isSidebarHidden", value);
+  states.elements.sidebar.isCollapsed = value;
+}
+
+// SET SETTING SIDEBAR SHRINK WHEN COLLAPSED
+export function setSettingSidebarShrink(value) {
+  if (value === true) {
+    elements.native.sidebar.classList.add("shrink");
+  } else {
+    elements.native.sidebar.classList.remove("shrink");
+  }
+
+  states.elements.sidebar.isSettingSidebarShrinkOn = value;
+  sessionStorage.setItem("isSettingSidebarShrinkOn", value);
 }
 
 // SET IS TABS PANEL HIDDEN STATE
@@ -274,7 +298,7 @@ export function setIsTabsPanelHidden(value) {
     tabsPanelToggleButton.classList.add("active");
   }
 
-  states.hidden.isTabsPanelHidden = value;
+  states.elements.tabsPanel.isHidden = value;
   sessionStorage.setItem("isTabsPanelHidden", value);
 }
 

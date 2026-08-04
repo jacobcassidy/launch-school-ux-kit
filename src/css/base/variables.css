@@ -17,6 +17,7 @@
 
   /* Box Shadows */
   --input-box-shadow: 0 0 0 3px var(--color-blue-092);
+  --modal-box-shadow: 0 4px 12px rgb(0 0 0 / 0.15);
 
   /* Blue Colors */
   --color-blue-092: oklch(0.92 0.01 230);
@@ -68,6 +69,12 @@
 }
 
 body:has(#navbar-collapsor:checked) {
-  --sidebar-width: 2.5rem;
-  --sidebar-inline-padding: 11px;
+  &:has(.sidebar.shrink) {
+    --sidebar-width: 2.5rem;
+    --sidebar-inline-padding: 11px;
+  }
+
+  &:not(:has(.sidebar.shrink)) {
+    --sidebar-width: 0;
+  }
 }

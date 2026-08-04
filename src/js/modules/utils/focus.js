@@ -36,7 +36,7 @@ export function handleFocus(focusEl) {
     const isActiveTab = activeTab?.dataset?.tab === focusEl.dataset?.tab;
     const tabTextarea = getTabTextareaElement();
     const isTextareaFocused = document.activeElement === tabTextarea;
-    const isTabsPanelHidden = states.hidden.isTabsPanelHidden;
+    const isTabsPanelHidden = states.elements.tabsPanel.isHidden;
     const codeMirror = tabTextarea?.closest(".CodeMirror");
     const isCodeMirrorFocused = codeMirror?.classList.contains("CodeMirror-focused");
 

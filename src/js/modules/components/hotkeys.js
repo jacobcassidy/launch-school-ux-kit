@@ -5,6 +5,7 @@
 
 // Import Utils
 import { states } from "../utils/state.js";
+import { createNewSettingsSection } from "./settings.js";
 
 /**
  * INJECT HOTKEYS SECTION
@@ -15,41 +16,26 @@ export function injectHotkeysSection() {
   if (!settingsContainer) return;
 
   const createHotkeysSection = () => {
-    const hotkeysSectionEl = document.createElement("section");
-    hotkeysSectionEl.classList.add("hotkeys-section");
-
-    const hotkeysSectionTitleEl = document.createElement("h3");
-    hotkeysSectionTitleEl.classList.add("section-title");
-    hotkeysSectionTitleEl.innerText = "Current Page Hotkeys";
-    hotkeysSectionEl.appendChild(hotkeysSectionTitleEl);
-
-    const modifiersWrapperEl = document.createElement("div");
-    modifiersWrapperEl.classList.add("settings-list-wrapper");
+    const hotkeysSectionEl = createNewSettingsSection("Current Page Hotkeys");
+    const hotkeysListEl = hotkeysSectionEl.querySelector(".settings-list");
 
     for (const [modifierListKey, modifierListObj] of Object.entries(states.hotkeys)) {
       let modifierKey;
       if (modifierListKey === "cmdOnly") modifierKey = null;
       if (modifierListKey === "cmdCtrl") modifierKey = "Ctrl";
 
-      const modifierListEl = document.createElement("ul");
-      modifierListEl.classList.add("settings-list");
-      const modifierListTitleEl = document.createElement("li");
-      modifierListTitleEl.classList.add("settings-list__title");
-      modifierListTitleEl.innerText = `${modifierKey} Shortcuts`;
-      modifierListEl.appendChild(modifierListTitleEl);
-
       for (const hotkeyObj of Object.values(modifierListObj)) {
         const hotkeyItemEl = document.createElement("li");
-        hotkeyItemEl.classList.add("settings-list__item");
+        hotkeyItemEl.className = "settings-list__item";
 
         const hotkeyItemKeyEl = document.createElement("div");
-        hotkeyItemKeyEl.classList.add("setting-status", "hotkey-shortcut");
+        hotkeyItemKeyEl.className = "setting-status hotkey-shortcut";
 
-        const keys = ["Cmd", modifierKey, hotkeyObj.symbol];
+        const keys = modifierKey ? ["Cmd", modifierKey, hotkeyObj.symbol] : ["Cmd", hotkeyObj.symbol];
 
         keys.forEach((key, index) => {
           const keySpan = document.createElement("span");
-          keySpan.classList.add("key");
+          keySpan.className = "key";
           keySpan.innerText = key;
           hotkeyItemKeyEl.appendChild(keySpan);
 
@@ -57,6 +43,7 @@ export function injectHotkeysSection() {
           const isLast = index === keys.length - 1;
           if (isLast) return;
           const plusSpan = document.createElement("span");
+          plusSpan.className = "plus";
           plusSpan.innerText = "+";
           hotkeyItemKeyEl.appendChild(plusSpan);
         });
@@ -64,17 +51,13 @@ export function injectHotkeysSection() {
         hotkeyItemEl.appendChild(hotkeyItemKeyEl);
 
         const hotkeyItemLabelEl = document.createElement("div");
-        hotkeyItemLabelEl.classList.add("setting-desc", "hotkey-label");
+        hotkeyItemLabelEl.className = "setting-desc hotkey-label";
         hotkeyItemLabelEl.innerText = hotkeyObj.label;
         hotkeyItemEl.appendChild(hotkeyItemLabelEl);
 
-        modifierListEl.appendChild(hotkeyItemEl);
+        hotkeysListEl.appendChild(hotkeyItemEl);
       }
-
-      modifiersWrapperEl.appendChild(modifierListEl);
     }
-
-    hotkeysSectionEl.appendChild(modifiersWrapperEl);
 
     return hotkeysSectionEl;
   };
