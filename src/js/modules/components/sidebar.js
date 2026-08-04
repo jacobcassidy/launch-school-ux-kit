@@ -221,9 +221,8 @@ function reorderSidebarLists() {
             const listHeaderTitleEl = document.createElement("span");
             listHeaderTitleEl.className = "list-title";
             listHeaderTitleEl.innerText = propertyValue;
-            const listHeaderToggleIconEl = toggleIconEl.cloneNode(true);
             listHeaderEl.appendChild(listHeaderTitleEl);
-            listHeaderEl.appendChild(listHeaderToggleIconEl);
+            listHeaderEl.appendChild(icons.sidebarIcons.toggle());
             listWrapperEl.appendChild(listHeaderEl);
           }
         }
