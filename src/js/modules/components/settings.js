@@ -4,7 +4,7 @@
  */
 
 // Import Utils
-import { hideSettingsContainer } from "../utils/hide.js";
+import { hideSettings } from "../utils/hide.js";
 import { elements } from "../utils/state.js";
 
 /**
@@ -37,7 +37,16 @@ export function handleOutsideSettingsContainerClick(e) {
   const settingsContainerToggleBtn = elements.injected.settingsToggleButton;
 
   if (settingsContainer.contains(e.target) || settingsContainerToggleBtn.contains(e.target)) return;
-  hideSettingsContainer();
+  hideSettings();
+}
+
+/**
+ * HANDLE ESCAPE KEY TO CLOSE SETTINGS
+ */
+export function handleSettingsEsc(e) {
+  if (e.key === "Escape") {
+    hideSettings();
+  }
 }
 
 /**
@@ -116,6 +125,9 @@ export function createNewSettingToggler(id) {
   return togglerEl;
 }
 
+/**
+ * INJECT UI SETTINGS SECTION
+ */
 function injectUISettingsSection(containerEl) {
   const createUISettingsSection = () => {
     const uiSettingsSectionEl = createNewSettingsSection("UI Settings");

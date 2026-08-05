@@ -9,7 +9,7 @@ import { colorLog } from "./log.js";
 import { elements, setSettingSidebarHiddenHeaders, setSettingSidebarShrink, states } from "./state.js";
 import { handleFocus } from "./focus.js";
 import { scheduleReload } from "./load.js";
-import { toggleSettingsContainer, toggleSidebar, toggleTabsPanel } from "./toggle.js";
+import { toggleSettings, toggleSidebar, toggleTabsPanel } from "./toggle.js";
 import { showToast } from "./show.js";
 
 /**
@@ -41,9 +41,9 @@ export function watchForMissingHeader() {
       headerMissingTimeoutId = undefined;
       const siteHeader = document.querySelector(".site-header");
       if (siteHeader) {
-        // colorLog.detail("header exists again.");
+        // colorLog.info("header exists again.");
       } else {
-        colorLog.detail(".site-header has been missing for over 300ms. Scheduling reload.");
+        // colorLog.notice(".site-header has been missing for over 300ms. Scheduling reload.");
         scheduleReload();
       }
     }, 300);
@@ -77,7 +77,7 @@ export function watchForUrlChange() {
    * @param {string} from Where this function was called from.
    */
   const checkForUrlChange = (from) => {
-    colorLog.detail(`checkForUrlChange() called from ${from}`);
+    // colorLog.notice(`checkForUrlChange() called from ${from}`);
 
     if (states.load.isReloadScheduled) {
       // colorLog.detail("Reload already scheduled. Exited checkForUrlChange().");
@@ -92,44 +92,21 @@ export function watchForUrlChange() {
       return;
     }
 
-    colorLog.detail("URL has changed.");
+    // colorLog.info("URL has changed.");
     scheduleReload();
   };
 
-  // Triggered by browsers back/forward navigation
-  window.addEventListener("popstate", () => {
-    // colorLog.notice("popstate: Browser back/forward nav");
-    checkForUrlChange("popstate");
-  });
+  window.addEventListener("popstate", () => checkForUrlChange("popstate"));
+  window.addEventListener("hashchange", () => checkForUrlChange("hashchange"));
+  document.addEventListener("turbo:load", () => checkForUrlChange("turbo:load"));
+  document.addEventListener("turbo:render", () => checkForUrlChange("turbo:render"));
 
-  // Triggered by url hashchange such as /page to /page#section2
-  window.addEventListener("hashchange", () => {
-    // colorLog.notice("hashchange in URL");
-    checkForUrlChange("hashchange");
-  });
-
-  // Triggered by turbo:load
-  document.addEventListener("turbo:load", () => {
-    // colorLog.alert("EVENT UPDATE! turbo:load");
-    checkForUrlChange("turbo:load");
-  });
-
-  // Triggered by turbo:render
-  document.addEventListener("turbo:render", () => {
-    // colorLog.alert("EVENT UPDATE! turbo:render");
-    checkForUrlChange("turbo:render");
-  });
-
-  // Triggered by pushState
   history.pushState = function (...args) {
-    // colorLog.notice("history.pushState");
     originalPushState.apply(this, args);
     checkForUrlChange("pushState");
   };
 
-  // Triggered by replaceState
   history.replaceState = function (...args) {
-    // colorLog.notice("history.replaceState");
     originalReplaceState.apply(this, args);
     checkForUrlChange("replaceState");
   };
@@ -170,7 +147,7 @@ export function watchHotkeys() {
       event.stopImmediatePropagation();
 
       if (event.code === "Digit3" && !states.hotkeys.cmdOnly.Digit3) {
-        showToast("No Tabs Panel available on this page to toggle");
+        showToast("No tabs panel available to toggle on this page");
       }
     } else if (isCmdCtrl) {
       if (
@@ -179,7 +156,6 @@ export function watchHotkeys() {
         event.code !== "Digit3" &&
         event.code !== "Digit4" &&
         event.code !== "Digit5" &&
-        event.code !== "Digit6" &&
         event.code !== "KeyC" &&
         event.code !== "KeyE" &&
         event.code !== "KeyM" &&
@@ -189,6 +165,25 @@ export function watchHotkeys() {
         event.code !== "Comma"
       )
         return;
+
+      if (event.code === "KeyC" && !states.hotkeys.cmdCtrl.KeyC) {
+        showToast("No editor code available to copy on this page");
+      }
+      if (event.code === "KeyE" && !states.hotkeys.cmdCtrl.KeyE) {
+        showToast("No editor available to focus on this page");
+      }
+      if (event.code === "KeyM" && !states.hotkeys.cmdCtrl.KeyM) {
+        showToast("No exercise to mark status of on this page");
+      }
+      if (event.code === "KeyN" && !states.hotkeys.cmdCtrl.KeyN) {
+        showToast("No next exercise available to go to from this page");
+      }
+      if (event.code === "KeyR" && !states.hotkeys.cmdCtrl.KeyR) {
+        showToast("No reviewer available to focus on this page");
+      }
+      if (event.code === "KeyT" && !states.hotkeys.cmdCtrl.KeyT) {
+        showToast("No table of contents available to toggle on this page");
+      }
     }
 
     activateHotkey(modifier, event.code);
@@ -203,7 +198,10 @@ export function watchPromptSubmission() {
   // colorLog.run("Running watchPromptSubmission()");
 
   const lsbotPromptInputs = document.querySelectorAll(".lsbot-question-input");
-  if (lsbotPromptInputs.length < 1) return;
+  if (lsbotPromptInputs.length < 1) {
+    // colorLog.detail("No lsbot prompt inputs found on this page.");
+    return;
+  }
 
   lsbotPromptInputs.forEach((prompt) => {
     if (prompt.dataset.focusObserverBound) {
@@ -219,11 +217,11 @@ export function watchPromptSubmission() {
 
       observer = new MutationObserver(() => {
         // colorLog.run("Running prompt observer()");
-        // if (prompt.disabled)  console.log("Prompt is disabled.");
+        // if (prompt.disabled)  colorLog.info("Prompt is disabled.");
 
         if (!prompt.disabled) {
           observer.disconnect();
-          // console.log("Prompt focused.");
+          // colorLog.info("Prompt focused.");
           prompt.focus();
         }
       });
@@ -242,8 +240,12 @@ export function watchPromptSubmission() {
  */
 export function watchQuestionBoxes() {
   // colorLog.run("Running watchQuestionBoxes()");
+
   const questionBoxes = document.querySelectorAll(".lsbot-question-box");
-  if (questionBoxes.length < 1 || !elements.native.tabsPanel) return;
+  if (questionBoxes.length < 1 || !elements.native.tabsPanel) {
+    // colorLog.detail("No question boxes found on this page.");
+    return;
+  }
 
   const lsbotTabBtn = document.querySelector(".tab-button[data-tab='lsbot-help']");
 
@@ -286,18 +288,22 @@ export function watchQuestionBoxes() {
  * WATCH SETTINGS CONTAINER TOGGLE BUTTON
  * Toggles the settings container when clicked.
  */
-export function watchSettingContainerToggleBtn() {
-  // colorLog.run("Running watchSettingContainerToggleBtn()");
-  const settingsContainerToggleBtn = elements.injected.settingsToggleButton;
-  if (!settingsContainerToggleBtn) return;
+export function watchSettingsToggleBtn() {
+  // colorLog.run("Running watchSettingsToggleBtn()");
 
-  if (settingsContainerToggleBtn.dataset.settingsContainerToggleBtnEventBound) {
-    // colorLog.detail("Settings Container Toggle Button watch already exist. Exited watchSettingContainerToggleBtn().");
+  const settingsToggleBtn = elements.injected.settingsToggleButton;
+  if (!settingsToggleBtn) {
+    // colorLog.detail("No settings container toggle button found.");
     return;
   }
-  settingsContainerToggleBtn.dataset.settingsContainerToggleBtnEventBound = "true";
 
-  settingsContainerToggleBtn.addEventListener("click", () => toggleSettingsContainer());
+  if (settingsToggleBtn.dataset.settingsToggleBtnEventBound) {
+    // colorLog.detail("Settings Container Toggle Button watch already exist. Exited watchSettingsToggleBtn().");
+    return;
+  }
+  settingsToggleBtn.dataset.settingsToggleBtnEventBound = "true";
+
+  settingsToggleBtn.addEventListener("click", () => toggleSettings());
 }
 
 /**
@@ -305,7 +311,21 @@ export function watchSettingContainerToggleBtn() {
  */
 export function watchSidebarLinks() {
   // colorLog.run("Running watchSidebarLinks()");
-  const toggleListSection = () => {
+
+  const sidebar = document.querySelector(".sidebar.nav-drawer");
+
+  if (!sidebar) {
+    // colorLog.detail("No sidebar found.");
+    return;
+  }
+
+  if (sidebar.dataset.sidebarLinksEventBound) {
+    // colorLog.detail("Sidebar Links watch already exist. Exited watchSidebarLinks().");
+    return;
+  }
+  sidebar.dataset.sidebarLinksEventBound = "true";
+
+  const toggleSidebarListSection = () => {
     const listHeaderBtns = document.querySelectorAll(".sidebar-list-toggle-btn");
 
     listHeaderBtns.forEach((btn) => {
@@ -315,7 +335,7 @@ export function watchSidebarLinks() {
     });
   };
 
-  const togglePagesDropdown = () => {
+  const toggleSidebarPagesDropdown = () => {
     const pagesLink = document.querySelector(".sidebar-list__item .pages");
     const pagesDropdown = document.querySelector(".sidebar-list__item .pages + .dropdown");
 
@@ -328,7 +348,7 @@ export function watchSidebarLinks() {
     });
   };
 
-  const toggleTooltip = () => {
+  const toggleSidebarTooltip = () => {
     const sidebarToggle = document.querySelector("#navbar-collapsor");
     const sidebarLinks = document.querySelectorAll(".sidebar-lists a");
     if (sidebarLinks.length < 1) return;
@@ -359,9 +379,9 @@ export function watchSidebarLinks() {
     });
   };
 
-  toggleListSection();
-  togglePagesDropdown();
-  toggleTooltip();
+  toggleSidebarListSection();
+  toggleSidebarPagesDropdown();
+  toggleSidebarTooltip();
 }
 
 /**
@@ -370,23 +390,42 @@ export function watchSidebarLinks() {
  */
 export function watchSidebarToggleBtn() {
   // colorLog.run("Running watchSidebarToggleBtn()");
-  const sidebarToggleBtn = elements.injected.sidebarToggleButton;
-  if (!sidebarToggleBtn) return;
 
-  if (sidebarToggleBtn.dataset.sidebarBtnEventBound) {
+  const sidebarToggleBtn = elements.injected.sidebarToggleButton;
+  if (!sidebarToggleBtn) {
+    // colorLog.detail("No sidebar toggle button found.");
+    return;
+  }
+
+  if (sidebarToggleBtn.dataset.sidebarToggleBtnEventBound) {
     // colorLog.detail("Sidebar Toggle Button watch already exist. Exited watchSidebarToggleBtn().");
     return;
   }
-  sidebarToggleBtn.dataset.sidebarBtnEventBound = "true";
+  sidebarToggleBtn.dataset.sidebarToggleBtnEventBound = "true";
 
   sidebarToggleBtn.addEventListener("click", () => toggleSidebar());
 }
 
+/**
+ * WATCH SETTING SIDEBAR HIDDEN HEADERS TOGGLER
+ * Toggles the Sidebar's Hidden Section Headers setting
+ */
 export function watchSettingSidebarHiddenHeadersToggler() {
-  console.log("RUNNING watchSettingSidebarHiddenHeadersToggler()");
+  // colorLog.run("Running watchSettingSidebarHiddenHeadersToggler()");
 
   const settingSidebarHiddenHeadersToggler = document.querySelector("#setting--sidebar-hidden-headers");
-  if (!settingSidebarHiddenHeadersToggler) return;
+  if (!settingSidebarHiddenHeadersToggler) {
+    // colorLog.detail("No sidebar hidden headers setting toggler found.");
+    return;
+  }
+
+  if (settingSidebarHiddenHeadersToggler.dataset.sidebarHiddenHeadersTogglerEventBound) {
+    // colorLog.detail(
+    // "Sidebar Hidden Headers setting watch already exist. Exited watchSettingSidebarHiddenHeadersToggler().",
+    // );
+    return;
+  }
+  settingSidebarHiddenHeadersToggler.dataset.sidebarHiddenHeadersTogglerEventBound = "true";
 
   settingSidebarHiddenHeadersToggler.addEventListener("change", () => {
     if (settingSidebarHiddenHeadersToggler.checked) {
@@ -397,9 +436,24 @@ export function watchSettingSidebarHiddenHeadersToggler() {
   });
 }
 
+/**
+ * WATCH SETTING SIDEBAR SHRINK TOGGLER
+ * Toggles the Sidebar's collapsed sizing (hidden or shrunken)
+ */
 export function watchSettingSidebarShrinkToggler() {
+  // colorLog.run("Running watchSettingSidebarShrinkToggle()");
+
   const settingSidebarShrinkToggler = document.querySelector("#setting--sidebar-shrink");
-  if (!settingSidebarShrinkToggler) return;
+  if (!settingSidebarShrinkToggler) {
+    // colorLog.detail("No sidebar shrink setting toggler found.");
+    return;
+  }
+
+  if (settingSidebarShrinkToggler.dataset.sidebarShrinkTogglerEventBound) {
+    // colorLog.detail("Sidebar Shrink setting watch already exist. Exited watchSettingSidebarShrinkToggler().");
+    return;
+  }
+  settingSidebarShrinkToggler.dataset.sidebarShrinkTogglerEventBound = "true";
 
   settingSidebarShrinkToggler.addEventListener("change", () => {
     if (settingSidebarShrinkToggler.checked) {
@@ -416,8 +470,12 @@ export function watchSettingSidebarShrinkToggler() {
  */
 export function watchTabBtns() {
   // colorLog.run("Running watchTabBtns()");
+
   const tabButtons = document.querySelectorAll(".tab-button");
-  if (tabButtons.length < 1) return;
+  if (tabButtons.length < 1) {
+    // colorLog.detail("No tab buttons found on this page.");
+    return;
+  }
 
   const handleTooltip = (tabBtn) => {
     const btnDataTabStr = tabBtn.getAttribute("data-tab");
@@ -461,8 +519,12 @@ export function watchTabBtns() {
  */
 export function watchTabsPanelToggleBtn() {
   // colorLog.run("Running watchTabsPanelToggleBtn()");
+
   const tabsPanelToggleBtn = elements.injected.tabsPanelToggleButton;
-  if (!tabsPanelToggleBtn) return;
+  if (!tabsPanelToggleBtn) {
+    // colorLog.detail("No tabs panel toggle button found on this page.");
+    return;
+  }
 
   if (tabsPanelToggleBtn.dataset.tabsPanelToggleBtnEventBound) {
     // colorLog.detail("Tabs Panel Toggle Button watch already exist. Exited watchTabsPanelToggleBtn().");
@@ -478,8 +540,12 @@ export function watchTabsPanelToggleBtn() {
  */
 export function watchMarkToggleBtn(markCompleteIcon, markIncompleteIcon) {
   // colorLog.run("Running watchMarkToggleBtn");
+
   const instructionsTab = document.querySelector("#tab-instructions");
-  if (!instructionsTab) return;
+  if (!instructionsTab) {
+    // colorLog.detail("No instructions tab found on this page.");
+    return;
+  }
 
   let markForm = instructionsTab.querySelector(".edit_exercise_submission");
 
@@ -487,9 +553,7 @@ export function watchMarkToggleBtn(markCompleteIcon, markIncompleteIcon) {
     const markBtn = markForm.querySelector("button");
     if (markBtn) {
       const hasDeleteInput = markForm.querySelector("input[value=delete]");
-      hasDeleteInput
-        ? markBtn.prepend(markIncompleteIcon.cloneNode(true))
-        : markBtn.prepend(markCompleteIcon.cloneNode(true));
+      hasDeleteInput ? markBtn.prepend(markIncompleteIcon) : markBtn.prepend(markCompleteIcon);
       markBtn.classList.add("has-new-icon");
     }
   };
@@ -509,9 +573,44 @@ export function watchMarkToggleBtn(markCompleteIcon, markIncompleteIcon) {
   });
 }
 
+/**
+ * WATCH RUN CODE BUTTONS
+ */
+export function watchRunCodeBtn(btn, runIcon, stopIcon) {
+  // colorLog.alert("Running watchRunCodeBtn");
+
+  if (!btn) {
+    // colorLog.detail("No run code button found on this page.");
+    return;
+  }
+
+  const observer = new MutationObserver((mutations) => {
+    for (const mutation of mutations) {
+      if (mutation.type === "attributes" && mutation.attributeName === "class") {
+        if (btn.classList.contains("stop-button")) {
+          btn.prepend(stopIcon);
+        } else {
+          btn.prepend(runIcon);
+        }
+      }
+    }
+  });
+
+  observer.observe(btn, {
+    attributes: true,
+    attributeFilter: ["class"],
+  });
+}
+
+/**
+ * WATCH VIEW SOLUTIONS BUTTON
+ */
 export function watchViewSolutionBtn(btn, svgIcons) {
   const parent = document.querySelector("#exercise_analysis .markup-collapse");
-  if (!parent) return;
+  if (!parent) {
+    // colorLog.detail("No view solution button found on this page.");
+    return;
+  }
 
   let previousState = parent.classList.contains("open") ? "open" : "closed";
 

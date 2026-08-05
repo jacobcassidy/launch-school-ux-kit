@@ -26,7 +26,7 @@ import {
   watchHotkeys,
   watchPromptSubmission,
   watchQuestionBoxes,
-  watchSettingContainerToggleBtn,
+  watchSettingsToggleBtn,
   watchSettingSidebarShrinkToggler,
   watchSettingSidebarHiddenHeadersToggler,
   watchSidebarLinks,
@@ -40,30 +40,32 @@ import {
  * Inserts the UI modifications into the DOM.
  */
 export function loadUI() {
+  // colorLog.run("Running loadUI()");
+
   injectStyles();
   syncNativeElementsState();
   injectHeader();
   injectToaster();
   syncInjectedElementsState();
+  updateSidebar();
   updateTabButtons();
   updatePanelButtons();
   syncAvailableHotkeys();
   injectHotkeysSection();
   syncElementsLoadState();
-  updateSidebar();
 
-  watchForUrlChange();
   watchForMissingHeader();
+  watchForUrlChange();
   watchHotkeys();
   watchPromptSubmission();
   watchQuestionBoxes();
-  watchSidebarToggleBtn();
-  watchSidebarLinks();
-  watchSettingSidebarShrinkToggler();
   watchSettingSidebarHiddenHeadersToggler();
+  watchSettingSidebarShrinkToggler();
+  watchSettingsToggleBtn();
+  watchSidebarLinks();
+  watchSidebarToggleBtn();
   watchTabBtns();
   watchTabsPanelToggleBtn();
-  watchSettingContainerToggleBtn();
 }
 
 /**
@@ -72,6 +74,7 @@ export function loadUI() {
  */
 export function scheduleReload() {
   // colorLog.run("Running scheduleReload()");
+
   if (states.load.isReloadScheduled) {
     // colorLog.detail("Reload is already scheduled. Exited scheduleReload().");
     return;
@@ -80,6 +83,7 @@ export function scheduleReload() {
 
   const reloadUI = () => {
     // colorLog.run("Running reloadUI()");
+
     loadUI();
     setLastUrl();
     setIsReloadScheduled(false);

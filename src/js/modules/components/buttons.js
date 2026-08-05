@@ -7,8 +7,9 @@
 import { icons } from "./icons.js";
 
 // Import Utils
+// import { colorLog } from "../utils/log.js";
 import { elements } from "../utils/state.js";
-import { watchMarkToggleBtn, watchViewSolutionBtn } from "../utils/watch.js";
+import { watchMarkToggleBtn, watchRunCodeBtn, watchViewSolutionBtn } from "../utils/watch.js";
 
 /**
  * INJECT SETTINGS CONTAINER TOGGLE BUTTON
@@ -16,16 +17,16 @@ import { watchMarkToggleBtn, watchViewSolutionBtn } from "../utils/watch.js";
  *
  * @param {HTMLElement} containerEl The container to which the button will be appended.
  */
-export function injectSettingsContainerToggleButton(containerEl) {
-  const createSettingsContainerToggleButton = () => {
-    const settingsContainerToggleButtonEl = document.createElement("button");
-    settingsContainerToggleButtonEl.classList.add("site-header__button", "btn--toggle-settings", "has-dropdown");
-    settingsContainerToggleButtonEl.title = "Toggle Hotkeys Container";
-    settingsContainerToggleButtonEl.appendChild(icons.headerIcons.settings());
-    return settingsContainerToggleButtonEl;
+export function injectSettingsToggleButton(containerEl) {
+  const createSettingsToggleButton = () => {
+    const settingsToggleButtonEl = document.createElement("button");
+    settingsToggleButtonEl.classList.add("site-header__button", "btn--toggle-settings", "has-dropdown");
+    settingsToggleButtonEl.title = "Toggle Hotkeys Container";
+    settingsToggleButtonEl.appendChild(icons.headerIcons.settings());
+    return settingsToggleButtonEl;
   };
 
-  containerEl.appendChild(createSettingsContainerToggleButton());
+  containerEl.appendChild(createSettingsToggleButton());
 }
 
 /**
@@ -93,6 +94,8 @@ export function moveTocBtnToHeader(containerEl) {
  * Replaces the native button icons with lucide icons
  */
 export function updatePanelButtons() {
+  // colorLog.run("Running updatePanelButtons()");
+
   const panelButtons = {
     copyCodeMarkup: {
       elements: document.querySelectorAll(".markup-copy-block button"),
@@ -113,6 +116,10 @@ export function updatePanelButtons() {
     nextExercise: {
       elements: [elements.native.nextExerciseButton],
       icons: [icons.panelIcons.nextExercise()],
+    },
+    runCode: {
+      elements: document.querySelectorAll(".btn-run-code"),
+      icons: [icons.panelIcons.run(), icons.panelIcons.stop()],
     },
     showConversationHistory: {
       elements: document.querySelectorAll(".conversation-history-button"),
@@ -135,8 +142,11 @@ export function updatePanelButtons() {
     const btnIconEls = btnConfig.icons;
 
     btnEls.forEach((btnEl) => {
+      if (!btnEl || btnEl.classList.contains("has-new-icon")) return;
+
       const isExerciseMarkToggle = btnLabel === "exerciseMarkToggle";
       const isCopyCodeMarkup = btnLabel === "copyCodeMarkup";
+      const isRunCode = btnLabel === "runCode";
       const isViewSolution = btnLabel === "viewSolution";
 
       let newIcons = [];
@@ -155,6 +165,9 @@ export function updatePanelButtons() {
         newIcons.forEach((iconEl) => {
           btnEl.prepend(iconEl);
         });
+      } else if (isRunCode) {
+        btnEl.prepend(newIcons[0]);
+        watchRunCodeBtn(btnEl, newIcons[0], newIcons[1]);
       } else if (isViewSolution) {
         newIcons.forEach((iconEL) => {
           btnEl.prepend(iconEL);
@@ -174,6 +187,8 @@ export function updatePanelButtons() {
  * Replaces native text and icon with a new icon and tooltip
  */
 export function updateTabButtons() {
+  // colorLog.run("Running updateTabButtons()");
+
   const createTabTooltip = (tooltipText, btnDataTab) => {
     const tooltipEl = document.createElement("div");
     tooltipEl.classList.add("tooltip", "tab-tooltip", `tab-tooltip-${btnDataTab}`);

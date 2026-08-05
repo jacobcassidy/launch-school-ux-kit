@@ -4,7 +4,7 @@
  */
 
 // Import Components
-import { handleOutsideSettingsContainerClick } from "../components/settings.js";
+import { handleOutsideSettingsContainerClick, handleSettingsEsc } from "../components/settings.js";
 
 // Import Utils
 import { elements, setIsHeaderHidden, setIsSidebarCollapsed, setIsTabsPanelHidden } from "./state.js";
@@ -17,15 +17,16 @@ export function hideHeader() {
 }
 
 /**
- * HIDE SETTINGS CONTAINER
+ * HIDE SETTINGS
  */
-export function hideSettingsContainer() {
+export function hideSettings() {
   const settingsContainer = elements.injected.settingsContainer;
-  const settingsContainerToggleBtn = elements.injected.settingsToggleButton;
+  const settingsToggleBtn = elements.injected.settingsToggleButton;
   settingsContainer.classList.remove("active");
-  settingsContainerToggleBtn.classList.remove("active");
+  settingsToggleBtn.classList.remove("active");
 
   document.removeEventListener("pointerdown", handleOutsideSettingsContainerClick);
+  document.removeEventListener("keydown", handleSettingsEsc);
 }
 
 /**

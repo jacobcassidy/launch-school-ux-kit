@@ -7,12 +7,19 @@
 import { icons } from "./icons.js";
 
 // Import Utils
+// import { colorLog } from "../utils/log.js";
 import { setSidebarListsElement, sidebarLists } from "../utils/state.js";
 
+/**
+ * UPDATE SIDEBAR
+ */
 export function updateSidebar() {
   const sidebarItemLinks = document.querySelectorAll(".nav-drawer > ul > li > a");
+  const sidebar = document.querySelector(".sidebar.nav-drawer");
+  if (sidebar) return;
 
   addSidebarLinkClasses();
+  removeCountParentheses();
 
   sidebarItemLinks.forEach((link) => {
     if (!link) return;
@@ -123,7 +130,8 @@ export function updateSidebar() {
           break;
       }
 
-      const tooltipText = link.innerText.trim() || tooltipFallback;
+      // Regex removes any (#) text from the tooltipText
+      const tooltipText = link.innerText.replace(/\([^)]*\)/g, "").trim() || tooltipFallback;
       createSidebarLinkTooltip(link, tooltipText);
 
       // Set the item in the sidebarLists object if it exists
@@ -134,16 +142,11 @@ export function updateSidebar() {
 
       // Add icon to dropdown items if they exists
       if (dropdownItemIconEl) {
-        // const sidebarLinkWithDropdown = document.querySelectorAll(".nav-drawer li.has-dropdown > a");
         const sidebarDropdownLinks = document.querySelectorAll(".nav-drawer li.has-dropdown ul.dropdown li a");
 
         if (sidebarDropdownLinks.length > 0) {
-          // sidebarLinkWithDropdown.forEach((link) => {
-          //   link.append(toggleIconEl.cloneNode(true));
-          // });
-
           sidebarDropdownLinks.forEach((dropdownLink) => {
-            dropdownLink.prepend(dropdownItemIconEl.cloneNode(true));
+            dropdownLink.prepend(dropdownItemIconEl);
           });
         }
       }
@@ -154,22 +157,30 @@ export function updateSidebar() {
   injectSidebarHeader();
 }
 
+/**
+ * ADD SIDEBAR LINK CLASSES
+ */
 function addSidebarLinkClasses() {
   const sidebar = document.querySelector(".nav-drawer");
   const assessmentLink = sidebar.querySelector(".assessments");
   const exercisesLinks = sidebar.querySelectorAll(".exercises");
+
+  if (!assessmentLink || exercisesLinks.length < 1) return;
 
   assessmentLink ? assessmentLink.classList.add("my-assessments") : null;
 
   exercisesLinks.forEach((link) => {
     const linkTitleStr = link.getAttribute("title");
 
-    if (linkTitleStr.includes("My Exercises")) {
+    if (linkTitleStr?.includes("My Exercises")) {
       link.classList.add("my-exercises");
     }
   });
 }
 
+/**
+ * INJECT SIDEBAR HEADER
+ */
 function injectSidebarHeader() {
   const sidebar = document.querySelector(".nav-drawer");
   const createSidebarHeader = () => {
@@ -192,6 +203,48 @@ function injectSidebarHeader() {
   if (sidebar) sidebar.prepend(createSidebarHeader());
 }
 
+/**
+ * REMOVE COUNT PARENTHESES
+ */
+function removeCountParentheses() {
+  // colorLog.run("Running removeCountParentheses()");
+
+  const counts = document.querySelectorAll('.nav-drawer [class*="_unread_count"]');
+  if (counts.length < 1) return;
+
+  counts.forEach((count) => {
+    const runWhenHasCountText = () => {
+      const countText = count.textContent.trim();
+      if (!countText) return;
+
+      observer.disconnect();
+
+      const newCountEl = document.createElement("span");
+      newCountEl.className = "unread-count";
+      newCountEl.textContent = countText.replace(/[()]/g, "");
+      count.after(newCountEl);
+    };
+
+    const observer = new MutationObserver(runWhenHasCountText);
+
+    observer.observe(count, {
+      childList: true,
+      characterData: true,
+      subtree: true,
+    });
+
+    // Disconnect unneeded observers
+    setTimeout(() => {
+      observer.disconnect();
+    }, 1500);
+
+    runWhenHasCountText();
+  });
+}
+
+/**
+ * REORDER SIDEBAR LISTS
+ */
 function reorderSidebarLists() {
   const sidebar = document.querySelector(".nav-drawer");
   sidebar.classList.add("sidebar");

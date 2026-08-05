@@ -4,8 +4,8 @@
  */
 
 // Import Utils
-import { showHeader, showSettingsContainer, showSidebar, showTabsPanel, showToast, showTocMenu } from "./show.js";
-import { hideHeader, hideSettingsContainer, hideSidebar, hideTabsPanel, hideTocMenu } from "./hide.js";
+import { showHeader, showSettings, showSidebar, showTabsPanel, showToast, showTocMenu } from "./show.js";
+import { hideHeader, hideSettings, hideSidebar, hideTabsPanel, hideTocMenu } from "./hide.js";
 import { elements, states } from "./state.js";
 
 /**
@@ -20,9 +20,9 @@ export function toggleHeader() {
 }
 
 /**
- * TOGGLE EXERCISE STATUS
+ * TOGGLE EXERCISE COMPLETION STATUS
  */
-export function toggleExerciseStatus() {
+export function toggleExerciseCompletionStatus() {
   const statusToggleButton = document.querySelector(".edit_exercise_submission .button");
 
   if (statusToggleButton.disabled) {
@@ -56,13 +56,13 @@ export function toggleExerciseStatus() {
 }
 
 /**
- * TOGGLE SETTINGS CONTAINER
+ * TOGGLE SETTINGS
  */
-export function toggleSettingsContainer() {
+export function toggleSettings() {
   if (elements.injected.settingsContainer.classList.contains("active")) {
-    hideSettingsContainer();
+    hideSettings();
   } else {
-    showSettingsContainer();
+    showSettings();
   }
 }
 

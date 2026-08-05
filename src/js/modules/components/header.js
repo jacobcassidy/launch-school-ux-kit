@@ -5,7 +5,7 @@
 
 // Import Components
 import {
-  injectSettingsContainerToggleButton,
+  injectSettingsToggleButton,
   injectSidebarToggleButton,
   injectTabsPanelToggleButton,
   moveTocBtnToHeader,
@@ -88,7 +88,7 @@ function injectContainerElements(containerEl, containerNum) {
   if (containerNum === 3) {
     injectTabsPanelToggleButton(containerEl);
     moveTocBtnToHeader(containerEl);
-    injectSettingsContainerToggleButton(containerEl);
+    injectSettingsToggleButton(containerEl);
     injectSettingsContainer(containerEl);
   }
 }

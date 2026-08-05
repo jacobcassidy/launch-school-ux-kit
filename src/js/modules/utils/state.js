@@ -210,7 +210,9 @@ export function setAvailableHotkey(modifier, key, symbol, label, callbackFunc = 
   states.hotkeys[modifier][key] = { callback: callback, label: label, symbol: symbol };
 }
 
-// SET IS HEADER HIDDEN STATE
+/**
+ * SET IS HEADER HIDDEN
+ */
 export function setIsHeaderHidden(value) {
   if (value === true) {
     elements.injected.header.classList.add("is-hidden");
@@ -222,16 +224,19 @@ export function setIsHeaderHidden(value) {
   sessionStorage.setItem("isHeaderHidden", value);
 }
 
-// SET IS RELOAD SCHEDULED STATE
+/**
+ * SET IS RELOAD SCHEDULED
+ */
 export function setIsReloadScheduled(value) {
   states.load.isReloadScheduled = value;
 }
 
-// SET IS SIDEBAR COLLAPSED STATE
+/**
+ * SET IS SIDEBAR COLLAPSED
+ */
 export function setIsSidebarCollapsed(value) {
   const sidebarCollapseCheckbox = document.querySelector("#navbar-collapsor");
   const sidebarCollapseBtn = document.querySelector("#navbar-collapse");
-  // const sidebarToggleBtn = document.querySelector(".btn--toggle-sidebar");
 
   // If no sidebar found, set value to null.
   if (!sidebarCollapseCheckbox) {
@@ -241,8 +246,6 @@ export function setIsSidebarCollapsed(value) {
 
   const isActiveSidebar = !sidebarCollapseCheckbox.checked;
   if (value === true) {
-    // sidebarToggleBtn.classList.remove("active");
-
     if (isActiveSidebar) {
       sidebarCollapseBtn.dispatchEvent(
         new MouseEvent("mousedown", {
@@ -255,8 +258,6 @@ export function setIsSidebarCollapsed(value) {
       sidebarCollapseBtn.click();
     }
   } else {
-    // sidebarToggleBtn.classList.add("active");
-
     const nativeSidebarShowBtn = document.querySelector("#navbar-expand");
     if (!isActiveSidebar) {
       nativeSidebarShowBtn.dispatchEvent(
@@ -274,7 +275,9 @@ export function setIsSidebarCollapsed(value) {
   states.elements.sidebar.isCollapsed = value;
 }
 
-// SET SETTING SIDEBAR HIDDEN HEADERS
+/**
+ * SET SETTING SIDEBAR HIDDEN HEADERS
+ */
 export function setSettingSidebarHiddenHeaders(value) {
   if (value === true) {
     elements.native.sidebar.classList.add("hide-section-headers");
@@ -286,7 +289,9 @@ export function setSettingSidebarHiddenHeaders(value) {
   sessionStorage.setItem("isSettingSidebarHiddenHeadersOn", value);
 }
 
-// SET SETTING SIDEBAR SHRINK WHEN COLLAPSED
+/**
+ * SET SETTING SIDEBAR SHRINK WHEN COLLAPSED
+ */
 export function setSettingSidebarShrink(value) {
   if (value === true) {
     elements.native.sidebar.classList.add("shrink");
@@ -298,7 +303,9 @@ export function setSettingSidebarShrink(value) {
   sessionStorage.setItem("isSettingSidebarShrinkOn", value);
 }
 
-// SET IS TABS PANEL HIDDEN STATE
+/**
+ * SET IS TABS PANEL HIDDEN
+ */
 export function setIsTabsPanelHidden(value) {
   const tabsPanel = elements.native.tabsPanel;
   const contentPanel = elements.native.contentPanel;
@@ -320,12 +327,16 @@ export function setIsTabsPanelHidden(value) {
   sessionStorage.setItem("isTabsPanelHidden", value);
 }
 
-// SET LAST URL
+/**
+ * SET LAST URL
+ */
 export function setLastUrl(value) {
   states.load.lastUrl = value;
 }
 
-// SET PREVIOUS BODY
+/**
+ * SET PREVIOUS BODY
+ */
 export function setPreviousBody(value) {
   states.load.previousBody = value;
 }

@@ -6,10 +6,10 @@
 // Import Header Icons
 import settings from "../../../svg/lucide/settings.svg";
 import sidebar from "../../../svg/lucide/panel-left.svg";
+import sidebarClose from "../../../svg/lucide/panel-left-close.svg";
+import sidebarOpen from "../../../svg/lucide/panel-left-open.svg";
 import tabsPanel from "../../../svg/lucide/modified/tabs-panel.svg";
 import toc from "../../../svg/lucide/book-text.svg";
-import sidebarOpen from "../../../svg/lucide/panel-left-open.svg";
-import sidebarClose from "../../../svg/lucide/panel-left-close.svg";
 
 // Import Panel Icons
 import checkmark from "../../../svg/lucide/check.svg";
@@ -18,9 +18,11 @@ import conversationNew from "../../../svg/lucide/circle-plus.svg";
 import copy from "../../../svg/lucide/copy.svg";
 import markComplete from "../../../svg/lucide/square-check-big.svg";
 import markIncomplete from "../../../svg/lucide/rotate-ccw.svg";
+import nextExercise from "../../../svg/lucide/arrow-big-right.svg";
+import run from "../../../svg/lucide/play.svg";
+import stop from "../../../svg/lucide/octagon-x.svg";
 import viewHide from "../../../svg/lucide/eye-off.svg";
 import viewShow from "../../../svg/lucide/eye.svg";
-import nextExercise from "../../../svg/lucide/arrow-big-right.svg";
 
 // Import Sidebar Icons
 import archives from "../../../svg/lucide/sidebar/archives/archive.svg";
@@ -46,8 +48,8 @@ import community from "../../../svg/lucide/users-round.svg";
 import feedback from "../../../svg/lucide/send.svg";
 import instructions from "../../../svg/lucide/scroll.svg";
 import lsbot from "../../../svg/lucide/bot-message-square.svg";
-import scratchpad from "../../../svg/lucide/code-xml.svg";
 import review from "../../../svg/lucide/check-check.svg";
+import scratchpad from "../../../svg/lucide/code-xml.svg";
 
 const parser = new DOMParser();
 const createIcon = (icon) => () => createIconEl(icon);
@@ -57,8 +59,8 @@ export const icons = {
   headerIcons: {
     settings: createIcon(settings),
     sidebar: createIcon(sidebar),
-    sidebarOpen: createIcon(sidebarOpen),
     sidebarClose: createIcon(sidebarClose),
+    sidebarOpen: createIcon(sidebarOpen),
     tabsPanel: createIcon(tabsPanel),
     toc: createIcon(toc),
   },
@@ -70,6 +72,8 @@ export const icons = {
     markComplete: createIcon(markComplete),
     markIncomplete: createIcon(markIncomplete),
     nextExercise: createIcon(nextExercise),
+    run: createIcon(run),
+    stop: createIcon(stop),
     viewHide: createIcon(viewHide),
     viewShow: createIcon(viewShow),
   },
@@ -102,53 +106,3 @@ export const icons = {
     scratchpad: createIcon(scratchpad),
   },
 };
-
-// const createIcons = (icons) =>
-//   Object.fromEntries(Object.entires(icons).map(([name, icon]) => [`${name}IconEl`, createIconEl(icon)]));
-
-// Header Icons
-// export const settingsIconEl = createIconEl(settingsIcon);
-// export const tabsPanelIconEl = createIconEl(panelsIcon);
-// export const tocIconEl = createIconEl(tocIcon);
-
-// Tab Icons
-// export const communityIconEl = createIconEl(communityIcon);
-// export const feedbackIconEl = createIconEl(feedbackIcon);
-// export const instructionsIconEl = createIconEl(instructionsIcon);
-// export const lsbotIconEl = createIconEl(lsbotIcon);
-// export const scratchpadIconEl = createIconEl(scratchpadIcon);
-// export const sidebarIconEl = createIconEl(sidebarIcon);
-// export const submitReviewIconEl = createIconEl(submitReviewIcon);
-
-// Panel Icons
-// export const checkIconEl = createIconEl(checkIcon);
-// export const copyIconEl = createIconEl(copyIcon);
-// export const hideViewIconEl = createIconEl(hideViewIcon);
-// export const markCompleteIconEl = createIconEl(markCompleteIcon);
-// export const markIncompleteIconEl = createIconEl(markIncompleteIcon);
-// export const newConversationIconEl = createIconEl(newConversationIcon);
-// export const nextExerciseIconEl = createIconEl(nextExerciseIcon);
-// export const showConversationHistoryIconEl = createIconEl(showConversationHistoryIcon);
-// export const showViewIconEl = createIconEl(showViewIcon);
-
-// Sidebar Header Icons
-// export const modifiedLogoIconEl = createIconEl(modifiedLogo);
-
-// Sidebar List Icons
-// export const archiveIconEl = createIconEl(archiveIcon);
-// export const bookshelfIconEl = createIconEl(bookshelfIcon);
-// export const chatRoomIconEl = createIconEl(chatIcon);
-// export const coursesIconEl = createIconEl(courseIcon);
-// export const eventsIconEl = createIconEl(calendarIcon);
-// export const exercisesIconEl = createIconEl(exercisesIcon);
-// export const fileIconEl = createIconEl(fileIcon);
-// export const forumIconEl = createIconEl(announceIcon);
-// export const myAccountIconEl = createIconEl(accountIcon);
-// export const myAssessmentsIconEl = createIconEl(assessmentIcon);
-// export const myExercisesIconEl = createIconEl(myExercisesIcon);
-// export const pagesIconEl = createIconEl(pagesIcon);
-// export const toggleIconEl = createIconEl(toggleIcon);
-// export const resourcesIconEl = createIconEl(resourcesIcon);
-// export const sharingIconEl = createIconEl(shareIcon);
-// export const signOutIconEl = createIconEl(logoutIcon);
-// export const videosIconEl = createIconEl(videoIcon);

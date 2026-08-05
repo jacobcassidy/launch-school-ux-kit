@@ -4,10 +4,10 @@
  */
 
 // Import Components
-import { handleOutsideSettingsContainerClick } from "../components/settings.js";
+import { handleOutsideSettingsContainerClick, handleSettingsEsc } from "../components/settings.js";
 
 // Import Utils
-import { hideSettingsContainer } from "./hide.js";
+import { hideSettings } from "./hide.js";
 import { elements, setIsHeaderHidden, setIsSidebarCollapsed, setIsTabsPanelHidden } from "./state.js";
 
 /**
@@ -18,19 +18,20 @@ export function showHeader() {
 }
 
 /**
- * SHOW SETTINGS CONTAINER
+ * SHOW SETTINGS
  */
-export function showSettingsContainer() {
+export function showSettings() {
   const settingsContainer = elements.injected.settingsContainer;
-  const settingsContainerToggleBtn = elements.injected.settingsToggleButton;
+  const settingsToggleBtn = elements.injected.settingsToggleButton;
   settingsContainer.classList.add("active");
-  settingsContainerToggleBtn.classList.add("active");
+  settingsToggleBtn.classList.add("active");
 
-  // If TOC menu is open, click to close it.
+  // If TOC menu is open,  close it.
   const openedTocMenu = document.querySelector(".toc-toggle-button.open");
   if (openedTocMenu) openedTocMenu.click();
 
   document.addEventListener("pointerdown", handleOutsideSettingsContainerClick);
+  document.addEventListener("keydown", handleSettingsEsc);
 }
 
 /**
@@ -67,8 +68,6 @@ export function showToast(message, styleClass = null, duration = 2500) {
 
   const toast = createToastEl();
 
-  console.log(toast);
-
   // Trigger animation
   requestAnimationFrame(() => {
     toast.classList.add("show");
@@ -92,6 +91,6 @@ export function showTocMenu() {
 
     // If Settings container is open, close it.
     const settingsContainer = elements.injected.settingsContainer;
-    if (settingsContainer && settingsContainer.classList.contains("active")) hideSettingsContainer();
+    if (settingsContainer && settingsContainer.classList.contains("active")) hideSettings();
   }
 }

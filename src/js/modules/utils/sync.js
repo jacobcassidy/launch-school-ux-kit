@@ -27,9 +27,9 @@ import {
   states,
 } from "./state.js";
 import {
-  toggleExerciseStatus,
+  toggleExerciseCompletionStatus,
   toggleHeader,
-  toggleSettingsContainer,
+  toggleSettings,
   toggleSidebar,
   toggleTabsPanel,
   toggleTocMenu,
@@ -176,21 +176,18 @@ export function syncAvailableHotkeys() {
     if (copyCodeBtnExists) handleCopyCodeHotkey();
     if (editorExists || scratchpadExists) handleEditorHotkey("cmdCtrl");
     if (markExerciseBtnExists)
-      setAvailableHotkey("cmdCtrl", "KeyM", "M", "Toggle Exercise Status", toggleExerciseStatus);
+      setAvailableHotkey("cmdCtrl", "KeyM", "M", "Toggle Exercise Completion Status", toggleExerciseCompletionStatus);
     if (nextExerciseBtnExists)
       setAvailableHotkey("cmdCtrl", "KeyN", "N", "Go to next exercise", handleNextExerciseHotkey);
     if (submitReviewBtnExists) setAvailableHotkey("cmdCtrl", "KeyR", "R", "Submit Review", handleSubmitReviewHotkey);
     if (tocButtonExists)
       setAvailableHotkey("cmdCtrl", "KeyT", "T", "Toggle Table of Content Visibility", toggleTocMenu);
     if (settingsContainerExists)
-      setAvailableHotkey("cmdCtrl", "Comma", ",", "Toggle Settings Visibility", toggleSettingsContainer);
+      setAvailableHotkey("cmdCtrl", "Comma", ",", "Toggle Settings Visibility", toggleSettings);
   };
-
-  // const syncNativeHotkeys = () => {};
 
   syncCmdCtrlHotkeys();
   syncCmdOnlyHotkeys();
-  // syncNativeHotkeys();  // DISPLAY NATIVE HOTKEYS IN SETTINGS
 }
 
 /**
@@ -202,7 +199,6 @@ export function syncElementsLoadState() {
   const sidebar = elements.native.sidebar;
   const tabsPanel = elements.native.tabsPanel;
   const isHeaderHidden = states.elements.header.isHidden;
-  // const isSidebarCollapsed = states.elements.sidebar.isCollapsed;
   const isSettingSidebarHiddenHeadersOn = states.elements.sidebar.isSettingSidebarHiddenHeadersOn;
   const isSettingSidebarShrinkOn = states.elements.sidebar.isSettingSidebarShrinkOn;
   const isTabsPanelHidden = states.elements.tabsPanel.isHidden;
@@ -210,22 +206,12 @@ export function syncElementsLoadState() {
   // Set header load state.
   if (header && isHeaderHidden) hideHeader();
 
-  // Set sidebar load state.
-  // if (sidebar && isSidebarCollapsed) {
-  //   sidebar.classList.remove("active");
-  // } else if (sidebar) {
-  //   const sidebarToggleBtn = document.querySelector(".btn--toggle-sidebar");
-  //   sidebarToggleBtn.classList.add("active");
-  // }
-
   // Set tabs panel load state.
   if (tabsPanel && isTabsPanelHidden) {
     hideTabsPanel();
   } else if (tabsPanel) {
     showTabsPanel();
   }
-
-  // Set settings load state
 
   // Set Sidebar Hidden Headers setting load state
   if (sidebar && isSettingSidebarHiddenHeadersOn) {
@@ -261,14 +247,10 @@ export function syncInjectedElementsState() {
 
   // Sync setting togglers
   const isSettingSidebarShrinkOn = states.elements.sidebar.isSettingSidebarShrinkOn;
-  if (isSettingSidebarShrinkOn) {
-    sidebarShrinkToggler.checked = true;
-  }
+  if (isSettingSidebarShrinkOn) sidebarShrinkToggler.checked = true;
 
   const isSettingSidebarHiddenHeadersOn = states.elements.sidebar.isSettingSidebarHiddenHeadersOn;
-  if (isSettingSidebarHiddenHeadersOn) {
-    sidebarHiddenHeadersToggler.checked = true;
-  }
+  if (isSettingSidebarHiddenHeadersOn) sidebarHiddenHeadersToggler.checked = true;
 }
 
 /**
