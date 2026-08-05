@@ -94,9 +94,15 @@ export function syncAvailableHotkeys() {
    * SYNC CMD ONLY HOTKEYS
    */
   const syncCmdOnlyHotkeys = () => {
-    if (headerExists) setAvailableHotkey("cmdOnly", "Digit1", 1, "Toggle Header Visibility", toggleHeader);
-    if (sidebarExists) setAvailableHotkey("cmdOnly", "Digit2", 2, "Toggle Sidebar Visibility", toggleSidebar);
-    if (tabsPanelExists) setAvailableHotkey("cmdOnly", "Digit3", 3, "Toggle Tabs Panel Visibility", toggleTabsPanel);
+    if (sidebarExists) setAvailableHotkey("cmdOnly", "KeyB", "B", "Toggle Sidebar Visibility", toggleSidebar);
+  };
+
+  /**
+   * SYNC CMD + SHIFT HOTKEYS
+   */
+  const syncCmdShiftHotkeys = () => {
+    if (headerExists) setAvailableHotkey("cmdShift", "Digit1", 1, "Toggle Header Visibility", toggleHeader);
+    if (tabsPanelExists) setAvailableHotkey("cmdShift", "Digit2", 2, "Toggle Tabs Panel Visibility", toggleTabsPanel);
   };
 
   /**
@@ -188,6 +194,7 @@ export function syncAvailableHotkeys() {
 
   syncCmdCtrlHotkeys();
   syncCmdOnlyHotkeys();
+  syncCmdShiftHotkeys();
 }
 
 /**

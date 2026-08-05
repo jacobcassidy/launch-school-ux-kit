@@ -22,6 +22,7 @@ export function injectHotkeysSection() {
     for (const [modifierListKey, modifierListObj] of Object.entries(states.hotkeys)) {
       let modifierKey;
       if (modifierListKey === "cmdOnly") modifierKey = null;
+      if (modifierListKey === "cmdShift") modifierKey = "Shift";
       if (modifierListKey === "cmdCtrl") modifierKey = "Ctrl";
 
       for (const hotkeyObj of Object.values(modifierListObj)) {

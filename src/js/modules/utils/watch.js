@@ -132,21 +132,25 @@ export function watchHotkeys() {
     const keyShift = event.shiftKey;
     const isCmdCtrl = keyCmd && keyCtrl && !keyShift && !keyAlt;
     const isCmdOnly = keyCmd && !keyAlt && !keyCtrl && !keyShift;
+    const isCmdShift = keyCmd && keyShift && !keyCtrl && !keyAlt;
     let modifier;
 
-    if (isCmdOnly) modifier = "cmdOnly";
     if (isCmdCtrl) modifier = "cmdCtrl";
+    if (isCmdOnly) modifier = "cmdOnly";
+    if (isCmdShift) modifier = "cmdShift";
 
-    if (event.repeat || (!isCmdOnly && !isCmdCtrl)) return;
+    if (event.repeat || (!isCmdOnly && !isCmdCtrl && !isCmdShift)) return;
 
     if (isCmdOnly) {
-      if (event.code !== "Digit1" && event.code !== "Digit2" && event.code !== "Digit3") return;
+      if (event.code !== "KeyB") return;
 
       event.preventDefault();
       event.stopPropagation();
       event.stopImmediatePropagation();
+    } else if (isCmdShift) {
+      if (event.code !== "Digit1" && event.code !== "Digit2") return;
 
-      if (event.code === "Digit3" && !states.hotkeys.cmdOnly.Digit3) {
+      if (event.code === "Digit2" && !states.hotkeys.cmdShift.Digit2) {
         showToast("No tabs panel available to toggle on this page");
       }
     } else if (isCmdCtrl) {

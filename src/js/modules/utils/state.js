@@ -88,8 +88,8 @@ export const states = {
   },
   hotkeys: {
     cmdOnly: {},
+    cmdShift: {},
     cmdCtrl: {},
-    native: {},
   },
   load: {
     isReloadScheduled: false,
