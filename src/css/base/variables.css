@@ -11,7 +11,7 @@
 
   /* Background Flash Colors */
   --background-flash-001: var(--color-brand-001-alpha);
-  --background-flash-002: oklch(0.75 0.1 230 / 0.15);
+  --background-flash-002: var(--color-blue-056-alpha);
 
   /* Border Colors */
   --border-color-300: var(--color-grayscale-097);
@@ -24,8 +24,44 @@
   --modal-box-shadow: 0 4px 12px rgb(0 0 0 / 0.15);
 
   /* Blue Colors */
-  --color-blue-092: oklch(0.92 0.01 230);
+  /* --color-blue-056-alpha: oklch(0.56 0.1 230 / 0.1); */
+  /* --color-blue-056: oklch(0.56 0.1 230); */
+  /* --color-blue-092: oklch(0.92 0.01 230); */
+  /* --color-blue-095: oklch(0.95 0.01 230); */
+  /* NEW */
+  --color-blue-098: oklch(0.98 0.004 230);
   --color-blue-095: oklch(0.95 0.01 230);
+  --color-blue-092: oklch(0.92 0.016 230);
+  --color-blue-089: oklch(0.89 0.022 230);
+  --color-blue-086: oklch(0.86 0.028 230);
+  --color-blue-083: oklch(0.83 0.034 230);
+  --color-blue-080: oklch(0.8 0.04 230);
+  --color-blue-077: oklch(0.77 0.046 230);
+  --color-blue-074: oklch(0.74 0.052 230);
+  --color-blue-071: oklch(0.71 0.058 230);
+  --color-blue-068: oklch(0.68 0.064 230);
+  --color-blue-065: oklch(0.65 0.07 230);
+  --color-blue-062: oklch(0.62 0.076 230);
+  --color-blue-059: oklch(0.59 0.082 230);
+  --color-blue-056: oklch(0.56 0.088 230);
+  --color-blue-053: oklch(0.53 0.094 230);
+  --color-blue-050: oklch(0.5 0.1 230);
+  --color-blue-047: oklch(0.47 0.094 230);
+  --color-blue-044: oklch(0.44 0.088 230);
+  --color-blue-041: oklch(0.41 0.082 230);
+  --color-blue-038: oklch(0.38 0.076 230);
+  --color-blue-035: oklch(0.35 0.07 230);
+  --color-blue-032: oklch(0.32 0.064 230);
+  --color-blue-029: oklch(0.29 0.058 230);
+  --color-blue-026: oklch(0.26 0.052 230);
+  --color-blue-023: oklch(0.23 0.046 230);
+  --color-blue-020: oklch(0.2 0.04 230);
+  --color-blue-017: oklch(0.17 0.034 230);
+  --color-blue-014: oklch(0.14 0.028 230);
+  --color-blue-011: oklch(0.11 0.022 230);
+  --color-blue-008: oklch(0.08 0.016 230);
+  --color-blue-005: oklch(0.05 0.01 230);
+  --color-blue-002: oklch(0.02 0.004 230);
 
   /* Green Color */
   --color-green-001: oklch(0.65 0.15 150);
