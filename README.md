@@ -30,7 +30,7 @@ An unofficial script for modifying the LaunchSchool.com UI for a cleaner, minima
 **Table of Contents Menu:**
 ![Table of Contents Menu](https://raw.githubusercontent.com/jacobcassidy/launch-school-ui-script/refs/heads/main/docs/reference/screenshots/v1.1.0/06-toc-menu.png)
 
-**SettingsMenu:**
+**Settings Menu:**
 ![Settings Menu](https://raw.githubusercontent.com/jacobcassidy/launch-school-ui-script/refs/heads/main/docs/reference/screenshots/v1.1.0/07-settings-menu.png)
 
 ## Quickstart Guide
