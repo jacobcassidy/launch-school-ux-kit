@@ -4,14 +4,13 @@
 
 /* TAB NAV */
 .tab-nav {
-  --inactive-button-border: var(--border-color-default);
-  --active-button-border: var(--border-color-dark);
+  --inactive-button-border: var(--border-color-400);
+  --active-button-border: var(--border-color-500);
   display: flex;
   align-items: center;
   gap: 0 !important;
   overflow: initial !important;
-  background-color: var(--background-color-001) !important;
-  /* border: 1px solid transparent !important; */
+  background-color: var(--background-color-400) !important;
   border-block-end: 1px solid var(--active-button-border) !important;
   block-size: var(--header-height);
   margin: 0 !important;
@@ -25,8 +24,8 @@
 
 /* TAB BUTTON */
 .tab-button {
-  --inactive-button-border: var(--border-color-default);
-  --active-button-border: var(--border-color-dark);
+  --inactive-button-border: var(--border-color-400);
+  --active-button-border: var(--border-color-500);
   display: flex;
   align-items: center !important;
   gap: 12px;
@@ -59,7 +58,7 @@
   }
 
   &.active {
-    border-block-end-color: var(--background-color-001) !important;
+    border-block-end-color: var(--background-color-400) !important;
     border-inline-start-color: var(--active-button-border) !important;
     color: var(--color-grayscale-050) !important;
 
@@ -93,8 +92,8 @@
 
   .tab-header {
     align-items: center;
-    background-color: var(--background-color-001) !important;
-    border-block-end: 1px solid var(--border-color-dark) !important;
+    background-color: var(--background-color-400) !important;
+    border-block-end: 1px solid var(--border-color-500) !important;
     block-size: var(--header-height);
     margin: 0 !important;
     padding-inline: var(--padding-inline-mw900) !important;
@@ -132,7 +131,7 @@
   }
 
   #actions {
-    border-color: var(--border-color-dark) !important;
+    border-color: var(--border-color-500) !important;
     margin-block: 24px !important;
     padding-block-start: 24px !important;
 
@@ -141,7 +140,7 @@
       display: flex;
       align-items: center;
       gap: 8px;
-      border: 1px solid var(--border-color-dark);
+      border: 1px solid var(--border-color-500);
       padding: 12px 16px !important;
       font-size: 0.9375rem !important;
       line-height: 1;
@@ -155,7 +154,7 @@
 
   /* Community Tab */
   .community-solutions-section {
-    background-color: var(--background-color-001) !important;
+    background-color: var(--background-color-400) !important;
     border: none !important;
     box-shadow: none !important;
     margin: 0 !important;
@@ -168,7 +167,7 @@
 
     .solution-form-section,
     .solution-form-header {
-      border-color: var(--border-color-default) !important;
+      border-color: var(--border-color-400) !important;
     }
   }
 
@@ -178,7 +177,7 @@
       /* Feedback textarea override */
       .feedback-form-inline form {
         textarea.form-control {
-          border: 1px solid var(--border-color-default) !important;
+          border: 1px solid var(--border-color-400) !important;
           padding: 12px 16px !important;
           font-size: 0.9375rem !important;
 
@@ -191,24 +190,17 @@
     }
   }
 }
+
 /* Override */
-body.internal #discussion-thread .discussion-comments .discussion-comment + .discussion-comment,
-body.internal #discussion-thread .discussion-comments .discussion-solution + .discussion-solution,
-body.internal #discussion-thread .assessment-comments .discussion-comment + .discussion-comment,
-body.internal #discussion-thread .assessment-comments .discussion-solution + .discussion-solution,
-body.internal #discussion-thread .discussion-solutions .discussion-comment + .discussion-comment,
-body.internal #discussion-thread .discussion-solutions .discussion-solution + .discussion-solution,
-body.internal #assessment-thread .discussion-comments .discussion-comment + .discussion-comment,
-body.internal #assessment-thread .discussion-comments .discussion-solution + .discussion-solution,
-body.internal #assessment-thread .assessment-comments .discussion-comment + .discussion-comment,
-body.internal #assessment-thread .assessment-comments .discussion-solution + .discussion-solution,
-body.internal #assessment-thread .discussion-solutions .discussion-comment + .discussion-comment,
-body.internal #assessment-thread .discussion-solutions .discussion-solution + .discussion-solution,
-body.internal #personal-discussion-thread .discussion-comments .discussion-comment + .discussion-comment,
-body.internal #personal-discussion-thread .discussion-comments .discussion-solution + .discussion-solution,
-body.internal #personal-discussion-thread .assessment-comments .discussion-comment + .discussion-comment,
-body.internal #personal-discussion-thread .assessment-comments .discussion-solution + .discussion-solution,
-body.internal #personal-discussion-thread .discussion-solutions .discussion-comment + .discussion-comment,
-body.internal #personal-discussion-thread .discussion-solutions .discussion-solution + .discussion-solution {
-  border-color: var(--border-color-dark) !important;
+body.internal {
+  #discussion-thread,
+  #personal-discussion-thread {
+    .discussion-comments,
+    .discussion-solutions {
+      .discussion-comment + .discussion-comment,
+      .discussion-solution + .discussion-solution {
+        border-color: var(--border-color-500) !important;
+      }
+    }
+  }
 }

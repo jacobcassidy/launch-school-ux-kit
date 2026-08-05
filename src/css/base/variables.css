@@ -4,16 +4,20 @@
 
 :root {
   /* Background Colors */
-  --background-color-001: var(--color-grayscale-098);
-  --background-color-002: var(--color-grayscale-097);
-  --background-color-003: var(--color-grayscale-095);
+  --background-color-400: var(--color-grayscale-098);
+  --background-color-450: var(--color-grayscale-097);
+  --background-color-500: var(--color-grayscale-095);
+  --background-color-600: var(--color-grayscale-092);
+
+  /* Background Flash Colors */
   --background-flash-001: var(--color-brand-001-alpha);
   --background-flash-002: oklch(0.75 0.1 230 / 0.15);
 
   /* Border Colors */
-  --border-color-light: var(--color-grayscale-097);
-  --border-color-default: var(--color-grayscale-095);
-  --border-color-dark: var(--color-grayscale-092);
+  --border-color-300: var(--color-grayscale-097);
+  --border-color-400: var(--color-grayscale-095);
+  --border-color-500: var(--color-grayscale-092);
+  --border-color-600: var(--color-grayscale-089);
 
   /* Box Shadows */
   --input-box-shadow: 0 0 0 3px var(--color-blue-092);
@@ -38,6 +42,7 @@
   --color-grayscale-071: oklch(0.71 0 0);
   --color-grayscale-074: oklch(0.74 0 0);
   --color-grayscale-080: oklch(0.8 0 0);
+  --color-grayscale-089: oklch(0.89 0 0);
   --color-grayscale-092: oklch(0.92 0 0);
   --color-grayscale-095: oklch(0.95 0 0);
   --color-grayscale-097: oklch(0.97 0 0);
@@ -58,7 +63,7 @@
   }
 
   /* Sizing */
-  --header-height: 2.5rem;
+  --header-height: 2.6875rem;
   --sidebar-width: 12.1875rem;
 
   /* Transition */
@@ -70,8 +75,8 @@
 
 body:has(#navbar-collapsor:checked) {
   &:has(.sidebar.shrink) {
-    --sidebar-width: 2.5rem;
-    --sidebar-inline-padding: 11px;
+    --sidebar-width: 2.6875rem;
+    --sidebar-inline-padding: 12px;
   }
 
   &:not(:has(.sidebar.shrink)) {

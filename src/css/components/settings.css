@@ -13,7 +13,7 @@
   overflow-block: auto;
   overflow-inline: hidden;
   background: #fff;
-  border: 1px solid var(--border-color-default);
+  border: 1px solid var(--border-color-400);
   border-radius: var(--border-radius-default);
   box-shadow: var(--modal-box-shadow);
   scrollbar-color: #d1d5db #f8f9fa;
@@ -55,14 +55,14 @@
     display: grid;
     grid-column: 1 / -1;
     grid-template-columns: subgrid;
-    border: 1px solid var(--border-color-default);
+    border: 1px solid var(--border-color-400);
     border-radius: var(--border-radius-default);
   }
 
   .settings-list__title {
     grid-column: 1 / -1;
-    background: var(--background-color-002);
-    border-block-end: 1px solid var(--border-color-default);
+    background: var(--background-color-450);
+    border-block-end: 1px solid var(--border-color-400);
     color: var(--color-grayscale-065);
     padding: 8px 12px;
     font-size: 0.6875rem;
@@ -77,7 +77,7 @@
     grid-column: 1 / -1;
     grid-template-columns: subgrid;
     align-items: center;
-    border-block-end: 1px solid var(--border-color-default);
+    border-block-end: 1px solid var(--border-color-400);
 
     .setting-status,
     .setting-desc {
@@ -90,7 +90,7 @@
     .setting-status {
       grid-column: 1;
       gap: 2px;
-      border-inline-end: 1px solid var(--border-color-default);
+      border-inline-end: 1px solid var(--border-color-400);
       color: var(--color-grayscale-065);
       font-family: Monaco, Menlo, Consolas, monospace;
       font-size: 0.75rem;

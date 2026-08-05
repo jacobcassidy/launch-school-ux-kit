@@ -9,7 +9,7 @@
 .conversation-area {
   body:has(#assignment-repl-layout, #book-repl-layout, #book-exercise-repl-layout, #exercise-repl-layout) & {
     :is(.assignment-repl-layout, .book-repl-layout, .book-exercise-repl-layout, .exercise-repl-layout) & {
-      background: var(--background-color-001) !important;
+      background: var(--background-color-400) !important;
       padding-block: 24px !important;
     }
   }
@@ -47,7 +47,7 @@
 
           .line-numbers-rows {
             inset-inline-start: -48px !important;
-            border-color: var(--border-color-default) !important;
+            border-color: var(--border-color-400) !important;
 
             > span::before {
               color: var(--color-grayscale-074) !important;
@@ -60,16 +60,12 @@
 }
 
 .lsbot-input-area {
-  border-color: var(--border-color-dark) !important;
+  border-color: var(--border-color-500) !important;
+  margin: 0 !important;
 }
 
 .lsbot-question-input {
-  border-color: var(--border-color-default) !important;
-}
-
-.lsbot-input-area {
-  margin: 0 !important;
-  padding-block: 16px !important;
+  border-color: var(--border-color-400) !important;
 }
 
 .lsbot-input-wrapper {

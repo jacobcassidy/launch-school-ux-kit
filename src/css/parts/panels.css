@@ -6,7 +6,7 @@
 .resize-handle {
   pointer-events: none;
   display: block;
-  background-color: var(--border-color-dark) !important;
+  background-color: var(--border-color-500) !important;
   inline-size: 2px !important;
 
   body:has(.tabs-panel.panel-collapsed) & {
@@ -16,7 +16,7 @@
 
 /* All Panels */
 :is(.assignment-content-panel, .book-content-panel, .editor-panel, .instructions-panel, .tabs-panel) {
-  background-color: var(--background-color-001) !important;
+  background-color: var(--background-color-400) !important;
   padding: 0 !important;
 }
 
@@ -35,7 +35,7 @@
 /* Content Panels */
 :is(.assignment-content-panel, .book-content-panel) {
   flex-basis: 100% !important;
-  background: var(--background-color-001);
+  background: var(--background-color-400);
   border: none !important;
   padding: 0 !important;
 

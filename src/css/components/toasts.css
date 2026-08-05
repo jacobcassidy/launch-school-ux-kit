@@ -30,18 +30,18 @@
   }
 
   &.alert {
-    color: oklch(0.85 0.1 30);
+    color: oklch(0.8 0.1 30);
   }
 
   &.notice {
-    color: oklch(0.85 0.1 90);
+    color: oklch(0.8 0.1 90);
   }
 
   &.success {
-    color: oklch(0.85 0.1 150);
+    color: oklch(0.8 0.1 150);
   }
 
   &.warn {
-    color: oklch(0.85 0.1 60);
+    color: oklch(0.8 0.1 60);
   }
 }
