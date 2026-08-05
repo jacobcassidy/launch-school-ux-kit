@@ -16,16 +16,32 @@
 .toast {
   transform: translateY(-10px);
   background: var(--color-grayscale-035);
-  border-radius: var(--border-radius-001);
+  border-radius: var(--border-radius-default);
   color: #fff;
   opacity: 0;
   padding: 16px 20px;
   transition:
     opacity var(--duration-long) ease,
     transform var(--duration-long) ease;
-}
 
-.toast.show {
-  transform: translateY(0);
-  opacity: 0.9;
+  &.show {
+    transform: translateY(0);
+    opacity: 0.9;
+  }
+
+  &.alert {
+    color: oklch(0.8 0.1 30);
+  }
+
+  &.notice {
+    color: oklch(0.8 0.1 90);
+  }
+
+  &.success {
+    color: oklch(0.8 0.1 150);
+  }
+
+  &.warn {
+    color: oklch(0.8 0.1 60);
+  }
 }

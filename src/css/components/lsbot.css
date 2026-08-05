@@ -1,0 +1,99 @@
+/**
+ * LSBOT
+ */
+
+:is(.conversation-area, .lsbot-input-area) {
+  padding-inline: var(--padding-inline-mw900) !important;
+}
+
+.conversation-area {
+  body:has(#assignment-repl-layout, #book-repl-layout, #book-exercise-repl-layout, #exercise-repl-layout) & {
+    :is(.assignment-repl-layout, .book-repl-layout, .book-exercise-repl-layout, .exercise-repl-layout) & {
+      background: var(--background-color-400) !important;
+      padding-block: 24px !important;
+    }
+  }
+
+  /* Chat Bubbles */
+  .message-content {
+    .lsbot-message & {
+      background: var(--color-blue-095) !important;
+      border-inline-start: 2px solid var(--color-blue-086) !important;
+      padding: 12px 16px !important;
+
+      p {
+        color: var(--color-blue-026);
+        margin-block-end: 16px !important;
+      }
+
+      .lsbot-copy-message-btn {
+        color: var(--color-blue-065);
+      }
+
+      .lsbot-feedback-context,
+      .lsbot-feedback-btn,
+      .timestamp {
+        color: var(--color-blue-074) !important;
+      }
+    }
+
+    .lsbot-feedback-bar {
+      background: transparent !important;
+      border: none !important;
+      padding: 0 !important;
+    }
+
+    .lsbot-feedback-context,
+    .lsbot-feedback-btn,
+    .timestamp {
+      color: var(--color-grayscale-074) !important;
+      margin: 0;
+    }
+  }
+
+  /* Solution Box */
+  .detected-solution-box {
+    .detected-solution-code {
+      pre {
+        padding: 16px !important;
+
+        code {
+          margin-inline-start: 32px !important;
+          padding: 0 !important;
+
+          .line-numbers-rows {
+            inset-inline-start: -48px !important;
+            border-color: var(--border-color-400) !important;
+
+            > span::before {
+              color: var(--color-grayscale-074) !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.lsbot-input-area {
+  border-color: var(--border-color-500) !important;
+  margin: 0 !important;
+}
+
+.lsbot-question-input {
+  border-color: var(--border-color-400) !important;
+}
+
+.lsbot-input-wrapper {
+  .book-exercise-completion-status,
+  .exercise-completion-status {
+    position: static !important;
+    color: var(--color-grayscale-074) !important;
+    margin: -8px 0 8px !important;
+    padding: 0 var(--padding-inline-mw900) !important;
+
+    i {
+      color: var(--color-grayscale-074) !important;
+    }
+  }
+}

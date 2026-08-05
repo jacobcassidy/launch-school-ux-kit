@@ -5,6 +5,28 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] - 2026-25-08
+
+### Added
+
+- Added setting toggler component
+- Added settings menu with two new settings: Sidebar Shrink (instead of hide), and Sidebar Hidden Headers.
+- Completely redesigned the sidebar layout, including item orders.
+
+### Changed
+
+- Replaced font icons with [Lucide](https://lucide.dev) SVG icons throughout the UI (including the sidebar, header, tabs, and panels)
+- Refactored the CSS variables
+- Updated the tabs to now be icon only (using Lucide icons) with an instant tooltip displaying the tab title.
+- Changed resize-handle border from 4px to 2px
+- Reduced the header button size from 32px to 28px
+- Fixed an issue with the header.txt causing a watch build loop
+- Reorganized all files
+- Updated the colorLog styles with oklch colors
+- Replaced the Hotkeys menu and toggle button with a Settings menu and toggle button. The hotkeys menu remains inside the settings menu.
+- Updated the hotkeys with new bindings
+- Refactored icons element creation functions
+
 ## [1.0.0] - 2026-23-07
 
 ### Added

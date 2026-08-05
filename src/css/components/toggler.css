@@ -1,0 +1,101 @@
+/**
+ * TOGGLER
+ * A toggle switch component that allows users to switch between two states (on/off).
+ */
+
+.toggler {
+  input {
+    display: none;
+
+    &:checked + label .toggler-off,
+    &:not(:checked) + label .toggler-on {
+      opacity: 0;
+      block-size: 0;
+      inline-size: 0;
+    }
+
+    &:checked {
+      + label {
+        &::after,
+        .toggler-on,
+        .toggler-off {
+          inset-inline-start: 75%;
+        }
+
+        &::after {
+          background-color: var(--color-green-001);
+          animation-name: toggler-size;
+        }
+      }
+    }
+  }
+
+  label {
+    cursor: pointer;
+    position: relative;
+    display: block !important;
+    background: var(--background-color-450);
+    border: 1px solid var(--border-color-500);
+    border-radius: 24px;
+    block-size: 24px;
+    inline-size: 48px;
+    margin: 0 !important;
+
+    &::after,
+    .toggler-on,
+    .toggler-off {
+      position: absolute;
+      inset-block-start: 50%;
+      inset-inline-start: 25%;
+      transform: translateY(-50%) translateX(-50%);
+      block-size: 18px;
+      inline-size: 18px;
+      transition:
+        left 0.15s ease-in-out,
+        background-color 0.2s ease-out,
+        width 0.15s ease-in-out,
+        height 0.15s ease-in-out,
+        opacity 0.15s ease-in-out;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      background-color: var(--color-grayscale-065);
+      border-radius: 100%;
+      animation-direction: forwards;
+      animation-duration: 0.15s;
+      animation-iteration-count: 1;
+      animation-name: toggler-size;
+      animation-play-state: running;
+      animation-timing-function: ease-out;
+    }
+  }
+
+  .toggler-on,
+  .toggler-off {
+    z-index: 2;
+    opacity: 1;
+  }
+
+  .path {
+    fill: none;
+    stroke: var(--color-grayscale-098);
+    stroke-linecap: round;
+    stroke-miterlimit: 10;
+    stroke-width: 7px;
+  }
+}
+
+@keyframes toggler-size {
+  0%,
+  100% {
+    block-size: 18px;
+    inline-size: 18px;
+  }
+
+  50% {
+    block-size: 14px;
+    inline-size: 14px;
+  }
+}

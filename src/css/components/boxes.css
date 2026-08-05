@@ -1,0 +1,9 @@
+/**
+ * BOXES
+ */
+
+.alert-box.light-gray {
+  background: var(--background-color-500) !important;
+  border-color: var(--color-grayscale-074) !important;
+  color: var(--color-grayscale-035) !important;
+}

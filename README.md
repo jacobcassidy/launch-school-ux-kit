@@ -1,6 +1,6 @@
 # Launch School UI Script
 
-An unofficial script for modifying the LaunchSchool.com UI for a cleaner, minimal design with added hotkeys for toggling tabs, panels, menus, and the sidebar.
+An unofficial script for modifying the LaunchSchool.com UI for a cleaner, minimal design with added hotkeys for toggling the header, tabs, panels, menus, and the sidebar.
 
 | Index                                 |
 | ------------------------------------- |
@@ -13,28 +13,25 @@ An unofficial script for modifying the LaunchSchool.com UI for a cleaner, minima
 ## Screenshots
 
 **With all panels showing on a book page - Header, Sidebar, Content, and Tabs Panel:**
-![All Panels Open](https://raw.githubusercontent.com/jacobcassidy/launch-school-ui-script/refs/heads/main/docs/reference/screenshots/01-sidebar-header-sidepanel.png)
+![All Panels Open](https://raw.githubusercontent.com/jacobcassidy/launch-school-ui-script/refs/heads/main/docs/reference/screenshots/v1.1.0/01-full-ui.png)
 
-**With Sidebar closed:**
-![Sidebar Closed](https://raw.githubusercontent.com/jacobcassidy/launch-school-ui-script/refs/heads/main/docs/reference/screenshots/02-header-sidepanel.png)
+**With Sidebar shrunk:**
+![Sidebar Shrunk](https://raw.githubusercontent.com/jacobcassidy/launch-school-ui-script/refs/heads/main/docs/reference/screenshots/v1.1.0/02-sidebar-shrunk.png)
 
-**With Header and Sidebar closed:**
-![Header and Sidebar Closed](https://raw.githubusercontent.com/jacobcassidy/launch-school-ui-script/refs/heads/main/docs/reference/screenshots/03-sidepanel.png)
+**With Sidebar hidden:**
+![Sidebar Hidden](https://raw.githubusercontent.com/jacobcassidy/launch-school-ui-script/refs/heads/main/docs/reference/screenshots/v1.1.0/03-sidebar-hidden.png)
 
-**Scratchpad Tab open:**
-![Scratchpad Tab Open](https://raw.githubusercontent.com/jacobcassidy/launch-school-ui-script/refs/heads/main/docs/reference/screenshots/04-sidepanel-scratchpad.png)
+**With Header hidden:**
+![Header Hidden](https://raw.githubusercontent.com/jacobcassidy/launch-school-ui-script/refs/heads/main/docs/reference/screenshots/v1.1.0/04-header-hidden.png)
 
 **With Header, Sidebar, and Tabs Panel closed (only content visible):**
-![Header, Sidebar, and Tabs Panel Closed](https://raw.githubusercontent.com/jacobcassidy/launch-school-ui-script/refs/heads/main/docs/reference/screenshots/05-content.png)
-
-**Header open:**
-![Header Open](https://raw.githubusercontent.com/jacobcassidy/launch-school-ui-script/refs/heads/main/docs/reference/screenshots/06-header-content.png)
+![Content Only](https://raw.githubusercontent.com/jacobcassidy/launch-school-ui-script/refs/heads/main/docs/reference/screenshots/v1.1.0/05-content-only.png)
 
 **Table of Contents Menu:**
-![Table of Contents Menu](https://raw.githubusercontent.com/jacobcassidy/launch-school-ui-script/refs/heads/main/docs/reference/screenshots/07-header-tocmenu.png)
+![Table of Contents Menu](https://raw.githubusercontent.com/jacobcassidy/launch-school-ui-script/refs/heads/main/docs/reference/screenshots/v1.1.0/06-toc-menu.png)
 
-**Hotkeys Menu:**
-![Hotkeys Menu](https://raw.githubusercontent.com/jacobcassidy/launch-school-ui-script/refs/heads/main/docs/reference/screenshots/08-header-hotkeysmenu.png)
+**SettingsMenu:**
+![Settings Menu](https://raw.githubusercontent.com/jacobcassidy/launch-school-ui-script/refs/heads/main/docs/reference/screenshots/v1.1.0/07-settings-menu.png)
 
 ## Quickstart Guide
 
@@ -59,17 +56,15 @@ An unofficial script for modifying the LaunchSchool.com UI for a cleaner, minima
 ## Features
 
 - A new page header with the following:
-  - Button to show the Sidebar.
-  - Button to toggle a book's Table of Contents menu visibility.
-  - Button to toggle the Tabs Panel visibility,
-  - Button to toggle the Current Page Hotkeys/Settings menu visibility.
-  - Breadcrumbs placed center in the header.
-  - If the page has no breadcrumbs, the page title is place center in the header instead.
+  - Button to toggle the Sidebar.
+  - Button to toggle a book's Table of Contents menu visibility (when it exists).
+  - Button to toggle the Tabs Panel visibility (when it exists).
+  - Button to toggle the Settings menu visibility (which includes the Current Page Hotkeys).
+  - Breadcrumbs placed center in the header (ff the page has no breadcrumbs, the page title is place center in the header instead).
   - Moved the logged-out nav to the header for logged-out users.
-
+- A redesigned sidebar with sections and the ability to complete hide it from view.
 - Added a blue background flash to an already active tab/textarea that is activated again via a hotkey so you can quickly see where the active focus is.
 - Added an automatic textbox focus when a tab or editor is selected via button click or hotkey.
-- Added the ability to completely hide the sidebar from view.
 - Added a toaster that will display messages for different actions, such as activating the Copy Editor Code via hotkey.
 - Added automatic LSBot tab focus when a question box answer is submitted in the content panel.
 - Added automatic refocus of the LSBot prompt textarea after a prompt submission completes.
@@ -79,18 +74,17 @@ An unofficial script for modifying the LaunchSchool.com UI for a cleaner, minima
 
   | Hotkey            | Function                                                                   |
   | ----------------- | -------------------------------------------------------------------------- |
-  | `CMD + SHIFT + 1` | Toggle Header visibility                                                   |
-  | `CMD + SHIFT + 2` | Toggle Tabs Panel visibility _(only active on pages with a Tabs Panel)_    |
-  | `CMD + SHIFT + E` | Focus Editor/Scratchpad                                                    |
+  | `CMD + B`         | Toggles Sidebar visibility                                                 |
+  | `CMD + Shift + 1` | Toggles Header visibility                                                  |
+  | `CMD + Shift + 2` | Toggle Tabs Panel visibility                                               |
   | `CMD + CTRL + #`  | Select tab by number order (such as 1 for the "Ask LSBot" tab)             |
-  | `CMD + CTRL + B`  | Toggle Sidebar visibility                                                  |
   | `CMD + CTRL + C`  | Copy Editor/Scratchpad Code                                                |
   | `CMD + CTRL + E`  | Focus Editor/Scratchpad                                                    |
   | `CMD + CTRL + M`  | Toggle the "Mark exercise complete/incomplete" _(active on exercise page)_ |
   | `CMD + CTRL + N`  | Go to next exercise _(active on exercise page)_                            |
   | `CMD + CTRL + R`  | Submit review to LSBot _(active on exercise page)_                         |
-  | `CMD + CTRL + T`  | Toggle Table of Contents Menu visibility _(active on book page)_           |
-  | `CMD + CTRL + ,`  | Toggle Current Page Hotkeys/Settings Menu visibility                       |
+  | `CMD + CTRL + T`  | Toggle Table of Contents visibility _(active on book page)_                |
+  | `CMD + CTRL + ,`  | Toggle Settings visibility (include Current Page Hotkeys)                  |
 
 ## Notes
 

@@ -2,20 +2,20 @@
  * SETTINGS
  */
 
-.settings-menu {
+.settings-container {
   position: absolute;
   z-index: 101;
   inset-block-start: calc(var(--header-height) + 8px);
   inset-inline-end: 12px;
   display: none;
   flex-direction: column;
-  gap: 12px;
+  gap: 24px;
   overflow-block: auto;
   overflow-inline: hidden;
   background: #fff;
-  border: 1px solid var(--border-color-001);
-  border-radius: var(--border-radius-001);
-  box-shadow: 0 4px 12px rgb(0 0 0 / 0.15);
+  border: 1px solid var(--border-color-400);
+  border-radius: var(--border-radius-default);
+  box-shadow: var(--modal-box-shadow);
   scrollbar-color: #d1d5db #f8f9fa;
   scrollbar-width: thin;
   max-block-size: calc(100vb - var(--header-height) - 8px - 16px);
@@ -24,7 +24,7 @@
   transition: var(--transition-long);
 
   :where(h1, h2, h3, h4, ul, li) {
-    color: var(--color-grayscale-050);
+    color: var(--color-grayscale-065);
     margin: 0;
   }
 
@@ -36,45 +36,39 @@
   :where(section) {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 12px;
   }
 
-  .setting-menu__title {
-    display: none;
+  .setting-container__title {
+    color: var(--color-grayscale-050);
     font-size: 1.25rem;
-  }
-
-  .section-title {
-    font-size: 1rem;
-    font-weight: 600;
+    line-height: 1;
   }
 
   .settings-list-wrapper {
     display: grid;
     grid-template-columns: max-content 1fr;
-    row-gap: 12px;
+    row-gap: 16px;
   }
 
   .settings-list {
     display: grid;
     grid-column: 1 / -1;
     grid-template-columns: subgrid;
-    border: 1px solid var(--border-color-001);
-    border-radius: var(--border-radius-001);
-
-    &:has(.settings-list__title:only-child) {
-      display: none;
-    }
+    border: 1px solid var(--border-color-400);
+    border-radius: var(--border-radius-default);
   }
 
   .settings-list__title {
     grid-column: 1 / -1;
-    border-block-end: 1px solid var(--border-color-001);
-    color: var(--color-grayscale-080);
+    background: var(--background-color-450);
+    border-block-end: 1px solid var(--border-color-400);
+    color: var(--color-grayscale-065);
     padding: 8px 12px;
-    font-size: 0.75rem;
+    font-size: 0.6875rem;
     font-weight: 700;
     line-height: 1.5;
+    letter-spacing: 1px;
     text-transform: uppercase;
   }
 
@@ -82,7 +76,8 @@
     display: grid;
     grid-column: 1 / -1;
     grid-template-columns: subgrid;
-    border-block-end: 1px solid var(--border-color-001);
+    align-items: center;
+    border-block-end: 1px solid var(--border-color-400);
 
     .setting-status,
     .setting-desc {
@@ -95,7 +90,7 @@
     .setting-status {
       grid-column: 1;
       gap: 2px;
-      border-inline-end: 1px solid var(--border-color-001);
+      border-inline-end: 1px solid var(--border-color-400);
       color: var(--color-grayscale-065);
       font-family: Monaco, Menlo, Consolas, monospace;
       font-size: 0.75rem;
@@ -111,6 +106,10 @@
           padding-inline: 6px;
           font-weight: 700;
         }
+      }
+
+      .plus {
+        color: var(--color-grayscale-080);
       }
     }
 

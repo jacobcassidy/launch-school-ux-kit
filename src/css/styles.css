@@ -1,22 +1,22 @@
 /* --- BASE --- */
-@import "./base/variables.css";
+@import "./base/variables";
 @import "./base/defaults";
-@import "./base/animations.css";
+@import "./base/animations";
 
-/* --- LAYOUT --- */
-@import "./layout/header.css";
-@import "./layout/sidebar.css";
-@import "./layout/panels.css";
+/* --- PARTS --- */
+@import "./parts/header";
+@import "./parts/panels";
+@import "./parts/sidebar";
+@import "./parts/wrappers";
 
 /* --- COMPONENTS --- */
+@import "./components/boxes";
 @import "./components/buttons";
+@import "./components/editor";
+@import "./components/lsbot";
 @import "./components/settings";
-@import "./components/tabs.css";
-@import "./components/toasts.css";
-@import "./components/toc.css";
-
-/* --- SECTIONS --- */
-@import "./sections/editor.css";
-@import "./sections/lsbot.css";
-@import "./sections/pages.css";
-@import "./sections/wrappers.css";
+@import "./components/tabs";
+@import "./components/toasts";
+@import "./components/toc";
+@import "./components/toggler";
+@import "./components/tooltips";

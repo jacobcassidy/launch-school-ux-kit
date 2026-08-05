@@ -4,7 +4,26 @@
 
 body,
 table {
-  background: var(--background-color-001);
+  background: var(--background-color-400);
+  color: var(--color-grayscale-035);
+}
+
+body {
+  display: flex;
+  flex-wrap: wrap;
+
+  > label {
+    margin: 0 !important;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--color-grayscale-050);
 }
 
 a,
@@ -12,15 +31,19 @@ button {
   transition: var(--transition-short);
 }
 
+a {
+  color: var(--color-grayscale-035);
+}
+
 input:where(:not([type="submit"])),
 select,
 textarea {
   background-color: var(--color-grayscale-100);
-  border: 1px solid var(--border-color-001) !important;
-  border-radius: var(--border-radius-001) !important;
+  border: 1px solid var(--border-color-400) !important;
+  border-radius: var(--border-radius-default) !important;
   box-shadow: none !important;
   color: var(--color-grayscale-050) !important;
-  min-block-size: 40px;
+  min-block-size: 44px;
   padding: 12px 16px !important;
   font-size: 0.9375rem !important;
 
@@ -30,6 +53,17 @@ textarea {
 
   &:focus {
     border-color: transparent !important;
-    box-shadow: 0 0 0 3px var(--color-blue-092) !important;
+    box-shadow: var(--input-box-shadow) !important;
   }
+}
+
+table thead tr th,
+table thead tr td {
+  color: var(--color-grayscale-035);
+}
+
+svg {
+  flex-shrink: 0;
+  block-size: 1.125rem;
+  inline-size: 1.125rem;
 }

@@ -1,0 +1,52 @@
+/**
+ * TOOLTIPS
+ */
+
+.tooltip {
+  pointer-events: none;
+  position: fixed;
+  z-index: 9999;
+  visibility: hidden;
+  display: flex;
+  align-items: center;
+  background: transparent;
+  border: transparent;
+  border-radius: 4px;
+  color: #fff;
+  opacity: 0;
+  inline-size: auto;
+  padding: 0;
+  font-size: 0.875rem;
+  font-weight: 400;
+  transition: opacity var(--duration-short) ease;
+
+  &.active {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+.tab-tooltip,
+.sidebar-tooltip span {
+  background: var(--color-grayscale-035);
+  border-radius: 4px;
+}
+
+.tab-tooltip {
+  padding: 6px 8px;
+}
+
+.sidebar-tooltip {
+  min-block-size: var(--header-height);
+
+  span {
+    padding: 8px 12px;
+    font-size: 1rem;
+  }
+}
+
+body:not(:has(#navbar-collapsor:checked)) {
+  .sidebar-tooltip {
+    display: none;
+  }
+}
