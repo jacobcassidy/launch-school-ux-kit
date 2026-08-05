@@ -60,7 +60,7 @@ An unofficial script for modifying the LaunchSchool.com UI for a cleaner, minima
   - Button to toggle a book's Table of Contents menu visibility (when it exists).
   - Button to toggle the Tabs Panel visibility (when it exists).
   - Button to toggle the Settings menu visibility (which includes the Current Page Hotkeys).
-  - Breadcrumbs placed center in the header (ff the page has no breadcrumbs, the page title is place center in the header instead).
+  - Breadcrumbs placed center in the header (if the page has no breadcrumbs, the page title is place center in the header instead).
   - Moved the logged-out nav to the header for logged-out users.
 - A redesigned sidebar with sections and the ability to complete hide it from view.
 - Added a blue background flash to an already active tab/textarea that is activated again via a hotkey so you can quickly see where the active focus is.
