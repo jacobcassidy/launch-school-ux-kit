@@ -4,7 +4,6 @@
 
 code {
   &:not(pre &) {
-    background: var(--color-grayscale-150) !important;
     border-radius: 2px !important;
   }
 }
