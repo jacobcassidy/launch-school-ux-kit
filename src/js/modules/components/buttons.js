@@ -163,7 +163,7 @@ export function updatePanelButtons() {
         watchMarkToggleBtn(newIcons[0], newIcons[1]);
       } else if (isCopyCodeMarkup) {
         newIcons.forEach((iconEl) => {
-          btnEl.prepend(iconEl);
+          btnEl.prepend(iconEl.cloneNode(true));
         });
       } else if (isRunCode) {
         btnEl.prepend(newIcons[0]);
