@@ -3,16 +3,18 @@
  */
 
 body {
-  background: var(--background-color-200);
-  color: var(--color-grayscale-800);
-}
-
-body {
   display: flex;
   flex-wrap: wrap;
+  background: var(--background-color-200);
+  color: var(--color-grayscale-800);
 
   > label {
     margin: 0 !important;
+  }
+
+  @media (display-mode: minimal-ui) {
+    /* installed PWA */
+    border-block-start: 1px solid var(--border-color-300);
   }
 }
 

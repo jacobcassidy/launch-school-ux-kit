@@ -171,4 +171,10 @@ body:not(:has(.nav-drawer)) {
       color: var(--color-grayscale-400) !important;
     }
   }
+
+  @media (display-mode: minimal-ui) {
+    /* installed PWA */
+    border-block-start: 1px solid var(--border-color-300);
+    block-size: calc(var(--header-height) + 1px);
+  }
 }
