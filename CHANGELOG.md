@@ -5,7 +5,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.1.0] - 2026-25-08
+## [1.2.0] - 2026-08-08
+
+### Added
+
+- Added back styling to sidebar's current page item with `syncActiveSidebarItem()`.
+
+### Changed
+
+- Fixed missing copy code icons.
+- Fixed missing sidebar page icons.
+- Refactored CSS variables for a more consistent design system.
+- Refactored the `createNewSettingsSection()` function to remove unneeded elements.
+- Replaced sidebar "Pages" link with a button element.
+- Fixed typos in README.md.
+
+## [1.1.0] - 2026-08-05
 
 ### Added
 
@@ -27,7 +42,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Updated the hotkeys with new bindings
 - Refactored icons element creation functions
 
-## [1.0.0] - 2026-23-07
+## [1.0.0] - 2026-07-23
 
 ### Added
 
