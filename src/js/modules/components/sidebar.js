@@ -9,13 +9,19 @@ import { icons } from "./icons.js";
 // Import Utils
 // import { colorLog } from "../utils/log.js";
 import { setSidebarListsElement, sidebarLists } from "../utils/state.js";
+import { syncActiveSidebarItem } from "../utils/sync.js";
 
 /**
  * UPDATE SIDEBAR
  */
 export function updateSidebar() {
   const sidebarItemLinks = document.querySelectorAll(".nav-drawer > ul > li > a");
-  const sidebar = document.querySelector(".sidebar.nav-drawer");
+
+  // If sidebar already exists, sync active item and exit early.
+  if (sidebar) {
+    syncActiveSidebarItem();
+    return;
+  }
   if (sidebar) return;
 
   addSidebarLinkClasses();
@@ -155,6 +161,7 @@ export function updateSidebar() {
 
   reorderSidebarLists();
   injectSidebarHeader();
+  syncActiveSidebarItem();
 }
 
 /**
