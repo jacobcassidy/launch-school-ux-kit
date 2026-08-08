@@ -4,8 +4,8 @@
 
 :is(.editor-panel, #tab-code-editor) {
   .editor-mode-bar {
-    background-color: var(--background-color-400) !important;
-    border-block-end: 1px solid var(--border-color-500) !important;
+    background: var(--background-color-200) !important;
+    border-block-end: 1px solid var(--border-color-300) !important;
     block-size: var(--header-height) !important;
     inline-size: 100% !important;
     max-inline-size: 100% !important;
@@ -26,11 +26,11 @@
     .code-editor-wrapper .CodeMirror .CodeMirror-scroll,
     .CodeMirror-gutters,
     #exercise-code-editor {
-      background-color: var(--background-color-450) !important;
+      background: var(--background-color-300) !important;
     }
 
     .code-editor-wrapper {
-      border: 1px solid var(--border-color-400);
+      border: 1px solid var(--border-color-300);
       border-radius: var(--border-radius-default);
       margin-block-start: 24px;
       padding: 12px !important;
@@ -40,10 +40,10 @@
       }
 
       .CodeMirror-activeline-background {
-        background-color: var(--background-color-500) !important;
+        background: var(--background-color-500) !important;
 
         .CodeMirror-focused & {
-          background-color: var(--color-blue-095) !important;
+          background: var(--color-blue-100) !important;
         }
       }
 
@@ -61,13 +61,13 @@
       }
 
       .CodeMirror-gutters {
-        border-color: var(--border-color-400);
+        border-color: var(--border-color-200);
         padding: 0;
       }
     }
 
     #btn-run-code {
-      color: var(--color-grayscale-035);
+      color: var(--color-grayscale-800);
       margin: 16px 0 24px auto !important;
       padding-inline: 16px;
     }
@@ -82,22 +82,32 @@
     margin: 0 0 24px !important;
 
     #code-output-panel {
-      background-color: var(--background-color-400) !important;
-      border-color: var(--border-color-500);
-      border-radius: var(--border-radius-default);
+      background: none !important;
+      border: none !important;
+    }
+
+    .output-header,
+    #code-output-content {
+      border: 1px solid var(--border-color-400);
     }
 
     .output-header {
-      background: var(--background-color-500);
-      border-color: var(--border-color-500);
+      background: var(--background-color-400);
+      border-radius: var(--border-radius-default) var(--border-radius-default) 0 0;
 
       .output-title {
-        color: var(--color-grayscale-035);
+        color: var(--color-grayscale-600);
       }
     }
 
+    #code-output-content {
+      background: var(--background-color-300) !important;
+      border-radius: 0 0 var(--border-radius-default) var(--border-radius-default);
+      border-block-start: none;
+    }
+
     .output-empty {
-      color: var(--color-grayscale-074);
+      color: var(--color-grayscale-400);
     }
   }
 }

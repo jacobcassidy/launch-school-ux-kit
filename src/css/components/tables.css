@@ -1,0 +1,124 @@
+/**
+ * TABLES
+ */
+
+table {
+  background: transparent;
+
+  tr {
+    background: var(--background-color-100);
+
+    td {
+      color: var(--color-grayscale-800);
+    }
+
+    &:last-child {
+      td {
+        &:first-child {
+          border-end-start-radius: var(--border-radius-default);
+        }
+
+        &:last-child {
+          border-end-end-radius: var(--border-radius-default);
+        }
+      }
+    }
+
+    &.even,
+    &.alt,
+    &:nth-of-type(even) {
+      background: var(--background-color-300);
+    }
+
+    &:not(.tealeaf-markup &) {
+      block-size: 3rem;
+    }
+  }
+
+  thead {
+    background: transparent;
+
+    tr {
+      background: var(--background-color-400);
+
+      th {
+        border-block-end: 1px solid var(--background-color-100);
+        color: var(--color-grayscale-400);
+        padding-block: 0;
+        font-size: 0.6875rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+
+        &:first-child {
+          border-start-start-radius: var(--border-radius-default);
+        }
+
+        &:last-child {
+          border-start-end-radius: var(--border-radius-default);
+        }
+      }
+    }
+  }
+
+  &:not(:has(thead)) {
+    tr {
+      &:first-child {
+        td {
+          &:first-child {
+            border-start-start-radius: var(--border-radius-default);
+          }
+
+          &:last-child {
+            border-start-end-radius: var(--border-radius-default);
+          }
+        }
+      }
+    }
+  }
+
+  .phase & {
+    border: 1px solid var(--border-color-100);
+    border-radius: var(--border-radius-default);
+    margin: 0;
+
+    tr {
+      &:last-child {
+        td {
+          border-block-end: none;
+        }
+      }
+    }
+  }
+
+  .tealeaf-markup & {
+    border-collapse: separate;
+
+    tr {
+      thead &,
+      table:not(:has(thead)) & {
+        &:first-child {
+          th,
+          td {
+            border-block-start-width: 1px;
+          }
+        }
+      }
+
+      thead & {
+        background: var(--background-color-400);
+      }
+
+      th,
+      td {
+        border: 0 solid var(--border-color-100);
+        border-block-end-width: 1px;
+        border-inline-end-width: 1px;
+
+        &:first-child {
+          border-inline-start-width: 1px;
+        }
+      }
+    }
+  }
+}

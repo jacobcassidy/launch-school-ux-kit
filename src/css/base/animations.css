@@ -4,10 +4,10 @@
 
 @keyframes bg-flash {
   from {
-    background-color: var(--background-flash-002);
+    background: var(--flash-background-blue);
   }
 
   to {
-    background-color: transparent;
+    background: transparent;
   }
 }

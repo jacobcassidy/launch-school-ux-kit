@@ -28,7 +28,7 @@
 
 .tab-tooltip,
 .sidebar-tooltip span {
-  background: var(--color-grayscale-035);
+  background: var(--color-grayscale-800);
   border-radius: 4px;
 }
 
