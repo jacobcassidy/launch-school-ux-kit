@@ -58,19 +58,15 @@ export function createNewSettingsSection(sectionTitle) {
   const sectionTitleSlug = sectionTitle.trim().replace(/\s+/g, "-").toLowerCase();
   sectionEl.className = `settings-section ${sectionTitleSlug}-section`;
 
-  const sectionTitleEl = document.createElement("li");
-  sectionTitleEl.className = `settings-list__title ${sectionTitleSlug}-title`;
-  sectionTitleEl.innerText = sectionTitle;
-
-  const settingsWrapperEl = document.createElement("div");
-  settingsWrapperEl.className = "settings-list-wrapper";
+  const sectionHeaderEl = document.createElement("header");
+  sectionHeaderEl.className = `settings-section__header ${sectionTitleSlug}-header`;
+  sectionHeaderEl.innerText = sectionTitle;
 
   const settingsListEl = document.createElement("ul");
   settingsListEl.className = "settings-list";
 
-  settingsListEl.append(sectionTitleEl);
-  settingsWrapperEl.append(settingsListEl);
-  sectionEl.append(settingsWrapperEl);
+  sectionEl.append(sectionHeaderEl);
+  sectionEl.append(settingsListEl);
 
   return sectionEl;
 }
@@ -130,7 +126,7 @@ export function createNewSettingToggler(id) {
  */
 function injectUISettingsSection(containerEl) {
   const createUISettingsSection = () => {
-    const uiSettingsSectionEl = createNewSettingsSection("UI Settings");
+    const uiSettingsSectionEl = createNewSettingsSection("UI Options");
     const uiSettingsListEl = uiSettingsSectionEl.querySelector(".settings-list");
 
     const createSettingSidebarHiddenHeadersEl = () => {
