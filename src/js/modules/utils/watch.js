@@ -5,7 +5,7 @@
 
 // Import Utils
 import { activateHotkey } from "./activate.js";
-import { colorLog } from "./log.js";
+// import { colorLog } from "./log.js";
 import { elements, setSettingSidebarHiddenHeaders, setSettingSidebarShrink, states } from "./state.js";
 import { handleFocus } from "./focus.js";
 import { scheduleReload } from "./load.js";

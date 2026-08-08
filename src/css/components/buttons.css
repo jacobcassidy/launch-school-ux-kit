@@ -9,34 +9,34 @@
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
-  background-color: var(--background-color-500) !important;
+  background: var(--background-color-500) !important;
   border-radius: var(--border-radius-default) !important;
-  color: var(--color-grayscale-050);
+  color: var(--color-grayscale-600);
   block-size: 28px !important;
   inline-size: 28px !important;
   margin: 0;
   padding: 0;
 
   &:hover {
-    background-color: var(--color-brand-001) !important;
+    background: var(--color-brand-400) !important;
     color: var(--color-grayscale-100);
   }
 
   &.active {
-    background-color: var(--color-brand-001-alpha) !important;
-    color: var(--color-brand-002);
+    background: var(--color-brand-400-alpha) !important;
+    color: var(--color-brand-500);
   }
 
   &.toc-toggle-button {
     &.open {
-      background-color: var(--color-brand-001-alpha) !important;
-      color: var(--color-brand-002) !important;
+      background: var(--color-brand-400-alpha) !important;
+      color: var(--color-brand-500) !important;
     }
   }
 }
 
 .btn-copy-code {
-  color: var(--color-grayscale-050) !important;
+  color: var(--color-grayscale-600) !important;
   block-size: initial !important;
   inline-size: initial !important;
   padding: 8px !important;
@@ -68,7 +68,7 @@
     display: flex;
     align-items: center;
     gap: 6px;
-    color: var(--color-grayscale-080) !important;
+    color: var(--color-grayscale-400) !important;
     padding: 4px 12px !important;
     font-size: 0.875rem !important;
 
@@ -78,11 +78,13 @@
     }
 
     &:hover {
-      color: var(--color-grayscale-092) !important;
+      color: var(--color-grayscale-300) !important;
     }
 
-    &:active {
-      color: var(--color-grayscale-098) !important;
+    &:active,
+    &:focus {
+      background: transparent !important;
+      color: var(--color-grayscale-200) !important;
     }
   }
 
@@ -103,10 +105,10 @@ button[data-target="#solution-analysis-collapse"] {
   display: flex;
   align-items: center;
   gap: 12px;
-  background: var(--background-color-500);
-  border: 1px solid var(--border-color-500);
+  background: var(--background-color-400);
+  border: 1px solid var(--border-color-600);
   border-radius: var(--border-radius-default);
-  color: var(--color-grayscale-035) !important;
+  color: var(--color-grayscale-800) !important;
   padding: 16px 24px !important;
   transition: var(--transition-short);
 
@@ -123,22 +125,35 @@ button[data-target="#solution-analysis-collapse"] {
   }
 
   &:hover {
-    background-color: var(--color-brand-001-alpha);
-    border-color: var(--color-brand-001);
-    color: var(--color-brand-001) !important;
+    background: var(--color-brand-400-alpha);
+    border-color: var(--color-brand-400);
+    color: var(--color-brand-400) !important;
   }
 }
 
 .lsbot-input-area {
   .send-button-container {
     button {
-      background: var(--background-color-500) !important;
-      border-color: var(--border-color-500) !important;
+      background: var(--background-color-400) !important;
+      border-color: var(--border-color-600) !important;
 
       &:hover:not(:disabled) {
         background: var(--background-color-600) !important;
-        border-color: var(--border-color-600) !important;
+        border-color: var(--border-color-800) !important;
       }
+    }
+  }
+}
+
+.lsbot-question-box {
+  button.lsbot-question-box-send-answer-button {
+    background: var(--background-color-400) !important;
+    border: 1px solid var(--border-color-600) !important;
+    border-radius: var(--border-radius-default);
+
+    &:hover:not(:disabled) {
+      background: var(--background-color-600) !important;
+      border-color: var(--border-color-800) !important;
     }
   }
 }

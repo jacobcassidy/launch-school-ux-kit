@@ -59,7 +59,7 @@
       display: flex;
       flex-direction: column;
       gap: 8px;
-      border-color: var(--border-color-400) !important;
+      border-color: var(--border-color-300) !important;
       margin: 0 !important;
       padding-block-end: 8px !important;
 

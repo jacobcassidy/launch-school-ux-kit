@@ -26,8 +26,8 @@ body:not(:has(.nav-drawer)) {
   align-items: center;
   justify-content: space-between;
   gap: var(--inline-spacing);
-  background: var(--background-color-450);
-  border-block-end: 1px solid var(--border-color-500);
+  background: var(--background-color-300);
+  border-block-end: 1px solid var(--border-color-300);
   block-size: var(--header-height);
   padding: 0 12px;
   transition: var(--transition-long);
@@ -134,7 +134,7 @@ body:not(:has(.nav-drawer)) {
     align-items: center !important;
     overflow: hidden;
     text-overflow: ellipsis;
-    color: var(--color-grayscale-074);
+    color: var(--color-grayscale-400);
     block-size: var(--header-height) !important;
     margin: 0 !important;
     padding: 2px 0 0 !important;
@@ -146,17 +146,17 @@ body:not(:has(.nav-drawer)) {
 
   .gretel-breadcrumbs {
     position: static !important;
-    border-block-end: 1px solid var(--border-color-400) !important;
+    border-block-end: 1px solid var(--border-color-300) !important;
 
     :is(li, li a) {
-      color: var(--color-grayscale-071) !important;
+      color: var(--color-grayscale-400) !important;
       white-space: nowrap;
     }
 
     li {
       a {
         &:hover {
-          color: var(--color-brand-001) !important;
+          color: var(--color-brand-400) !important;
         }
       }
 
@@ -168,7 +168,7 @@ body:not(:has(.nav-drawer)) {
     li.current {
       overflow: hidden;
       text-overflow: ellipsis;
-      color: var(--color-grayscale-074) !important;
+      color: var(--color-grayscale-400) !important;
     }
   }
 }

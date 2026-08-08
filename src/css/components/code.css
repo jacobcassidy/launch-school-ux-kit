@@ -1,0 +1,21 @@
+/**
+ * CODE
+ */
+
+code {
+  &:not(pre &) {
+    border-radius: 2px !important;
+  }
+}
+
+.markup-code-block {
+  .prism-file {
+    color: var(--color-grayscale-200);
+    padding: 0 12px;
+
+    .fa {
+      color: var(--color-grayscale-500);
+      margin-inline-end: 6px;
+    }
+  }
+}

@@ -9,6 +9,7 @@ import { icons } from "./icons.js";
 // Import Utils
 // import { colorLog } from "../utils/log.js";
 import { setSidebarListsElement, sidebarLists } from "../utils/state.js";
+import { syncActiveSidebarItem } from "../utils/sync.js";
 
 /**
  * UPDATE SIDEBAR
@@ -16,7 +17,12 @@ import { setSidebarListsElement, sidebarLists } from "../utils/state.js";
 export function updateSidebar() {
   const sidebarItemLinks = document.querySelectorAll(".nav-drawer > ul > li > a");
   const sidebar = document.querySelector(".sidebar.nav-drawer");
-  if (sidebar) return;
+
+  // If sidebar already exists, sync active item and exit early.
+  if (sidebar) {
+    syncActiveSidebarItem();
+    return;
+  }
 
   addSidebarLinkClasses();
   removeCountParentheses();
@@ -95,7 +101,7 @@ export function updateSidebar() {
         case linkClassStr.includes("pages"):
           linkLabel = "pages";
           linkIconEl = icons.sidebarIcons.pages();
-          dropdownItemIconEl = icons.sidebarIcons.page();
+          dropdownItemIconEl = () => icons.sidebarIcons.page();
           tooltipFallback = "Pages";
           break;
         case linkClassStr.includes("archives"):
@@ -146,15 +152,37 @@ export function updateSidebar() {
 
         if (sidebarDropdownLinks.length > 0) {
           sidebarDropdownLinks.forEach((dropdownLink) => {
-            dropdownLink.prepend(dropdownItemIconEl);
+            dropdownLink.prepend(dropdownItemIconEl());
           });
         }
+      }
+
+      // Replace `a` element with `button` element for pages dropdown
+      if (linkLabel === "pages") {
+        const btnEl = document.createElement("button");
+        btnEl.innerHTML = link.innerHTML;
+        btnEl.className = link.className;
+
+        // Transfer all data-* attributes
+        for (const attr of link.attributes) {
+          if (attr.name.startsWith("data-")) {
+            btnEl.setAttribute(attr.name, attr.value);
+          }
+        }
+
+        // Transfer aria-label
+        if (link.hasAttribute("aria-label")) {
+          btnEl.setAttribute("aria-label", link.getAttribute("aria-label"));
+        }
+
+        link.replaceWith(btnEl);
       }
     }
   });
 
   reorderSidebarLists();
   injectSidebarHeader();
+  syncActiveSidebarItem();
 }
 
 /**

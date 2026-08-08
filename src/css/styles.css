@@ -5,6 +5,7 @@
 
 /* --- PARTS --- */
 @import "./parts/header";
+@import "./parts/home";
 @import "./parts/panels";
 @import "./parts/sidebar";
 @import "./parts/wrappers";
@@ -12,9 +13,11 @@
 /* --- COMPONENTS --- */
 @import "./components/boxes";
 @import "./components/buttons";
+@import "./components/code";
 @import "./components/editor";
 @import "./components/lsbot";
 @import "./components/settings";
+@import "./components/tables";
 @import "./components/tabs";
 @import "./components/toasts";
 @import "./components/toc";

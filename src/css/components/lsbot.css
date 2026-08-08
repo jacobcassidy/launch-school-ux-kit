@@ -9,31 +9,51 @@
 .conversation-area {
   body:has(#assignment-repl-layout, #book-repl-layout, #book-exercise-repl-layout, #exercise-repl-layout) & {
     :is(.assignment-repl-layout, .book-repl-layout, .book-exercise-repl-layout, .exercise-repl-layout) & {
-      background: var(--background-color-400) !important;
+      background: var(--background-color-200) !important;
       padding-block: 24px !important;
     }
   }
 
   /* Chat Bubbles */
   .message-content {
+    padding: 12px 16px !important;
+
+    .timestamp {
+      padding: 0 !important;
+    }
+
+    .student-message & {
+      background: var(--background-color-500);
+      color: var(--color-grayscale-700);
+
+      .timestamp {
+        color: var(--color-grayscale-400) !important;
+        margin-block-start: 8px !important;
+      }
+    }
+
     .lsbot-message & {
-      background: var(--color-blue-095) !important;
-      border-inline-start: 2px solid var(--color-blue-086) !important;
-      padding: 12px 16px !important;
+      background: var(--color-blue-100) !important;
+      border-inline-start: 2px solid var(--color-blue-200) !important;
 
       p {
-        color: var(--color-blue-026);
+        color: var(--color-blue-700);
         margin-block-end: 16px !important;
+
+        &:last-child {
+          margin-block-end: 0 !important;
+        }
       }
 
       .lsbot-copy-message-btn {
-        color: var(--color-blue-065);
+        color: var(--color-blue-400);
       }
 
       .lsbot-feedback-context,
       .lsbot-feedback-btn,
       .timestamp {
-        color: var(--color-blue-074) !important;
+        color: var(--color-blue-400) !important;
+        margin: 0 !important;
       }
     }
 
@@ -46,13 +66,21 @@
     .lsbot-feedback-context,
     .lsbot-feedback-btn,
     .timestamp {
-      color: var(--color-grayscale-074) !important;
+      color: var(--color-grayscale-400) !important;
       margin: 0;
     }
   }
 
   /* Solution Box */
   .detected-solution-box {
+    border-color: var(--border-color-400) !important;
+
+    .detected-solution-header {
+      background: var(--background-color-500) !important;
+      border-color: var(--border-color-400) !important;
+      color: var(--color-grayscale-600) !important;
+    }
+
     .detected-solution-code {
       pre {
         padding: 16px !important;
@@ -63,10 +91,10 @@
 
           .line-numbers-rows {
             inset-inline-start: -48px !important;
-            border-color: var(--border-color-400) !important;
+            border-color: var(--border-color-300) !important;
 
             > span::before {
-              color: var(--color-grayscale-074) !important;
+              color: var(--color-grayscale-400) !important;
             }
           }
         }
@@ -76,24 +104,32 @@
 }
 
 .lsbot-input-area {
-  border-color: var(--border-color-500) !important;
+  background: var(--background-color-200) !important;
+  border-color: var(--border-color-300) !important;
   margin: 0 !important;
+  padding-block: 12px !important;
 }
 
-.lsbot-question-input {
+.lsbot-question-box {
   border-color: var(--border-color-400) !important;
+  padding: 16px !important;
+
+  code {
+    background: var(--background-color-500) !important;
+    border-radius: 2px !important;
+  }
 }
 
 .lsbot-input-wrapper {
   .book-exercise-completion-status,
   .exercise-completion-status {
     position: static !important;
-    color: var(--color-grayscale-074) !important;
+    color: var(--color-grayscale-400) !important;
     margin: -8px 0 8px !important;
     padding: 0 var(--padding-inline-mw900) !important;
 
     i {
-      color: var(--color-grayscale-074) !important;
+      color: var(--color-grayscale-400) !important;
     }
   }
 }

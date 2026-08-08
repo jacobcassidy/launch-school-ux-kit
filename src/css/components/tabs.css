@@ -4,13 +4,13 @@
 
 /* TAB NAV */
 .tab-nav {
-  --inactive-button-border: var(--border-color-400);
-  --active-button-border: var(--border-color-500);
+  --inactive-button-border: var(--border-color-200);
+  --active-button-border: var(--border-color-300);
   display: flex;
   align-items: center;
   gap: 0 !important;
   overflow: initial !important;
-  background-color: var(--background-color-400) !important;
+  background: var(--background-color-200) !important;
   border-block-end: 1px solid var(--active-button-border) !important;
   block-size: var(--header-height);
   margin: 0 !important;
@@ -24,8 +24,6 @@
 
 /* TAB BUTTON */
 .tab-button {
-  --inactive-button-border: var(--border-color-400);
-  --active-button-border: var(--border-color-500);
   display: flex;
   align-items: center !important;
   gap: 12px;
@@ -33,7 +31,7 @@
   border: 1px solid transparent !important;
   border-radius: 0 !important;
   border-inline-start-color: var(--inactive-button-border) !important;
-  color: var(--color-grayscale-074) !important;
+  color: var(--color-grayscale-400) !important;
   block-size: calc(100% + 1px) !important;
   margin: 0 0 -1px !important;
   padding: 2px var(--inline-spacing) 0 !important;
@@ -58,9 +56,9 @@
   }
 
   &.active {
-    border-block-end-color: var(--background-color-400) !important;
+    border-block-end-color: var(--background-color-200) !important;
     border-inline-start-color: var(--active-button-border) !important;
-    color: var(--color-grayscale-050) !important;
+    color: var(--color-grayscale-600) !important;
 
     + .tab-button,
     + .is-hidden + .tab-button {
@@ -73,11 +71,11 @@
   }
 
   &:hover {
-    color: var(--color-brand-001) !important;
+    color: var(--color-brand-400) !important;
   }
 
   &:active {
-    color: var(--color-brand-002) !important;
+    color: var(--color-brand-500) !important;
   }
 
   &.flash-active {
@@ -92,8 +90,8 @@
 
   .tab-header {
     align-items: center;
-    background-color: var(--background-color-400) !important;
-    border-block-end: 1px solid var(--border-color-500) !important;
+    background: var(--background-color-200) !important;
+    border-block-end: 1px solid var(--border-color-300) !important;
     block-size: var(--header-height);
     margin: 0 !important;
     padding-inline: var(--padding-inline-mw900) !important;
@@ -104,7 +102,7 @@
       button {
         display: flex;
         align-items: center;
-        color: var(--color-grayscale-050) !important;
+        color: var(--color-grayscale-600) !important;
         padding: 8px !important;
 
         svg {
@@ -131,7 +129,7 @@
   }
 
   #actions {
-    border-color: var(--border-color-500) !important;
+    border-color: var(--border-color-200) !important;
     margin-block: 24px !important;
     padding-block-start: 24px !important;
 
@@ -140,25 +138,29 @@
       display: flex;
       align-items: center;
       gap: 8px;
-      border: 1px solid var(--border-color-500);
+      border: 1px solid var(--border-color-400);
       padding: 12px 16px !important;
       font-size: 0.9375rem !important;
       line-height: 1;
 
       &:hover {
-        border-color: var(--color-brand-001);
-        color: var(--color-brand-001);
+        border-color: var(--color-brand-400);
+        color: var(--color-brand-400);
       }
     }
   }
 
   /* Community Tab */
   .community-solutions-section {
-    background-color: var(--background-color-400) !important;
+    background: var(--background-color-200) !important;
     border: none !important;
     box-shadow: none !important;
     margin: 0 !important;
     padding: 0 !important;
+
+    .community-solutions-header {
+      color: var(--color-grayscale-600);
+    }
 
     .major-section,
     .respond {
@@ -167,7 +169,7 @@
 
     .solution-form-section,
     .solution-form-header {
-      border-color: var(--border-color-400) !important;
+      border-color: var(--border-color-300) !important;
     }
   }
 
@@ -199,7 +201,7 @@ body.internal {
     .discussion-solutions {
       .discussion-comment + .discussion-comment,
       .discussion-solution + .discussion-solution {
-        border-color: var(--border-color-500) !important;
+        border-color: var(--border-color-300) !important;
       }
     }
   }

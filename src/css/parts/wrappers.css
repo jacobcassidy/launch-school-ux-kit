@@ -2,9 +2,17 @@
  * WRAPPERS
  */
 
+.row {
+  max-inline-size: 56.25rem;
+}
+
 .wrapper {
   margin: 0 !important;
   padding: calc(var(--header-height) * 2) 0 0 var(--sidebar-width) !important;
+}
+
+.container {
+  background: var(--background-color-200);
 }
 
 body:not(:has(.assignment-repl-layout, .book-repl-layout)) {
@@ -40,10 +48,4 @@ body:has(#assignment-repl-layout, #book-repl-layout, #book-exercise-repl-layout,
 .books.show-page .large-11 {
   display: flex;
   align-items: center;
-}
-
-/* Course Page */
-.nav-tabs.secondary-nav {
-  margin: calc(var(--header-height) * -1) 0 var(--header-height) 0;
-  padding-block-start: var(--header-height);
 }
