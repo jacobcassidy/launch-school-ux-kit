@@ -16,13 +16,13 @@ import { syncActiveSidebarItem } from "../utils/sync.js";
  */
 export function updateSidebar() {
   const sidebarItemLinks = document.querySelectorAll(".nav-drawer > ul > li > a");
+  const sidebar = document.querySelector(".sidebar.nav-drawer");
 
   // If sidebar already exists, sync active item and exit early.
   if (sidebar) {
     syncActiveSidebarItem();
     return;
   }
-  if (sidebar) return;
 
   addSidebarLinkClasses();
   removeCountParentheses();
@@ -101,7 +101,7 @@ export function updateSidebar() {
         case linkClassStr.includes("pages"):
           linkLabel = "pages";
           linkIconEl = icons.sidebarIcons.pages();
-          dropdownItemIconEl = icons.sidebarIcons.page();
+          dropdownItemIconEl = () => icons.sidebarIcons.page();
           tooltipFallback = "Pages";
           break;
         case linkClassStr.includes("archives"):
@@ -152,7 +152,7 @@ export function updateSidebar() {
 
         if (sidebarDropdownLinks.length > 0) {
           sidebarDropdownLinks.forEach((dropdownLink) => {
-            dropdownLink.prepend(dropdownItemIconEl);
+            dropdownLink.prepend(dropdownItemIconEl());
           });
         }
       }
