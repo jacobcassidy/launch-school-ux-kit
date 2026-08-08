@@ -104,7 +104,16 @@ function injectTitleToHeaderWithNoBreadcrumbs(containerEl) {
   const loggedOutNav = document.querySelector(".columns:has(> #logo + .nav)");
   if (loggedOutNav) return;
 
-  const titleEl = document.querySelector("title");
+  const currentUrl = window.location.pathname;
+  let titleEl;
+
+  if (currentUrl.startsWith("/course_catalog/")) {
+    // Add the courses-tabs title if on the courses page
+    titleEl = document.querySelector(".courses-tabs li.active a");
+  } else {
+    titleEl = document.querySelector("title");
+  }
+
   const titleText = titleEl.innerText;
   const defaultTitle = "Launch School - an online school for Software Engineers";
 
