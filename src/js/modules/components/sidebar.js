@@ -156,6 +156,27 @@ export function updateSidebar() {
           });
         }
       }
+
+      // Replace `a` element with `button` element for pages dropdown
+      if (linkLabel === "pages") {
+        const btnEl = document.createElement("button");
+        btnEl.innerHTML = link.innerHTML;
+        btnEl.className = link.className;
+
+        // Transfer all data-* attributes
+        for (const attr of link.attributes) {
+          if (attr.name.startsWith("data-")) {
+            btnEl.setAttribute(attr.name, attr.value);
+          }
+        }
+
+        // Transfer aria-label
+        if (link.hasAttribute("aria-label")) {
+          btnEl.setAttribute("aria-label", link.getAttribute("aria-label"));
+        }
+
+        link.replaceWith(btnEl);
+      }
     }
   });
 
