@@ -3,7 +3,8 @@
  * @module components/buttons/header/sidebar-toggle
  */
 
-import { icons } from "../../icons.js";
+// Import components
+import { icons } from "../../../components";
 
 /**
  * INJECT SIDEBAR TOGGLE BUTTON

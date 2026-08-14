@@ -1,0 +1,23 @@
+/**
+ * COPY MARKUP BUTTON
+ * @module components/buttons/panels/copy-markup
+ */
+
+// Import components
+import { icons } from "../../../components";
+
+// Import utils
+import { setButtonProperties } from "../../../utils/state";
+
+/**
+ * Updates the copy markup button styles and icon.
+ */
+export function updateCopyMarkupButton() {
+  const btns = document.querySelectorAll(".markup-copy-block button");
+  if (btns.length < 1) return;
+
+  const newIcons = [() => icons.panelIcons.copy(), () => icons.panelIcons.checkmark()];
+  const btnClasses = ["btn--plain", "btn--copy-markup"];
+
+  setButtonProperties(btns, newIcons, btnClasses);
+}

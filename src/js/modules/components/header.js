@@ -3,14 +3,14 @@
  * @module components/header
  */
 
-// Import Components
+// Import components
 import {
+  injectSettingsMenu,
   injectSettingsToggleButton,
   injectSidebarToggleButton,
   injectTabsPanelToggleButton,
   moveTocBtnToHeader,
-} from "./buttons.js";
-import { injectSettingsContainer } from "./settings.js";
+} from "../components";
 
 /**
  * INJECT SITE HEADER
@@ -89,7 +89,7 @@ function injectContainerElements(containerEl, containerNum) {
     injectTabsPanelToggleButton(containerEl);
     moveTocBtnToHeader(containerEl);
     injectSettingsToggleButton(containerEl);
-    injectSettingsContainer(containerEl);
+    injectSettingsMenu(containerEl);
   }
 }
 

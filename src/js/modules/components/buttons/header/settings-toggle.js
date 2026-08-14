@@ -3,7 +3,8 @@
  * @module components/buttons/header/settings-toggle
  */
 
-import { icons } from "../../icons.js";
+// Import components
+import { icons } from "../../../components";
 
 /**
  * INJECT SETTINGS TOGGLE BUTTON

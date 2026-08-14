@@ -12,6 +12,8 @@ import tabsPanel from "../../../svg/lucide/modified/tabs-panel.svg";
 import toc from "../../../svg/lucide/book-text.svg";
 
 // Import Panel Icons
+import arrowLeft from "../../../svg/lucide/chevron-left.svg";
+import arrowRight from "../../../svg/lucide/chevron-right.svg";
 import checkmark from "../../../svg/lucide/check.svg";
 import conversationHistory from "../../../svg/lucide/gallery-vertical-end.svg";
 import conversationNew from "../../../svg/lucide/circle-plus.svg";
@@ -65,17 +67,19 @@ export const icons = {
     toc: createIcon(toc),
   },
   panelIcons: {
+    arrowLeft: createIcon(arrowLeft),
+    arrowNext: createIcon(nextExercise),
+    arrowRight: createIcon(arrowRight),
     checkmark: createIcon(checkmark),
+    codeRun: createIcon(run),
+    codeStop: createIcon(stop),
     conversationHistory: createIcon(conversationHistory),
     conversationNew: createIcon(conversationNew),
     copy: createIcon(copy),
-    markComplete: createIcon(markComplete),
-    markIncomplete: createIcon(markIncomplete),
-    nextExercise: createIcon(nextExercise),
-    run: createIcon(run),
-    stop: createIcon(stop),
-    viewHide: createIcon(viewHide),
-    viewShow: createIcon(viewShow),
+    exerciseComplete: createIcon(markComplete),
+    exerciseIncomplete: createIcon(markIncomplete),
+    viewOpen: createIcon(viewHide),
+    viewClose: createIcon(viewShow),
   },
   sidebarIcons: {
     archives: createIcon(archives),

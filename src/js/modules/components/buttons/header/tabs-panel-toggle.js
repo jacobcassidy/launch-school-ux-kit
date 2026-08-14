@@ -3,8 +3,11 @@
  * @module components/buttons/header/tabs-panel-toggle
  */
 
-import { icons } from "../../icons.js";
-import { elements } from "../../../utils/state.js";
+// Import components
+import { icons } from "../../../components";
+
+// Import utils
+import { elements } from "../../../utils/state";
 
 /**
  * INJECT TABS PANEL TOGGLE BUTTON
@@ -13,17 +16,15 @@ import { elements } from "../../../utils/state.js";
  * @param {HTMLDivElement} containerEl The container to which the button will be appended.
  */
 export function injectTabsPanelToggleButton(containerEl) {
-  const tabsPanel = elements.native.tabsPanel;
-  if (!tabsPanel) return;
-
-  const createTabsPanelToggleButton = () => {
-    const tabsPanelToggleButtonEl = document.createElement("button");
-    tabsPanelToggleButtonEl.classList.add("site-header__button", "btn--toggle-tabs-panel");
-    tabsPanelToggleButtonEl.title = "Toggle Tabs Panel Visibility";
-    tabsPanelToggleButtonEl.appendChild(icons.headerIcons.tabsPanel());
-
-    return tabsPanelToggleButtonEl;
-  };
-
+  if (!elements.native.tabsPanel) return;
   containerEl.appendChild(createTabsPanelToggleButton());
+}
+
+function createTabsPanelToggleButton() {
+  const tabsPanelToggleButtonEl = document.createElement("button");
+  tabsPanelToggleButtonEl.classList.add("site-header__button", "btn--toggle-tabs-panel");
+  tabsPanelToggleButtonEl.title = "Toggle Tabs Panel Visibility";
+  tabsPanelToggleButtonEl.appendChild(icons.headerIcons.tabsPanel());
+
+  return tabsPanelToggleButtonEl;
 }
