@@ -6,8 +6,11 @@
 // Import components
 import {
   injectHeader,
+  injectContentSolutionButtons,
   injectHotkeysSection,
   injectToaster,
+  updateConversationHistoryButton,
+  updateConversationNewButton,
   updateCopyCodeButton,
   updateCopyMarkupButton,
   updateExerciseCompletionButton,
@@ -17,6 +20,7 @@ import {
   updateSidebar,
   updateSolutionButton,
   updateTabButtons,
+  updateWorkInEditorButton,
 } from "../../components";
 
 // Import utils
@@ -56,6 +60,9 @@ export function loadUI() {
   syncInjectedElementsState();
   updateSidebar();
 
+  injectContentSolutionButtons();
+  updateConversationHistoryButton();
+  updateConversationNewButton();
   updateCopyCodeButton();
   updateCopyMarkupButton();
   updateExerciseCompletionButton();
@@ -64,6 +71,7 @@ export function loadUI() {
   updateRunCodeButton();
   updateSolutionButton();
   updateTabButtons();
+  updateWorkInEditorButton();
   syncAvailableHotkeys();
   injectHotkeysSection();
   syncLoadedElementsState();

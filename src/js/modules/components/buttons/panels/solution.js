@@ -26,3 +26,22 @@ export function updateSolutionButton() {
     watchViewSolutionBtn(btn, newIcons);
   });
 }
+
+export function injectContentSolutionButtons() {
+  const solutionBtnSpans = document.querySelectorAll(".solution-header span");
+  if (!solutionBtnSpans.length > 0) return;
+
+  solutionBtnSpans.forEach((span) => {
+    if (!span) return;
+
+    const solutionBtnEl = document.createElement("button");
+
+    const btns = [solutionBtnEl];
+    const newIcons = [() => icons.panelIcons.viewOpen(), () => icons.panelIcons.viewClose()];
+    const btnClasses = ["btn--outline", "btn--content-toggle-solution"];
+
+    solutionBtnEl.textContent = span.textContent;
+    setButtonProperties(btns, newIcons, btnClasses);
+    span.parentNode.prepend(solutionBtnEl);
+  });
+}

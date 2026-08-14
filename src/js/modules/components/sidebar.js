@@ -302,7 +302,7 @@ function reorderSidebarLists() {
           }
           if (propertyKey === "listTitle") {
             const listHeaderEl = document.createElement("button");
-            listHeaderEl.className = "sidebar-list-toggle-btn";
+            listHeaderEl.className = "sidebar-list-toggle-btn btn--plain";
             const listHeaderTitleEl = document.createElement("span");
             listHeaderTitleEl.className = "list-title";
             listHeaderTitleEl.innerText = propertyValue;

@@ -81,7 +81,7 @@ export function setElementTocButton(el) {
  * @param {Array} btnClasses An array of classes that will be added to this button.
  * @param {Boolean} append If set to true, icon will be appended to the button instead of prepended.
  */
-export function setButtonProperties(btnEls, newIcons, btnClasses = null, append = false) {
+export function setButtonProperties(btnEls, newIcons, btnClasses = [], append = false) {
   if (btnEls.length < 1 || newIcons.length < 1) return;
 
   btnEls.forEach((btn) => {

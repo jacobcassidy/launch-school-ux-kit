@@ -5,7 +5,7 @@
 
 // Import utils
 import { activateHotkey, showToast } from "../../helpers";
-import { ui } from "../../state";
+import { hotkeys, ui } from "../../state";
 
 /**
  * Activates the triggered hotkey.

@@ -51,7 +51,7 @@ import feedback from "../../../svg/lucide/send.svg";
 import instructions from "../../../svg/lucide/scroll.svg";
 import lsbot from "../../../svg/lucide/bot-message-square.svg";
 import review from "../../../svg/lucide/check-check.svg";
-import scratchpad from "../../../svg/lucide/code-xml.svg";
+import code from "../../../svg/lucide/code-xml.svg";
 
 const parser = new DOMParser();
 const createIcon = (icon) => () => createIconEl(icon);
@@ -71,6 +71,7 @@ export const icons = {
     arrowNext: createIcon(nextExercise),
     arrowRight: createIcon(arrowRight),
     checkmark: createIcon(checkmark),
+    code: createIcon(code),
     codeRun: createIcon(run),
     codeStop: createIcon(stop),
     conversationHistory: createIcon(conversationHistory),
@@ -78,8 +79,8 @@ export const icons = {
     copy: createIcon(copy),
     exerciseComplete: createIcon(markComplete),
     exerciseIncomplete: createIcon(markIncomplete),
-    viewOpen: createIcon(viewHide),
     viewClose: createIcon(viewShow),
+    viewOpen: createIcon(viewHide),
   },
   sidebarIcons: {
     archives: createIcon(archives),
@@ -107,6 +108,6 @@ export const icons = {
     instructions: createIcon(instructions),
     lsbot: createIcon(lsbot),
     review: createIcon(review),
-    scratchpad: createIcon(scratchpad),
+    scratchpad: createIcon(code),
   },
 };

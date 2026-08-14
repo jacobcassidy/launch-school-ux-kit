@@ -10,6 +10,7 @@ export * from "./buttons/header/tabs-panel-toggle.js";
 export * from "./buttons/header/toc-toggle.js";
 
 // Buttons - Panel
+export * from "./buttons/panels/conversation.js";
 export * from "./buttons/panels/copy-code.js";
 export * from "./buttons/panels/copy-markup.js";
 export * from "./buttons/panels/exercise-completion.js";
