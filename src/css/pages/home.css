@@ -1,0 +1,34 @@
+/**
+ * HOME COURSES PAGE
+ */
+
+.nav-tabs.secondary-nav {
+  margin: calc(var(--size--header--height) * -1) 0 var(--size--header--height) 0;
+  padding-block-start: var(--size--header--height);
+}
+
+#roadmap {
+  .columns {
+    padding: 0 !important;
+  }
+
+  .phase {
+    margin-block: 3.75rem !important;
+
+    .name {
+      display: flex;
+      gap: 8px;
+      color: var(--color--grayscale-400);
+
+      span {
+        color: var(--color--grayscale-600);
+        margin: 0 !important;
+      }
+
+      img {
+        opacity: 0.5;
+        margin-block-end: 2px !important;
+      }
+    }
+  }
+}

@@ -6,8 +6,8 @@
   padding: 16px;
 
   a {
-    border-block-end-color: var(--color-brand-400);
-    color: var(--color-brand-400);
+    border-block-end-color: var(--color--brand-400);
+    color: var(--color--brand-400);
   }
 
   p {
@@ -17,15 +17,15 @@
   }
 
   &.light-gray {
-    background: var(--background-color-400) !important;
-    border-color: var(--border-color-600) !important;
-    color: var(--color-grayscale-600) !important;
+    background: var(--background-color--400) !important;
+    border-color: var(--border-color--600) !important;
+    color: var(--color--grayscale-600) !important;
   }
 }
 
 .exercises-list {
   .exercise-item,
   .styled-exercise-section {
-    border-color: var(--border-color-400) !important;
+    border-color: var(--border-color--400) !important;
   }
 }

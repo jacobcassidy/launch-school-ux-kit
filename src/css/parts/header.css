@@ -53,12 +53,17 @@
     &.container-2 {
       overflow: hidden;
 
+      body:has(#assignment-repl-layout) & .gretel-breadcrumbs,
+      body:has(#book-exercise-repl-layout) & .gretel-breadcrumbs,
+      body:has(#exercise-repl-layout) & .gretel-breadcrumbs,
       .gretel-breadcrumbs,
       .title-text {
+        position: initial;
         display: flex;
         align-items: center;
         overflow: hidden;
         text-overflow: ellipsis;
+        border: none;
         color: var(--color--grayscale-400);
         block-size: var(--size--header--height);
         margin: 0;
@@ -66,9 +71,12 @@
         font-family: var(--font-family--secondary);
         font-size: 0.875rem;
         font-weight: 700;
+        line-height: 1;
         white-space: nowrap;
       }
 
+      body:has(#book-exercise-repl-layout) & .gretel-breadcrumbs,
+      body:has(#exercise-repl-layout) & .gretel-breadcrumbs,
       .gretel-breadcrumbs {
         li,
         li a {
@@ -97,13 +105,13 @@
     }
 
     body:has(#navbar-collapsor:checked) & {
-      .sidebar-close-icon {
+      .icon--sidebar-close {
         display: none;
       }
     }
 
     body:not(:has(#navbar-collapsor:checked)) & {
-      .sidebar-open-icon {
+      .icon--sidebar-open {
         display: none;
       }
     }

@@ -23,7 +23,7 @@
         }
 
         &::after {
-          background: var(--color-green-400);
+          background: var(--color--green-400);
           animation-name: toggler-size;
         }
       }
@@ -34,8 +34,8 @@
     cursor: pointer;
     position: relative;
     display: block !important;
-    background: var(--background-color-300);
-    border: 1px solid var(--border-color-500);
+    background: var(--background-color--300);
+    border: 1px solid var(--border-color--500);
     border-radius: 24px;
     block-size: 24px;
     inline-size: 48px;
@@ -61,7 +61,7 @@
     &::after {
       content: "";
       display: block;
-      background: var(--color-grayscale-500);
+      background: var(--color--grayscale-500);
       border-radius: 100%;
       animation-direction: forwards;
       animation-duration: 0.15s;
@@ -80,10 +80,10 @@
 
   .path {
     fill: none;
-    stroke: var(--background-color-300);
+    stroke: var(--background-color--300);
     stroke-linecap: round;
     stroke-miterlimit: 10;
-    stroke-width: 7px;
+    stroke-width: 8px;
   }
 }
 

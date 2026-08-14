@@ -4,20 +4,19 @@
 
 /* TAB NAV */
 .tab-nav {
-  --inactive-button-border: var(--border-color-200);
-  --active-button-border: var(--border-color-300);
+  --inactive-button-border: var(--border-color--200);
+  --active-button-border: var(--border-color--300);
   display: flex;
   align-items: center;
   gap: 0 !important;
   overflow: initial !important;
-  background: var(--background-color-200) !important;
+  background: var(--background-color--200) !important;
   border-block-end: 1px solid var(--active-button-border) !important;
-  block-size: var(--header-height);
+  block-size: var(--size--header--height);
   margin: 0 !important;
-  padding: 0 var(--padding-inline-mw900) !important;
+  padding: 0 var(--size--mw900--padding-inline) !important;
 
-  /* Width of ((48px padding + 900px content + 48px padding) * 2) + 4px divider line = 1996px */
-  @media (width < 1996px) {
+  @media (width < 124.75rem) {
     padding-inline-start: 0 !important;
   }
 }
@@ -31,18 +30,17 @@
   border: 1px solid transparent !important;
   border-radius: 0 !important;
   border-inline-start-color: var(--inactive-button-border) !important;
-  color: var(--color-grayscale-400) !important;
+  color: var(--color--grayscale-400) !important;
   block-size: calc(100% + 1px) !important;
   margin: 0 0 -1px !important;
-  padding: 2px var(--inline-spacing) 0 !important;
+  padding: 2px var(--size--spacing-inline) 0 !important;
 
   &:first-child {
     body:has(#assignment-repl-layout, #book-repl-layout, #book-exercise-repl-layout, #exercise-repl-layout) & {
       margin: 0 !important;
     }
 
-    /* Width of ((48px padding + 900px content + 48px padding) * 2) + 4px divider line = 1996px */
-    @media (width < 1996px) {
+    @media (width < 124.75rem) {
       border-inline-start-color: transparent !important;
 
       &.active {
@@ -56,9 +54,9 @@
   }
 
   &.active {
-    border-block-end-color: var(--background-color-200) !important;
+    border-block-end-color: var(--background-color--200) !important;
     border-inline-start-color: var(--active-button-border) !important;
-    color: var(--color-grayscale-600) !important;
+    color: var(--color--grayscale-600) !important;
 
     + .tab-button,
     + .is-hidden + .tab-button {
@@ -71,15 +69,15 @@
   }
 
   &:hover {
-    color: var(--color-brand-400) !important;
+    color: var(--color--brand-400) !important;
   }
 
   &:active {
-    color: var(--color-brand-500) !important;
+    color: var(--color--brand-500) !important;
   }
 
   &.flash-active {
-    animation: bg-flash var(--duration-long);
+    animation: bg-flash var(--timing--long);
   }
 }
 
@@ -90,11 +88,11 @@
 
   .tab-header {
     align-items: center;
-    background: var(--background-color-200) !important;
-    border-block-end: 1px solid var(--border-color-300) !important;
-    block-size: var(--header-height);
+    background: var(--background-color--200) !important;
+    border-block-end: 1px solid var(--border-color--300) !important;
+    block-size: var(--size--header--height);
     margin: 0 !important;
-    padding-inline: var(--padding-inline-mw900) !important;
+    padding-inline: var(--size--mw900--padding-inline) !important;
 
     .tab-header-actions {
       gap: 0 !important;
@@ -102,7 +100,7 @@
       button {
         display: flex;
         align-items: center;
-        color: var(--color-grayscale-600) !important;
+        color: var(--color--grayscale-600) !important;
         padding: 8px !important;
 
         svg {
@@ -114,13 +112,13 @@
 
     /* Overrides */
     body:has(#assignment-repl-layout) & {
-      padding-inline-end: var(--padding-inline-mw900) !important;
+      padding-inline-end: var(--size--mw900--padding-inline) !important;
     }
   }
 
   /* Tab content without a header */
   .tab-pane:not(:has(.tab-header), :has(.editor-mode-bar)) {
-    padding: 24px var(--padding-inline-mw900) !important;
+    padding: 24px var(--size--mw900--padding-inline) !important;
   }
 
   /* Override */
@@ -129,37 +127,37 @@
   }
 
   #actions {
-    border-color: var(--border-color-200) !important;
+    border-color: var(--border-color--200) !important;
     margin-block: 24px !important;
     padding-block-start: 24px !important;
 
-    button,
+    /* button,
     a {
       display: flex;
       align-items: center;
       gap: 8px;
-      border: 1px solid var(--border-color-400);
+      border: 1px solid var(--border-color--400);
       padding: 12px 16px !important;
       font-size: 0.9375rem !important;
       line-height: 1;
 
       &:hover {
-        border-color: var(--color-brand-400);
-        color: var(--color-brand-400);
+        border-color: var(--color--brand-400);
+        color: var(--color--brand-400);
       }
-    }
+    } */
   }
 
   /* Community Tab */
   .community-solutions-section {
-    background: var(--background-color-200) !important;
+    background: var(--background-color--200) !important;
     border: none !important;
     box-shadow: none !important;
     margin: 0 !important;
     padding: 0 !important;
 
     .community-solutions-header {
-      color: var(--color-grayscale-600);
+      color: var(--color--grayscale-600);
     }
 
     .major-section,
@@ -169,7 +167,7 @@
 
     .solution-form-section,
     .solution-form-header {
-      border-color: var(--border-color-300) !important;
+      border-color: var(--border-color--300) !important;
     }
   }
 
@@ -179,13 +177,13 @@
       /* Feedback textarea override */
       .feedback-form-inline form {
         textarea.form-control {
-          border: 1px solid var(--border-color-400) !important;
+          border: 1px solid var(--border-color--400) !important;
           padding: 12px 16px !important;
           font-size: 0.9375rem !important;
 
           &:focus {
             border-color: transparent !important;
-            box-shadow: var(--input-box-shadow) !important;
+            box-shadow: var(--box-shadow--input) !important;
           }
         }
       }
@@ -201,7 +199,7 @@ body.internal {
     .discussion-solutions {
       .discussion-comment + .discussion-comment,
       .discussion-solution + .discussion-solution {
-        border-color: var(--border-color-300) !important;
+        border-color: var(--border-color--300) !important;
       }
     }
   }

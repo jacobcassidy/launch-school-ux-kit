@@ -15,14 +15,14 @@
 
 .toast {
   transform: translateY(-10px);
-  background: var(--color-grayscale-800);
-  border-radius: var(--border-radius-default);
+  background: var(--color--grayscale-800);
+  border-radius: var(--border-radius--default);
   color: #fff;
   opacity: 0;
   padding: 16px 20px;
   transition:
-    opacity var(--duration-long) ease,
-    transform var(--duration-long) ease;
+    opacity var(--timing--long) ease,
+    transform var(--timing--long) ease;
 
   &.show {
     transform: translateY(0);

@@ -4,7 +4,7 @@
 
 @keyframes bg-flash {
   from {
-    background: var(--flash-background-blue);
+    background: var(--flash--background-color);
   }
 
   to {

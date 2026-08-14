@@ -36,7 +36,11 @@
     margin: 0;
     padding: 8px var(--size--sidebar--padding-inline);
     line-height: 1.25;
+  }
 
+  .sidebar-header .sidebar-header__logo,
+  .sidebar-list .sidebar-list__item .item-link,
+  .sidebar-list .sidebar-list__item .item-btn {
     &:hover {
       color: var(--color--brand-400);
     }
@@ -49,7 +53,7 @@
       color: var(--color--grayscale-400);
       font-family: var(--font-family--secondary);
       font-size: 1rem;
-      font-weight: 700;
+      font-weight: 500;
     }
   }
 
@@ -89,10 +93,17 @@
     color: var(--color--grayscale-300);
     font-size: 0.6875rem;
     font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 
     &:active,
     &:focus {
       background: none;
+      color: var(--color--grayscale-500);
+    }
+
+    &:hover {
+      color: var(--color--grayscale-400);
     }
 
     svg {

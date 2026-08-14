@@ -6,7 +6,7 @@
 .resize-handle {
   pointer-events: none;
   display: block;
-  background: var(--border-color-300) !important;
+  background: var(--border-color--300) !important;
   inline-size: 2px !important;
 
   body:has(.tabs-panel.panel-collapsed) & {
@@ -16,7 +16,7 @@
 
 /* All Panels */
 :is(.assignment-content-panel, .book-content-panel, .editor-panel, .instructions-panel, .tabs-panel) {
-  background: var(--background-color-200) !important;
+  background: var(--background-color--200) !important;
   padding: 0 !important;
 }
 
@@ -24,6 +24,11 @@
 :is(.assignment-content-panel, .book-content-panel, .tabs-panel) {
   &.half-width {
     flex-basis: calc(50% - 2px) !important;
+
+    /* Override */
+    body:has(#assignment-repl-layout) .assignment-repl-layout & {
+      padding: 0 !important;
+    }
   }
 }
 
@@ -41,12 +46,12 @@
   :is(.assignment-content-wrapper, .book-content-wrapper) {
     max-inline-size: 100% !important;
     margin: 0 !important;
-    padding: 40px var(--inline-spacing) !important;
+    padding: 40px var(--size--spacing-inline) !important;
 
     > * {
       inline-size: 100% !important;
       max-inline-size: 780px !important;
-      margin: 0 auto !important;
+      margin: 0 auto;
     }
   }
 }

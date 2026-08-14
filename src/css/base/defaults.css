@@ -3,19 +3,8 @@
  */
 
 body {
-  display: flex;
-  flex-wrap: wrap;
-  background: var(--background-color-200);
-  color: var(--color-grayscale-800);
-
-  > label {
-    margin: 0 !important;
-  }
-
-  @media (display-mode: minimal-ui) {
-    /* installed PWA */
-    border-block-start: 1px solid var(--border-color-300);
-  }
+  background: var(--background-color--200);
+  color: var(--color--grayscale-800);
 }
 
 h1,
@@ -23,46 +12,36 @@ h2,
 h3,
 h4,
 h5,
-h6 {
-  color: var(--color-grayscale-600);
-}
-
-a,
-button {
-  transition: var(--transition-short);
+h6,
+p,
+li {
+  color: var(--color--grayscale-600);
 }
 
 a {
-  color: var(--color-grayscale-800);
-}
-
-button {
-  appearance: none;
-
-  &:focus {
-    background: var(--background-color-600) !important;
-  }
+  color: var(--color--grayscale-800);
+  transition: var(--transition--short);
 }
 
 input:where(:not([type="submit"])),
 select,
 textarea {
-  background: var(--color-grayscale-100);
-  border: 1px solid var(--border-color-300) !important;
-  border-radius: var(--border-radius-default) !important;
+  background: var(--color--grayscale-100);
+  border: 1px solid var(--border-color--300) !important;
+  border-radius: var(--border-radius--default) !important;
   box-shadow: none !important;
-  color: var(--color-grayscale-600) !important;
+  color: var(--color--grayscale-600) !important;
   min-block-size: 44px;
   padding: 12px 16px !important;
   font-size: 0.9375rem !important;
 
   &.flash-active {
-    animation: bg-flash var(--duration-long);
+    animation: bg-flash var(--timing--long);
   }
 
   &:focus {
     border-color: transparent !important;
-    box-shadow: var(--input-box-shadow) !important;
+    box-shadow: var(--box-shadow--input) !important;
   }
 }
 

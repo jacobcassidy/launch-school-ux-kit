@@ -13,19 +13,19 @@
 .books.read-page {
   #book-repl-layout {
     .toc-dropdown-container {
-      inset-block-start: var(--header-height) !important;
+      inset-block-start: var(--size--header--height) !important;
       inset-inline: auto 360px !important;
     }
   }
 }
 
 .toc-dropdown-menu {
-  border-color: var(--border-color-400) !important;
-  max-block-size: calc(100vb - var(--header-height) - 8px - 16px) !important;
-  transition: var(--transition-long);
+  border-color: var(--border-color--400) !important;
+  max-block-size: calc(100vb - var(--size--header--height) - 8px - 16px) !important;
+  transition: var(--transition--long);
 
   body:has(.site-header.is-hidden) & {
-    inset-block-start: calc(100% - var(--header-height) + 8px) !important;
+    inset-block-start: calc(100% - var(--size--header--height) + 8px) !important;
     max-block-size: calc(100vb - 8px - 16px) !important;
   }
 }
@@ -59,7 +59,7 @@
       display: flex;
       flex-direction: column;
       gap: 8px;
-      border-color: var(--border-color-300) !important;
+      border-color: var(--border-color--300) !important;
       margin: 0 !important;
       padding-block-end: 8px !important;
 

@@ -5,7 +5,6 @@
 
 /* --- PARTS --- */
 @import "./parts/header";
-@import "./parts/home";
 @import "./parts/panels";
 @import "./parts/sidebar";
 @import "./parts/wrappers";
@@ -23,3 +22,7 @@
 @import "./components/toc";
 @import "./components/toggler";
 @import "./components/tooltips";
+
+/* PAGES */
+@import "./pages/book";
+@import "./pages/home";

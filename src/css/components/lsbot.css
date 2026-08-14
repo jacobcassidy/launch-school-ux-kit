@@ -3,13 +3,13 @@
  */
 
 :is(.conversation-area, .lsbot-input-area) {
-  padding-inline: var(--padding-inline-mw900) !important;
+  padding-inline: var(--size--mw900--padding-inline) !important;
 }
 
 .conversation-area {
   body:has(#assignment-repl-layout, #book-repl-layout, #book-exercise-repl-layout, #exercise-repl-layout) & {
     :is(.assignment-repl-layout, .book-repl-layout, .book-exercise-repl-layout, .exercise-repl-layout) & {
-      background: var(--background-color-200) !important;
+      background: var(--background-color--200) !important;
       padding-block: 24px !important;
     }
   }
@@ -23,21 +23,21 @@
     }
 
     .student-message & {
-      background: var(--background-color-500);
-      color: var(--color-grayscale-700);
+      background: var(--background-color--500);
+      color: var(--color--grayscale-700);
 
       .timestamp {
-        color: var(--color-grayscale-400) !important;
+        color: var(--color--grayscale-400) !important;
         margin-block-start: 8px !important;
       }
     }
 
     .lsbot-message & {
-      background: var(--color-blue-100) !important;
-      border-inline-start: 2px solid var(--color-blue-200) !important;
+      background: var(--color--blue-100) !important;
+      border-inline-start: 2px solid var(--color--blue-200) !important;
 
       p {
-        color: var(--color-blue-700);
+        color: var(--color--blue-700);
         margin-block-end: 16px !important;
 
         &:last-child {
@@ -46,13 +46,13 @@
       }
 
       .lsbot-copy-message-btn {
-        color: var(--color-blue-400);
+        color: var(--color--blue-400);
       }
 
       .lsbot-feedback-context,
       .lsbot-feedback-btn,
       .timestamp {
-        color: var(--color-blue-400) !important;
+        color: var(--color--blue-400) !important;
         margin: 0 !important;
       }
     }
@@ -66,19 +66,19 @@
     .lsbot-feedback-context,
     .lsbot-feedback-btn,
     .timestamp {
-      color: var(--color-grayscale-400) !important;
+      color: var(--color--grayscale-400) !important;
       margin: 0;
     }
   }
 
   /* Solution Box */
   .detected-solution-box {
-    border-color: var(--border-color-400) !important;
+    border-color: var(--border-color--400) !important;
 
     .detected-solution-header {
-      background: var(--background-color-500) !important;
-      border-color: var(--border-color-400) !important;
-      color: var(--color-grayscale-600) !important;
+      background: var(--background-color--500) !important;
+      border-color: var(--border-color--400) !important;
+      color: var(--color--grayscale-600) !important;
     }
 
     .detected-solution-code {
@@ -91,10 +91,10 @@
 
           .line-numbers-rows {
             inset-inline-start: -48px !important;
-            border-color: var(--border-color-300) !important;
+            border-color: var(--border-color--300) !important;
 
             > span::before {
-              color: var(--color-grayscale-400) !important;
+              color: var(--color--grayscale-400) !important;
             }
           }
         }
@@ -104,18 +104,18 @@
 }
 
 .lsbot-input-area {
-  background: var(--background-color-200) !important;
-  border-color: var(--border-color-300) !important;
+  background: var(--background-color--200) !important;
+  border-color: var(--border-color--300) !important;
   margin: 0 !important;
   padding-block: 12px !important;
 }
 
 .lsbot-question-box {
-  border-color: var(--border-color-400) !important;
+  border-color: var(--border-color--400) !important;
   padding: 16px !important;
 
   code {
-    background: var(--background-color-500) !important;
+    background: var(--background-color--500) !important;
     border-radius: 2px !important;
   }
 }
@@ -124,12 +124,12 @@
   .book-exercise-completion-status,
   .exercise-completion-status {
     position: static !important;
-    color: var(--color-grayscale-400) !important;
+    color: var(--color--grayscale-400) !important;
     margin: -8px 0 8px !important;
-    padding: 0 var(--padding-inline-mw900) !important;
+    padding: 0 var(--size--mw900--padding-inline) !important;
 
     i {
-      color: var(--color-grayscale-400) !important;
+      color: var(--color--grayscale-400) !important;
     }
   }
 }
