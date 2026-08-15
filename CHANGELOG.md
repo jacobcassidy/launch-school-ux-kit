@@ -22,8 +22,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Refactored functions to use modules for better organization.
 - Refactored styles to make theme more streamlined.
 
-### Removed
-
 ## [1.2.0] - 2026-08-08
 
 ### Added
