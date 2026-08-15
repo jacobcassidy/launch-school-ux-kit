@@ -1,0 +1,10 @@
+/**
+ * BOOK PAGES
+ */
+
+/* Book Cover Page */
+.books.show-page .large-11 {
+  display: flex;
+  align-items: center;
+  margin-block-start: var(--size--header--height);
+}

@@ -3,13 +3,13 @@
  * @module components/sidebar
  */
 
-// Import Components
-import { icons } from "./icons.js";
+// Import components
+import { icons } from "../components";
 
-// Import Utils
-// import { colorLog } from "../utils/log.js";
-import { setSidebarListsElement, sidebarLists } from "../utils/state.js";
-import { syncActiveSidebarItem } from "../utils/sync.js";
+// Import utils
+import { sidebarLists } from "../utils/configs";
+import { setSidebarListsElement } from "../utils/state";
+import { syncActiveSidebarItem } from "../utils/sync";
 
 /**
  * UPDATE SIDEBAR
@@ -292,13 +292,17 @@ function reorderSidebarLists() {
         for (const [propertyKey, propertyValue] of Object.entries(listProperties)) {
           if (propertyKey === "listElements") {
             propertyValue.forEach((item) => {
+              const itemLinks = item.querySelectorAll("a");
+              itemLinks.forEach((link) => link?.classList.add("item-link"));
+              const itemBtns = item.querySelectorAll("button");
+              itemBtns.forEach((btn) => btn?.classList.add("item-btn"));
               item.className = "sidebar-list__item";
               listEl.appendChild(item);
             });
           }
           if (propertyKey === "listTitle") {
             const listHeaderEl = document.createElement("button");
-            listHeaderEl.className = "sidebar-list-toggle-btn";
+            listHeaderEl.className = "sidebar-list-toggle-btn btn--plain";
             const listHeaderTitleEl = document.createElement("span");
             listHeaderTitleEl.className = "list-title";
             listHeaderTitleEl.innerText = propertyValue;

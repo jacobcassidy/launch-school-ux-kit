@@ -3,23 +3,55 @@
  */
 
 table {
+  border-collapse: separate;
   background: transparent;
+  border: 1px solid var(--border-color--100);
+  border-radius: var(--border-radius--default);
 
   tr {
-    background: var(--background-color-100);
+    background: var(--background-color--100);
+
+    &:has(td.course-name > .assessment-icon) {
+      a,
+      td {
+        color: var(--color--grayscale-600) !important;
+      }
+
+      a {
+        &:hover,
+        &:focus {
+          color: var(--color--grayscale-800) !important;
+        }
+      }
+    }
 
     td {
-      color: var(--color-grayscale-800);
+      color: var(--color--grayscale-800) !important;
+
+      &.course-prereq {
+        color: var(--color--grayscale-400) !important;
+
+        .label {
+          &.prereq-label {
+            background: var(--background-color--500);
+            border: 1px solid var(--border-color--500);
+            border-radius: 2px;
+            color: var(--color--grayscale-500);
+            margin: 0;
+            padding: 4px 6px;
+          }
+        }
+      }
     }
 
     &:last-child {
       td {
         &:first-child {
-          border-end-start-radius: var(--border-radius-default);
+          border-end-start-radius: var(--border-radius--default);
         }
 
         &:last-child {
-          border-end-end-radius: var(--border-radius-default);
+          border-end-end-radius: var(--border-radius--default);
         }
       }
     }
@@ -27,11 +59,74 @@ table {
     &.even,
     &.alt,
     &:nth-of-type(even) {
-      background: var(--background-color-300);
+      background: var(--background-color--300);
     }
 
     &:not(.tealeaf-markup &) {
       block-size: 3rem;
+    }
+
+    &.completed {
+      background-color: var(--color--green-alpha);
+
+      a,
+      td {
+        color: var(--color--green-300) !important;
+      }
+
+      a {
+        &:hover {
+          color: var(--color--green-400) !important;
+        }
+      }
+
+      td {
+        border-block-start: 1px solid var(--color--green-alpha);
+
+        &.course-prereq {
+          color: var(--color--green-400) !important;
+
+          .label {
+            &.prereq-label {
+              background: var(--color--green-100);
+              border: 1px solid var(--color--green-200);
+              color: var(--color--green-400);
+            }
+          }
+        }
+      }
+    }
+
+    &.active {
+      background: var(--color--brand-alpha);
+
+      a,
+      td {
+        color: var(--color--brand-400) !important;
+      }
+
+      a {
+        &:hover {
+          color: var(--color--brand-400) !important;
+        }
+      }
+
+      td {
+        border-block-start: 1px solid var(--color--brand-alpha);
+        block-size: inherit !important;
+
+        &.course-prereq {
+          color: var(--color--brand-400) !important;
+
+          .label {
+            &.prereq-label {
+              background: var(--color--brand-100);
+              border: 1px solid var(--color--brand-200);
+              color: var(--color--brand-400);
+            }
+          }
+        }
+      }
     }
   }
 
@@ -39,23 +134,31 @@ table {
     background: transparent;
 
     tr {
-      background: var(--background-color-400);
+      background: var(--background-color--400);
 
       th {
-        border-block-end: 1px solid var(--background-color-100);
-        color: var(--color-grayscale-400);
+        border: none;
+        color: var(--color--grayscale-400);
         padding-block: 0;
         font-size: 0.6875rem;
         font-weight: 700;
         letter-spacing: 1px;
         text-transform: uppercase;
 
+        &.course-prereq {
+          inline-size: 21% !important;
+        }
+
+        &.course-no {
+          inline-size: 11%;
+        }
+
         &:first-child {
-          border-start-start-radius: var(--border-radius-default);
+          border-start-start-radius: var(--border-radius--default);
         }
 
         &:last-child {
-          border-start-end-radius: var(--border-radius-default);
+          border-start-end-radius: var(--border-radius--default);
         }
       }
     }
@@ -66,20 +169,55 @@ table {
       &:first-child {
         td {
           &:first-child {
-            border-start-start-radius: var(--border-radius-default);
+            border-start-start-radius: var(--border-radius--default);
           }
 
           &:last-child {
-            border-start-end-radius: var(--border-radius-default);
+            border-start-end-radius: var(--border-radius--default);
           }
         }
       }
     }
   }
 
+  body.internal & {
+    tr {
+      &.current {
+        td {
+          block-size: 3rem !important;
+        }
+      }
+    }
+
+    &#prereq-courses-table {
+      tr {
+        background-color: var(--background-color--100) !important;
+
+        &:nth-of-type(even) {
+          background: var(--background-color--300) !important;
+        }
+
+        a,
+        td {
+          color: var(--color--grayscale-800) !important;
+        }
+
+        a {
+          &:hover {
+            color: var(--color--brand-400) !important;
+          }
+        }
+      }
+
+      thead {
+        tr {
+          background: var(--background-color--400) !important;
+        }
+      }
+    }
+  }
+
   .phase & {
-    border: 1px solid var(--border-color-100);
-    border-radius: var(--border-radius-default);
     margin: 0;
 
     tr {
@@ -92,7 +230,7 @@ table {
   }
 
   .tealeaf-markup & {
-    border-collapse: separate;
+    border-width: 0;
 
     tr {
       thead &,
@@ -106,12 +244,12 @@ table {
       }
 
       thead & {
-        background: var(--background-color-400);
+        background: var(--background-color--400);
       }
 
       th,
       td {
-        border: 0 solid var(--border-color-100);
+        border: 0 solid var(--border-color--100);
         border-block-end-width: 1px;
         border-inline-end-width: 1px;
 

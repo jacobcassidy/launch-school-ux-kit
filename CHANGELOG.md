@@ -5,6 +5,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.0] - 2026-08-15
+
+### Added
+
+- Added `.active` table style for "In Progress" course.
+- Added `.completed` table style for completed courses.
+- Added additional button styles for matching theme.
+- Added a top border to the header and sidebar when using a minimal-ui app such as a Safari PWA.
+- Added course page title to header.
+- Added new icons for additional buttons.
+
+### Changed
+
+- Adjusted courses table td widths to keep all cells using a single line of content.
+- Refactored functions to use modules for better organization.
+- Refactored styles to make theme more streamlined.
+
+### Removed
+
 ## [1.2.0] - 2026-08-08
 
 ### Added

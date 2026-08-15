@@ -18,7 +18,7 @@
   padding: 0;
   font-size: 0.875rem;
   font-weight: 400;
-  transition: opacity var(--duration-short) ease;
+  transition: opacity var(--timing--short) ease;
 
   &.active {
     visibility: visible;
@@ -28,7 +28,7 @@
 
 .tab-tooltip,
 .sidebar-tooltip span {
-  background: var(--color-grayscale-800);
+  background: var(--color--grayscale-800);
   border-radius: 4px;
 }
 
@@ -37,7 +37,7 @@
 }
 
 .sidebar-tooltip {
-  min-block-size: var(--header-height);
+  min-block-size: var(--size--header--height);
 
   span {
     padding: 8px 12px;

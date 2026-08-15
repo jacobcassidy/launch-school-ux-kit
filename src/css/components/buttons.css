@@ -2,75 +2,122 @@
  * BUTTONS
  */
 
-.site-header__button {
-  cursor: pointer;
-  position: static !important;
-  display: flex;
-  flex-shrink: 0;
+/* stylelint-disable selector-id-pattern -- LaunchSchool ids don't follow this rule */
+button,
+a.btn {
+  appearance: none;
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  background: var(--background-color-500) !important;
-  border-radius: var(--border-radius-default) !important;
-  color: var(--color-grayscale-600);
-  block-size: 28px !important;
-  inline-size: 28px !important;
+  gap: 8px;
+  background: var(--background-color--400);
+  border: 1px solid var(--border-color--600);
+  border-radius: var(--border-radius--default);
+  color: var(--color--grayscale-600);
   margin: 0;
-  padding: 0;
+  padding: 12px 16px;
+  font-family: var(--font-family--primary);
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1;
+  text-wrap: balance;
+  transition: var(--transition--short);
 
-  &:hover {
-    background: var(--color-brand-400) !important;
-    color: var(--color-grayscale-100);
+  /* Box Collapse Button */
+  .collapse-button & {
+    border-radius: 2px;
   }
 
+  &:hover,
   &.active {
-    background: var(--color-brand-400-alpha) !important;
-    color: var(--color-brand-500);
+    background: var(--color--brand-alpha);
+    border-color: var(--color--brand-400);
+    color: var(--color--brand-400);
   }
 
-  &.toc-toggle-button {
-    &.open {
-      background: var(--color-brand-400-alpha) !important;
-      color: var(--color-brand-500) !important;
+  &:active,
+  &:focus {
+    background: var(--background-color--600);
+    border-color: var(--border-color-800);
+    color: var(--color--grayscale-800);
+  }
+
+  &:where(.btn--plain, .btn--outline) {
+    background: transparent;
+
+    &:active,
+    &:hover,
+    &:focus {
+      background: transparent;
     }
   }
-}
 
-.btn-copy-code {
-  color: var(--color-grayscale-600) !important;
-  block-size: initial !important;
-  inline-size: initial !important;
-  padding: 8px !important;
+  &:where(.btn--plain) {
+    border: none;
+  }
 
-  &.copied {
-    svg.lucide {
-      display: none;
+  &.has-new-icon {
+    i {
+      display: none !important;
     }
   }
-}
 
-.tab-button {
-  position: initial;
-}
+  &.btn--pagination,
+  &.btn--work-in-editor,
+  &.btn--content-toggle-solution,
+  &.lsbot-question-box-send-answer-button {
+    appearance: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    background: transparent !important;
+    border: 1px solid var(--border-color--600) !important;
+    border-radius: var(--border-radius--default) !important;
+    color: var(--color--grayscale-600) !important;
+    margin: 0 !important;
+    padding: 12px 16px !important;
+    font-family: var(--font-family--primary) !important;
+    font-size: 0.75rem !important;
+    font-weight: 400 !important;
+    line-height: 1rem !important;
+    letter-spacing: 1px !important;
+    text-transform: uppercase !important;
 
-.has-new-icon {
-  i,
-  svg:not(.new-icon) {
-    display: none !important;
+    &:hover,
+    &:focus {
+      border-color: var(--color--brand-400) !important;
+      color: var(--color--brand-400) !important;
+    }
+
+    &:active {
+      border-color: var(--color--brand-500) !important;
+      color: var(--color--brand-500) !important;
+    }
   }
-}
 
-.markup-copy-block {
-  display: flex;
-  align-items: center;
-  min-block-size: 32px;
+  /* Copy Code Button */
+  &.btn-copy-code {
+    &,
+    body:has(#exercise-repl-layout) &,
+    body:has(#book-exercise-repl-layout) & {
+      color: var(--color--grayscale-400);
 
-  button {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    color: var(--color-grayscale-400) !important;
-    padding: 4px 12px !important;
-    font-size: 0.875rem !important;
+      &:hover {
+        color: var(--color--grayscale-600);
+      }
+    }
+
+    &.copied {
+      svg.lucide {
+        display: none;
+      }
+    }
+  }
+
+  /* Copy Markup Button */
+  &.btn--copy-markup {
+    color: var(--color--grayscale-400);
+    min-block-size: 28px;
+    font-size: 0.875rem;
 
     svg {
       block-size: 0.875rem;
@@ -78,82 +125,176 @@
     }
 
     &:hover {
-      color: var(--color-grayscale-300) !important;
+      background: transparent;
+      color: var(--color--grayscale-300);
     }
 
     &:active,
     &:focus {
-      background: transparent !important;
-      color: var(--color-grayscale-200) !important;
+      background: transparent;
+      color: var(--color--grayscale-200);
+    }
+
+    &:has(.fa-check) {
+      .lucide-copy-icon {
+        display: none;
+      }
+    }
+
+    &:has(.fa-copy) {
+      .lucide-check-icon {
+        display: none;
+      }
     }
   }
 
-  &:has(.fa-check) {
-    .lucide-copy-icon {
-      display: none;
+  /* Run Code Button */
+  &.btn--run-code#btn-run-code {
+    &,
+    body:has(#book-repl-layout) &,
+    body:has(#assignment-repl-layout) &,
+    body:has(#book-exercise-repl-layout) &,
+    body:has(#exercise-repl-layout) & {
+      color: var(--color--grayscale-600);
+      margin: 16px 0 24px auto;
+      padding-inline: 16px;
     }
   }
 
-  &:has(.fa-copy) {
-    .lucide-check-icon {
-      display: none;
+  /* Exercise Buttons */
+  &.btn--exercise-completion,
+  &.btn--next-exercise {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid var(--border-color--400);
+    border-radius: var(--border-radius--default);
+    color: var(--color--grayscale-400) !important;
+    margin: 0;
+    padding: 12px 16px !important;
+    font-family: var(--font-family--primary);
+    font-size: 0.9375rem !important;
+    font-weight: 400;
+    line-height: 1;
+    transition: var(--transition--short);
+
+    &:hover,
+    &:focus,
+    &:active {
+      border-color: var(--color--brand-400);
+      color: var(--color--brand-400) !important;
+    }
+
+    &:active {
+      border-color: var(--border-color-600);
+      color: var(--color--grayscale-600) !important;
     }
   }
-}
 
-button[data-target="#solution-analysis-collapse"] {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  background: var(--background-color-400);
-  border: 1px solid var(--border-color-600);
-  border-radius: var(--border-radius-default);
-  color: var(--color-grayscale-800) !important;
-  padding: 16px 24px !important;
-  transition: var(--transition-short);
+  /* LSBot Prompt Submission Button */
+  &.lsbot-submit-btn {
+    background: var(--background-color--400) !important;
+    border-color: var(--border-color--600) !important;
 
-  .markup-collapse.open & {
-    .lucide-eye-icon {
-      display: none;
+    &:hover:not(:disabled) {
+      background: var(--background-color--600) !important;
+      border-color: var(--border-color--800) !important;
+    }
+
+    svg {
+      margin: 0 !important;
     }
   }
 
-  .markup-collapse:not(.open) & {
-    .lucide-eye-off-icon {
-      display: none;
+  /* Pagination Buttons */
+  &.btn--pagination {
+    &,
+    body:has(#assignment-repl-layout) &,
+    body:has(#book-repl-layout) & {
+      &.btn--pagination-next {
+        padding-inline: 20px 12px !important;
+      }
+
+      &.btn--pagination-prev {
+        padding-inline: 12px 20px !important;
+      }
     }
   }
 
-  &:hover {
-    background: var(--color-brand-400-alpha);
-    border-color: var(--color-brand-400);
-    color: var(--color-brand-400) !important;
+  /* View Solution Button */
+  &.btn--toggle-solution {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--background-color--400);
+    border: 1px solid var(--border-color--600);
+    border-radius: var(--border-radius--default);
+    color: var(--color--grayscale-800);
+    padding: 16px 24px;
+    letter-spacing: 1px;
+    transition: var(--transition--short);
+
+    .markup-collapse.open & {
+      .lucide-eye-icon {
+        display: none;
+      }
+    }
+
+    .markup-collapse:not(.open) & {
+      .lucide-eye-off-icon {
+        display: none;
+      }
+    }
+
+    &:hover {
+      background: var(--color--brand-alpha);
+      border-color: var(--color--brand-400);
+      color: var(--color--brand-400) !important;
+    }
   }
-}
 
-.lsbot-input-area {
-  .send-button-container {
-    button {
-      background: var(--background-color-400) !important;
-      border-color: var(--border-color-600) !important;
+  /* Content View Solution Button */
+  &.btn--content-toggle-solution {
+    .solution > .open & {
+      svg.lucide-eye-icon {
+        display: none;
+      }
+    }
 
-      &:hover:not(:disabled) {
-        background: var(--background-color-600) !important;
-        border-color: var(--border-color-800) !important;
+    .solution > :not(.open) & {
+      svg.lucide-eye-off-icon {
+        display: none;
       }
     }
   }
 }
 
-.lsbot-question-box {
-  button.lsbot-question-box-send-answer-button {
-    background: var(--background-color-400) !important;
-    border: 1px solid var(--border-color-600) !important;
-    border-radius: var(--border-radius-default);
-
-    &:hover:not(:disabled) {
-      background: var(--background-color-600) !important;
-      border-color: var(--border-color-800) !important;
-    }
+/* EXERCISES VIEW SOLUTION BUTTON */
+.solution-header {
+  span,
+  &::before {
+    display: none !important;
   }
+}
+
+/* PAGINATION BUTTONS WRAPPERS */
+.footer-nav {
+  margin: 0;
+}
+
+#exercises-section ~ .chapter-navigation-arrows {
+  margin-block-start: 1.5rem !important;
+}
+
+#assignment_submitted:has(.alert-box) + .footer-nav {
+  margin-block-start: 1.875rem;
+}
+
+#chapter_content > .chapter-navigation-arrows {
+  margin-block-start: 1rem !important;
+}
+
+/* PAGINATION BUTTONS */
+.chapter-navigation-arrows {
+  margin-block-start: 1rem !important;
 }

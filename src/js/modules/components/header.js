@@ -3,14 +3,14 @@
  * @module components/header
  */
 
-// Import Components
+// Import components
 import {
+  injectSettingsMenu,
   injectSettingsToggleButton,
   injectSidebarToggleButton,
   injectTabsPanelToggleButton,
   moveTocBtnToHeader,
-} from "./buttons.js";
-import { injectSettingsContainer } from "./settings.js";
+} from "../components";
 
 /**
  * INJECT SITE HEADER
@@ -89,7 +89,7 @@ function injectContainerElements(containerEl, containerNum) {
     injectTabsPanelToggleButton(containerEl);
     moveTocBtnToHeader(containerEl);
     injectSettingsToggleButton(containerEl);
-    injectSettingsContainer(containerEl);
+    injectSettingsMenu(containerEl);
   }
 }
 
@@ -104,7 +104,16 @@ function injectTitleToHeaderWithNoBreadcrumbs(containerEl) {
   const loggedOutNav = document.querySelector(".columns:has(> #logo + .nav)");
   if (loggedOutNav) return;
 
-  const titleEl = document.querySelector("title");
+  const currentUrl = window.location.pathname;
+  let titleEl;
+
+  if (currentUrl.startsWith("/course_catalog/")) {
+    // Add the courses-tabs title if on the courses page
+    titleEl = document.querySelector(".courses-tabs li.active a");
+  } else {
+    titleEl = document.querySelector("title");
+  }
+
   const titleText = titleEl.innerText;
   const defaultTitle = "Launch School - an online school for Software Engineers";
 

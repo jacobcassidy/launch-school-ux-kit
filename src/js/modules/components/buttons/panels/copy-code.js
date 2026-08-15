@@ -1,0 +1,23 @@
+/**
+ * COPY CODE BUTTON
+ * @module components/buttons/panels/copy-code
+ */
+
+// Import components
+import { icons } from "../../../components";
+
+// Import utils
+import { setButtonProperties } from "../../../utils/state";
+
+/**
+ * Updates the copy code button styles and icon.
+ */
+export function updateCopyCodeButton() {
+  const btns = document.querySelectorAll(".btn-copy-code");
+  if (btns.length < 1) return;
+
+  const newIcons = [() => icons.panelIcons.copy()];
+  const btnClasses = ["btn--plain"];
+
+  setButtonProperties(btns, newIcons, btnClasses);
+}

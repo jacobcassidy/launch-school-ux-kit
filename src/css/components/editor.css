@@ -4,13 +4,13 @@
 
 :is(.editor-panel, #tab-code-editor) {
   .editor-mode-bar {
-    background: var(--background-color-200) !important;
-    border-block-end: 1px solid var(--border-color-300) !important;
-    block-size: var(--header-height) !important;
+    background: var(--background-color--200) !important;
+    border-block-end: 1px solid var(--border-color--300) !important;
+    block-size: var(--size--header--height) !important;
     inline-size: 100% !important;
     max-inline-size: 100% !important;
     margin: 0 !important;
-    padding-inline: var(--padding-inline-mw900) !important;
+    padding-inline: var(--size--mw900--padding-inline) !important;
   }
 
   .tab-pane .CodeMirror {
@@ -19,19 +19,19 @@
 
   :is(.code-editor-section, .editor-content-wrapper) {
     max-inline-size: 100% !important;
-    padding-inline: var(--padding-inline-mw900) !important;
+    padding-inline: var(--size--mw900--padding-inline) !important;
 
     .code-editor-wrapper,
     .code-editor-wrapper .CodeMirror,
     .code-editor-wrapper .CodeMirror .CodeMirror-scroll,
     .CodeMirror-gutters,
     #exercise-code-editor {
-      background: var(--background-color-300) !important;
+      background: var(--background-color--300) !important;
     }
 
     .code-editor-wrapper {
-      border: 1px solid var(--border-color-300);
-      border-radius: var(--border-radius-default);
+      border: 1px solid var(--border-color--300);
+      border-radius: var(--border-radius--default);
       margin-block-start: 24px;
       padding: 12px !important;
 
@@ -40,17 +40,17 @@
       }
 
       .CodeMirror-activeline-background {
-        background: var(--background-color-500) !important;
+        background: var(--background-color--500) !important;
 
         .CodeMirror-focused & {
-          background: var(--color-blue-100) !important;
+          background: var(--color--blue-100) !important;
         }
       }
 
       .CodeMirror-activeline {
         .flash-active & {
           .CodeMirror-line {
-            animation: bg-flash var(--duration-long);
+            animation: bg-flash var(--timing--long);
           }
         }
       }
@@ -61,15 +61,9 @@
       }
 
       .CodeMirror-gutters {
-        border-color: var(--border-color-200);
+        border-color: var(--border-color--200);
         padding: 0;
       }
-    }
-
-    #btn-run-code {
-      color: var(--color-grayscale-800);
-      margin: 16px 0 24px auto !important;
-      padding-inline: 16px;
     }
   }
 
@@ -77,7 +71,7 @@
   .output-section-fixed {
     align-self: center;
     border: none !important;
-    inline-size: calc(100% - (var(--inline-spacing) * 2));
+    inline-size: calc(100% - (var(--size--spacing-inline) * 2));
     max-inline-size: 900px;
     margin: 0 0 24px !important;
 
@@ -88,26 +82,27 @@
 
     .output-header,
     #code-output-content {
-      border: 1px solid var(--border-color-400);
+      border: 1px solid var(--border-color--400);
     }
 
     .output-header {
-      background: var(--background-color-400);
-      border-radius: var(--border-radius-default) var(--border-radius-default) 0 0;
+      background: var(--background-color--400);
+      border-radius: var(--border-radius--default) var(--border-radius--default) 0 0;
 
       .output-title {
-        color: var(--color-grayscale-600);
+        color: var(--color--grayscale-600);
       }
     }
 
     #code-output-content {
-      background: var(--background-color-300) !important;
-      border-radius: 0 0 var(--border-radius-default) var(--border-radius-default);
+      background: var(--background-color--300) !important;
+      border-radius: 0 0 var(--border-radius--default) var(--border-radius--default);
       border-block-start: none;
     }
 
     .output-empty {
-      color: var(--color-grayscale-400);
+      color: var(--color--grayscale-400);
+      padding: 0;
     }
   }
 }
