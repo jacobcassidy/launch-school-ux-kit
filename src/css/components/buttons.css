@@ -19,7 +19,13 @@ a.btn {
   font-size: 0.75rem;
   font-weight: 400;
   line-height: 1;
+  text-wrap: balance;
   transition: var(--transition--short);
+
+  /* Box Collapse Button */
+  .collapse-button & {
+    border-radius: 2px;
+  }
 
   &:hover,
   &.active {
@@ -57,7 +63,8 @@ a.btn {
 
   &.btn--pagination,
   &.btn--work-in-editor,
-  &.btn--content-toggle-solution {
+  &.btn--content-toggle-solution,
+  &.lsbot-question-box-send-answer-button {
     appearance: none !important;
     display: inline-flex !important;
     align-items: center !important;
@@ -204,14 +211,12 @@ a.btn {
     &,
     body:has(#assignment-repl-layout) &,
     body:has(#book-repl-layout) & {
-      gap: 4px !important;
-
       &.btn--pagination-next {
-        padding-inline: 16px 8px !important;
+        padding-inline: 20px 12px !important;
       }
 
       &.btn--pagination-prev {
-        padding-inline: 8px 16px !important;
+        padding-inline: 12px 20px !important;
       }
     }
   }
@@ -264,22 +269,6 @@ a.btn {
   }
 }
 
-/* View Solution dropdown container */
-#solution-analysis-collapse {
-  background-color: var(--background-color--300);
-  border-color: var(--border-color--100);
-  border-radius: var(--border-radius--default);
-  padding: 16px 24px;
-}
-
-.tealeaf-markup .markup-collapse.open > div > .collapse-button::before {
-  border-block-end-color: var(--border-color--100);
-}
-
-.tealeaf-markup .markup-collapse.open > div > .collapse-button::after {
-  border-block-end-color: var(--background-color--300);
-}
-
 /* EXERCISES VIEW SOLUTION BUTTON */
 .solution-header {
   span,
@@ -304,6 +293,7 @@ a.btn {
 #chapter_content > .chapter-navigation-arrows {
   margin-block-start: 1rem !important;
 }
+
 /* PAGINATION BUTTONS */
 .chapter-navigation-arrows {
   margin-block-start: 1rem !important;

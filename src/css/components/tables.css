@@ -11,8 +11,37 @@ table {
   tr {
     background: var(--background-color--100);
 
+    &:has(td.course-name > .assessment-icon) {
+      a,
+      td {
+        color: var(--color--grayscale-600) !important;
+      }
+
+      a {
+        &:hover,
+        &:focus {
+          color: var(--color--grayscale-800) !important;
+        }
+      }
+    }
+
     td {
-      color: var(--color--grayscale-800);
+      color: var(--color--grayscale-800) !important;
+
+      &.course-prereq {
+        color: var(--color--grayscale-400) !important;
+
+        .label {
+          &.prereq-label {
+            background: var(--background-color--500);
+            border: 1px solid var(--border-color--500);
+            border-radius: 2px;
+            color: var(--color--grayscale-500);
+            margin: 0;
+            padding: 4px 6px;
+          }
+        }
+      }
     }
 
     &:last-child {
@@ -36,6 +65,69 @@ table {
     &:not(.tealeaf-markup &) {
       block-size: 3rem;
     }
+
+    &.completed {
+      background-color: var(--color--green-alpha);
+
+      a,
+      td {
+        color: var(--color--green-300) !important;
+      }
+
+      a {
+        &:hover {
+          color: var(--color--green-400) !important;
+        }
+      }
+
+      td {
+        border-block-start: 1px solid var(--color--green-alpha);
+
+        &.course-prereq {
+          color: var(--color--green-400) !important;
+
+          .label {
+            &.prereq-label {
+              background: var(--color--green-100);
+              border: 1px solid var(--color--green-200);
+              color: var(--color--green-400);
+            }
+          }
+        }
+      }
+    }
+
+    &.active {
+      background: var(--color--brand-alpha);
+
+      a,
+      td {
+        color: var(--color--brand-400) !important;
+      }
+
+      a {
+        &:hover {
+          color: var(--color--brand-400) !important;
+        }
+      }
+
+      td {
+        border-block-start: 1px solid var(--color--brand-alpha);
+        block-size: inherit !important;
+
+        &.course-prereq {
+          color: var(--color--brand-400) !important;
+
+          .label {
+            &.prereq-label {
+              background: var(--color--brand-100);
+              border: 1px solid var(--color--brand-200);
+              color: var(--color--brand-400);
+            }
+          }
+        }
+      }
+    }
   }
 
   thead {
@@ -45,13 +137,17 @@ table {
       background: var(--background-color--400);
 
       th {
-        border-block-end: 1px solid var(--background-color--100);
+        border: none;
         color: var(--color--grayscale-400);
         padding-block: 0;
         font-size: 0.6875rem;
         font-weight: 700;
         letter-spacing: 1px;
         text-transform: uppercase;
+
+        &.course-prereq {
+          inline-size: 21% !important;
+        }
 
         &.course-no {
           inline-size: 11%;
@@ -125,69 +221,6 @@ table {
     margin: 0;
 
     tr {
-      block-size: 3rem;
-
-      th {
-        &.course-prereq {
-          inline-size: 21% !important;
-        }
-      }
-
-      td {
-        color: var(--color--grayscale-500) !important;
-
-        &.course-name:has(.assessment-icon) {
-          a {
-            color: var(--color--grayscale-600);
-          }
-        }
-
-        &.course-prereq {
-          color: var(--color--grayscale-400) !important;
-
-          .label {
-            &.prereq-label {
-              background: var(--background-color--500);
-              border: 1px solid var(--border-color--500);
-              border-radius: 2px;
-              color: var(--color--grayscale-500);
-              padding: 4px 6px;
-            }
-          }
-        }
-      }
-
-      &.active {
-        background: var(--color--brand-alpha);
-
-        a,
-        td {
-          color: var(--color--brand-400) !important;
-        }
-
-        a {
-          &:hover {
-            color: var(--color--brand-400) !important;
-          }
-        }
-
-        td {
-          block-size: inherit !important;
-
-          &.course-prereq {
-            color: var(--color--brand-400) !important;
-
-            .label {
-              &.prereq-label {
-                background: var(--color--brand-100);
-                border: 1px solid var(--color--brand-200);
-                color: var(--color--brand-400);
-              }
-            }
-          }
-        }
-      }
-
       &:last-child {
         td {
           border-block-end: none;

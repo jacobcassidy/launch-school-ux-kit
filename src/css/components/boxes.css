@@ -27,5 +27,34 @@
   .exercise-item,
   .styled-exercise-section {
     border-color: var(--border-color--400) !important;
+
+    &.solution-content {
+      background: var(--background-color--300) !important;
+    }
+  }
+}
+
+.tealeaf-markup {
+  .markup-collapse {
+    .collapse-button {
+      &::after {
+        border-block-end-color: var(--background-color--300) !important;
+      }
+
+      &::before {
+        border-block-end-color: var(--border-color--100) !important;
+      }
+    }
+
+    .collapse {
+      background: var(--background-color--300);
+      border-color: var(--border-color--100);
+      border-radius: var(--border-radius--default);
+      padding: 16px 20px;
+
+      :first-child {
+        margin-block-start: 0 !important;
+      }
+    }
   }
 }

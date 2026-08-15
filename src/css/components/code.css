@@ -9,12 +9,16 @@ code {
 }
 
 .markup-code-block {
+  .markup-actions {
+    padding-block: 4px;
+  }
+
   .prism-file {
-    color: var(--color--grayscale-200);
+    color: var(--color--grayscale-300);
     padding: 0 12px;
 
     .fa {
-      color: var(--color--grayscale-500);
+      color: var(--color--grayscale-400);
       margin-inline-end: 6px;
     }
   }

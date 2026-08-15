@@ -23,6 +23,7 @@ body:has(#assignment-repl-layout, #book-repl-layout, #book-exercise-repl-layout,
   }
 }
 
+.wrapper,
 .container {
   background: var(--background-color--200);
 }
@@ -41,7 +42,8 @@ body:has(#assignment-repl-layout, #book-repl-layout, #book-exercise-repl-layout,
 
 .wrapper {
   margin: 0 !important;
-  padding: calc(var(--size--header--height) * 2) var(--size--spacing-inline) 0 calc(var(--size--sidebar--width) + var(--size--spacing-inline)) !important;
+  padding-block: calc(var(--size--header--height) * 2) 0 !important;
+  padding-inline: calc(var(--size--sidebar--width) + var(--size--spacing-inline)) var(--size--spacing-inline) !important;
 
   body:not(:has(.assignment-repl-layout, .book-repl-layout)):has(.site-header.is-hidden) & {
     inset-block-start: calc(var(--size--header--height) * -1) !important;
