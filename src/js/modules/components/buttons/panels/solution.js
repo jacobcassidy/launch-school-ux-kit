@@ -43,5 +43,6 @@ export function injectContentSolutionButtons() {
     solutionBtnEl.textContent = span.textContent;
     setButtonProperties(btns, newIcons, btnClasses);
     span.parentNode.prepend(solutionBtnEl);
+    span.remove();
   });
 }
