@@ -232,7 +232,7 @@ function injectSidebarHeader() {
 }
 
 /**
- * REMOVE COUNT PARENTHESES
+ * ADD COUNT WITHOUT PARENTHESES
  */
 function removeCountParentheses() {
   // colorLog.run("Running removeCountParentheses()");
@@ -250,6 +250,8 @@ function removeCountParentheses() {
       const newCountEl = document.createElement("span");
       newCountEl.className = "unread-count";
       newCountEl.textContent = countText.replace(/[()]/g, "");
+      if (newCountEl.textContent === "1") newCountEl.classList.add("hide-single-count");
+
       count.after(newCountEl);
     };
 
