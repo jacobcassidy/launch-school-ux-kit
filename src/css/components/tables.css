@@ -20,7 +20,7 @@ table {
       a {
         &:hover,
         &:focus {
-          color: var(--color--grayscale-800) !important;
+          color: var(--color--brand-400) !important;
         }
       }
     }
@@ -107,7 +107,7 @@ table {
 
       a {
         &:hover {
-          color: var(--color--brand-400) !important;
+          color: var(--color--brand-500) !important;
         }
       }
 
