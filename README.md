@@ -1,6 +1,6 @@
-# Launch School UI Script
+# Launch School UX Kit
 
-An unofficial script for modifying the LaunchSchool.com UI for a cleaner, minimal design with added hotkeys for toggling the header, tabs, panels, menus, and the sidebar.
+An unofficial UX kit that modifies the LaunchSchool.com UI for a cleaner, minimal design with added hotkeys for toggling the header, tabs, panels, menus, and the sidebar.
 
 | Index                                 |
 | ------------------------------------- |
@@ -13,32 +13,32 @@ An unofficial script for modifying the LaunchSchool.com UI for a cleaner, minima
 ## Screenshots
 
 **With all panels showing on a book page - Header, Sidebar, Content, and Tabs Panel:**
-![All Panels Open](https://raw.githubusercontent.com/jacobcassidy/launch-school-ui-script/refs/heads/main/docs/reference/screenshots/v1.1.0/01-full-ui.png)
+![All Panels Open](https://raw.githubusercontent.com/jacobcassidy/launch-school-ux-kit/refs/heads/main/docs/reference/screenshots/v1.1.0/01-full-ui.png)
 
 **With Sidebar shrunk:**
-![Sidebar Shrunk](https://raw.githubusercontent.com/jacobcassidy/launch-school-ui-script/refs/heads/main/docs/reference/screenshots/v1.1.0/02-sidebar-shrunk.png)
+![Sidebar Shrunk](https://raw.githubusercontent.com/jacobcassidy/launch-school-ux-kit/refs/heads/main/docs/reference/screenshots/v1.1.0/02-sidebar-shrunk.png)
 
 **With Sidebar hidden:**
-![Sidebar Hidden](https://raw.githubusercontent.com/jacobcassidy/launch-school-ui-script/refs/heads/main/docs/reference/screenshots/v1.1.0/03-sidebar-hidden.png)
+![Sidebar Hidden](https://raw.githubusercontent.com/jacobcassidy/launch-school-ux-kit/refs/heads/main/docs/reference/screenshots/v1.1.0/03-sidebar-hidden.png)
 
 **With Header hidden:**
-![Header Hidden](https://raw.githubusercontent.com/jacobcassidy/launch-school-ui-script/refs/heads/main/docs/reference/screenshots/v1.1.0/04-header-hidden.png)
+![Header Hidden](https://raw.githubusercontent.com/jacobcassidy/launch-school-ux-kit/refs/heads/main/docs/reference/screenshots/v1.1.0/04-header-hidden.png)
 
 **With Header, Sidebar, and Tabs Panel closed (only content visible):**
-![Content Only](https://raw.githubusercontent.com/jacobcassidy/launch-school-ui-script/refs/heads/main/docs/reference/screenshots/v1.1.0/05-content-only.png)
+![Content Only](https://raw.githubusercontent.com/jacobcassidy/launch-school-ux-kit/refs/heads/main/docs/reference/screenshots/v1.1.0/05-content-only.png)
 
 **Table of Contents Menu:**
-![Table of Contents Menu](https://raw.githubusercontent.com/jacobcassidy/launch-school-ui-script/refs/heads/main/docs/reference/screenshots/v1.1.0/06-toc-menu.png)
+![Table of Contents Menu](https://raw.githubusercontent.com/jacobcassidy/launch-school-ux-kit/refs/heads/main/docs/reference/screenshots/v1.1.0/06-toc-menu.png)
 
 **Settings Menu:**
-![Settings Menu](https://raw.githubusercontent.com/jacobcassidy/launch-school-ui-script/refs/heads/main/docs/reference/screenshots/v1.1.0/07-settings-menu.png)
+![Settings Menu](https://raw.githubusercontent.com/jacobcassidy/launch-school-ux-kit/refs/heads/main/docs/reference/screenshots/v1.1.0/07-settings-menu.png)
 
 ## Quickstart Guide
 
 1. Install the [Tampermonkey](https://chromewebstore.google.com/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo) extension (or an equivalent extension).
 2. Open the Tampermonkey extension dashboard.
 3. Click on the dashboard's `+` tab to create a new script.
-4. Copy the code from [/dist/js/index.min.js](https://github.com/jacobcassidy/launch-school-ui-script/blob/main/dist/js/index.min.js) then paste it into the Tampermonkey editor and save it (`CMD + S`).
+4. Copy the code from [/dist/js/index.min.js](https://github.com/jacobcassidy/launch-school-ux-kit/blob/main/dist/js/index.min.js) then paste it into the Tampermonkey editor and save it (`CMD + S`).
 5. Go to [launchschool.com](https://launchschoo.com) or refresh the page if you're already there and the script should now be active (if not, check your Tampermonkey extension settings to make sure it's active on launchschool.com).
 
 > [!TIP]
@@ -91,8 +91,8 @@ An unofficial script for modifying the LaunchSchool.com UI for a cleaner, minima
 - This script was developed for macOS. Windows/Linux have not been tested, though you may fork and modify the script however you'd like for your OS.
 - This script is only for desktop views. It will break the UI on screen sizes narrower than 1025px wide.
 - You can toggle the userscript off at anytime and reload the page to get the original official UI back.
-- This script modifies the existing DOM of launchschool.com. If the launchschool.com DOM changes in the future, this script may cease to function. If that happens, please [report the issue](https://github.com/jacobcassidy/launch-school-ui-script/issues).
+- This script modifies the existing DOM of launchschool.com. If the launchschool.com DOM changes in the future, this script may cease to function. If that happens, please [report the issue](https://github.com/jacobcassidy/launch-school-ux-kit/issues).
 
 ## Issues?
 
-If you come across any issues, please feel free to [report them here](https://github.com/jacobcassidy/launch-school-ui-script/issues). You are also welcome to [create a pull request](https://github.com/jacobcassidy/launch-school-ui-script/pulls). If your PR code is AI generated, please fully review the code and mention you have done so, otherwise it may be automatically closed without being reviewed/merged.
+If you come across any issues, please feel free to [report them here](https://github.com/jacobcassidy/launch-school-ux-kit/issues). You are also welcome to [create a pull request](https://github.com/jacobcassidy/launch-school-ux-kit/pulls). If your PR code is AI generated, please fully review the code and mention you have done so, otherwise it may be automatically closed without being reviewed/merged.

@@ -1,4 +1,4 @@
-# Changelog for Launch School UI Script
+# Changelog for Launch School UX Kit
 
 All notable changes to this project will be documented in this file.
 
@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Changed the project name from "Launch School UI Script" to "Launch School UX Kit".
 - Fixed the LSBot content colors for consistency between all elements.
 - Fixed the default `p` and `li` styles.
 - Fixed the forum search input icon by giving its padding back that was overridden by the default input padding.

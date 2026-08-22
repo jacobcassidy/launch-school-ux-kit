@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         LaunchSchool UI Modifications
+// @name         LaunchSchool UX Kit
 // @namespace    https://tampermonkey.net/
 // @version      2026-08-22
-// @description  Update the Launch School UI for a cleaner, more minimal layout and add additional hotkeys.
+// @description  A UX kit that enhances the LaunchSchool.com pages with an refined UI and convenient keyboard shortcuts.
 // @author       Jacob Cassidy
 // @match        https://launchschool.com/**
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=launchschool.com
