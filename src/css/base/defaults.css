@@ -5,6 +5,11 @@
 body {
   background: var(--background-color--200);
   color: var(--color--grayscale-800);
+
+  /* For Safari PWA */
+  @media (display-mode: minimal-ui) {
+    border-block-start: 1px solid var(--border-color--100);
+  }
 }
 
 h1,
@@ -12,9 +17,7 @@ h2,
 h3,
 h4,
 h5,
-h6,
-p,
-li {
+h6 {
   color: var(--color--grayscale-600);
 }
 
