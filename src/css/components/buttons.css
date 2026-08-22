@@ -4,7 +4,8 @@
 
 /* stylelint-disable selector-id-pattern -- LaunchSchool ids don't follow this rule */
 button,
-a.btn {
+a.btn,
+a.button {
   appearance: none;
   display: inline-flex;
   align-items: center;
@@ -297,4 +298,32 @@ a.btn {
 /* PAGINATION BUTTONS */
 .chapter-navigation-arrows {
   margin-block-start: 1rem !important;
+}
+
+/* FORUM PAGINATION BUTTONS */
+body.internal {
+  .pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-family: var(--font-family--primary);
+
+    .page {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--border-radius--default) !important;
+      min-block-size: 1.5rem;
+      min-inline-size: 1.5rem;
+      padding: 4px;
+      font-family: var(--font-family--primary);
+      font-size: 1rem;
+      line-height: 1;
+
+      + .page {
+        margin: 0;
+      }
+    }
+  }
 }
