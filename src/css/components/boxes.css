@@ -3,7 +3,8 @@
  */
 
 .alert-box {
-  padding: 16px;
+  color: var(--color--grayscale-800) !important;
+  padding: 16px 24px;
 
   a {
     border-block-end-color: var(--color--brand-400);

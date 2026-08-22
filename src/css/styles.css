@@ -15,6 +15,7 @@
 @import "./components/code";
 @import "./components/editor";
 @import "./components/lsbot";
+@import "./components/search";
 @import "./components/settings";
 @import "./components/tables";
 @import "./components/tabs";
