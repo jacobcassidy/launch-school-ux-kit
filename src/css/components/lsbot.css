@@ -23,8 +23,12 @@
     }
 
     .student-message & {
-      background: var(--background-color--500);
-      color: var(--color--grayscale-700);
+      #tab-lsbot-help &,
+      #tab-submit-review &,
+      #tab-lsbot-hints & {
+        background: var(--background-color--500);
+        color: var(--color--grayscale-700);
+      }
 
       .timestamp {
         color: var(--color--grayscale-400) !important;
@@ -36,8 +40,12 @@
       background: var(--color--blue-100) !important;
       border-inline-start: 2px solid var(--color--blue-200) !important;
 
-      p {
+      p,
+      li {
         color: var(--color--blue-700);
+      }
+
+      p {
         margin-block-end: 16px !important;
 
         &:last-child {
