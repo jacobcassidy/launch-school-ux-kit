@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Added `.button` to the button style group for style consistency.
+- Added the `CONTRIBUTIONS.md` file.
 - Added top border to page in minimal-ui (such as Safari PWA) since those browsers have no border between the title bar and page.
 
 ### Changed
