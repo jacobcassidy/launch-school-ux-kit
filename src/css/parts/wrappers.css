@@ -54,8 +54,3 @@ body:has(#assignment-repl-layout, #book-repl-layout, #book-exercise-repl-layout,
     inset-block-start: calc(var(--size--header--height) * -1) !important;
   }
 }
-
-/* Overrides */
-body:has(#assignment-repl-layout) .assignment-content-panel .assignment-content-wrapper header h1 {
-  color: var(--color--grayscale-600);
-}

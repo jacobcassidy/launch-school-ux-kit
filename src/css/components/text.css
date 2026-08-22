@@ -1,0 +1,35 @@
+/**
+ * TEXT
+ */
+
+body:has(#assignment-repl-layout) .assignment-content-panel .assignment-content-wrapper header h1 {
+  color: var(--color--grayscale-600);
+}
+
+body.books {
+  .bookshelf {
+    .chapter-contents {
+      p,
+      ul,
+      ol,
+      li {
+        color: var(--color--grayscale-800);
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        a {
+          color: var(--color--grayscale-600);
+
+          &:hover {
+            color: var(--color--grayscale-800);
+          }
+        }
+      }
+    }
+  }
+}
