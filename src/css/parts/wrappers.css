@@ -15,6 +15,11 @@ body:has(#assignment-repl-layout, #book-repl-layout, #book-exercise-repl-layout,
 
     body:has(.site-header.is-hidden) & {
       inset-block-start: 0 !important;
+
+      /* For Safari PWA */
+      @media (display-mode: minimal-ui) {
+        inset-block-start: 1px !important;
+      }
     }
 
     body:not(:has(.nav-drawer)) & {
@@ -48,4 +53,9 @@ body:has(#assignment-repl-layout, #book-repl-layout, #book-exercise-repl-layout,
   body:not(:has(.assignment-repl-layout, .book-repl-layout)):has(.site-header.is-hidden) & {
     inset-block-start: calc(var(--size--header--height) * -1) !important;
   }
+}
+
+/* Overrides */
+body:has(#assignment-repl-layout) .assignment-content-panel .assignment-content-wrapper header h1 {
+  color: var(--color--grayscale-600);
 }
