@@ -123,6 +123,6 @@
 
   /* For Safari PWA */
   @media (display-mode: minimal-ui) {
-    border-block-start: 1px solid var(--border-color--300);
+    inset-block-start: 1px;
   }
 }

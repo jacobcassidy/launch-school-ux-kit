@@ -54,11 +54,6 @@
       font-family: var(--font-family--secondary);
       font-size: 1rem;
       font-weight: 500;
-
-      /* For Safari PWA */
-      @media (display-mode: minimal-ui) {
-        border-block-start: 1px solid var(--border-color--300);
-      }
     }
   }
 
