@@ -4,7 +4,8 @@
 
 code {
   &:not(pre &) {
-    border-radius: 2px !important;
+    background: oklch(0 0 0 / 0.05);
+    border-radius: 4px !important;
   }
 }
 
