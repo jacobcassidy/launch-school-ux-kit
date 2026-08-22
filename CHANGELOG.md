@@ -5,6 +5,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.4.0] - 2026-08-22
+
+### Added
+
+- Added `.button` to the button style group for style consistency.
+- Added top border to page in minimal-ui (such as Safari PWA) since those browsers have no border between the title bar and page.
+
+### Changed
+
+- Fixed the LSBot content colors for consistency between all elements.
+- Fixed the default `p` and `li` styles.
+- Fixed the forum search input icon by giving its padding back that was overridden by the default input padding.
+- Hid the sidebar events count if the count is "1" since it never seems to go away (counts now only show at 2 or more).
+- Updated the .alert-box color and padding.
+- Updated the hover color of assessment links in courses page tables to use the brand color.
+
 ## [1.3.0] - 2026-08-15
 
 ### Added
