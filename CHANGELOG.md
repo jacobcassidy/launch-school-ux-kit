@@ -19,6 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fixed sidebar curren link padding offset to account for the active left 3px border
 - Fixed unread count for sidebar items with counts greater than 2 characters.
 - Refactored table and code CSS styles.
+- Updated README.md content for version 1.5.0.
 
 ### Removed
 
