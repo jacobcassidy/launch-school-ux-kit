@@ -5,6 +5,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.5.0] - 2026-08-25
+
+### Added
+
+- Added `text` component stylesheet
+- Added header to search.css file.
+- Added v1.5.0 reference screenshots.
+
+### Changed
+
+- Fixed minimal-ui top border not showing correctly on some panel views.
+- Fixed sidebar curren link padding offset to account for the active left 3px border
+- Fixed unread count for sidebar items with counts greater than 2 characters.
+- Refactored table and code CSS styles.
+
+### Removed
+
+- Removed deprecated `injectContainerStyleOffsets()` and `moveLoggedOutNavToHeader()` functions.
+
 ## [1.4.0] - 2026-08-22
 
 ### Added
