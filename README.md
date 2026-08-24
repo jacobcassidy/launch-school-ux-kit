@@ -13,25 +13,25 @@ An unofficial UX kit that modifies the LaunchSchool.com UI with a minimal design
 ## Screenshots
 
 **With all panels showing on a book page:**
-![All Panels Open](https://raw.githubusercontent.com/jacobcassidy/launch-school-ux-kit/refs/heads/main/docs/reference/screenshots/v1.4.0/01-full-ui.png)
+![All Panels Open](https://raw.githubusercontent.com/jacobcassidy/launch-school-ux-kit/refs/heads/main/docs/reference/screenshots/v1.5.0/01-full-ui.png)
 
 **With the Sidebar panel shrunk:**
-![Sidebar Shrunk](https://raw.githubusercontent.com/jacobcassidy/launch-school-ux-kit/refs/heads/main/docs/reference/screenshots/v1.4.0/02-sidebar-shrunk.png)
+![Sidebar Shrunk](https://raw.githubusercontent.com/jacobcassidy/launch-school-ux-kit/refs/heads/main/docs/reference/screenshots/v1.5.0/02-sidebar-shrunk.png)
 
 **With the Sidebar panel hidden:**
-![Sidebar Hidden](https://raw.githubusercontent.com/jacobcassidy/launch-school-ux-kit/refs/heads/main/docs/reference/screenshots/v1.4.0/03-sidebar-hidden.png)
+![Sidebar Hidden](https://raw.githubusercontent.com/jacobcassidy/launch-school-ux-kit/refs/heads/main/docs/reference/screenshots/v1.5.0/03-sidebar-hidden.png)
 
 **With the Header panel hidden:**
-![Header Hidden](https://raw.githubusercontent.com/jacobcassidy/launch-school-ux-kit/refs/heads/main/docs/reference/screenshots/v1.4.0/04-header-hidden.png)
+![Header Hidden](https://raw.githubusercontent.com/jacobcassidy/launch-school-ux-kit/refs/heads/main/docs/reference/screenshots/v1.5.0/04-header-hidden.png)
 
 **With the Header, Sidebar, and Tabs panels hidden (only content visible for no distractions):**
-![Content Only](https://raw.githubusercontent.com/jacobcassidy/launch-school-ux-kit/refs/heads/main/docs/reference/screenshots/v1.4.0/05-content-only.png)
+![Content Only](https://raw.githubusercontent.com/jacobcassidy/launch-school-ux-kit/refs/heads/main/docs/reference/screenshots/v1.5.0/05-content-only.png)
 
 **With Table of Contents menu open:**
-![Table of Contents Menu](https://raw.githubusercontent.com/jacobcassidy/launch-school-ux-kit/refs/heads/main/docs/reference/screenshots/v1.4.0/06-toc-menu.png)
+![Table of Contents Menu](https://raw.githubusercontent.com/jacobcassidy/launch-school-ux-kit/refs/heads/main/docs/reference/screenshots/v1.5.0/06-toc-menu.png)
 
 **With Settings menu open:**
-![Settings Menu](https://raw.githubusercontent.com/jacobcassidy/launch-school-ux-kit/refs/heads/main/docs/reference/screenshots/v1.4.0/07-settings-menu.png)
+![Settings Menu](https://raw.githubusercontent.com/jacobcassidy/launch-school-ux-kit/refs/heads/main/docs/reference/screenshots/v1.5.0/07-settings-menu.png)
 
 ## Quickstart Guide
 
