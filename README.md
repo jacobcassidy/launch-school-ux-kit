@@ -85,8 +85,8 @@ An unofficial UX kit that modifies the LaunchSchool.com UI with a minimal design
 
 - This kit was developed for macOS. Windows/Linux have not been tested, though you may fork and modify the kit however you'd like for your OS.
 - This kit is only for desktop views. It will break the UI on screen sizes narrower than 1025px wide.
-- You can toggle the userscript off at anytime and reload the page to get the original official UX back.
-- This kit modifies the existing DOM of launchschool.com. If the launchschool.com DOM changes in the future, this skit may cease to function. If that happens, please [report the issue](https://github.com/jacobcassidy/launch-school-ux-kit/issues).
+- You can toggle the userscript off at anytime and reload the page to get the original UX back.
+- This kit modifies the existing DOM of launchschool.com. If the launchschool.com DOM changes in the future, this kit may cease to function. If that happens, please [report the issue](https://github.com/jacobcassidy/launch-school-ux-kit/issues).
 
 ## Issues?
 
