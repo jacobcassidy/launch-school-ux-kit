@@ -34,9 +34,6 @@ export function injectHeader() {
   // Inject the site header as the first child of the body element.
   document.body.insertBefore(createHeader(), document.body.firstChild);
   // colorLog.detail(".site-header has been injected.");
-
-  // Inject the container offset styles after the header has been injected since it uses measurements based on the injected header
-  injectContainerStyleOffsets();
 }
 
 /**
@@ -71,7 +68,6 @@ function injectHeaderContainers(headerEl) {
 function injectContainerElements(containerEl, containerNum) {
   if (containerNum === 1) {
     injectSidebarToggleButton(containerEl);
-    moveLoggedOutNavToHeader(containerEl);
   }
 
   if (containerNum === 2) {
@@ -129,44 +125,4 @@ function injectTitleToHeaderWithNoBreadcrumbs(containerEl) {
   };
 
   containerEl.appendChild(createHeaderTitle());
-}
-
-/**
- * INJECT CONTAINER STYLE OFFSETS
- * Adds the offset style variables for the .site-header__container elements
- */
-function injectContainerStyleOffsets() {
-  // colorLog.run("Running injectContainerStyleOffsets()");
-  const container1 = document.querySelector(".site-header__container.container-1");
-  const container3 = document.querySelector(".site-header__container.container-3");
-  const container1Width = container1?.offsetWidth || 0;
-  const container3Width = container3?.offsetWidth || 0;
-  const siteHeaderInlinePadding = 12;
-  const gapBetweenContainers = 24;
-  // const sidebarWidth = 195;
-  // const navExpandBtnWidth = 30;
-  const container2LeftOffset = container1Width + siteHeaderInlinePadding + gapBetweenContainers;
-  const container2RightOffset = container3Width + siteHeaderInlinePadding + gapBetweenContainers;
-  // const container2SidebarLeftOffset = sidebarWidth + navExpandBtnWidth + gapBetweenContainers;
-  const root = document.documentElement;
-
-  root.style.setProperty("--header-container2-left-offset", `${container2LeftOffset}px`);
-  root.style.setProperty("--header-container2-right-offset", `${container2RightOffset}px`);
-  // root.style.setProperty("--header-container2-sidebar-left-offset", `${container2SidebarLeftOffset}px`);
-}
-
-/**
- * ADD LOGGED-OUT NAV TO HEADER
- * Moves the logged out nav to the .site-header when the user is logged out
- *
- * @param {HTMLDivElement} containerEl The container to which the logged-out nav will be appended.
- */
-function moveLoggedOutNavToHeader(containerEl) {
-  const loggedOutNav = document.querySelector(".columns:has(> #logo + .nav)");
-  if (loggedOutNav) {
-    loggedOutNav.classList.remove("clearfix");
-    loggedOutNav.classList.add("logged-out-nav");
-
-    containerEl.appendChild(loggedOutNav);
-  }
 }

@@ -54,11 +54,6 @@
       font-family: var(--font-family--secondary);
       font-size: 1rem;
       font-weight: 500;
-
-      /* For Safari PWA */
-      @media (display-mode: minimal-ui) {
-        border-block-start: 1px solid var(--border-color--300);
-      }
     }
   }
 
@@ -167,6 +162,7 @@
         .hidden-on-collapse {
           display: flex;
           flex-shrink: 0;
+          align-items: center;
           gap: 4px;
         }
       }
@@ -174,16 +170,19 @@
       .item-link {
         display: flex;
         align-items: center;
+        border-inline-start: 2px solid transparent;
+        padding-inline-start: calc(var(--size--sidebar--padding-inline) - 2px);
 
         .unread-count {
           display: flex;
           align-items: center;
           justify-content: center;
           background: var(--color--brand-400);
-          border-radius: 50%;
+          border-radius: 1rem;
           color: #fff;
           block-size: 1rem;
-          inline-size: 1rem;
+          min-inline-size: 1rem;
+          padding: 4px;
           font-size: 0.75rem;
           font-weight: 700;
           line-height: 1;
@@ -195,7 +194,7 @@
 
         &.current-page {
           background: var(--color--brand-alpha);
-          border-inline-start: 2px solid var(--color--brand-400);
+          border-color: var(--color--brand-400);
           color: var(--color--brand-400);
         }
       }
