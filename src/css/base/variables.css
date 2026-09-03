@@ -98,7 +98,7 @@
   --size--mw900--padding-inline: calc(50% - 450px);
   --size--sidebar--padding-inline: 20px;
   --size--sidebar--width: 12.1875rem;
-  --size--spacing-inline: clamp(1.5rem, -0.5rem + 3.125vi, 3rem); /* 1024/24, 1280/32, 1536/40, 1792/48 */
+  --size--spacing-inline: clamp(1.5rem, -1.019rem + 3.774vi, 3rem); /* 1068/24, 1280/32, 1492/40, 1704/48 */
 
   /* 2 x (48px padding + 900px content + 48px padding) + 4px divider line = 1996/16 = 124.75rem */
   @media (width < 124.75rem) {
