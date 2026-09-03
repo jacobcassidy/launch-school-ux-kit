@@ -120,6 +120,11 @@ a.button {
     min-block-size: 28px;
     font-size: 0.875rem;
 
+    .markup-copy-block & {
+      border: none;
+      color: var(--color--grayscale-400);
+    }
+
     svg {
       block-size: 0.875rem;
       inline-size: 0.875rem;
