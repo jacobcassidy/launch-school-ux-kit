@@ -4,8 +4,8 @@
 import { setLastUrl, setPreviousBody } from "./modules/utils/state";
 import { loadUI } from "./modules/utils/helpers";
 
-if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", init, { once: true });
+if (document.readyState === "complete") {
+  document.addEventListener("load", init, { once: true });
 } else {
   init();
 }
