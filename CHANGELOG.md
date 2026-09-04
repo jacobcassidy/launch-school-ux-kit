@@ -5,6 +5,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.6.0] - 2026-09-04
+
+### Added
+
+- Added `watchForNewCopyMarkupBtns()` to add style classes to copy markup buttons in .tab-content when new buttons are added during chats.
+
+### Changed
+
+- Changed `init()` to fire on `load` instead of `DOMContentLoaded`.
+- Fine-tuned README content and fixed typos.
+- Fixed "Give Feedback" button styles.
+- Updated .resize-handle from 2px to 3px.
+- Updated bookshelf and book cover pages to improve layout.
+- Updated global side padding sizes
+- Updated transitions for less UI movement during init load.
+
 ## [1.5.0] - 2026-08-25
 
 ### Added
