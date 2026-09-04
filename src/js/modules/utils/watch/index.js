@@ -5,7 +5,7 @@
 
 // Buttons
 export * from "./buttons/exercise-completion-toggle.js";
-export * from "./buttons/markup-copy-block.js";
+export * from "./buttons/new-copy-markup.js";
 export * from "./buttons/next-exercise.js";
 export * from "./buttons/run-code.js";
 export * from "./buttons/settings-toggle.js";
