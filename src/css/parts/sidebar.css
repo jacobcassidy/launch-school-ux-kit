@@ -8,6 +8,7 @@
   background: var(--background-color--300);
   border-inline-end: 1px solid var(--border-color--300);
   inline-size: var(--size--sidebar--width);
+  transition: inline-size var(--timing--long) ease;
 
   svg {
     pointer-events: none;

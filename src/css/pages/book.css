@@ -2,9 +2,55 @@
  * BOOK PAGES
  */
 
-/* Book Cover Page */
-.books.show-page .large-11 {
-  display: flex;
-  align-items: center;
-  margin-block-start: var(--size--header--height);
+body.books {
+  .bookshelf {
+    /* Bookshelf Page */
+    .book-list {
+      .books {
+        span {
+          &.book-title {
+            color: var(--color--grayscale-600);
+            font-size: 0.8125rem;
+          }
+
+          &.book-author {
+            color: var(--color--grayscale-400);
+            font-size: 0.75rem;
+          }
+        }
+      }
+
+      .book-group {
+        border-color: var(--border-color--300);
+        color: var(--color--grayscale-600);
+      }
+    }
+  }
+
+  /* Cover Page */
+  &.show-page {
+    .columns {
+      &.large-11 {
+        display: flex;
+        align-items: center;
+        inline-size: 100%;
+        margin-block-start: var(--size--header--height);
+
+        .book-image {
+          max-inline-size: 50%;
+        }
+      }
+
+      .top-large {
+        .book-author {
+          color: var(--color--grayscale-400);
+        }
+
+        .book-description {
+          color: var(--color--grayscale-600);
+          font-size: 1.125rem;
+        }
+      }
+    }
+  }
 }

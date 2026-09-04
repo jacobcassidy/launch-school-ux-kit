@@ -1,6 +1,6 @@
 # Launch School UX Kit
 
-An unofficial UX kit that modifies the LaunchSchool.com UI with a minimal design and added hotkeys for productivity (toggles the header, menus, sidebar, tabs, and more).
+An unofficial UX kit that modifies the LaunchSchool.com UI with a minimal design and added hotkeys for productivity (hotkeys that toggle the header, menus, sidebar, tabs, and more).
 
 | Index                                 |
 | ------------------------------------- |
@@ -55,7 +55,7 @@ An unofficial UX kit that modifies the LaunchSchool.com UI with a minimal design
 
 ## UX Kit Features
 
-- Refines the UI styles.
+- Refines the UI for a more minimal style, especially when closing panels such as the sidebar or tabs panel.
 - Adds a toggleable page header panel with the page's breadcrumbs/title and buttons to control the visibility of other panels (settings, sidebar, tabs, and table of contents).
 - Adds hotkeys to toggle the visibility of all toggleable panels (header, menus, sidebar, and tabs), so you can display only want you need for minimizing distractions.
 - Refines the sidebar UX with muted colors and reorganized link groups (with heading labels) and a more minimal sidebar when shrunken.
@@ -83,10 +83,10 @@ An unofficial UX kit that modifies the LaunchSchool.com UI with a minimal design
 
 ## Notes
 
-- This kit was developed for macOS. Windows/Linux have not been tested, though you may fork and modify the kit however you'd like for your OS.
-- This kit is only for desktop views. It will break the UI on screen sizes narrower than 1025px wide.
-- You can toggle the userscript off at anytime and reload the page to get the original official UX back.
-- This kit modifies the existing DOM of launchschool.com. If the launchschool.com DOM changes in the future, this skit may cease to function. If that happens, please [report the issue](https://github.com/jacobcassidy/launch-school-ux-kit/issues).
+- This kit was developed for macOS. Windows/Linux have not been tested. You may fork and modify this kit however you'd like for your OS.
+- This kit only works for desktop views. The UI will break on screen sizes narrower than 1025px wide.
+- You can toggle the userscript off at anytime and reload the page to get the original UX back.
+- This kit modifies the existing DOM of launchschool.com. If the launchschool.com DOM changes in the future, this kit may cease to function. If that happens, please [report the issue](https://github.com/jacobcassidy/launch-school-ux-kit/issues).
 
 ## Issues?
 

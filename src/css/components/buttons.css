@@ -149,6 +149,16 @@ a.button {
     }
   }
 
+  &.give-feedback {
+    border: none;
+    border-radius: var(--border-radius--default) var(--border-radius--default) 0 0;
+    line-height: normal;
+
+    &:hover {
+      color: var(--color--grayscale-100);
+    }
+  }
+
   /* Run Code Button */
   &.btn--run-code#btn-run-code {
     &,

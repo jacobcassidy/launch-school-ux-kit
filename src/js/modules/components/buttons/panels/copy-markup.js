@@ -12,8 +12,7 @@ import { setButtonProperties } from "../../../utils/state";
 /**
  * Updates the copy markup button styles and icon.
  */
-export function updateCopyMarkupButton() {
-  const btns = document.querySelectorAll(".markup-copy-block button");
+export function updateCopyMarkupButton(btns = document.querySelectorAll(".markup-copy-block button")) {
   if (btns.length < 1) return;
 
   const newIcons = [() => icons.panelIcons.copy(), () => icons.panelIcons.checkmark()];

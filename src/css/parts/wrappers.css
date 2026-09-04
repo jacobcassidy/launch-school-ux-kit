@@ -7,10 +7,14 @@ body:has(#assignment-repl-layout, #book-repl-layout, #book-exercise-repl-layout,
     inset-block-start: var(--size--header--height) !important;
     inset-inline-start: var(--size--sidebar--width) !important;
     padding: 0 !important;
-    transition: var(--transition--long);
+    transition: none;
 
     body:has(.nav-drawer) & {
       inset-block-start: var(--size--header--height) !important;
+    }
+
+    body:has(.site-header) & {
+      transition: var(--transition--long);
     }
 
     body:has(.site-header.is-hidden) & {
@@ -49,6 +53,7 @@ body:has(#assignment-repl-layout, #book-repl-layout, #book-exercise-repl-layout,
   margin: 0 !important;
   padding-block: calc(var(--size--header--height) * 2) 0 !important;
   padding-inline: calc(var(--size--sidebar--width) + var(--size--spacing-inline)) var(--size--spacing-inline) !important;
+  transition: none;
 
   body:not(:has(.assignment-repl-layout, .book-repl-layout)):has(.site-header.is-hidden) & {
     inset-block-start: calc(var(--size--header--height) * -1) !important;
