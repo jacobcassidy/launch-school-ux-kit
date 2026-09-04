@@ -1,10 +1,11 @@
 // ==UserScript==
 // @name         Launch School UX Kit
 // @namespace    https://tampermonkey.net/
-// @version      2026-09-03
+// @version      2026-09-04
 // @description  A UX kit that enhances the LaunchSchool.com pages with an refined UI and convenient keyboard shortcuts.
 // @author       Jacob Cassidy
 // @match        https://launchschool.com/**
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=launchschool.com
 // @grant        none
+// @run-at       document-end
 // ==/UserScript==
