@@ -57,7 +57,7 @@ function syncCmdCtrlHotkeys() {
   const exerciseCompletionBtnExists = document.querySelector(
     ".instructions-panel .gray-links form button[type=submit]",
   );
-  const submitReviewBtnExists = document.querySelector("#lsbot-send-review");
+  const submitReviewBtnExists = document.querySelector("#lsbot-send-review, #btn-book-lsbot-review");
 
   const handleCopyCodeHotkey = () => {
     const triggerCopyBtn = () => {
@@ -117,7 +117,7 @@ function syncCmdCtrlHotkeys() {
   };
 
   const handleSubmitReviewHotkey = () => {
-    const reviewSubmitBtn = document.querySelector("#lsbot-send-review");
+    const reviewSubmitBtn = document.querySelector("#lsbot-send-review, #btn-book-lsbot-review");
     const reviewTabBtn = document.querySelector(".tab-button[data-tab='submit-review']");
 
     activateTab(reviewTabBtn);
