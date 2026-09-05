@@ -78,10 +78,13 @@
       body:has(#book-exercise-repl-layout) & .gretel-breadcrumbs,
       body:has(#exercise-repl-layout) & .gretel-breadcrumbs,
       .gretel-breadcrumbs {
-        li,
-        li a {
-          color: var(--color--grayscale-400);
-          white-space: nowrap;
+        li {
+          &,
+          a,
+          &::before {
+            color: var(--color--grayscale-400);
+            white-space: nowrap;
+          }
         }
 
         li {
@@ -98,7 +101,7 @@
           &.current {
             overflow: hidden;
             text-overflow: ellipsis;
-            color: var(--color--grayscale-300);
+            color: var(--color--grayscale-500);
           }
         }
       }
