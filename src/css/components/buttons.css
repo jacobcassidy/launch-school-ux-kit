@@ -35,11 +35,16 @@ a.button {
     color: var(--color--brand-400);
   }
 
-  &:active,
   &:focus {
     background: var(--background-color--600);
     border-color: var(--border-color-800);
     color: var(--color--grayscale-800);
+  }
+
+  &:active {
+    background: var(--color--brand-alpha);
+    border-color: var(--color--brand-500);
+    color: var(--color--brand-500);
   }
 
   &:where(.btn--plain, .btn--outline) {
@@ -316,23 +321,110 @@ body.internal {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 12px;
+    gap: 8px;
     font-family: var(--font-family--primary);
 
+    .prev,
+    .page,
+    .next {
+      display: flex;
+      margin: 0;
+      padding: 0;
+
+      &,
+      a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 3px !important;
+        font-family: var(--font-family--primary);
+        font-size: 1rem;
+        line-height: 1;
+      }
+
+      &:not(:has(a)),
+      a {
+        min-block-size: 2rem;
+        min-inline-size: 2rem;
+        padding: 4px;
+      }
+
+      a {
+        background: var(--background-color--400);
+        border: 1px solid var(--border-color--600);
+        color: var(--color--grayscale-600);
+        font-weight: 400;
+
+        &:hover {
+          background: var(--color--brand-alpha);
+          border-color: var(--color--brand-400);
+          color: var(--color--brand-400);
+        }
+
+        &:focus {
+          background: var(--background-color--600);
+          border-color: var(--border-color-800);
+          color: var(--color--grayscale-800);
+        }
+
+        &:active {
+          background: var(--color--brand-alpha);
+          border-color: var(--color--brand-500);
+          color: var(--color--brand-500);
+        }
+      }
+    }
+
     .page {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: var(--border-radius--default) !important;
-      min-block-size: 1.5rem;
-      min-inline-size: 1.5rem;
-      padding: 4px;
-      font-family: var(--font-family--primary);
-      font-size: 1rem;
-      line-height: 1;
+      &.current {
+        background: var(--color--brand-400);
+      }
 
       + .page {
         margin: 0;
+      }
+    }
+
+    .prev,
+    .next {
+      &:not(:has(a)),
+      a {
+        font-size: 0;
+
+        &::before,
+        &::after {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          block-size: 100%;
+          inline-size: 100%;
+          font-size: 1rem;
+        }
+      }
+
+      &:not(:has(a)) {
+        display: none;
+        background: var(--background-color--300);
+        border: 1px solid var(--border-color--100);
+        color: var(--color--grayscale-200);
+      }
+    }
+
+    .prev {
+      &:not(:has(a)),
+      a {
+        &::before {
+          content: "\276E";
+        }
+      }
+    }
+
+    .next {
+      &:not(:has(a)),
+      a {
+        &::after {
+          content: "\276F";
+        }
       }
     }
   }
