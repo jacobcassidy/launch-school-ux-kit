@@ -39,45 +39,45 @@ body.internal {
             color: var(--color--brand-400);
           }
         }
+      }
 
-        div:has(> &) {
-          position: relative;
-          margin: 0 0 1.5rem;
+      div:has(> .search-input) {
+        position: relative;
+        margin: 0 0 1.5rem;
 
-          &::before,
-          &::after {
-            pointer-events: none;
-            position: absolute;
-            inset-block-start: 50%;
-            transform: translateY(-50%);
-            background-color: currentcolor;
-            mask: url("../../svg/lucide/search.svg") center / contain no-repeat;
-            block-size: 1.125rem;
-            inline-size: 1.125rem;
-            transition: var(--transition--short);
-          }
+        &::before,
+        &::after {
+          pointer-events: none;
+          position: absolute;
+          inset-block-start: 50%;
+          transform: translateY(-50%);
+          background-color: currentcolor;
+          mask: url("../../svg/lucide/search.svg") center / contain no-repeat;
+          block-size: 1.125rem;
+          inline-size: 1.125rem;
+          transition: var(--transition--short);
         }
+      }
 
-        div:has(> &.empty) {
-          &::before {
-            content: "";
-            inset-inline-start: 0.75rem;
-            display: block;
-          }
+      div:has(> .search-input.empty) {
+        &::before {
+          content: "";
+          inset-inline-start: 0.75rem;
+          display: block;
         }
+      }
 
-        div:has(> &:not(.empty)) {
-          &::after {
-            content: "";
-            inset-inline-end: 0.75rem;
-            display: block;
-          }
+      div:has(> .search-input:not(.empty)) {
+        &::after {
+          content: "";
+          inset-inline-end: 0.75rem;
+          display: block;
         }
+      }
 
-        div:has(> & + input[type="submit"]:hover) {
-          &::after {
-            color: var(--color--brand-400);
-          }
+      div:has(> .search-input + input[type="submit"]:hover) {
+        &::after {
+          color: var(--color--brand-400);
         }
       }
     }
