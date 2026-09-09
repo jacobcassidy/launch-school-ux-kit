@@ -24,6 +24,7 @@ const cssTextPlugin = {
         metafile: true,
         loader: {
           ".css": "css",
+          ".svg": "dataurl",
         },
       });
 
