@@ -22,14 +22,25 @@ import { elements, hotkeys, setAvailableHotkey } from "../state";
  */
 export function syncAvailableHotkeys() {
   // Clear any previous hotkeys when syncing.
+  hotkeys.enterOnly = {};
   hotkeys.cmdOnly = {};
   hotkeys.cmdShift = {};
   hotkeys.cmdCtrl = {};
 
   // Sync current hotkeys.
+  syncEnterOnlyHotkey();
   syncCmdOnlyHotkeys();
   syncCmdShiftHotkeys();
   syncCmdCtrlHotkeys();
+}
+
+/**
+ * SYNC ENTER ONLY HOTKEY
+ */
+function syncEnterOnlyHotkey() {
+  const chatInputs = document.querySelectorAll(".lsbot-question-input", ".lsbot-question-box-answer-input");
+  if (chatInputs.length < 1) return;
+  setAvailableHotkey("enterOnly", "Enter", "Enter", "Submit focused chat prompt", null);
 }
 
 /**

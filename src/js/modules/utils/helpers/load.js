@@ -38,6 +38,7 @@ import {
   watchHotkeys,
   watchForNewCopyMarkupBtns,
   watchNextExerciseBtn,
+  watchPromptFocus,
   watchPromptSubmission,
   watchQuestionBoxes,
   watchSettingSidebarHiddenHeadersToggler,
@@ -80,6 +81,7 @@ export function loadUI() {
   watchForMissingHeader();
   watchForUrlChange();
   watchHotkeys();
+  watchPromptFocus();
   watchPromptSubmission();
   watchQuestionBoxes();
   watchSettingSidebarHiddenHeadersToggler();

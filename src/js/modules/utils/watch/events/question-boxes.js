@@ -33,16 +33,16 @@ export function watchQuestionBoxes() {
     const keyCtrl = event.ctrlKey;
     const keyEnter = event.key === "Enter";
     const keyShift = event.shiftKey;
-    const isCmdEnter = keyCmd && keyEnter && !keyAlt && !keyCtrl && !keyShift;
-    if (!isCmdEnter) return;
+    const isEnterOnlySubmit = keyEnter && !keyAlt && !keyCmd && !keyCtrl && !keyShift;
+    const isCmdEnterSubmit = keyCmd && keyEnter && !keyAlt && !keyCtrl && !keyShift;
+    const isCtrlEnterSubmit = keyCtrl && keyEnter && !keyAlt && !keyCmd && !keyShift;
+    const shouldSubmit = isEnterOnlySubmit || isCmdEnterSubmit || isCtrlEnterSubmit;
+    if (!shouldSubmit) return;
     handleFocus(lsbotTabBtn);
   };
 
   questionBoxes.forEach((box) => {
-    if (box.dataset.questionEventBound) {
-      // colorLog.detail("Question box watch already exist. Exited watchQuestionBoxes() for this box.");
-      return;
-    }
+    if (box.dataset.questionEventBound) return;
     box.dataset.questionEventBound = "true";
 
     const boxSendLink = box.querySelector(".lsbot-question-link");
