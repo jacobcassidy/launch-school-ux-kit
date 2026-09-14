@@ -17,6 +17,7 @@ export * from "./buttons/tabs-panel-toggle.js";
 // Events
 export * from "./events/hotkeys.js";
 export * from "./events/missing-header.js";
+export * from "./events/prompt-focus.js";
 export * from "./events/prompt-submission.js";
 export * from "./events/question-boxes.js";
 export * from "./events/sidebar-links.js";

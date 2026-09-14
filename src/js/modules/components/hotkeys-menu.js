@@ -26,11 +26,12 @@ export function injectHotkeysSection() {
  * @returns {HTMLElement} The hotkeys settings section element
  */
 function createHotkeysSection() {
-  const hotkeysSectionEl = createNewSettingsSection("Current Page Hotkeys");
+  const hotkeysSectionEl = createNewSettingsSection("Current Page Added Hotkeys");
   const hotkeysListEl = hotkeysSectionEl.querySelector(".settings-list");
 
   for (const [modifierListKey, modifierListObj] of Object.entries(hotkeys)) {
     let modifierKey;
+    if (modifierListKey === "enterOnly") modifierKey = "Enter";
     if (modifierListKey === "cmdOnly") modifierKey = null;
     if (modifierListKey === "cmdShift") modifierKey = "Shift";
     if (modifierListKey === "cmdCtrl") modifierKey = "Ctrl";
@@ -42,7 +43,15 @@ function createHotkeysSection() {
       const hotkeyItemKeyEl = document.createElement("div");
       hotkeyItemKeyEl.className = "setting-status hotkey-shortcut";
 
-      const keys = modifierKey ? ["Cmd", modifierKey, hotkeyObj.symbol] : ["Cmd", hotkeyObj.symbol];
+      let keys;
+
+      if (modifierKey === "Enter") {
+        keys = [hotkeyObj.symbol];
+      } else if (modifierKey) {
+        keys = ["Cmd", modifierKey, hotkeyObj.symbol];
+      } else {
+        keys = ["Cmd", hotkeyObj.symbol];
+      }
 
       keys.forEach((key, index) => {
         const keySpan = document.createElement("span");

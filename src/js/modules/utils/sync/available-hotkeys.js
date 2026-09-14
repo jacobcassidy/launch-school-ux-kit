@@ -22,14 +22,25 @@ import { elements, hotkeys, setAvailableHotkey } from "../state";
  */
 export function syncAvailableHotkeys() {
   // Clear any previous hotkeys when syncing.
+  hotkeys.enterOnly = {};
   hotkeys.cmdOnly = {};
   hotkeys.cmdShift = {};
   hotkeys.cmdCtrl = {};
 
   // Sync current hotkeys.
+  syncEnterOnlyHotkey();
   syncCmdOnlyHotkeys();
   syncCmdShiftHotkeys();
   syncCmdCtrlHotkeys();
+}
+
+/**
+ * SYNC ENTER ONLY HOTKEY
+ */
+function syncEnterOnlyHotkey() {
+  const chatInputs = document.querySelectorAll(".lsbot-question-input", ".lsbot-question-box-answer-input");
+  if (chatInputs.length < 1) return;
+  setAvailableHotkey("enterOnly", "Enter", "Enter", "Submit focused chat prompt", null);
 }
 
 /**
@@ -57,7 +68,7 @@ function syncCmdCtrlHotkeys() {
   const exerciseCompletionBtnExists = document.querySelector(
     ".instructions-panel .gray-links form button[type=submit]",
   );
-  const submitReviewBtnExists = document.querySelector("#lsbot-send-review");
+  const submitReviewBtnExists = document.querySelector("#lsbot-send-review, #btn-book-lsbot-review");
 
   const handleCopyCodeHotkey = () => {
     const triggerCopyBtn = () => {
@@ -117,7 +128,7 @@ function syncCmdCtrlHotkeys() {
   };
 
   const handleSubmitReviewHotkey = () => {
-    const reviewSubmitBtn = document.querySelector("#lsbot-send-review");
+    const reviewSubmitBtn = document.querySelector("#lsbot-send-review, #btn-book-lsbot-review");
     const reviewTabBtn = document.querySelector(".tab-button[data-tab='submit-review']");
 
     activateTab(reviewTabBtn);
