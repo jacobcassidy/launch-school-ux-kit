@@ -15,6 +15,9 @@ import { syncActiveSidebarItem } from "../utils/sync";
  * UPDATE SIDEBAR
  */
 export function updateSidebar() {
+  const nativeSidebar = document.querySelector(".nav-drawer");
+  if (!nativeSidebar) return;
+
   const sidebarItemLinks = document.querySelectorAll(".nav-drawer > ul > li > a");
   const sidebar = document.querySelector(".sidebar.nav-drawer");
 

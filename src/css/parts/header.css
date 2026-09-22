@@ -120,6 +120,29 @@
     }
   }
 
+  .logged-out-nav {
+    &,
+    ul {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    * {
+      margin: 0 !important;
+    }
+
+    > * {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav .has-dropdown:hover ul,
+    .nav .has-dropdown ul:hover {
+      inset-block-start: var(--size--header--height);
+    }
+  }
+
   &.is-hidden {
     transform: translateY(-100%);
   }

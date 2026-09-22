@@ -5,6 +5,26 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.8.0] - 2026-09-22
+
+### Added
+
+- Added back function to move logged-out nav to `.site-header`.
+- Added `Enter` hotkey note to README.md.
+
+### Fixed
+
+- Fixed broken script when not logged-in (for non-existent sidebar).
+
+### Removed
+
+- Removed unused `ui` import.
+
+### Updated
+
+- Updated node module package versions in `package.json`.
+- Updated deprecated eslint.config.js import.
+
 ## [1.7.0] - 2026-09-14
 
 ### Added
@@ -12,7 +32,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added `#btn-book-lsbot-review` to "Submit Review" hotkey selectors.
 - Added `enterOnly` hotkey for chat prompt submissions.
 - Added a Lucide SVG icon to replace the search icon on the forum page.
-- Added a SVG loader to the esbuild script so they can be inline CSS.
+- Added an SVG loader to the esbuild script so it can be inline CSS SVG assets.
 - Added pagination button styles to match the LS UX Kit theme.
 
 ### Changed
@@ -22,7 +42,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- Fixed left offset position for standalone book exercises.
+- Fixed the left offset position for standalone book exercises.
 
 ## [1.6.0] - 2026-09-04
 

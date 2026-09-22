@@ -61,7 +61,6 @@ export function loadUI() {
   injectToaster();
   syncInjectedElementsState();
   updateSidebar();
-
   injectContentSolutionButtons();
   updateConversationHistoryButton();
   updateConversationNewButton();

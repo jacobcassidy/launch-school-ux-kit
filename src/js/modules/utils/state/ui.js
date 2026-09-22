@@ -10,7 +10,7 @@ export const ui = {
   },
   sidebar: {
     isCollapsed:
-      sessionStorage.getItem("isSidebarCollapsed") === "true" || document.querySelector("#navbar-collapsor").checked,
+      sessionStorage.getItem("isSidebarCollapsed") === "true" || document.querySelector("#navbar-collapsor")?.checked,
     isSettingSidebarHiddenHeadersOn: sessionStorage.getItem("isSettingSidebarHiddenHeadersOn") === "true",
     isSettingSidebarShrinkOn: sessionStorage.getItem("isSettingSidebarShrinkOn") === "true",
   },

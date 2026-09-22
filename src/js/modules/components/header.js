@@ -68,6 +68,7 @@ function injectHeaderContainers(headerEl) {
 function injectContainerElements(containerEl, containerNum) {
   if (containerNum === 1) {
     injectSidebarToggleButton(containerEl);
+    moveLoggedOutNavToHeader(containerEl);
   }
 
   if (containerNum === 2) {
@@ -125,4 +126,20 @@ function injectTitleToHeaderWithNoBreadcrumbs(containerEl) {
   };
 
   containerEl.appendChild(createHeaderTitle());
+}
+
+/**
+ * ADD LOGGED-OUT NAV TO HEADER
+ * Moves the logged out nav to the .site-header when the user is logged out
+ *
+ * @param {HTMLDivElement} containerEl The container to which the logged-out nav will be appended.
+ */
+function moveLoggedOutNavToHeader(containerEl) {
+  const loggedOutNav = document.querySelector(".columns:has(> #logo + .nav)");
+  if (!loggedOutNav) return;
+
+  loggedOutNav.classList.remove("clearfix");
+  loggedOutNav.classList.add("logged-out-nav");
+
+  containerEl.appendChild(loggedOutNav);
 }

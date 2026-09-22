@@ -69,6 +69,7 @@ An unofficial UX kit that modifies the LaunchSchool.com UI with a minimal design
 
   | Hotkey            | Function                                                                   |
   | ----------------- | -------------------------------------------------------------------------- |
+  | `Enter`           | Submit focused chat prompt                                                 |
   | `CMD + B`         | Toggles Sidebar visibility                                                 |
   | `CMD + Shift + 1` | Toggles Header visibility                                                  |
   | `CMD + Shift + 2` | Toggle Tabs Panel visibility                                               |

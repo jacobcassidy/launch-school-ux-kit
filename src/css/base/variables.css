@@ -125,3 +125,8 @@ body:has(#navbar-collapsor:checked) {
     --size--sidebar--width: 0;
   }
 }
+
+/* WHEN THE SIDEBAR DOESN'T EXIST */
+body:not(:has(.nav-drawer)) {
+  --size--sidebar--width: 0;
+}
