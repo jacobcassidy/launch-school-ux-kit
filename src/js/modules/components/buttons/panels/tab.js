@@ -58,7 +58,7 @@ export function updateTabButtons() {
         break;
     }
 
-    const tabTooltipText = btn.innerText.trim() || tooltipFallback;
+    const tabTooltipText = btn.innerText.trim() || btn.getAttribute("aria-label") || tooltipFallback;
     btn.setAttribute("aria-label", tabTooltipText);
     btn.replaceChildren(tabIconEl);
 
@@ -67,7 +67,7 @@ export function updateTabButtons() {
 }
 
 function createTabTooltip(tooltipText, btnDataTab) {
-  const tooltipEl = document.createElement("div");
+  const tooltipEl = document.querySelector(`.tab-tooltip-${btnDataTab}`) || document.createElement("div");
   tooltipEl.classList.add("tooltip", "tab-tooltip", `tab-tooltip-${btnDataTab}`);
   tooltipEl.textContent = tooltipText;
   document.body.appendChild(tooltipEl);
