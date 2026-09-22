@@ -11,6 +11,8 @@ import { sidebarLists } from "../utils/configs";
 import { setSidebarListsElement } from "../utils/state";
 import { syncActiveSidebarItem } from "../utils/sync";
 
+const observedUnreadCounts = new WeakSet();
+
 /**
  * UPDATE SIDEBAR
  */
@@ -244,35 +246,34 @@ function removeCountParentheses() {
   if (counts.length < 1) return;
 
   counts.forEach((count) => {
-    const runWhenHasCountText = () => {
-      const countText = count.textContent.trim();
-      if (!countText) return;
+    if (observedUnreadCounts.has(count)) return;
+    observedUnreadCounts.add(count);
 
-      observer.disconnect();
+    let badge = null;
+    const syncCount = () => {
+      const countText = count.textContent.replace(/[()]/g, "").trim();
+      if (!countText) {
+        badge?.remove();
+        badge = null;
+        return;
+      }
 
-      const newCountEl = document.createElement("span");
-      newCountEl.className = "unread-count";
-      newCountEl.textContent = countText.replace(/[()]/g, "");
-
-      if (newCountEl.textContent === "1") newCountEl.classList.add("hide-single-count");
-
-      count.after(newCountEl);
+      if (!badge) {
+        badge = document.createElement("span");
+        badge.className = "unread-count";
+        count.after(badge);
+      }
+      badge.textContent = countText;
+      badge.classList.toggle("hide-single-count", countText === "1");
     };
 
-    const observer = new MutationObserver(runWhenHasCountText);
-
+    const observer = new MutationObserver(syncCount);
     observer.observe(count, {
       childList: true,
       characterData: true,
       subtree: true,
     });
-
-    // Disconnect unneeded observers
-    setTimeout(() => {
-      observer.disconnect();
-    }, 1500);
-
-    runWhenHasCountText();
+    syncCount();
   });
 }
 
