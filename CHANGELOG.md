@@ -5,6 +5,34 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.8.1] - 2026-09-22 (Codex Fixes Edition)
+
+### Fixed
+
+- Fixed logged-out header navigation being moved before the header was attached to the document.
+- Fixed initialization when the userscript runs after the document has already loaded.
+- Fixed page navigation waiting for the body element to be replaced before reloading the UI.
+- Fixed missing exercise completion forms aborting UI initialization.
+- Fixed duplicate completion observers, hotkey sections, and tab tooltips during repeated UI loads.
+- Fixed sidebar settings throwing errors when no sidebar exists.
+- Fixed stale next-exercise state after navigating away from an exercise.
+- Fixed sidebar toggling using stale collapsed state after navigation.
+- Fixed tab shortcuts beyond the fifth tab and prevented Cmd+B from being intercepted without a sidebar.
+- Fixed the Enter shortcut listing for question-box answer inputs.
+- Fixed unread sidebar badges becoming stale or disappearing when counts load later.
+- Fixed LSBot response handling stealing focus from another control.
+- Fixed question-box Enter handling interrupting IME text composition.
+- Fixed header titles being interpreted as HTML.
+- Fixed button border colors using undefined CSS variables.
+
+### Removed
+
+- Removed chat-input keystroke debug logging.
+
+### Updated
+
+- Updated development package versions.
+
 ## [1.8.0] - 2026-09-22
 
 ### Added
