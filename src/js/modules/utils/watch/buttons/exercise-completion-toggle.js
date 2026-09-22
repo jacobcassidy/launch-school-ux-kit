@@ -3,6 +3,8 @@
  * @module utils/watch/buttons/exercise-completion
  */
 
+const observedPanels = new WeakSet();
+
 /**
  * Updates the exercise completion button icon based on the current status the button holds.
  * @param {function} handleNewExerciseCompletionForm The callback function to update the exercise completion status button.
@@ -10,16 +12,17 @@
 export function watchExerciseCompletionToggleBtn(handleNewExerciseCompletionForm) {
   // colorLog.run("Running watchExerciseCompletionToggleBtn");
   const instructionsPanel = document.querySelector(".instructions-panel");
-  if (!instructionsPanel) return;
+  if (!instructionsPanel || observedPanels.has(instructionsPanel)) return;
+  observedPanels.add(instructionsPanel);
 
-  let exerciseCompletionForm = instructionsPanel.querySelector("form");
+  let exerciseCompletionForm = instructionsPanel.querySelector(".gray-links form");
 
   const observer = new MutationObserver(() => {
-    const newExerciseCompletionForm = instructionsPanel.querySelector("form");
+    const newExerciseCompletionForm = instructionsPanel.querySelector(".gray-links form");
 
-    if (newExerciseCompletionForm && newExerciseCompletionForm !== exerciseCompletionForm) {
+    if (newExerciseCompletionForm !== exerciseCompletionForm) {
       exerciseCompletionForm = newExerciseCompletionForm;
-      handleNewExerciseCompletionForm(exerciseCompletionForm);
+      if (exerciseCompletionForm) handleNewExerciseCompletionForm(exerciseCompletionForm);
     }
   });
 
