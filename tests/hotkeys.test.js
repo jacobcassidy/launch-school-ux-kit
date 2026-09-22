@@ -42,3 +42,19 @@ test("unavailable action shortcuts retain their explanatory toast", () => {
   send({ metaKey: true, ctrlKey: true, code: "KeyC" });
   assert.deepEqual(toasts, ["No editor code available to copy on this page"]);
 });
+
+for (const available of [true, false]) {
+  test(`Cmd+B is intercepted only when the sidebar shortcut exists (${available})`, () => {
+    const { send, activated } = fixture({ cmdOnly: available ? { KeyB: {} } : {}, cmdShift: {}, cmdCtrl: {} });
+    const calls = [];
+    send({
+      metaKey: true,
+      code: "KeyB",
+      preventDefault: () => calls.push("prevent"),
+      stopPropagation: () => calls.push("stop"),
+      stopImmediatePropagation: () => calls.push("stopImmediate"),
+    });
+    assert.deepEqual(calls, available ? ["prevent", "stop", "stopImmediate"] : []);
+    assert.deepEqual(activated, available ? [["cmdOnly", "KeyB"]] : []);
+  });
+}

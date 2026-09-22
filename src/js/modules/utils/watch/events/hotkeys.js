@@ -36,7 +36,7 @@ export function watchHotkeys() {
     if (event.repeat || (!isCmdOnly && !isCmdCtrl && !isCmdShift)) return;
 
     if (isCmdOnly) {
-      if (event.code !== "KeyB") return;
+      if (event.code !== "KeyB" || !hotkeys.cmdOnly.KeyB) return;
 
       event.preventDefault();
       event.stopPropagation();
