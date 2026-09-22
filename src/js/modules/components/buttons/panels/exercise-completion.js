@@ -28,7 +28,7 @@ export function updateExerciseCompletionButton() {
  * @param {HTMLFormElement} exerciseCompletionForm
  */
 function handleNewExerciseCompletionForm(exerciseCompletionForm) {
-  // console.log("Running handleNewExerciseCompletionForm()");
+  if (!exerciseCompletionForm) return;
   const btns = exerciseCompletionForm.querySelectorAll("button[type=submit]");
   if (btns.length < 1) return;
 
