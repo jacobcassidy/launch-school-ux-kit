@@ -62,5 +62,5 @@ test("catalog pages without a title do not abort header creation", () => {
 
 test("logged-in catalog pages retain their active course title", () => {
   const { header } = fixture({ loggedOut: false, title: { innerText: "Course" } });
-  assert.equal(header.children[1].children[0].innerHTML, "Course");
+  assert.equal(header.children[1].children[0].textContent, "Course");
 });

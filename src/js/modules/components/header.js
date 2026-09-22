@@ -121,7 +121,7 @@ function injectTitleToHeaderWithNoBreadcrumbs(containerEl) {
   const createHeaderTitle = () => {
     const headerTitleEl = document.createElement("div");
     headerTitleEl.classList.add("title-text");
-    headerTitleEl.innerHTML = titleText;
+    headerTitleEl.textContent = titleText;
 
     return headerTitleEl;
   };
