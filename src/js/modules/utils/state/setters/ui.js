@@ -129,10 +129,3 @@ export function setIsTabsPanelHidden(value) {
 export function setLastUrl(value) {
   ui.load.lastUrl = value;
 }
-
-/**
- * SET PREVIOUS BODY
- */
-export function setPreviousBody(value) {
-  ui.load.previousBody = value;
-}

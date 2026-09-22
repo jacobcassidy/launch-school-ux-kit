@@ -20,6 +20,5 @@ export const ui = {
   load: {
     isReloadScheduled: false,
     lastUrl: null,
-    previousBody: null,
   },
 };

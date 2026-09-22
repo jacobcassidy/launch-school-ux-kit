@@ -19,7 +19,6 @@ for (const readyState of ["loading", "interactive", "complete"]) {
       document,
       location: { origin: "https://launchschool.com", pathname: "/courses" },
       setLastUrl() {},
-      setPreviousBody() {},
       loadUI() {
         loads++;
       },
