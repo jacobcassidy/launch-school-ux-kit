@@ -27,6 +27,7 @@ export function injectHeader() {
     siteHeaderEl.className = "site-header";
 
     injectHeaderContainers(siteHeaderEl);
+    moveLoggedOutNavToHeader(siteHeaderEl.querySelector(".container-1"));
 
     return siteHeaderEl;
   };
@@ -68,7 +69,6 @@ function injectHeaderContainers(headerEl) {
 function injectContainerElements(containerEl, containerNum) {
   if (containerNum === 1) {
     injectSidebarToggleButton(containerEl);
-    moveLoggedOutNavToHeader(containerEl);
   }
 
   if (containerNum === 2) {
@@ -111,7 +111,8 @@ function injectTitleToHeaderWithNoBreadcrumbs(containerEl) {
     titleEl = document.querySelector("title");
   }
 
-  const titleText = titleEl.innerText;
+  const titleText = titleEl?.innerText;
+  if (!titleText) return;
   const defaultTitle = "Launch School - an online school for Software Engineers";
 
   // Don't add the title if it's the default one.
