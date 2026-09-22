@@ -13,6 +13,9 @@ import { icons } from "../../../components";
  * @param {HTMLDivElement} containerEl The container to which the button will be appended.
  */
 export function injectSidebarToggleButton(containerEl) {
+  const hasNativeSidebar = !!document.querySelector(".nav-drawer");
+  if (!hasNativeSidebar) return;
+
   containerEl.appendChild(createSidebarToggleButton());
 }
 

@@ -53,3 +53,10 @@ svg {
   block-size: 1.125rem;
   inline-size: 1.125rem;
 }
+
+/* WHEN THE SIDEBAR DOESN'T EXIST */
+body:not(:has(.nav-drawer)) {
+  .contain-to-grid {
+    display: none;
+  }
+}
