@@ -81,9 +81,10 @@ export function toggleSettings() {
  * TOGGLE SIDEBAR
  */
 export function toggleSidebar() {
-  const isSidebarCollapsed = ui.sidebar.isCollapsed;
+  const sidebarCheckbox = document.querySelector("#navbar-collapsor");
+  if (!sidebarCheckbox) return;
 
-  if (isSidebarCollapsed) {
+  if (sidebarCheckbox.checked) {
     showSidebar();
   } else {
     hideSidebar();

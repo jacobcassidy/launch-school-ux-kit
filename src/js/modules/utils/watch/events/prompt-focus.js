@@ -13,8 +13,6 @@ export function watchPromptFocus() {
   const inputSelector = ".lsbot-question-input, .lsbot-question-box-answer-input";
 
   const handleKeydown = (event) => {
-    console.log(event);
-
     const chatInput = event.currentTarget;
     if (
       document.activeElement !== chatInput ||

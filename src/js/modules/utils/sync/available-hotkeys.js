@@ -38,7 +38,7 @@ export function syncAvailableHotkeys() {
  * SYNC ENTER ONLY HOTKEY
  */
 function syncEnterOnlyHotkey() {
-  const chatInputs = document.querySelectorAll(".lsbot-question-input", ".lsbot-question-box-answer-input");
+  const chatInputs = document.querySelectorAll(".lsbot-question-input, .lsbot-question-box-answer-input");
   if (chatInputs.length < 1) return;
   setAvailableHotkey("enterOnly", "Enter", "Enter", "Submit focused chat prompt", null);
 }

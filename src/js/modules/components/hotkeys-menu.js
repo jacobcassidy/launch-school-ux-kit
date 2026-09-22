@@ -17,6 +17,7 @@ export function injectHotkeysSection() {
   const settingsMenu = document.querySelector(".settings-container");
   if (!settingsMenu) return;
 
+  settingsMenu.querySelectorAll(".current-page-added-hotkeys-section").forEach((section) => section.remove());
   settingsMenu.appendChild(createHotkeysSection());
 }
 

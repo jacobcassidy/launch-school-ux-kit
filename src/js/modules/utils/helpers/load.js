@@ -106,33 +106,14 @@ export function scheduleReload() {
   }
   setIsReloadScheduled(true);
 
-  const reloadUI = () => {
-    // colorLog.run("Running reloadUI()");
-    loadUI();
-    setLastUrl();
-    setIsReloadScheduled(false);
-  };
-
-  // colorLog.detail("Waiting for new DOM to be ready...");
-  const startWait = performance.now();
-
-  const waitForDom = () => {
-    // colorLog.run("Running waitForDom()");
-    const isNewBody = document.body !== ui.load.previousBody;
-    const isWaitMaxReached = performance.now() - startWait > 3000;
-
-    if (isNewBody) {
-      // colorLog.info("New DOM is ready, calling reloadUI().");
-      requestAnimationFrame(reloadUI);
-      return;
-    } else if (isWaitMaxReached) {
-      // colorLog.alert("Max wait time reached, calling reloadUI().");
-      requestAnimationFrame(reloadUI);
-      return;
-    } else {
-      requestAnimationFrame(waitForDom);
+  // History changes may keep the same body. Run after the current DOM updates,
+  // and let Turbo render events request another pass if rendering finishes later.
+  requestAnimationFrame(() => {
+    try {
+      loadUI();
+      setLastUrl(`${location.origin}${location.pathname}`);
+    } finally {
+      setIsReloadScheduled(false);
     }
-  };
-
-  requestAnimationFrame(waitForDom);
+  });
 }

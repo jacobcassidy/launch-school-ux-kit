@@ -25,12 +25,8 @@ export function watchForUrlChange() {
   /**
    * CHECK FOR URL CHANGE
    * Schedules a UI reload if the page URL has changed.
-   *
-   * @param {string} from Where this function was called from.
    */
   const checkForUrlChange = () => {
-    // colorLog.notice(`checkForUrlChange() called from ${from}`);
-
     if (ui.load.isReloadScheduled) {
       // colorLog.detail("Reload already scheduled. Exited checkForUrlChange().");
       return;
@@ -48,18 +44,19 @@ export function watchForUrlChange() {
     scheduleReload();
   };
 
-  window.addEventListener("popstate", () => checkForUrlChange("popstate"));
-  window.addEventListener("hashchange", () => checkForUrlChange("hashchange"));
-  document.addEventListener("turbo:load", () => checkForUrlChange("turbo:load"));
-  document.addEventListener("turbo:render", () => checkForUrlChange("turbo:render"));
+  window.addEventListener("popstate", checkForUrlChange);
+  window.addEventListener("hashchange", checkForUrlChange);
+  // A render can complete after the history change, including at the same URL.
+  document.addEventListener("turbo:load", scheduleReload);
+  document.addEventListener("turbo:render", scheduleReload);
 
   history.pushState = function (...args) {
     originalPushState.apply(this, args);
-    checkForUrlChange("pushState");
+    checkForUrlChange();
   };
 
   history.replaceState = function (...args) {
     originalReplaceState.apply(this, args);
-    checkForUrlChange("replaceState");
+    checkForUrlChange();
   };
 }

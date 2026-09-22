@@ -36,7 +36,7 @@ export function watchHotkeys() {
     if (event.repeat || (!isCmdOnly && !isCmdCtrl && !isCmdShift)) return;
 
     if (isCmdOnly) {
-      if (event.code !== "KeyB") return;
+      if (event.code !== "KeyB" || !hotkeys.cmdOnly.KeyB) return;
 
       event.preventDefault();
       event.stopPropagation();
@@ -49,11 +49,7 @@ export function watchHotkeys() {
       }
     } else if (isCmdCtrl) {
       if (
-        event.code !== "Digit1" &&
-        event.code !== "Digit2" &&
-        event.code !== "Digit3" &&
-        event.code !== "Digit4" &&
-        event.code !== "Digit5" &&
+        !hotkeys.cmdCtrl[event.code] &&
         event.code !== "KeyC" &&
         event.code !== "KeyE" &&
         event.code !== "KeyM" &&

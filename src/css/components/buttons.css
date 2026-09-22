@@ -37,7 +37,7 @@ a.button {
 
   &:focus {
     background: var(--background-color--600);
-    border-color: var(--border-color-800);
+    border-color: var(--border-color--800);
     color: var(--color--grayscale-800);
   }
 
@@ -202,7 +202,7 @@ a.button {
     }
 
     &:active {
-      border-color: var(--border-color-600);
+      border-color: var(--border-color--600);
       color: var(--color--grayscale-600) !important;
     }
   }
@@ -363,7 +363,7 @@ body.internal {
 
         &:focus {
           background: var(--background-color--600);
-          border-color: var(--border-color-800);
+          border-color: var(--border-color--800);
           color: var(--color--grayscale-800);
         }
 

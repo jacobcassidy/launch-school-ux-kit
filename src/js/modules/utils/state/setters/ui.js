@@ -76,9 +76,9 @@ export function setIsSidebarCollapsed(value) {
  */
 export function setSettingSidebarHiddenHeaders(value) {
   if (value === true) {
-    elements.native.sidebar.classList.add("hide-section-headers");
+    elements.native.sidebar?.classList.add("hide-section-headers");
   } else {
-    elements.native.sidebar.classList.remove("hide-section-headers");
+    elements.native.sidebar?.classList.remove("hide-section-headers");
   }
 
   ui.sidebar.isSettingSidebarHiddenHeadersOn = value;
@@ -90,9 +90,9 @@ export function setSettingSidebarHiddenHeaders(value) {
  */
 export function setSettingSidebarShrink(value) {
   if (value === true) {
-    elements.native.sidebar.classList.add("shrink");
+    elements.native.sidebar?.classList.add("shrink");
   } else {
-    elements.native.sidebar.classList.remove("shrink");
+    elements.native.sidebar?.classList.remove("shrink");
   }
 
   ui.sidebar.isSettingSidebarShrinkOn = value;
@@ -128,11 +128,4 @@ export function setIsTabsPanelHidden(value) {
  */
 export function setLastUrl(value) {
   ui.load.lastUrl = value;
-}
-
-/**
- * SET PREVIOUS BODY
- */
-export function setPreviousBody(value) {
-  ui.load.previousBody = value;
 }

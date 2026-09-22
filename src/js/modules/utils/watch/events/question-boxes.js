@@ -27,6 +27,7 @@ export function watchQuestionBoxes() {
   };
 
   const handleSubmitHotkey = (event) => {
+    if (event.isComposing || event.keyCode === 229) return;
     // colorLog.run("Running handleSubmitHotkey()");
     const keyAlt = event.altKey;
     const keyCmd = event.metaKey;
