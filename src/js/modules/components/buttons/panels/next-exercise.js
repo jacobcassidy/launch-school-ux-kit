@@ -13,6 +13,7 @@ import { setElementNextExerciseButton, setButtonProperties } from "../../../util
  * Updates the "Go to next exercise" button styles and icon.
  */
 export function updateNextExerciseButton() {
+  setElementNextExerciseButton(null);
   const instructionsPanel = document.querySelector(".instructions-panel");
   if (!instructionsPanel) return;
 
@@ -20,8 +21,8 @@ export function updateNextExerciseButton() {
     a.textContent.includes("Go to the next exercise"),
   );
 
+  if (!nextExerciseButton) return;
   const btns = [nextExerciseButton];
-  if (btns.length < 1) return;
 
   setElementNextExerciseButton(nextExerciseButton);
 
