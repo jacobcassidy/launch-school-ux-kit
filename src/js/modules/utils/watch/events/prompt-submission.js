@@ -23,19 +23,33 @@ export function watchPromptSubmission() {
     prompt.dataset.focusObserverBound = "true";
 
     let observer = null;
+    let stopWatchingFocus = () => {};
 
     prompt.addEventListener("focus", () => {
       observer?.disconnect();
+      stopWatchingFocus();
+
+      const onFocusElsewhere = (event) => {
+        if (event.target === prompt || event.target === document.body) return;
+        observer.disconnect();
+        stopWatchingFocus();
+      };
+      stopWatchingFocus = () => document.removeEventListener("focusin", onFocusElsewhere);
 
       observer = new MutationObserver(() => {
         // colorLog.run("Running prompt observer()");
         // if (prompt.disabled)  colorLog.info("Prompt is disabled.");
 
-        if (!prompt.disabled) {
-          observer.disconnect();
-          // colorLog.info("Prompt focused.");
-          prompt.focus();
+        if (prompt.disabled) {
+          document.addEventListener("focusin", onFocusElsewhere);
+          return;
         }
+
+        observer.disconnect();
+        stopWatchingFocus();
+        const activeElement = document.activeElement;
+        const canRefocus = activeElement === prompt || activeElement === document.body || !activeElement;
+        if (prompt.isConnected && canRefocus) prompt.focus();
       });
 
       observer.observe(prompt, {
