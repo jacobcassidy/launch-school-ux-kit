@@ -3,7 +3,7 @@
 ![Aligned logo on a dark background](preview.png)
 
 - Current aligned logo: [Dark-background PNG](launch-school-ux-kit-aligned-dark.png) · [Light-background PNG](launch-school-ux-kit-aligned.png) · [Dark-background SVG](launch-school-ux-kit-aligned-dark.svg) · [Light-background SVG](launch-school-ux-kit-aligned.svg)
-- [Light preview](preview-light.png): background `#F6F6F6` with Launch and School lettering in `#636363`.
+- [Light preview](preview-light.png): background `#F6F6F6`, Launch and School lettering in `#636363`, and squares and UX Kit lettering in `#F75C5F` with clean edges.
 - Previous image_gen refinement: [Dark-background PNG](launch-school-ux-kit-refined-dark.png) · [Light-background PNG](launch-school-ux-kit-refined.png) · [Dark preview](preview-refined.png)
 - [Selected image_gen foundation](imagegen-foundation.png)
 - [Refinement prompt](refinement-prompt.txt)
