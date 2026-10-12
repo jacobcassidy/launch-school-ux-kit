@@ -1,0 +1,99 @@
+{
+  "source": "imagegen-foundation.png",
+  "method": "Copy original text pixels without resampling; recolor RGB only for dark lettering.",
+  "canvas": [
+    1774,
+    887
+  ],
+  "row_gap": 32,
+  "size_ratio": 1.35,
+  "overlap_fraction_of_smaller_square": 0.2,
+  "corner_radius_fraction": 0.09,
+  "text_top": 202,
+  "text_bottom": 760,
+  "blocks": [
+    {
+      "x": 84.91681296421336,
+      "y": 609.291019581364,
+      "side": 150.70898041863606
+    },
+    {
+      "x": 244.66833220796758,
+      "y": 435.97569209993253,
+      "side": 203.4571235651587
+    },
+    {
+      "x": 460.3328831870358,
+      "y": 202,
+      "side": 274.66711681296425
+    }
+  ],
+  "rows": [
+    {
+      "text": "Launch",
+      "crop": [
+        765,
+        190,
+        780,
+        181
+      ],
+      "source_ink": [
+        786,
+        202,
+        734,
+        158
+      ],
+      "shift": 0,
+      "destination_ink": [
+        786,
+        202,
+        734,
+        158
+      ]
+    },
+    {
+      "text": "School",
+      "crop": [
+        765,
+        373,
+        780,
+        187
+      ],
+      "source_ink": [
+        775,
+        383,
+        745,
+        173
+      ],
+      "shift": 9,
+      "destination_ink": [
+        775,
+        392,
+        745,
+        173
+      ]
+    },
+    {
+      "text": "UX Kit",
+      "crop": [
+        765,
+        561,
+        780,
+        182
+      ],
+      "source_ink": [
+        777,
+        567,
+        748,
+        163
+      ],
+      "shift": 30,
+      "destination_ink": [
+        777,
+        597,
+        748,
+        163
+      ]
+    }
+  ]
+}
