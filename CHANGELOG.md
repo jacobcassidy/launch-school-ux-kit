@@ -5,6 +5,49 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.9.0] - 2026-10-12
+
+### Added
+
+- Added platform-aware Windows shortcuts: Ctrl replaces Cmd, and Ctrl Alt replaces Cmd Ctrl.
+- Added available shortcuts to button and tab tooltips, including alternate bindings and updates when page controls change.
+- Added accessible shortcut labels and polite screen-reader announcements for toast notifications.
+- Added a panel and shortcut demo video with a local HTML video player.
+- Added a three-square project logo, transparent PNG and SVG variants for light and dark backgrounds, balanced previews, and branding documentation.
+- Added automatic light/dark logo selection to the README and GitHub links to the final logo assets.
+- Added DOM lifecycle integration tests with happy-dom and regression coverage for shortcuts, navigation, cloned controls, panel visibility, accessibility, contrast, and toast cleanup.
+- Added repository guidance for separate task commits that exclude unrelated edits.
+
+### Changed
+
+- Standardized "hotkeys" to "shortcuts" throughout the interface, source, tests, and documentation.
+- Refined shortcut displays with modifier symbols, consistent keycaps, natural widths for longer key names, smaller tooltip bindings, and "or" between alternate shortcuts.
+- Improved contrast for settings headings, header titles and breadcrumbs, sidebar labels, and section headings.
+- Centered header titles and breadcrumbs while preserving control spacing; long titles truncate or hide when space is limited.
+- Rebuilt the distribution userscript with the runtime fixes and updated its date-based version to 2026-10-10.
+
+### Fixed
+
+- Fixed cloned buttons, tabs, sidebar links, settings controls, and chat inputs losing their handlers after cached page restoration.
+- Preserved native breadcrumbs, logged-out navigation, and book table-of-contents controls through Turbo and Turbolinks caching and Back/Forward navigation, including renders that finish after history changes.
+- Fixed sidebar toggle state handling and preserved content offsets when the sidebar is shrunk.
+- Preserved native content beside unread counts, reattached count observers to restored sidebars, and stopped observing when the sidebar is absent.
+- Fixed tabs revealed after initialization retaining hidden state, missing icons, or stale labels and shortcuts.
+- Removed stale tab tooltips and reset active sidebar tooltips before page caching and restoration.
+- Fixed LSBot submission focus tracking when its prompt is already focused during initialization.
+- Prevented review shortcuts from submitting disabled or detached controls or targeting another page after navigation.
+- Prevented shortcuts from interfering with IME composition and AltGr text entry.
+- Prevented registered UX Kit shortcuts from also triggering the page's native keyboard handlers.
+- Made hidden header, settings, and tabs-panel controls inaccessible to keyboard and assistive navigation, and restored focus when Settings closes.
+- Fixed expired toasts remaining in the DOM when transitions are absent, canceled, or do not emit completion events.
+
+### Removed
+
+- Removed plus separators from displayed shortcut combinations.
+- Removed tabs-panel, content-panel, and divider transitions so panel visibility changes are immediate.
+- Moved the unused panel-left sidebar icon out of the active asset folder and into references.
+- Removed obsolete developer bug, dependency, and review notes; stopped tracking the local TODO file and added it to `.gitignore`.
+
 ## [1.8.2] - 2026-10-08
 
 ### Fixed
