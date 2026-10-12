@@ -1,6 +1,0 @@
-Edit the attached foundational logo. Preserve its exact font design and charcoal / vivid coral colors. Keep the three rows reading Launch, School, UX Kit, with common left and right edges.
-Add a little vertical whitespace: make BOTH gaps between text rows equal and approximately 20% of the capital-letter height. The result should be compact but comfortably spaced.
-Refine the three ascending coral squares. Their side lengths must follow the ratio 1 : 1.35 : 1.8225, for example 150 by 150, 202.5 by 202.5, and 273.375 by 273.375. Each block MUST be a perfect square. Each has a moderately rounded corner radius of 9% of its side, midway between soft rounding and almost sharp corners.
-Keep the overlapping vertical positioning of the foundation. These are diagonally rising squares whose height ranges overlap, not a disconnected staircase. Each block stays horizontally separated from the next by a small clear gap.
-The lowest small square's bottom edge aligns to the bottom of UX Kit. The highest large square's top edge aligns to the top of Launch. Position the middle square between them with overlapping height ranges.
-Maintain the foundational font exactly. Clean flat logo, solid colors, transparent background, no gradients or extra text, smooth crisp edges and clear empty space. Return one logo.
