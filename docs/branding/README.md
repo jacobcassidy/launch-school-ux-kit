@@ -1,12 +1,14 @@
 # Launch School UX Kit branding
 
-![Refined foundational logo](launch-school-ux-kit-refined.png)
+![Aligned foundational logo](launch-school-ux-kit-aligned.png)
 
-- [Current image_gen refinement](launch-school-ux-kit-refined.png)
+- [Current aligned image_gen logo](launch-school-ux-kit-aligned.png)
+- [Previous image_gen refinement](launch-school-ux-kit-refined.png)
 - [Selected image_gen foundation](imagegen-foundation.png)
 - [Refinement prompt](refinement-prompt.txt)
+- [Alignment prompts](alignment-prompt.txt)
 
-The current logo refines the selected foundational image directly with the built-in image_gen tool, preserving its font style and charcoal and coral palette. The refinement requests moderately rounded squares, overlapping vertical ranges, and balanced text-row whitespace between the tight foundation and the more spacious vector version. Its transparent PNG is a generated design; exact square ratios and alignments in the prompt are design targets rather than measured vector constraints.
+The current logo refines the selected foundational image directly with the built-in image_gen tool, preserving its font style and charcoal and coral palette. The refinement requests moderately rounded squares and balanced text-row whitespace between the tight foundation and the more spacious vector version. The latest pass adjusts the blocks' vertical positions to match the text column's top and bottom, allowing less overlap. Its transparent PNG is a generated design; exact square ratios and alignments in the prompt are design targets rather than measured vector constraints.
 
 The earlier vector reconstruction is retained for comparison:
 
