@@ -1,12 +1,18 @@
 # Launch School UX Kit branding
 
-![Logo on light and dark backgrounds](preview.png)
+![Refined foundational logo](launch-school-ux-kit-refined.png)
 
-- [Logo for light backgrounds](launch-school-ux-kit.svg) · [Transparent PNG](launch-school-ux-kit.png)
-- [Logo for dark backgrounds](launch-school-ux-kit-dark.svg) · [Transparent PNG](launch-school-ux-kit-dark.png)
-- [Standalone mark](launch-school-ux-kit-mark.svg)
+- [Current image_gen refinement](launch-school-ux-kit-refined.png)
 - [Selected image_gen foundation](imagegen-foundation.png)
+- [Refinement prompt](refinement-prompt.txt)
 
-The final SVG reconstructs the selected image_gen concept with outlined Avenir Next Heavy lettering and flat coral (`#FF543A`) and charcoal (`#292928`) colors. The dark-background variant uses off-white (`#F2F2F0`) lettering. SVGs contain vector paths rather than embedded images and require no installed fonts.
+The current logo refines the selected foundational image directly with the built-in image_gen tool, preserving its font style and charcoal and coral palette. The refinement requests moderately rounded squares, overlapping vertical ranges, and balanced text-row whitespace between the tight foundation and the more spacious vector version. Its transparent PNG is a generated design; exact square ratios and alignments in the prompt are design targets rather than measured vector constraints.
 
-All three text rows share the same visible left and right edges, with equal whitespace between rows. Each block is a square; side lengths increase by 35% at each step, with corner radii set to 3% of the side length. The smallest block's bottom and largest block's top align with the text column's bottom and top.
+The earlier vector reconstruction is retained for comparison:
+
+- [Light-background SVG](launch-school-ux-kit.svg) · [Transparent PNG](launch-school-ux-kit.png)
+- [Dark-background SVG](launch-school-ux-kit-dark.svg) · [Transparent PNG](launch-school-ux-kit-dark.png)
+- [Standalone SVG mark](launch-school-ux-kit-mark.svg)
+- [Light and dark preview](preview.png)
+
+Those SVGs use outlined Avenir Next Heavy lettering and flat coral (`#FF543A`) and charcoal (`#292928`) colors, with off-white (`#F2F2F0`) lettering in the dark-background variant. Their block side lengths increase by 35%, with 3% corner radii and non-overlapping height ranges.
