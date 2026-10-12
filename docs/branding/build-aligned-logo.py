@@ -11,6 +11,7 @@ ROOT = Path(__file__).resolve().parent
 FOUNDATION = ROOT / "imagegen-foundation.png"
 CANVAS = (1774, 887)
 ROW_GAP = 32
+OUTER_MARGIN = 32
 SIZE_RATIO = 1.35
 OVERLAP = 0.20
 CORNER_RADIUS = 0.09
@@ -146,9 +147,32 @@ def main():
         compose(blocks_png, dark_rows, dark)
         mark_ink = ink_bounds(light, (0, 0, 750, CANVAS[1]))
         assert mark_ink[1] == top and mark_ink[1] + mark_ink[3] == bottom
+        ink_x, ink_y, ink_width, ink_height = ink_bounds(light, (0, 0, *CANVAS))
+        presentation_crop = (
+            ink_x - OUTER_MARGIN,
+            ink_y - OUTER_MARGIN,
+            ink_width + 2 * OUTER_MARGIN,
+            ink_height + 2 * OUTER_MARGIN,
+        )
+        crop_x, crop_y, output_width, output_height = presentation_crop
+        for image in (light, dark):
+            run("magick", str(image), "-crop", crop_geometry(presentation_crop), "+repage", f"PNG32:{image}")
+            assert ink_bounds(image, (0, 0, output_width, output_height)) == (
+                OUTER_MARGIN, OUTER_MARGIN, ink_width, ink_height,
+            )
+        cropped_header = (
+            f'<svg xmlns="http://www.w3.org/2000/svg" width="{output_width}" height="{output_height}" '
+            f'viewBox="{crop_x} {crop_y} {output_width} {output_height}" fill="none" '
+            'role="img" aria-labelledby="title description">'
+        )
+        for suffix in ("", "-dark"):
+            path = ROOT / f"launch-school-ux-kit-aligned{suffix}.svg"
+            path.write_text(path.read_text().replace(header, cropped_header, 1))
         for i, row in enumerate(ROWS):
             x, y, width, height = row["crop"]
-            crop = (x, y + row["shift"], width, height)
+            crop = (x - crop_x, y + row["shift"] - crop_y, width, height)
+            ink_x, ink_y, ink_width, ink_height = row["destination_ink"]
+            row["destination_ink"] = (ink_x - crop_x, ink_y - crop_y, ink_width, ink_height)
             actual = temp / "actual.png"
             run("magick", str(light), "-crop", crop_geometry(crop), "+repage", f"PNG32:{actual}")
             run("magick", "compare", "-metric", "AE", str(light_rows[i]), str(actual), "null:")
@@ -160,13 +184,18 @@ def main():
 
     layout = {
         "source": FOUNDATION.name, "method": "Copy original text pixels without resampling; recolor RGB only for dark lettering.",
-        "canvas": CANVAS, "row_gap": ROW_GAP, "size_ratio": SIZE_RATIO,
+        "canvas": (output_width, output_height), "source_canvas": CANVAS,
+        "svg_view_box": presentation_crop, "outer_margin": OUTER_MARGIN,
+        "row_gap": ROW_GAP, "size_ratio": SIZE_RATIO,
         "overlap_fraction_of_smaller_square": OVERLAP, "corner_radius_fraction": CORNER_RADIUS,
-        "text_top": top, "text_bottom": bottom, "blocks": blocks, "rows": ROWS,
+        "text_top": top - crop_y, "text_bottom": bottom - crop_y,
+        "blocks": [{"x": b["x"] - crop_x, "y": b["y"] - crop_y, "side": b["side"]} for b in blocks],
+        "rows": ROWS,
     }
     (ROOT / "aligned-layout.json").write_text(json.dumps(layout, indent=2) + "\n")
     print(f"Foundation text pixels preserved exactly; dark alpha masks match exactly. Equal row gaps: {ROW_GAP}px.")
     print(f"Blocks and lettering span y={top} to {bottom}; side lengths: {small:.3f}, {medium:.3f}, {large:.3f}.")
+    print(f"Cropped presentation: {output_width}x{output_height}; equal {OUTER_MARGIN}px margins on all four sides.")
 
 
 if __name__ == "__main__":
