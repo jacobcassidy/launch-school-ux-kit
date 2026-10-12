@@ -1,5 +1,7 @@
 # Launch School UX Kit
 
+![Launch School UX Kit logo](docs/branding/launch-school-ux-kit-aligned.svg)
+
 An unofficial UX kit that modifies the LaunchSchool.com UI with a minimal design and added shortcuts for productivity (shortcuts that toggle the header, menus, sidebar, tabs, and more).
 
 | Index                                 |
