@@ -15,12 +15,15 @@ An unofficial UX kit that modifies the LaunchSchool.com UI with a minimal design
 | [Demo](#demo)                         |
 | [Quickstart Guide](#quickstart-guide) |
 | [UX Kit Features](#ux-kit-features)   |
+| [Changelog](CHANGELOG.md)             |
 | [Notes](#notes)                       |
 | [Issues?](#issues)                    |
 
 ## Demo
 
 The demo transitions between the UX kit's panel states and shows the shortcut used for each action.
+
+[Watch or download the demo video](https://github.com/jacobcassidy/launch-school-ux-kit/blob/dev/docs/reference/ux-kit-demo.webm?raw=true).
 
 ## Quickstart Guide
 
@@ -29,6 +32,8 @@ The demo transitions between the UX kit's panel states and shows the shortcut us
 3. Click on the dashboard's `+` tab to create a new script.
 4. Copy the code from [/dist/js/index.min.js](https://github.com/jacobcassidy/launch-school-ux-kit/blob/main/dist/js/index.min.js), then paste it into the Tampermonkey editor and save it (`CMD S` on macOS or `CTRL S` on Windows).
 5. Go to [launchschool.com](https://launchschool.com) or refresh the page if you're already there and the script should now be active (if not, check your Tampermonkey extension settings to make sure it's active on launchschool.com).
+
+To update an existing installation, open its script in Tampermonkey, replace the contents with the latest code from step 4, save, and refresh Launch School.
 
 > [!TIP]
 > If you want the clean look from the screenshots (no URL bar, tabs, browser nav, etc), do the following:
@@ -46,10 +51,13 @@ The demo transitions between the UX kit's panel states and shows the shortcut us
 
 - Refines the UI for a more minimal style, especially when closing panels such as the sidebar or tabs panel.
 - Adds a toggleable page header panel with the page's breadcrumbs/title and buttons to control the visibility of other panels (settings, sidebar, tabs, and table of contents).
-- Adds shortcuts to toggle the visibility of all toggleable panels (header, menus, sidebar, and tabs), so you can display only want you need for minimizing distractions.
+- Adds shortcuts for macOS and Windows to toggle panel visibility (header, menus, sidebar, and tabs), so you can display only what you need for minimizing distractions.
+- Shows available shortcut combinations in button and tab tooltips, with alternate combinations separated by "or".
+- Centers header titles and breadcrumbs while keeping the panel controls accessible when space is limited.
 - Refines the sidebar UX with muted colors and reorganized link groups (with heading labels) and a more minimal sidebar when shrunken.
-- Adds a Settings menu panel the includes the ability to completely hide the sidebar, show/hide the sidebar group titles, and see the current page's shortcuts.
-- Adds a toaster component which displays messages for different actions, such as activating the Copy Editor Code shortcut.
+- Adds a Settings menu to completely hide or shrink the sidebar, show/hide sidebar group titles, and see the current page's available shortcuts. The shortcut list refreshes as page controls are added, removed, or replaced.
+- Shows brief notifications for actions such as copying code or using a shortcut whose action is unavailable on the current page. Notifications are also announced to screen readers.
+- Supports keyboard navigation in Settings. Close it with `Esc`; if focus was inside the menu, it returns to the Settings button. Hidden header, Settings, and tabs-panel controls are excluded from keyboard navigation.
 - Focuses/refocuses the LSBot prompt textarea when a prompt submission completes (including from a question box in the content panel).
 - Automatically focuses the textarea of a selected panel (such as the LSBot tab).
 - Adds a blue background flash to an already active tab/textarea that is activated again via a shortcut so you can quickly see where the active focus is.
@@ -72,6 +80,8 @@ The demo transitions between the UX kit's panel states and shows the shortcut us
   | `CMD CTRL ,`  | `CTRL ALT ,`   | Toggle Settings visibility (include Current Page Shortcuts)                |
 
 Shortcut modifiers in tooltips and settings use `⌘` (Command), `⌃` (Control), `⇧` (Shift), and `⎇` (Alt).
+
+Keys displayed together, such as `⌘⌃C`, are pressed together. Numbered tab shortcuts follow the order of visible tabs. Open Settings to see the combinations available on your current page.
 
 ## Notes
 
