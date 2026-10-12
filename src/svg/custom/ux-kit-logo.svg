@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="160" viewBox="0 0 680 160" fill="none">
+  <title>Launch School UX Kit</title>
+  <desc>A layered panel mark beside the Launch School UX Kit wordmark.</desc>
+  <rect x="8" y="8" width="144" height="144" rx="34" fill="#F7F8FA" />
+  <rect x="31" y="36" width="87" height="88" rx="12" fill="#FFFFFF" stroke="#D9E0E8" stroke-width="4" />
+  <path d="M43 49H68V111H43C39.6863 111 37 108.314 37 105V55C37 51.6863 39.6863 49 43 49Z" fill="#315B7D" />
+  <path d="M81 49H106C109.314 49 112 51.6863 112 55V78H81V49Z" fill="#E8EDF2" />
+  <path d="M81 88H112V105C112 108.314 109.314 111 106 111H81V88Z" fill="#E8EDF2" />
+  <path d="M73 49V111" stroke="#D9E0E8" stroke-width="4" />
+  <circle cx="101" cy="40" r="10" fill="#E8954A" stroke="#F7F8FA" stroke-width="4" />
+  <text x="184" y="82" fill="#243746" font-family="Avenir Next, Avenir, Helvetica, Arial, sans-serif" font-size="44" font-weight="700" letter-spacing="-1.5">Launch School</text>
+  <text x="187" y="124" fill="#547087" font-family="Avenir Next, Avenir, Helvetica, Arial, sans-serif" font-size="26" font-weight="600" letter-spacing="5">UX KIT</text>
+</svg>
