@@ -1,6 +1,12 @@
 # Launch School UX Kit
 
-![Launch School UX Kit logo](https://github.com/jacobcassidy/launch-school-ux-kit/blob/dev/docs/branding/launch-school-ux-kit-aligned.svg?raw=true)
+<!-- markdownlint-disable MD033 -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/jacobcassidy/launch-school-ux-kit/blob/dev/docs/branding/launch-school-ux-kit-aligned-dark.svg?raw=true">
+  <source media="(prefers-color-scheme: light)" srcset="https://github.com/jacobcassidy/launch-school-ux-kit/blob/dev/docs/branding/launch-school-ux-kit-aligned.svg?raw=true">
+  <img alt="Launch School UX Kit logo" src="https://github.com/jacobcassidy/launch-school-ux-kit/blob/dev/docs/branding/launch-school-ux-kit-aligned.svg?raw=true">
+</picture>
+<!-- markdownlint-enable MD033 -->
 
 An unofficial UX kit that modifies the LaunchSchool.com UI with a minimal design and added shortcuts for productivity (shortcuts that toggle the header, menus, sidebar, tabs, and more).
 
