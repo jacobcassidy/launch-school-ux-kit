@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.9.0] - 2026-10-12
+## [1.9.0] - 2026-10-13 (Codex Refactor Edition)
 
 ### Added
 
@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added automatic light/dark logo selection to the README and GitHub links to the final logo assets.
 - Added DOM lifecycle integration tests with happy-dom and regression coverage for shortcuts, navigation, cloned controls, panel visibility, accessibility, contrast, and toast cleanup.
 - Added repository guidance for separate task commits that exclude unrelated edits.
+- Added a development quick guide, repository organization plans, and architecture documentation.
 
 ### Changed
 
@@ -24,7 +25,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Refined shortcut displays with modifier symbols, consistent keycaps, natural widths for longer key names, smaller tooltip bindings, and "or" between alternate shortcuts.
 - Improved contrast for settings headings, header titles and breadcrumbs, sidebar labels, and section headings.
 - Centered header titles and breadcrumbs while preserving control spacing; long titles truncate or hide when space is limited.
-- Rebuilt the distribution userscript with the runtime fixes and updated its date-based version to 2026-10-10.
+- Rebuilt the distribution userscript with the runtime fixes and updated its date-based version to 2026-10-13.
+- Reorganized source code by feature, grouped tests by ownership, and enabled recursive test discovery.
+- Reorganized documentation, design references, media, and branding assets; grouped source icons by UI location and consuming feature.
+- Updated the logo vector artwork and README shortcut notation, and refined the README demo presentation.
 
 ### Fixed
 
@@ -40,30 +44,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Prevented registered UX Kit shortcuts from also triggering the page's native keyboard handlers.
 - Made hidden header, settings, and tabs-panel controls inaccessible to keyboard and assistive navigation, and restored focus when Settings closes.
 - Fixed expired toasts remaining in the DOM when transitions are absent, canceled, or do not emit completion events.
+- Fixed custom button icons disappearing when page content resets, stale unread badges after sidebar replacement, and question-box controls added after initialization not handling submissions.
+- Preserved native labels and content for unrecognized tab types, refreshed the UI after query-only navigation, removed stale sidebar tooltips after replacement, fixed the next pagination selector, and kept userscript watch mode current after atomic metadata replacements.
 
 ### Removed
 
 - Removed plus separators from displayed shortcut combinations.
 - Removed tabs-panel, content-panel, and divider transitions so panel visibility changes are immediate.
-- Moved the unused panel-left sidebar icon out of the active asset folder and into references.
 - Removed obsolete developer bug, dependency, and review notes; stopped tracking the local TODO file and added it to `.gitignore`.
-
-## [1.8.2] - 2026-10-08
-
-### Fixed
-
-- Fixed custom button icons disappearing when the page resets their contents.
-- Fixed unread count badges becoming stale when the sidebar is replaced.
-- Fixed question-box controls inserted after initialization not handling submissions.
-- Preserved native labels and content for unrecognized tab types.
-- Kept userscript watch mode current after atomic metadata file replacements.
-- Refreshed the UI after query-only navigation.
-- Removed stale sidebar tooltips after sidebar replacement.
-- Fixed the next pagination selector.
-
-### Removed
-
-- Removed unused sidebar and native DOM state and an unused sidebar icon.
+- Removed unused sidebar and native DOM state, an unused sidebar icon, and draft or preview logo assets.
 
 ## [1.8.1] - 2026-09-22 (Codex Fixes Edition)
 
