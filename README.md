@@ -21,7 +21,7 @@ An unofficial UX kit that modifies the LaunchSchool.com UI with a minimal design
 
 ## Demo
 
-The demo is recorded in the Launch School PWA at 1920 × 1080. Each action has a centered description above its shortcut, with on/off captions for the settings toggles and five seconds between actions.
+The 1920 × 1080 demo presents the Launch School PWA as an isolated window with rounded corners, padding, and a macOS-style shadow. Centered action descriptions fade in before each action, with shortcut key boxes and yellow highlights for the affected controls. It shows the settings toggles, panel visibility shortcuts, and all three tabs in order, including a completed LSBot response and running Scratchpad code.
 
 [Watch or download the demo video](https://github.com/jacobcassidy/launch-school-ux-kit/blob/dev/docs/reference/ux-kit-demo.webm?raw=true).
 
