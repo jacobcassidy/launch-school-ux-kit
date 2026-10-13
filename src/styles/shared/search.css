@@ -52,7 +52,7 @@ body.internal {
           inset-block-start: 50%;
           transform: translateY(-50%);
           background-color: currentcolor;
-          mask: url("../../svg/lucide/search.svg") center / contain no-repeat;
+          mask: url("../../svg/lucide/shared/search.svg") center / contain no-repeat;
           block-size: 1.125rem;
           inline-size: 1.125rem;
           transition: var(--transition--short);

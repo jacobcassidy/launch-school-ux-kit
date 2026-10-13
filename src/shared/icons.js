@@ -4,26 +4,26 @@
  */
 
 //  Header Icons
-import settings from "../svg/lucide/settings.svg";
-import sidebarClose from "../svg/lucide/panel-left-close.svg";
-import sidebarOpen from "../svg/lucide/panel-left-open.svg";
-import tabsPanel from "../svg/lucide/modified/tabs-panel.svg";
-import toc from "../svg/lucide/book-text.svg";
+import settings from "../svg/lucide/settings/settings.svg";
+import sidebarClose from "../svg/lucide/sidebar/panel-left-close.svg";
+import sidebarOpen from "../svg/lucide/sidebar/panel-left-open.svg";
+import tabsPanel from "../svg/lucide/tabs/modified/tabs-panel.svg";
+import toc from "../svg/lucide/toc/book-text.svg";
 
 // Panel Icons
-import arrowLeft from "../svg/lucide/chevron-left.svg";
-import arrowRight from "../svg/lucide/chevron-right.svg";
-import checkmark from "../svg/lucide/check.svg";
-import conversationHistory from "../svg/lucide/gallery-vertical-end.svg";
-import conversationNew from "../svg/lucide/circle-plus.svg";
-import copy from "../svg/lucide/copy.svg";
-import markComplete from "../svg/lucide/square-check-big.svg";
-import markIncomplete from "../svg/lucide/rotate-ccw.svg";
-import nextExercise from "../svg/lucide/arrow-big-right.svg";
-import run from "../svg/lucide/play.svg";
-import stop from "../svg/lucide/octagon-x.svg";
-import viewHide from "../svg/lucide/eye-off.svg";
-import viewShow from "../svg/lucide/eye.svg";
+import arrowLeft from "../svg/lucide/exercises/chevron-left.svg";
+import arrowRight from "../svg/lucide/exercises/chevron-right.svg";
+import checkmark from "../svg/lucide/editor/check.svg";
+import conversationHistory from "../svg/lucide/prompts/gallery-vertical-end.svg";
+import conversationNew from "../svg/lucide/prompts/circle-plus.svg";
+import copy from "../svg/lucide/editor/copy.svg";
+import markComplete from "../svg/lucide/exercises/square-check-big.svg";
+import markIncomplete from "../svg/lucide/exercises/rotate-ccw.svg";
+import nextExercise from "../svg/lucide/exercises/arrow-big-right.svg";
+import run from "../svg/lucide/editor/play.svg";
+import stop from "../svg/lucide/editor/octagon-x.svg";
+import viewHide from "../svg/lucide/exercises/eye-off.svg";
+import viewShow from "../svg/lucide/exercises/eye.svg";
 
 // Sidebar Icons
 import archives from "../svg/lucide/sidebar/archives/archive.svg";
@@ -45,12 +45,12 @@ import toggle from "../svg/lucide/sidebar/pages/chevron-down.svg";
 import videos from "../svg/lucide/sidebar/videos/monitor-play.svg";
 
 // Tab Icons
-import community from "../svg/lucide/users-round.svg";
-import feedback from "../svg/lucide/send.svg";
-import instructions from "../svg/lucide/scroll.svg";
-import lsbot from "../svg/lucide/bot-message-square.svg";
-import review from "../svg/lucide/check-check.svg";
-import code from "../svg/lucide/code-xml.svg";
+import community from "../svg/lucide/tabs/users-round.svg";
+import feedback from "../svg/lucide/tabs/send.svg";
+import instructions from "../svg/lucide/tabs/scroll.svg";
+import lsbot from "../svg/lucide/tabs/bot-message-square.svg";
+import review from "../svg/lucide/tabs/check-check.svg";
+import code from "../svg/lucide/shared/code-xml.svg";
 
 const parser = new DOMParser();
 
