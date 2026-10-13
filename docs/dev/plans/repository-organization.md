@@ -63,7 +63,7 @@ src/js/
 - Put the three shared test support files—source loader, header fixture, and integration entry—under `tests/support`. Keep test cases directly under `tests`.
 - Preserve the source loader’s existing resolution of paths relative to `tests`; update the integration entry’s imports and bundling path.
 - Retain the existing CSS organization, runtime SVG folders, root tool configurations, and build script location.
-- Keep the installable bundle at `dist/js/index.min.js`, preserving the documented installation URL. No public runtime API or behavior changes are intended.
+- Move the installable bundle from `dist/js/index.min.js` to `dist/index.min.js` and remove the old tracked output. Update the release build destination, CI bundle freshness check, bundle smoke test, README installation link, and contributor guide to use the new path. Keep the staging and development watch output paths unchanged. No public runtime API or behavior changes are intended.
 
 ## Validation and completion
 
@@ -71,7 +71,8 @@ src/js/
 - Verify no active source imports or CSS URLs point into the archived SVG directory.
 - Run the existing test suite, formatting check, and script, style, and documentation lint checks.
 - Confirm the generated userscript remains equivalent; investigate any bundle differences caused by moving modules.
-- Complete three separate commits: documentation and reference assets, JavaScript organization, and test support organization. Validate each task before committing.
+- Verify the release build produces `dist/index.min.js`, the old tracked bundle is absent, and active installation instructions, tests, and CI checks use the new path. Preserve historical changelog references.
+- Complete four separate commits: documentation and reference assets, JavaScript organization, test support organization, and distribution path migration. Validate each task before committing.
 - Leave the existing branding README edits and logo-preview deletion uncommitted as unrelated user changes.
 
 ## Assumptions
