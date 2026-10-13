@@ -2,9 +2,9 @@
 
 <!-- markdownlint-disable MD033 -->
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/jacobcassidy/launch-school-ux-kit/blob/dev/docs/design/branding/logo/launch-school-ux-kit-logo-dark.svg?raw=true">
-  <source media="(prefers-color-scheme: light)" srcset="https://github.com/jacobcassidy/launch-school-ux-kit/blob/dev/docs/design/branding/logo/launch-school-ux-kit-logo.svg?raw=true">
-  <img alt="Launch School UX Kit logo" src="https://github.com/jacobcassidy/launch-school-ux-kit/blob/dev/docs/design/branding/logo/launch-school-ux-kit-logo.svg?raw=true">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/design/branding/logo/launch-school-ux-kit-logo-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="docs/design/branding/logo/launch-school-ux-kit-logo.svg">
+  <img alt="Launch School UX Kit logo" src="docs/design/branding/logo/launch-school-ux-kit-logo.svg">
 </picture>
 <!-- markdownlint-enable MD033 -->
 
@@ -23,14 +23,14 @@ An unofficial UX kit that modifies the LaunchSchool.com UI with a minimal design
 
 The 1920 × 1080 demo presents the Launch School PWA as an isolated window with rounded corners, padding, and a macOS-style shadow. Centered action descriptions fade in before each action, with shortcut key boxes and yellow highlights for the affected controls. It shows the settings toggles, panel visibility shortcuts, and all three tabs in order, including a completed LSBot response and running Scratchpad code.
 
-[Watch or download the demo video](https://github.com/jacobcassidy/launch-school-ux-kit/blob/dev/docs/media/demo/ux-kit-demo.webm?raw=true).
+[Watch or download the demo video](docs/media/demo/ux-kit-demo.webm).
 
 ## Quickstart Guide
 
 1. Install the [Tampermonkey](https://chromewebstore.google.com/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo) browser extension (or an equivalent extension).
 2. Open the Tampermonkey extension's dashboard.
 3. Click on the dashboard's `+` tab to create a new script.
-4. Copy the code from [/dist/index.min.js](https://github.com/jacobcassidy/launch-school-ux-kit/blob/main/dist/index.min.js), then paste it into the Tampermonkey editor and save it (`⌘S` on macOS or `⌃S` on Windows).
+4. Copy the code from [dist/index.min.js](dist/index.min.js), then paste it into the Tampermonkey editor and save it (`⌘S` on macOS or `⌃S` on Windows).
 5. Go to [launchschool.com](https://launchschool.com) or refresh the page if you're already there and the script should now be active (if not, check your Tampermonkey extension settings to make sure it's active on launchschool.com).
 
 To update an existing installation, open its script in Tampermonkey, replace the contents with the latest code from step 4, save, and refresh Launch School.
