@@ -166,3 +166,7 @@ Run the existing test suite, formatting check, and script/style/documentation li
 - Use plain JavaScript modules, existing build tools, and named callback options. No framework, TypeScript migration, or unrelated behavior changes are included.
 - Keep common DOM references, icon factories, and visual utilities shared; feature-specific state and actions belong to features.
 - Preserve historical assets and the alternative plan. No image or video regeneration is needed.
+
+## Documentation navigation
+
+See the [documentation index](../../README.md) and [implemented architecture](../architecture.md).

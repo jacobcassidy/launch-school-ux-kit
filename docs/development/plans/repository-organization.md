@@ -80,3 +80,9 @@ src/js/
 - Use the selected incremental source cleanup rather than regrouping code by feature.
 - Preserve historical assets; no deletion or media regeneration is needed.
 - Keep the README useful on its own and use the docs index for deeper material.
+
+## Documentation navigation
+
+See the [documentation index](../../README.md) and [implemented architecture](../architecture.md).
+
+The selected migration is [organization by features](repository-organization-by-features.md).

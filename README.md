@@ -23,7 +23,7 @@ An unofficial UX kit that modifies the LaunchSchool.com UI with a minimal design
 
 The 1920 × 1080 demo presents the Launch School PWA as an isolated window with rounded corners, padding, and a macOS-style shadow. Centered action descriptions fade in before each action, with shortcut key boxes and yellow highlights for the affected controls. It shows the settings toggles, panel visibility shortcuts, and all three tabs in order, including a completed LSBot response and running Scratchpad code.
 
-[Watch or download the demo video](https://github.com/jacobcassidy/launch-school-ux-kit/blob/dev/docs/reference/ux-kit-demo.webm?raw=true).
+[Watch or download the demo video](https://github.com/jacobcassidy/launch-school-ux-kit/blob/dev/docs/media/demo/ux-kit-demo.webm?raw=true).
 
 ## Quickstart Guide
 
@@ -93,3 +93,7 @@ Keys displayed together, such as `⌘⌃C`, are pressed together. Numbered tab s
 ## Issues?
 
 If you come across any issues, please feel free to [report them here](https://github.com/jacobcassidy/launch-school-ux-kit/issues). You are also welcome to [create a pull request](https://github.com/jacobcassidy/launch-school-ux-kit/pulls). If your PR code is AI generated, please fully review the code and mention you have done so, otherwise it may be automatically closed without being reviewed/merged.
+
+## Project documentation
+
+See [Contributing](CONTRIBUTING.md) for development setup and checks, and the [documentation index](docs/README.md) for architecture, reference guides, and historical media.
