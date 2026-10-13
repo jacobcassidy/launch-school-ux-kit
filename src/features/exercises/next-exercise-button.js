@@ -7,8 +7,6 @@ import { icons } from "../../shared/icons.js";
 import { setElementNextExerciseButton } from "../../shared/dom/setters.js";
 import { applyButtonAppearance } from "../../shared/dom/buttons.js";
 
-// Import component
-
 /**
  * Updates the "Go to next exercise" button styles and icon.
  */
