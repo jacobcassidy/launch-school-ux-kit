@@ -137,7 +137,7 @@ tests/
 ### Distribution
 
 - Move the committed release bundle to `dist/index.min.js` and remove `dist/js/index.min.js`. Update the release destination, CI freshness check, smoke test, README installation link, and contributor instructions together.
-- Keep `.dev-dist/js/index.js` and `.build-tmp/js/index.min.js` unchanged. Continue writing the release bundle only after a successful build.
+- Write the watch bundle to `.dev-dist/index.js` and the staged release bundle to `.build-tmp/index.min.js`, removing the `js` directory from both output paths. Continue writing the release bundle only after a successful build.
 - Preserve the userscript header, license notices, platform shortcuts, accessibility behavior, and runtime output. Source module exports are internal interfaces; this change does not introduce a new public runtime API.
 
 ## Validation and implementation sequence
@@ -158,7 +158,7 @@ Run the existing test suite, formatting check, and script/style/documentation li
 - Exercise completion, next-exercise, review-submission guards, editor controls, prompt submission/refocus, and notification cleanup retain existing behavior.
 - Feature styles preserve the existing cascade and appearance. Perform a focused visual smoke check of the full UI, collapsed sidebar, hidden header/tabs, Settings, and TOC.
 - No active imports or CSS URLs point to archived SVGs or removed source folders. No feature imports application modules, shared code imports features, or callback wiring introduces an import cycle.
-- The release build writes `dist/index.min.js`, CI checks that file, installation instructions use the new URL, and the old tracked bundle is absent. Compare generated behavior with the baseline and investigate bundle differences caused by changed module ordering.
+- The watch build writes `.dev-dist/index.js`, staging writes `.build-tmp/index.min.js`, and the release build writes `dist/index.min.js`; none of these outputs has a `js` subdirectory. CI checks the release file, installation instructions use its new URL, and the old tracked bundle is absent. Compare generated behavior with the baseline and investigate bundle differences caused by changed module ordering.
 
 ## Assumptions
 
