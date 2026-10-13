@@ -7,7 +7,9 @@ import { scheduleReload } from "./reload.js";
 import { appState } from "./state.js";
 
 /**
- * Reloads the custom UI when the URL changes.
+ * Registers history and native-render listeners that schedule UI reloads; repeated setup is ignored.
+ *
+ * @returns {void}
  */
 export function watchUrlChanges() {
   if (document.documentElement.dataset.watchPageBound) {
@@ -19,8 +21,9 @@ export function watchUrlChanges() {
   const originalReplaceState = history.replaceState;
 
   /**
-   * CHECK FOR URL CHANGE
-   * Schedules a UI reload if the page URL has changed.
+   * Schedules one UI reload when the page path or query differs from the last loaded URL.
+   *
+   * @returns {void}
    */
   const checkForUrlChange = () => {
     if (appState.isReloadScheduled) {
@@ -44,11 +47,23 @@ export function watchUrlChanges() {
     document.addEventListener(eventType, scheduleReload);
   }
 
+  /**
+   * Calls the original history method and schedules a reload if the page URL changed.
+   *
+   * @param {...*} args Arguments forwarded unchanged to the native pushState method.
+   * @returns {void}
+   */
   history.pushState = function (...args) {
     originalPushState.apply(this, args);
     checkForUrlChange();
   };
 
+  /**
+   * Calls the original history method and schedules a reload if the page URL changed.
+   *
+   * @param {...*} args Arguments forwarded unchanged to the native replaceState method.
+   * @returns {void}
+   */
   history.replaceState = function (...args) {
     originalReplaceState.apply(this, args);
     checkForUrlChange();

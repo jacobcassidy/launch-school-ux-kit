@@ -9,7 +9,9 @@ import { toggleSidebar } from "./actions.js";
 const watchedSidebarToggleButtons = new WeakSet();
 
 /**
- * Toggles the sidebar when the sidebar toggle button is clicked.
+ * Binds the current injected sidebar-toggle button once to toggle native sidebar collapse.
+ *
+ * @returns {void}
  */
 export function watchSidebarToggleButton() {
   const sidebarToggleBtn = elements.injected.sidebarToggleButton;
@@ -20,5 +22,13 @@ export function watchSidebarToggleButton() {
   if (watchedSidebarToggleButtons.has(sidebarToggleBtn)) return;
   watchedSidebarToggleButtons.add(sidebarToggleBtn);
 
-  sidebarToggleBtn.addEventListener("click", () => toggleSidebar());
+  sidebarToggleBtn.addEventListener(
+    "click",
+    /**
+     * Toggles the current native sidebar from its injected header control.
+     *
+     * @returns {void}
+     */
+    () => toggleSidebar(),
+  );
 }

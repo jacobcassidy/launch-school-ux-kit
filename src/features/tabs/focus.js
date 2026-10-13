@@ -8,14 +8,21 @@ import { showTabsPanel } from "./actions.js";
 import { tabsPanelState } from "./state.js";
 
 /**
- * HANDLE FOCUS
+ * For a tab button, reveals the tabs panel and focuses or flashes its textarea or control.
+ * For a supplied textarea, focuses it or flashes its already focused CodeMirror editor.
  *
- * @param {HTMLElement} focusEl The element that will be focused or contains the element to focus
+ * @param {HTMLElement} focusEl Tab button or textarea to focus or provide focus feedback for.
+ * @returns {void}
  */
 export function handleFocus(focusEl) {
   const isTextarea = focusEl instanceof HTMLTextAreaElement;
   const isTabButton = focusEl.classList.contains("tab-button");
 
+  /**
+   * Finds the textarea associated with the current tab button, preferring a CodeMirror textarea.
+   *
+   * @returns {HTMLTextAreaElement|null|undefined} Textarea, null if the panel has none, or undefined if the tab target is missing.
+   */
   const getTabTextareaElement = () => {
     const tabButtonData = focusEl?.dataset?.tab;
     if (!tabButtonData) return;
@@ -39,10 +46,23 @@ export function handleFocus(focusEl) {
     const codeMirror = tabTextarea?.closest(".CodeMirror");
     const isCodeMirrorFocused = codeMirror?.classList.contains("CodeMirror-focused");
 
+    /**
+     * Schedules focus on the current tab textarea after native tab activation has time to complete.
+     *
+     * @returns {void}
+     */
     const focusTabTextarea = () => {
-      setTimeout(() => {
-        tabTextarea.focus();
-      }, 100);
+      setTimeout(
+        /**
+         * Focuses the tab textarea after the native tab-selection delay.
+         *
+         * @returns {void}
+         */
+        () => {
+          tabTextarea.focus();
+        },
+        100,
+      );
     };
 
     if (isTabsPanelHidden) showTabsPanel();

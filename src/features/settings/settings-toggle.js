@@ -6,15 +6,20 @@
 import { icons } from "../../shared/icons.js";
 
 /**
- * INJECT SETTINGS TOGGLE BUTTON
- * Injects a button.btn--toggle-settings element in the .site-header to toggle the Settings visibility when clicked.
+ * Creates and appends the accessible settings-toggle control; click behavior is bound separately.
  *
- * @param {HTMLElement} containerEl The container to which the button will be appended.
+ * @param {HTMLElement} containerEl Header container receiving the button.
+ * @returns {void}
  */
 export function injectSettingsToggleButton(containerEl) {
   containerEl.appendChild(createSettingsToggleButton());
 }
 
+/**
+ * Builds a settings-toggle button with its icon and menu accessibility attributes.
+ *
+ * @returns {HTMLButtonElement} Detached settings-toggle button.
+ */
 function createSettingsToggleButton() {
   const settingsToggleButtonEl = document.createElement("button");
   settingsToggleButtonEl.classList.add("site-header__button", "btn--toggle-settings", "has-dropdown");

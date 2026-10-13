@@ -7,21 +7,30 @@ import { createSettingsSection } from "./settings-menu.js";
 import { shortcuts, getShortcutKeys } from "../shortcuts/index.js";
 
 /**
- * INJECT SHORTCUTS SECTION
- * Injects the shortcuts as a section of the settings menu.
+ * Replaces the current-page shortcuts section with entries from the current registry when settings are present.
+ *
+ * @returns {void}
  */
 export function injectShortcutsSection() {
   const settingsMenu = document.querySelector(".settings-container");
   if (!settingsMenu) return;
 
-  settingsMenu.querySelectorAll(".current-page-added-shortcuts-section").forEach((section) => section.remove());
+  settingsMenu.querySelectorAll(".current-page-added-shortcuts-section").forEach(
+    /**
+     * Removes the previous current-page shortcuts section before rebuilding it.
+     *
+     * @param {HTMLElement} section Existing shortcuts settings section.
+     * @returns {void}
+     */
+    (section) => section.remove(),
+  );
   settingsMenu.appendChild(createShortcutsSection());
 }
 
 /**
- * CREATE SHORTCUTS SECTION
+ * Builds a settings section listing registered shortcut labels and platform-specific key names.
  *
- * @returns {HTMLElement} The shortcuts settings section element
+ * @returns {HTMLElement} Detached shortcut section.
  */
 function createShortcutsSection() {
   const shortcutsSectionEl = createSettingsSection("Current Page Added Shortcuts");
@@ -40,13 +49,21 @@ function createShortcutsSection() {
       shortcutItemKeyEl.setAttribute("role", "img");
       shortcutItemKeyEl.setAttribute("aria-label", keyNames.join(" "));
 
-      keys.forEach((key) => {
-        const keySpan = document.createElement("span");
-        keySpan.className = "key";
-        if (Array.from(key).length > 1) keySpan.classList.add("key--text");
-        keySpan.innerText = key;
-        shortcutItemKeyEl.appendChild(keySpan);
-      });
+      keys.forEach(
+        /**
+         * Appends one formatted key label to the shortcut display.
+         *
+         * @param {string} key Platform-specific key label.
+         * @returns {void}
+         */
+        (key) => {
+          const keySpan = document.createElement("span");
+          keySpan.className = "key";
+          if (Array.from(key).length > 1) keySpan.classList.add("key--text");
+          keySpan.innerText = key;
+          shortcutItemKeyEl.appendChild(keySpan);
+        },
+      );
 
       shortcutItemEl.appendChild(shortcutItemKeyEl);
 

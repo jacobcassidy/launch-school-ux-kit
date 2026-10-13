@@ -6,6 +6,12 @@
 import { elements } from "../../shared/dom/elements.js";
 export const tabsPanelState = { isHidden: sessionStorage.getItem("isTabsPanelHidden") === "true" };
 
+/**
+ * Applies and stores tabs-panel visibility, synchronizing its toggle, accessibility, and content width.
+ *
+ * @param {boolean} value Whether the tabs panel should be hidden.
+ * @returns {void}
+ */
 export function setIsTabsPanelHidden(value) {
   const tabsPanel = elements.native.tabsPanel;
   const contentPanel = elements.native.contentPanel;
@@ -35,6 +41,11 @@ export function setIsTabsPanelHidden(value) {
   }
 }
 
+/**
+ * Reapplies the stored tabs-panel visibility preference when the native panel is present.
+ *
+ * @returns {void}
+ */
 export function restoreTabsState() {
   if (elements.native.tabsPanel) setIsTabsPanelHidden(tabsPanelState.isHidden);
 }

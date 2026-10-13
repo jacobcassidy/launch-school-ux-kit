@@ -7,13 +7,22 @@ import { icons } from "../../shared/icons.js";
 import { applyButtonAppearance } from "../../shared/dom/buttons.js";
 
 /**
- * Updates the work-in-editor button styles and icon.
+ * Adds outline-button styling and a code icon to work-in-editor controls.
+ *
+ * @returns {void}
  */
 export function updateWorkInEditorButtons() {
   const btns = document.querySelectorAll(".btn-work-in-editor");
   if (btns.length < 1) return;
 
-  const newIcons = [() => icons.panelIcons.code()];
+  const newIcons = [
+    /**
+     * Creates a fresh icon using the panelIcons.code factory.
+     *
+     * @returns {SVGElement} New icon element.
+     */
+    () => icons.panelIcons.code(),
+  ];
   const btnClasses = ["btn", "btn--outline", "btn--work-in-editor"];
 
   applyButtonAppearance(btns, newIcons, btnClasses);

@@ -7,11 +7,11 @@ import { icons } from "../../shared/icons.js";
 import { applyButtonAppearance } from "../../shared/dom/buttons.js";
 
 /**
- * MOVE TOC BUTTON TO HEADER
- * Moves the book Table of Contents toggle button to the header
+ * Decorates the supplied native TOC control and moves it into the header container.
  *
- * @param {HTMLElement} containerEl The container to which the TOC button will be appended.
- * @param {HTMLElement} bookTocBtn The current native TOC button, defaulting to the first match in the document.
+ * @param {HTMLElement} containerEl Header container receiving the TOC control.
+ * @param {HTMLElement|null} [bookTocBtn] Native TOC control; defaults to the current document match.
+ * @returns {void}
  */
 export function moveTocButtonToHeader(containerEl, bookTocBtn = document.querySelector(".toc-toggle-button")) {
   if (!bookTocBtn) return;
@@ -25,13 +25,23 @@ export function moveTocButtonToHeader(containerEl, bookTocBtn = document.querySe
 }
 
 /**
- * Updates the toc button styles and icon.
+ * Adds the TOC icon to a native table-of-contents control when present.
+ *
+ * @param {HTMLElement|null} tocBtn Native TOC control to decorate.
+ * @returns {void}
  */
 function updateTocButton(tocBtn) {
   if (!tocBtn) return;
 
   const btns = [tocBtn];
-  const newIcons = [() => icons.headerIcons.toc()];
+  const newIcons = [
+    /**
+     * Creates a fresh icon using the headerIcons.toc factory.
+     *
+     * @returns {SVGElement} New icon element.
+     */
+    () => icons.headerIcons.toc(),
+  ];
 
   applyButtonAppearance(btns, newIcons);
 }

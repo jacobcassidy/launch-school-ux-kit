@@ -6,10 +6,10 @@
 import { icons } from "../../shared/icons.js";
 
 /**
- * INJECT SIDEBAR TOGGLE BUTTON
- * Injects a button.btn--toggle-sidebar element in the .site-header__container to toggle the Sidebar visibility when clicked.
+ * Appends a sidebar-toggle button when the page has a native sidebar; click behavior is bound separately.
  *
- * @param {HTMLDivElement} containerEl The container to which the button will be appended.
+ * @param {HTMLElement} containerEl Header container receiving the button.
+ * @returns {void}
  */
 export function injectSidebarToggleButton(containerEl) {
   const hasNativeSidebar = !!document.querySelector(".nav-drawer");
@@ -18,6 +18,11 @@ export function injectSidebarToggleButton(containerEl) {
   containerEl.appendChild(createSidebarToggleButton());
 }
 
+/**
+ * Builds a sidebar-toggle button containing the open and close icon pair.
+ *
+ * @returns {HTMLButtonElement} Detached sidebar-toggle button.
+ */
 function createSidebarToggleButton() {
   const sidebarToggleButtonEl = document.createElement("button");
   sidebarToggleButtonEl.classList.add("site-header__button", "btn--toggle-sidebar");

@@ -12,6 +12,11 @@ if (document.readyState === "loading") {
   init();
 }
 
+/**
+ * Records the initial page URL and loads the custom UI after DOM readiness.
+ *
+ * @returns {void}
+ */
 function init() {
   setLastUrl(`${location.origin}${location.pathname}${location.search}`);
   loadUI();

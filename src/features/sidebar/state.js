@@ -9,6 +9,12 @@ export const sidebarState = {
   isSettingSidebarShrinkOn: sessionStorage.getItem("isSettingSidebarShrinkOn") === "true",
 };
 
+/**
+ * Clicks the appropriate native sidebar control only when its current checkbox state differs from the requested state.
+ *
+ * @param {boolean} value Whether the native sidebar should be collapsed.
+ * @returns {void}
+ */
 export function setIsSidebarCollapsed(value) {
   const sidebarCollapseCheckbox = document.querySelector("#navbar-collapsor");
 
@@ -33,6 +39,12 @@ export function setIsSidebarCollapsed(value) {
   }
 }
 
+/**
+ * Applies the sidebar section-header preference when a sidebar exists and always stores it in state and session storage.
+ *
+ * @param {boolean} value Whether expanded-sidebar section headers should be hidden.
+ * @returns {void}
+ */
 export function setSettingSidebarHiddenHeaders(value) {
   if (value === true) {
     elements.native.sidebar?.classList.add("hide-section-headers");
@@ -44,6 +56,12 @@ export function setSettingSidebarHiddenHeaders(value) {
   sessionStorage.setItem("isSettingSidebarHiddenHeadersOn", value);
 }
 
+/**
+ * Applies the collapsed-sidebar sizing preference when a sidebar exists and always stores it in state and session storage.
+ *
+ * @param {boolean} value Whether a collapsed sidebar should shrink instead of hiding.
+ * @returns {void}
+ */
 export function setSettingSidebarShrink(value) {
   if (value === true) {
     elements.native.sidebar?.classList.add("shrink");
@@ -55,6 +73,11 @@ export function setSettingSidebarShrink(value) {
   sessionStorage.setItem("isSettingSidebarShrinkOn", value);
 }
 
+/**
+ * Reapplies enabled sidebar preferences to the current native sidebar when present.
+ *
+ * @returns {void}
+ */
 export function restoreSidebarState() {
   const sidebar = elements.native.sidebar;
   if (sidebar && sidebarState.isSettingSidebarHiddenHeadersOn) sidebar.classList.add("hide-section-headers");

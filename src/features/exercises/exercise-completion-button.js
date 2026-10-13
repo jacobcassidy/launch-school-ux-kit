@@ -8,7 +8,11 @@ import { applyButtonAppearance } from "../../shared/dom/buttons.js";
 import { watchExerciseCompletionControls } from "./watch-exercise-completion-controls.js";
 
 /**
- * Updates the exercise completion button styles and icons.
+ * Decorates current completion controls and watches replacement forms or submit buttons to refresh appearance and shortcuts.
+ *
+ * @param {object} options Feature dependencies.
+ * @param {function(): void} options.refreshShortcuts Rebuilds current-page shortcuts and their UI.
+ * @returns {void}
  */
 export function updateExerciseCompletionButton({ refreshShortcuts }) {
   const instructionsPanel = document.querySelector(".instructions-panel");
@@ -17,15 +21,25 @@ export function updateExerciseCompletionButton({ refreshShortcuts }) {
   const exerciseCompletionForm = instructionsPanel.querySelector(".gray-links form");
   updateExerciseCompletionForm(exerciseCompletionForm);
 
-  watchExerciseCompletionControls((form) => {
-    updateExerciseCompletionForm(form);
-    refreshShortcuts();
-  });
+  watchExerciseCompletionControls(
+    /**
+     * Updates changed completion controls and rebuilds current-page shortcuts.
+     *
+     * @param {HTMLFormElement|null} form Current native completion form, or null if removed.
+     * @returns {void}
+     */
+    (form) => {
+      updateExerciseCompletionForm(form);
+      refreshShortcuts();
+    },
+  );
 }
 
 /**
- * Update exercise completion form appearance
- * @param {HTMLFormElement} exerciseCompletionForm
+ * Applies complete or incomplete icons and outline styling to the form's submit controls.
+ *
+ * @param {HTMLFormElement|null} exerciseCompletionForm Native completion form, or null when absent.
+ * @returns {void}
  */
 function updateExerciseCompletionForm(exerciseCompletionForm) {
   if (!exerciseCompletionForm) return;
@@ -33,7 +47,19 @@ function updateExerciseCompletionForm(exerciseCompletionForm) {
   if (btns.length < 1) return;
 
   const btnClasses = ["btn--outline", "btn--exercise-completion"];
+
+  /**
+   * Creates a fresh mark-complete icon.
+   *
+   * @returns {SVGElement} Completion icon.
+   */
   const completeIcon = () => icons.panelIcons.exerciseComplete();
+
+  /**
+   * Creates a fresh mark-incomplete icon.
+   *
+   * @returns {SVGElement} Incomplete icon.
+   */
   const incompleteIcon = () => icons.panelIcons.exerciseIncomplete();
   let newIcons = [];
 

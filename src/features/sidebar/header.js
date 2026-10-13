@@ -6,10 +6,18 @@
 import { icons } from "../../shared/icons.js";
 
 /**
- * INJECT SIDEBAR HEADER
+ * Builds and prepends the branded sidebar header when a native sidebar exists.
+ *
+ * @returns {void}
  */
 export function injectSidebarHeader() {
   const sidebar = document.querySelector(".nav-drawer");
+
+  /**
+   * Builds a sidebar heading containing the Launch School catalog link and logo.
+   *
+   * @returns {HTMLElement} Detached sidebar header.
+   */
   const createSidebarHeader = () => {
     const sidebarHeaderEl = document.createElement("header");
     sidebarHeaderEl.className = "sidebar-header";

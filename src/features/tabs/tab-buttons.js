@@ -6,18 +6,44 @@
 import { icons } from "../../shared/icons.js";
 
 /**
- * Replaces tab buttons native text and icons with new icons and tooltips.
+ * Updates native tab appearance and accessible labels, reuses tooltips, and removes tooltips for deleted tabs.
+ *
+ * @returns {void}
  */
 export function updateTabButtons() {
   const tabBtns = document.querySelectorAll(".tab-button");
-  const currentTabIds = new Set([...tabBtns].map((btn) => btn.getAttribute("data-tab")));
+  const currentTabIds = new Set(
+    [...tabBtns].map(
+      /**
+       * Reads the native tab identifier from a button.
+       *
+       * @param {HTMLElement} btn Current tab control.
+       * @returns {string|null} Tab identifier, or null if absent.
+       */
+      (btn) => btn.getAttribute("data-tab"),
+    ),
+  );
 
   tabBtns.forEach(updateTabButton);
-  document.querySelectorAll(".tab-tooltip").forEach((tooltip) => {
-    if (!currentTabIds.has(tooltip.dataset.tabTooltipId)) tooltip.remove();
-  });
+  document.querySelectorAll(".tab-tooltip").forEach(
+    /**
+     * Removes a tab tooltip whose corresponding tab no longer exists.
+     *
+     * @param {HTMLElement} tooltip Injected tab tooltip to check.
+     * @returns {void}
+     */
+    (tooltip) => {
+      if (!currentTabIds.has(tooltip.dataset.tabTooltipId)) tooltip.remove();
+    },
+  );
 }
 
+/**
+ * Marks hidden tabs or replaces known visible tab content with its icon, accessible label, and tooltip.
+ *
+ * @param {HTMLElement} btn Native tab control to update.
+ * @returns {void}
+ */
 function updateTabButton(btn) {
   const isHidden = getComputedStyle(btn).display === "none";
   if (isHidden) {
@@ -72,6 +98,13 @@ function updateTabButton(btn) {
   injectTabTooltip(tabTooltipText, btnDataTab);
 }
 
+/**
+ * Creates or reuses a tab tooltip, updates its text and tab identifier, and appends it to the body.
+ *
+ * @param {string} tooltipText Accessible tab label to display.
+ * @param {string} btnDataTab Tab identifier linking the tooltip to its button.
+ * @returns {void}
+ */
 function injectTabTooltip(tooltipText, btnDataTab) {
   const tooltipEl = document.querySelector(`.tab-tooltip-${btnDataTab}`) || document.createElement("div");
   tooltipEl.classList.add("tooltip", "tab-tooltip", `tab-tooltip-${btnDataTab}`);

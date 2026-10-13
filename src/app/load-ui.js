@@ -61,6 +61,12 @@ import {
 } from "../features/editor/index.js";
 import { watchUrlChanges } from "./navigation.js";
 import { watchShortcutElements, watchShortcuts } from "../features/shortcuts/index.js";
+
+/**
+ * Discovers page controls, builds and updates the custom UI, restores preferences, and registers watchers.
+ *
+ * @returns {void}
+ */
 export function loadUI() {
   injectStyles();
   syncNativeElementsState();
@@ -110,8 +116,5 @@ export function loadUI() {
   watchNextExerciseButton({ refreshShortcuts });
 }
 
-/**
- * RELOAD UI
- * Reloads loadUI() after a DOM refresh from a page/url change.
- */
+// Register this loader for UI reloads scheduled after native page rendering.
 setLoadUIHandler(loadUI);

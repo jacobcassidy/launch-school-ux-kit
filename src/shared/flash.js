@@ -4,11 +4,11 @@
  */
 
 /**
- * FLASH ACTIVE ELEMENT
- * Flashes the background of an already active item when it is reactivated.
+ * Flashes an already active control; tab buttons also flash the optional secondary element.
  *
- * @param {HTMLElement} activeEl The active element to flash.
- * @param {HTMLElement} secondaryActiveEl The optional secondary active element to flash.
+ * @param {HTMLElement} activeEl Active control receiving visual feedback.
+ * @param {HTMLElement} [secondaryActiveEl] Additional element flashed only when the primary control is a tab button.
+ * @returns {void}
  */
 export function flashActiveElement(activeEl, secondaryActiveEl) {
   const isTabButton = activeEl.classList.contains("tab-button");
@@ -21,11 +21,11 @@ export function flashActiveElement(activeEl, secondaryActiveEl) {
 }
 
 /**
- * FLASH WITH CLASS
- * Flashes the active element with a quick add and removal of the .flash-active class.
+ * Restarts a short flash-active animation on the supplied elements, cancelling their previous flash timers and frames.
  *
- * @param {HTMLElement} activeEl The active element to flash.
- * @param {HTMLElement} secondaryActiveEl The optional secondary active element to flash.
+ * @param {HTMLElement} flashEl Primary element to flash.
+ * @param {HTMLElement} [secondaryFlashEl] Optional additional element to flash.
+ * @returns {void}
  */
 function flashWithClass(flashEl, secondaryFlashEl) {
   const elementsToFlash = [flashEl];
@@ -33,19 +33,42 @@ function flashWithClass(flashEl, secondaryFlashEl) {
 
   if (secondaryFlashEl) elementsToFlash.push(secondaryFlashEl);
 
-  elementsToFlash.forEach((el) => {
-    clearTimeout(el.flashTimeout);
-    cancelAnimationFrame(el.flashFrame);
+  elementsToFlash.forEach(
+    /**
+     * Cancels earlier flash work and schedules a fresh animation for one element.
+     *
+     * @param {HTMLElement} el Element receiving focus feedback.
+     * @returns {void}
+     */
+    (el) => {
+      clearTimeout(el.flashTimeout);
+      cancelAnimationFrame(el.flashFrame);
 
-    el.classList.remove("flash-active");
+      el.classList.remove("flash-active");
 
-    el.flashFrame = requestAnimationFrame(() => {
-      el.classList.add("flash-active");
+      el.flashFrame = requestAnimationFrame(
+        /**
+         * Adds the flash class on the next frame and schedules its removal.
+         *
+         * @returns {void}
+         */
+        () => {
+          el.classList.add("flash-active");
 
-      el.flashTimeout = setTimeout(() => {
-        el.classList.remove("flash-active");
-        el.flashTimeout = null;
-      }, flashDuration);
-    });
-  });
+          el.flashTimeout = setTimeout(
+            /**
+             * Removes the flash class and clears the stored timeout reference.
+             *
+             * @returns {void}
+             */
+            () => {
+              el.classList.remove("flash-active");
+              el.flashTimeout = null;
+            },
+            flashDuration,
+          );
+        },
+      );
+    },
+  );
 }

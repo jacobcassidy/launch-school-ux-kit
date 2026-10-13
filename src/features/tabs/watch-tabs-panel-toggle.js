@@ -9,7 +9,9 @@ import { toggleTabsPanel } from "./actions.js";
 const watchedTabsPanelToggleButtons = new WeakSet();
 
 /**
- * Toggles the Tabs Panel visibility on button click.
+ * Binds the current injected tabs-panel toggle once to change panel visibility.
+ *
+ * @returns {void}
  */
 export function watchTabsPanelToggleButton() {
   const tabsPanelToggleBtn = elements.injected.tabsPanelToggleButton;
@@ -20,5 +22,13 @@ export function watchTabsPanelToggleButton() {
   if (watchedTabsPanelToggleButtons.has(tabsPanelToggleBtn)) return;
   watchedTabsPanelToggleButtons.add(tabsPanelToggleBtn);
 
-  tabsPanelToggleBtn.addEventListener("click", () => toggleTabsPanel());
+  tabsPanelToggleBtn.addEventListener(
+    "click",
+    /**
+     * Toggles tabs-panel visibility from its injected header control.
+     *
+     * @returns {void}
+     */
+    () => toggleTabsPanel(),
+  );
 }

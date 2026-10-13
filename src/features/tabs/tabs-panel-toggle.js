@@ -7,16 +7,21 @@ import { icons } from "../../shared/icons.js";
 import { elements } from "../../shared/dom/elements.js";
 
 /**
- * INJECT TABS PANEL TOGGLE BUTTON
- * Injects a button.btn--toggle-tabs-panel in the .site-header to toggle the Tabs Panel visibility when clicked.
+ * Appends a tabs-panel toggle when the native panel exists; click behavior is bound separately.
  *
- * @param {HTMLDivElement} containerEl The container to which the button will be appended.
+ * @param {HTMLElement} containerEl Header container receiving the button.
+ * @returns {void}
  */
 export function injectTabsPanelToggleButton(containerEl) {
   if (!elements.native.tabsPanel) return;
   containerEl.appendChild(createTabsPanelToggleButton());
 }
 
+/**
+ * Builds a tabs-panel toggle with its icon and descriptive title.
+ *
+ * @returns {HTMLButtonElement} Detached tabs-panel toggle.
+ */
 function createTabsPanelToggleButton() {
   const tabsPanelToggleButtonEl = document.createElement("button");
   tabsPanelToggleButtonEl.classList.add("site-header__button", "btn--toggle-tabs-panel");

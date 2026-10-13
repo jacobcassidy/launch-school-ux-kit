@@ -10,8 +10,15 @@ import { setElementTocButton } from "../../shared/dom/setters.js";
 const headerElementSources = new WeakMap();
 
 /**
- * INJECT SITE HEADER
- * Creates the header once and refreshes its page-specific contents.
+ * Creates the custom header if absent, refreshes its page controls, and registers layout and cache lifecycle watchers.
+ *
+ * @param {object} options Feature dependencies.
+ * @param {function(HTMLElement): void} options.injectSettingsMenu Inserts the settings menu.
+ * @param {function(HTMLElement): void} options.injectSettingsToggleButton Inserts the settings toggle.
+ * @param {function(HTMLElement): void} options.injectSidebarToggleButton Inserts the sidebar toggle.
+ * @param {function(HTMLElement): void} options.injectTabsPanelToggleButton Inserts the tabs-panel toggle.
+ * @param {function(HTMLElement, HTMLElement=): void} options.moveTocButtonToHeader Moves and decorates the native TOC control.
+ * @returns {void}
  */
 export function injectHeader(options) {
   watchHeaderBeforeCache();
@@ -27,33 +34,73 @@ export function injectHeader(options) {
   watchHeaderLayout(header);
 }
 
+/**
+ * Registers native cache listeners once to restore moved page controls and remove transient injected UI.
+ *
+ * @returns {void}
+ */
 function watchHeaderBeforeCache() {
   if (document.documentElement.dataset.headerBeforeCacheBound) return;
   document.documentElement.dataset.headerBeforeCacheBound = "true";
 
+  /**
+   * Returns moved native controls to connected source markers, disconnects headers, and removes transient injected UI before caching.
+   *
+   * @returns {void}
+   */
   const restoreHeaderSources = () => {
-    document.querySelectorAll(".site-header").forEach((header) => {
-      disconnectHeaderLayout(header);
-      const movedElements = [
-        ...header.querySelectorAll(".gretel-breadcrumbs"),
-        ...header.querySelectorAll(".toc-toggle-button"),
-        ...header.querySelectorAll(".logged-out-nav"),
-      ];
+    document.querySelectorAll(".site-header").forEach(
+      /**
+       * Restores native controls from one header, then disconnects and removes the injected header.
+       *
+       * @param {HTMLElement} header Custom header being removed before page caching.
+       * @returns {void}
+       */
+      (header) => {
+        disconnectHeaderLayout(header);
+        const movedElements = [
+          ...header.querySelectorAll(".gretel-breadcrumbs"),
+          ...header.querySelectorAll(".toc-toggle-button"),
+          ...header.querySelectorAll(".logged-out-nav"),
+        ];
 
-      movedElements.forEach((element) => {
-        const source = headerElementSources.get(element);
-        if (source?.marker.isConnected) source.marker.before(element);
-        source?.marker.remove();
-        headerElementSources.delete(element);
-      });
+        movedElements.forEach(
+          /**
+           * Restores a moved native control to its connected source marker and clears its tracking record.
+           *
+           * @param {HTMLElement} element Native control previously moved into the header.
+           * @returns {void}
+           */
+          (element) => {
+            const source = headerElementSources.get(element);
+            if (source?.marker.isConnected) source.marker.before(element);
+            source?.marker.remove();
+            headerElementSources.delete(element);
+          },
+        );
 
-      header.remove();
-    });
+        header.remove();
+      },
+    );
 
-    document
-      .querySelectorAll("#ls-ui-script-styles, .toast-container, .tab-tooltip")
-      .forEach((element) => element.remove());
-    document.querySelectorAll(".sidebar-tooltip.active").forEach((tooltip) => tooltip.classList.remove("active"));
+    document.querySelectorAll("#ls-ui-script-styles, .toast-container, .tab-tooltip").forEach(
+      /**
+       * Removes a transient injected element before native page caching.
+       *
+       * @param {Element} element Stylesheet, toast container, or tab tooltip to remove.
+       * @returns {void}
+       */
+      (element) => element.remove(),
+    );
+    document.querySelectorAll(".sidebar-tooltip.active").forEach(
+      /**
+       * Hides an active sidebar tooltip before native page caching.
+       *
+       * @param {HTMLElement} tooltip Injected sidebar tooltip to reset.
+       * @returns {void}
+       */
+      (tooltip) => tooltip.classList.remove("active"),
+    );
   };
 
   for (const eventType of ["turbo:before-cache", "turbolinks:before-cache"]) {
@@ -62,13 +109,21 @@ function watchHeaderBeforeCache() {
 }
 
 /**
- * INJECT HEADER CONTAINERS
- * Injects three .site-header__container elements to the .site-header
+ * Appends the three header containers and injects settings controls into the right container.
  *
- * @param {HTMLElement} headerEl The header element to which the containers will be appended.
+ * @param {HTMLElement} headerEl Header receiving the containers.
+ * @param {object} options Feature dependencies.
+ * @param {function(HTMLElement): void} options.injectSettingsMenu Inserts the settings menu.
+ * @param {function(HTMLElement): void} options.injectSettingsToggleButton Inserts the settings toggle.
+ * @returns {void}
  */
 function injectHeaderContainers(headerEl, { injectSettingsMenu, injectSettingsToggleButton }) {
   for (let i = 0; i < 3; i += 1) {
+    /**
+     * Creates the current numbered header container and adds settings controls to the third container.
+     *
+     * @returns {HTMLDivElement} New header container.
+     */
     const createHeaderContainer = () => {
       const containerEl = document.createElement("div");
       const containerNum = i + 1;
@@ -87,8 +142,14 @@ function injectHeaderContainers(headerEl, { injectSettingsMenu, injectSettingsTo
 }
 
 /**
- * REFRESH HEADER
- * Reconciles page controls without replacing settings or their event handlers.
+ * Reconciles native navigation, title, and available toggles while preserving settings controls and their listeners.
+ *
+ * @param {HTMLElement} header Existing custom header.
+ * @param {object} options Feature dependencies.
+ * @param {function(HTMLElement): void} options.injectSidebarToggleButton Inserts a missing sidebar toggle.
+ * @param {function(HTMLElement): void} options.injectTabsPanelToggleButton Inserts a missing tabs-panel toggle.
+ * @param {function(HTMLElement, HTMLElement=): void} options.moveTocButtonToHeader Moves and decorates the current TOC control.
+ * @returns {void}
  */
 function refreshHeader(header, { injectSidebarToggleButton, injectTabsPanelToggleButton, moveTocButtonToHeader }) {
   const left = header.querySelector(".container-1");
@@ -117,6 +178,12 @@ function refreshHeader(header, { injectSidebarToggleButton, injectTabsPanelToggl
     injectTabsPanelToggleButton,
   );
   const tocButton = refreshNativeElement(".toc-toggle-button", right, {
+    /**
+     * Moves and decorates the native TOC button in the right header container.
+     *
+     * @param {HTMLElement} button Native TOC control.
+     * @returns {void}
+     */
     onMove: (button) => moveTocButtonToHeader(right, button),
   });
   setElementTocButton(tocButton);
@@ -128,15 +195,29 @@ function refreshHeader(header, { injectSidebarToggleButton, injectTabsPanelToggl
 }
 
 /**
- * REFRESH NATIVE ELEMENT
- * A source marker distinguishes a retained native control from stale header content
- * when the page changes or native markup is replaced at the same URL.
+ * Reconciles a moved native control with the current page, using source markers to retain or restore it safely.
+ *
+ * @param {string} selector Selector for the native control.
+ * @param {HTMLElement} containerEl Header container receiving the control.
+ * @param {object} [options={}] Retention and placement options.
+ * @param {boolean} [options.keepAcrossPages=false] Retain a connected control across page changes.
+ * @param {boolean} [options.available=true] Whether this page supports the control.
+ * @param {function(HTMLElement): void} [options.onMove] Moves the new control instead of the default append.
+ * @returns {HTMLElement|null} Retained or newly moved control, or null if unavailable.
  */
 function refreshNativeElement(selector, containerEl, { keepAcrossPages = false, available = true, onMove } = {}) {
   const header = containerEl.closest(".site-header");
   const currentElement = containerEl.querySelector(selector);
   const nextElement = available
-    ? [...document.querySelectorAll(selector)].find((element) => !header.contains(element))
+    ? [...document.querySelectorAll(selector)].find(
+        /**
+         * Selects native controls that are outside the current custom header.
+         *
+         * @param {HTMLElement} element Candidate native control.
+         * @returns {boolean} Whether the control belongs to the native page content.
+         */
+        (element) => !header.contains(element),
+      )
     : null;
   const pageUrl = `${window.location.pathname}${window.location.search || ""}`;
 
@@ -163,6 +244,15 @@ function refreshNativeElement(selector, containerEl, { keepAcrossPages = false, 
   return nextElement;
 }
 
+/**
+ * Removes an unavailable toggle or injects it when missing.
+ *
+ * @param {HTMLElement} containerEl Header container owning the toggle.
+ * @param {string} selector Selector for the toggle.
+ * @param {boolean} available Whether the current page supports it.
+ * @param {function(HTMLElement): void} injectButton Inserts the missing toggle.
+ * @returns {HTMLElement|null} Current toggle, or null if unavailable.
+ */
 function refreshToggle(containerEl, selector, available, injectButton) {
   const button = containerEl.querySelector(selector);
   if (!available) {
@@ -174,8 +264,11 @@ function refreshToggle(containerEl, selector, available, injectButton) {
 }
 
 /**
- * REFRESH TITLE
- * Uses the current page title when no breadcrumbs or logged-out navigation exist.
+ * Removes fallback text when native navigation supplies a heading, otherwise updates it from the catalog or document title.
+ *
+ * @param {HTMLElement} containerEl Center header container.
+ * @param {boolean} hasNativeHeading Whether breadcrumbs or logged-out navigation provide the heading.
+ * @returns {void}
  */
 function refreshTitle(containerEl, hasNativeHeading) {
   let headerTitle = containerEl.querySelector(".title-text");

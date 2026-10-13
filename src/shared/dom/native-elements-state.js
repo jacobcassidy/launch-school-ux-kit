@@ -14,8 +14,9 @@ import {
 } from "./setters.js";
 
 /**
- * SYNC NATIVE ELEMENTS STATE
- * Sets the states properties for the page's native app DOM elements
+ * Discovers current native page panels and controls and stores their references, clearing absent elements to null.
+ *
+ * @returns {void}
  */
 export function syncNativeElementsState() {
   const contentPanel =

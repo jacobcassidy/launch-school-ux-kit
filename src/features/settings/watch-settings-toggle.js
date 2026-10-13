@@ -9,7 +9,11 @@ import { toggleSettings } from "./actions.js";
 const watchedSettingsToggleButtons = new WeakSet();
 
 /**
- * Toggles the Settings Menu visibility when the settings toggle button is clicked.
+ * Binds the current settings-toggle button once to open or close its menu.
+ *
+ * @param {object} options Feature dependencies.
+ * @param {function(): void} options.hideTocMenu Closes the native table-of-contents menu.
+ * @returns {void}
  */
 export function watchSettingsToggleButton(options) {
   const settingsToggleBtn = elements.injected.settingsToggleButton;
@@ -20,5 +24,13 @@ export function watchSettingsToggleButton(options) {
   if (watchedSettingsToggleButtons.has(settingsToggleBtn)) return;
   watchedSettingsToggleButtons.add(settingsToggleBtn);
 
-  settingsToggleBtn.addEventListener("click", () => toggleSettings(options));
+  settingsToggleBtn.addEventListener(
+    "click",
+    /**
+     * Toggles settings using the supplied TOC dismissal dependency.
+     *
+     * @returns {void}
+     */
+    () => toggleSettings(options),
+  );
 }

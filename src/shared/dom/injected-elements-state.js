@@ -12,7 +12,9 @@ import {
 } from "./setters.js";
 
 /**
- * Sets the states properties for the script's injected DOM elements.
+ * Discovers current injected UI elements and stores their references, clearing absent controls to null.
+ *
+ * @returns {void}
  */
 export function syncInjectedElementsState() {
   const header = document.querySelector(".site-header");

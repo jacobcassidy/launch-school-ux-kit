@@ -4,7 +4,9 @@
  */
 
 /**
- * Adds the "Enter" shortcut to focused chat prompts
+ * Registers focus-based binding once so unmodified Enter submits focused chat inputs without repeated or composing submissions.
+ *
+ * @returns {void}
  */
 export function watchPromptEnterShortcut() {
   if (document.documentElement.dataset.promptFocusBound) return;
@@ -13,6 +15,12 @@ export function watchPromptEnterShortcut() {
 
   const inputSelector = ".lsbot-question-input, .lsbot-question-box-answer-input";
 
+  /**
+   * Submits the focused writable chat input on unmodified Enter when its matching submit control is enabled.
+   *
+   * @param {KeyboardEvent} event Key event from the bound chat input.
+   * @returns {void}
+   */
   const handleKeydown = (event) => {
     const chatInput = event.currentTarget;
     if (
@@ -44,12 +52,27 @@ export function watchPromptEnterShortcut() {
     submitButton.click();
   };
 
+  /**
+   * Binds the Enter handler once to a matching chat input.
+   *
+   * @param {EventTarget|null} chatInput Candidate input from current focus or a focus event.
+   * @returns {void}
+   */
   const bindInput = (chatInput) => {
     if (!chatInput?.matches(inputSelector) || watchedChatInputs.has(chatInput)) return;
     watchedChatInputs.add(chatInput);
     chatInput.addEventListener("keydown", handleKeydown, true);
   };
 
-  document.addEventListener("focusin", (event) => bindInput(event.target));
+  document.addEventListener(
+    "focusin",
+    /**
+     * Binds the Enter handler to a newly focused chat input.
+     *
+     * @param {FocusEvent} event Delegated focus event.
+     * @returns {void}
+     */
+    (event) => bindInput(event.target),
+  );
   bindInput(document.activeElement);
 }

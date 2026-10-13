@@ -8,7 +8,11 @@ import { shortcuts } from "./state.js";
 import { getShortcutModifier } from "./platform.js";
 
 /**
- * Activates the triggered shortcut.
+ * Registers platform-aware keyboard shortcuts once, preserving composition and AltGr input and reporting unavailable actions.
+ *
+ * @param {object} options Feature dependencies.
+ * @param {function(string, string=): void} options.showToast Displays action feedback.
+ * @returns {void}
  */
 export function watchShortcuts({ showToast }) {
   if (document.documentElement.dataset.shortcutsBound) {
@@ -18,11 +22,26 @@ export function watchShortcuts({ showToast }) {
 
   // AltGr may report Ctrl+Alt; track the right Alt key so text entry stays intact.
   let altGraphPressed = false;
-  window.addEventListener("blur", () => {
-    altGraphPressed = false;
-  });
+  window.addEventListener(
+    "blur",
+    /**
+     * Clears AltGr tracking when the window loses focus.
+     *
+     * @returns {void}
+     */
+    () => {
+      altGraphPressed = false;
+    },
+  );
   document.addEventListener(
     "keyup",
+
+    /**
+     * Clears AltGr tracking when the right Alt key is released.
+     *
+     * @param {KeyboardEvent} event Key-release event.
+     * @returns {void}
+     */
     (event) => {
       if (event.code === "AltRight") altGraphPressed = false;
     },
@@ -31,6 +50,13 @@ export function watchShortcuts({ showToast }) {
 
   document.addEventListener(
     "keydown",
+
+    /**
+     * Dispatches supported shortcuts or unavailable-action feedback while protecting repeats, composition, and AltGr input.
+     *
+     * @param {KeyboardEvent} event Captured keydown event.
+     * @returns {void}
+     */
     (event) => {
       if (event.code === "AltRight" && event.getModifierState?.("AltGraph")) altGraphPressed = true;
       if (event.repeat || event.isComposing || event.keyCode === 229 || altGraphPressed) return;

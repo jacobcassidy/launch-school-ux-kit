@@ -53,7 +53,29 @@ import review from "../svg/lucide/check-check.svg";
 import code from "../svg/lucide/code-xml.svg";
 
 const parser = new DOMParser();
-const createIcon = (icon) => () => createIconEl(icon);
+
+/**
+ * Creates a factory that parses a fresh SVG element on each call.
+ *
+ * @param {string} icon SVG markup to parse.
+ * @returns {function(): SVGElement} Factory returning a new icon element.
+ */
+const createIcon =
+  (icon) =>
+  /**
+   * Parses a fresh SVG element from the markup captured by this factory.
+   *
+   * @returns {SVGElement} New icon element.
+   */
+  () =>
+    createIconEl(icon);
+
+/**
+ * Parses trimmed SVG markup and returns its document element.
+ *
+ * @param {string} icon SVG markup to parse.
+ * @returns {SVGElement} Parsed SVG icon root.
+ */
 const createIconEl = (icon) => parser.parseFromString(icon.trim(), "image/svg+xml").documentElement;
 
 export const icons = {

@@ -4,6 +4,14 @@
  */
 
 import { elements } from "../../shared/dom/elements.js";
+
+/**
+ * Clicks the native TOC control when present and closes active settings.
+ *
+ * @param {object} options Feature dependencies.
+ * @param {function(): void} options.hideSettings Closes the settings menu.
+ * @returns {void}
+ */
 export function showTocMenu({ hideSettings }) {
   const tocBtn = elements.native.tocButton;
   if (tocBtn) {
@@ -15,11 +23,23 @@ export function showTocMenu({ hideSettings }) {
   }
 }
 
+/**
+ * Clicks the native TOC control when present to toggle its open state.
+ *
+ * @returns {void}
+ */
 export function hideTocMenu() {
   const tocBtn = elements.native.tocButton;
   if (tocBtn) tocBtn.click();
 }
 
+/**
+ * Closes an open native TOC menu or invokes its control to open it, closing active settings when opening.
+ *
+ * @param {object} options Feature dependencies.
+ * @param {function(): void} options.hideSettings Closes the settings menu.
+ * @returns {void}
+ */
 export function toggleTocMenu(options) {
   const tocBtn = elements.native.tocButton;
 

@@ -4,12 +4,17 @@
  */
 
 /**
- * INJECT SETTINGS MENU
- * Injects the settings menu element into the .site-header
+ * Builds an initially hidden settings menu with UI preference controls and appends it to the supplied container.
  *
- * @param {HTMLElement} containerEl The container (.site-header) to which the container will be appended.
+ * @param {HTMLElement} containerEl Container receiving the settings menu.
+ * @returns {void}
  */
 export function injectSettingsMenu(containerEl) {
+  /**
+   * Builds the initially hidden, labelled settings region and its heading.
+   *
+   * @returns {HTMLDivElement} Detached settings region.
+   */
   const createSettingsMenu = () => {
     const settingsMenuEl = document.createElement("div");
     settingsMenuEl.className = "settings-container";
@@ -32,7 +37,10 @@ export function injectSettingsMenu(containerEl) {
 }
 
 /**
- * CREATE SETTINGS SECTION
+ * Creates a settings section with a title and an empty settings list.
+ *
+ * @param {string} sectionTitle Section heading used to derive its CSS classes.
+ * @returns {HTMLElement} Detached section element.
  */
 export function createSettingsSection(sectionTitle) {
   const sectionEl = document.createElement("section");
@@ -54,7 +62,11 @@ export function createSettingsSection(sectionTitle) {
 }
 
 /**
- * CREATE SETTING
+ * Builds a settings list item with a description and an accessible checkbox toggle.
+ *
+ * @param {string} settingDesc Text describing the preference.
+ * @param {string} settingTogglerId ID shared by the checkbox, label, and description linkage.
+ * @returns {HTMLLIElement} Detached settings list item.
  */
 export function createSetting(settingDesc, settingTogglerId) {
   const settingListItemEl = document.createElement("li");
@@ -74,7 +86,10 @@ export function createSetting(settingDesc, settingTogglerId) {
 }
 
 /**
- * CREATE SETTING TOGGLE
+ * Builds a focusable checkbox and associated visual label linked to the setting description.
+ *
+ * @param {string} id Checkbox ID and base ID for the existing description.
+ * @returns {HTMLSpanElement} Detached toggle wrapper containing its checkbox and label.
  */
 export function createSettingToggle(id) {
   const togglerEl = document.createElement("span");
@@ -106,19 +121,37 @@ export function createSettingToggle(id) {
 }
 
 /**
- * INJECT UI SETTINGS SECTION
+ * Builds and appends the sidebar UI preferences section.
+ *
+ * @param {HTMLElement} containerEl Settings container receiving the section.
+ * @returns {void}
  */
 function injectUISettingsSection(containerEl) {
+  /**
+   * Builds the UI Options section containing both sidebar preferences.
+   *
+   * @returns {HTMLElement} Detached settings section.
+   */
   const createUISettingsSection = () => {
     const uiSettingsSectionEl = createSettingsSection("UI Options");
     const uiSettingsListEl = uiSettingsSectionEl.querySelector(".settings-list");
 
+    /**
+     * Builds the setting for hiding expanded-sidebar section headers.
+     *
+     * @returns {HTMLLIElement} Detached preference list item.
+     */
     const createSettingSidebarHiddenHeadersEl = () => {
       const settingDesc = "Hide expanded sidebar's section headers";
       const settingTogglerId = "setting--sidebar-hidden-headers";
       return createSetting(settingDesc, settingTogglerId);
     };
 
+    /**
+     * Builds the setting for shrinking the sidebar instead of hiding it.
+     *
+     * @returns {HTMLLIElement} Detached preference list item.
+     */
     const createSettingSidebarShrinkEl = () => {
       const settingDesc = "Shrink sidebar instead of hiding it when collapsed";
       const settingTogglerId = "setting--sidebar-shrink";
