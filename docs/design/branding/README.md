@@ -14,4 +14,4 @@ The blocks are true squares with a 35% increase in side length at each step. Bot
 
 PNGs, SVGs, and both previews share a 1635 × 750 presentation with equal 96-pixel margins around the visible logo on all four sides. SVGs use the matching viewBox, with the lettering's size and internal spacing preserved. Visible bounds are measured at 50% alpha.
 
-SVGs combine vector squares with embedded raster lettering. The wordmark is not outlined vector text; its original alpha masks preserve the foundational letter shapes. SVG color filters recolor the lettering without changing its opacity.
+SVGs are fully vector: the squares remain rounded rectangles and all lettering uses paths traced from the original logo's alpha masks. They contain no embedded images, raster filters, or font dependencies. Both variants share the same paths, dimensions, spacing, and lettering opacity; only the Launch and School fill color differs. Change the group fill colors to recolor the SVG lettering without changing its shapes.
