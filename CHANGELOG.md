@@ -18,6 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added DOM lifecycle integration tests with happy-dom and regression coverage for shortcuts, navigation, cloned controls, panel visibility, accessibility, contrast, and toast cleanup.
 - Added repository guidance for separate task commits that exclude unrelated edits.
 - Added a development quick guide, repository organization plans, and architecture documentation.
+- Added a native PWA walkthrough with revised pacing, captions, highlights, and README presentation.
 
 ### Changed
 
@@ -26,9 +27,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Improved contrast for settings headings, header titles and breadcrumbs, sidebar labels, and section headings.
 - Centered header titles and breadcrumbs while preserving control spacing; long titles truncate or hide when space is limited.
 - Rebuilt the distribution userscript with the runtime fixes and updated its date-based version to 2026-10-13.
-- Reorganized source code by feature, grouped tests by ownership, and enabled recursive test discovery.
+- Reorganized source code by feature, moved feature styles under `src/styles`, flattened release and watch bundle paths, grouped tests by ownership, and enabled recursive test discovery.
 - Reorganized documentation, design references, media, and branding assets; grouped source icons by UI location and consuming feature.
-- Updated the logo vector artwork and README shortcut notation, and refined the README demo presentation.
+- Refined logo spacing and vector lettering.
+- Clarified source module and function names, added first-position JSDoc headers, documented source functions, corrected stale JSDoc and import comments, and updated stylesheet imports.
+- Updated the README for current shortcuts and features and formatted shortcut combinations with platform symbols.
 
 ### Fixed
 
@@ -52,7 +55,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Removed plus separators from displayed shortcut combinations.
 - Removed tabs-panel, content-panel, and divider transitions so panel visibility changes are immediate.
 - Removed obsolete developer bug, dependency, and review notes; stopped tracking the local TODO file and added it to `.gitignore`.
-- Removed unused sidebar and native DOM state, an unused sidebar icon, and draft or preview logo assets.
+- Removed unused sidebar and native DOM state, an unused sidebar icon, draft logo assets, and an unused logo preview.
 
 ## [1.8.1] - 2026-09-22 (Codex Fixes Edition)
 
