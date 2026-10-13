@@ -6,7 +6,7 @@ import { hideTocMenu, toggleTocMenu } from "../features/toc/index.js";
 import { showToast } from "../features/notifications/index.js";
 import { toggleHeader } from "../features/header/index.js";
 import { toggleSidebar } from "../features/sidebar/index.js";
-import { elements } from "../shared/dom/dom.js";
+import { elements } from "../shared/dom/elements.js";
 import { shortcuts, setAvailableShortcut, syncShortcutTooltips } from "../features/shortcuts/index.js";
 /**
  * SYNC AVAILABLE SHORTCUTS

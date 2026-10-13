@@ -1,4 +1,4 @@
-import { elements } from "../../shared/dom/dom.js";
+import { elements } from "../../shared/dom/elements.js";
 export const tabsPanelState = { isHidden: sessionStorage.getItem("isTabsPanelHidden") === "true" };
 
 export function setIsTabsPanelHidden(value) {

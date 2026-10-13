@@ -1,4 +1,4 @@
-import { elements } from "../../shared/dom/dom.js";
+import { elements } from "../../shared/dom/elements.js";
 import { headerState, setIsHeaderHidden } from "./state.js";
 export function showHeader() {
   setIsHeaderHidden(false);

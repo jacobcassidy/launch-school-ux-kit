@@ -25,7 +25,7 @@ import {
   watchShortcuts as watchKeyboard,
   watchShortcutElements as watchDynamicControls,
 } from "../../src/features/shortcuts/index.js";
-import { elements } from "../../src/shared/dom/dom.js";
+import { elements } from "../../src/shared/dom/elements.js";
 import { syncNativeElementsState } from "../../src/shared/dom/native-elements-state.js";
 import { syncInjectedElementsState } from "../../src/shared/dom/injected-elements-state.js";
 import { syncAvailableShortcuts, refreshShortcuts } from "../../src/app/shortcuts.js";

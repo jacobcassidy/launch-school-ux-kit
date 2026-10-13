@@ -1,4 +1,4 @@
-import { elements } from "../../shared/dom/dom.js";
+import { elements } from "../../shared/dom/elements.js";
 export function showTocMenu({ hideSettings }) {
   const tocBtn = elements.native.tocButton;
   if (tocBtn) {

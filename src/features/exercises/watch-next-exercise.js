@@ -1,5 +1,5 @@
 import { updateNextExerciseButton } from "./next-exercise.js";
-import { elements } from "../../shared/dom/dom.js";
+import { elements } from "../../shared/dom/elements.js";
 /**
  * WATCH NEXT EXERCISE BUTTON
  * @module features/exercises/watch-next-exercise

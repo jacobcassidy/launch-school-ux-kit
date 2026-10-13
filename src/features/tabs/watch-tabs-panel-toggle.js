@@ -1,4 +1,4 @@
-import { elements } from "../../shared/dom/dom.js";
+import { elements } from "../../shared/dom/elements.js";
 import { toggleTabsPanel } from "./actions.js";
 /**
  * WATCH TABS PANEL TOGGLE BUTTON

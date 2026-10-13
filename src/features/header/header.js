@@ -1,5 +1,5 @@
 import { watchHeaderLayout, disconnectHeaderLayout } from "./header-layout.js";
-import { elements } from "../../shared/dom/dom.js";
+import { elements } from "../../shared/dom/elements.js";
 import { setElementTocButton } from "../../shared/dom/setters.js";
 /**
  * HEADER

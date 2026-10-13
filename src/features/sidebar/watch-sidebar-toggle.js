@@ -1,4 +1,4 @@
-import { elements } from "../../shared/dom/dom.js";
+import { elements } from "../../shared/dom/elements.js";
 import { toggleSidebar } from "./actions.js";
 /**
  * WATCH SIDEBAR TOGGLE BUTTON

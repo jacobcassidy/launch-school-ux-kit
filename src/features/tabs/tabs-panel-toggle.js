@@ -1,5 +1,5 @@
 import { icons } from "../../shared/icons.js";
-import { elements } from "../../shared/dom/dom.js";
+import { elements } from "../../shared/dom/elements.js";
 /**
  * TABS PANEL TOGGLE BUTTON
  * @module features/tabs/tabs-panel-toggle

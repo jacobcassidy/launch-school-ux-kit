@@ -1,4 +1,4 @@
-import { elements } from "./dom.js";
+import { elements } from "./elements.js";
 /**
  * DOM SETTERS
  * @module shared/dom/setters

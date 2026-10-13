@@ -1,4 +1,4 @@
-import { elements } from "../../shared/dom/dom.js";
+import { elements } from "../../shared/dom/elements.js";
 export function showSettings({ hideTocMenu }) {
   const settingsMenu = elements.injected.settingsMenu;
   const settingsToggleBtn = elements.injected.settingsToggleButton;

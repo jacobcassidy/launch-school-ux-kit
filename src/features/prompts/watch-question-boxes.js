@@ -1,4 +1,4 @@
-import { elements } from "../../shared/dom/dom.js";
+import { elements } from "../../shared/dom/elements.js";
 /**
  * WATCH QUESTION BOXES
  * @module features/prompts/watch-question-boxes

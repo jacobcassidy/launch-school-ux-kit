@@ -1,4 +1,4 @@
-import { elements } from "../../shared/dom/dom.js";
+import { elements } from "../../shared/dom/elements.js";
 import { toggleSettings } from "./actions.js";
 /**
  * WATCH SETTINGS TOGGLE BUTTON
