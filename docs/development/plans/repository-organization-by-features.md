@@ -2,7 +2,7 @@
 
 ## Summary
 
-Group each feature’s UI, actions, state, event watchers, and styles together. Keep application initialization and coordination separate from features, with a small shared layer for reused DOM and visual utilities.
+Group each feature’s UI, actions, state, and event watchers together. Keep styles for all features under `src/styles/features/<feature>/`, with application initialization and coordination separate from features and a small shared layer for reused DOM and visual utilities.
 
 This is an alternative to [the incremental organization plan](repository-organization.md). Implement one source organization approach. This plan retains the documentation cleanup, useful root README, and migration from `dist/js/index.min.js` to `dist/index.min.js`.
 
@@ -37,6 +37,7 @@ src/
 │   └── styles.js                  # Injects the bundled stylesheet once
 ├── styles/
 │   ├── index.css                 # Ordered imports of shared and feature styles
+│   ├── features/                 # Feature CSS, grouped by feature
 │   ├── base/                     # Variables, defaults, and animations
 │   ├── shared/                   # Common controls, text, and page layout
 │   └── pages/                    # Book and home page overrides
@@ -45,7 +46,7 @@ src/
     └── header.txt
 ```
 
-Each feature uses a flat folder with an `index.js` that explicitly exports the functions needed by application coordination. Use descriptive filenames such as `sidebar.js`, `lists.js`, `actions.js`, `state.js`, and `unread-count.js`; retain existing descriptive basenames for moved modules. Place feature styles in the same folder. Do not create empty layers or a separate component hierarchy inside every feature.
+Each feature uses a flat folder with an `index.js` that explicitly exports the functions needed by application coordination. Use descriptive filenames such as `sidebar.js`, `lists.js`, `actions.js`, `state.js`, and `unread-count.js`; retain existing descriptive basenames for moved modules. Keep feature styles in `src/styles/features/<feature>/`, using the existing descriptive basenames. Do not create empty layers or a separate component hierarchy inside every feature.
 
 When a control and its watcher share a basename, prefix the watcher with `watch-`, such as `next-exercise.js` and `watch-next-exercise.js`. Keep setters beside the owning state in `state.js` and feature visibility/interaction actions in `actions.js`.
 
@@ -88,10 +89,10 @@ When a control and its watcher share a basename, prefix the watcher with `watch-
 
 ### Colocate styles without changing the cascade
 
-- Move header and sidebar part styles to their corresponding feature folders.
-- Move Settings and toggler styles into Settings, tabs styles into tabs, code/editor styles into editor, LSBot styles into prompts, TOC styles into toc, and toast styles into notifications. Keep separate stylesheet files when a feature currently has several.
-- Move common boxes, buttons, search, tables, text, tooltips, panel layout, and wrappers into shared styles. Retain base variables/defaults/animations and book/home overrides under the global styles directory.
-- Rebuild the stylesheet entry’s import paths while preserving the exact current import order, rule contents, selectors, and custom property names. Update CSS asset URLs and direct stylesheet paths used by tests.
+- Move header and sidebar part styles to `src/styles/features/header` and `src/styles/features/sidebar`.
+- Move all feature CSS into `src/styles/features/<feature>/`: Settings and toggler styles into `settings`, tabs styles into `tabs`, code/editor styles into `editor`, LSBot styles into `prompts`, TOC styles into `toc`, and toast styles into `notifications`. Keep separate stylesheet files when a feature currently has several.
+- Keep common boxes, buttons, search, tables, text, tooltips, panel layout, and wrappers in `src/styles/shared`. Retain base variables/defaults/animations and book/home overrides under `src/styles/base` and `src/styles/pages`.
+- Rebuild the stylesheet entry’s import paths while preserving the exact current import order, rule contents, selectors, and custom property names. Update CSS asset URLs as needed and direct stylesheet paths used by tests. Keep every CSS file under `src/styles`.
 - Update esbuild to use the application entry and stylesheet entry shown above. Preserve the virtual stylesheet module, SVG loaders, metadata, and license injection.
 
 ## Documentation, tests, and distribution

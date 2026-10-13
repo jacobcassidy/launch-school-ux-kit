@@ -17,7 +17,7 @@ const tooltipStyles = await esbuild.build({
   target: "chrome100",
 });
 const settingsStyles = await esbuild.build({
-  entryPoints: ["src/features/settings/settings.css"],
+  entryPoints: ["src/styles/features/settings/settings.css"],
   write: false,
   target: "chrome100",
 });

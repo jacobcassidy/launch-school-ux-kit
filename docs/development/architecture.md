@@ -2,7 +2,7 @@
 
 ## Ownership
 
-The userscript uses plain JavaScript modules. Application coordination lives in `src/app`, feature code and styles in flat `src/features/<feature>` folders, and reused utilities in `src/shared`. Each feature's `index.js` explicitly exports the functions needed by the application.
+The userscript uses plain JavaScript modules. Application coordination lives in `src/app`, feature code in flat `src/features/<feature>` folders, all feature styles in `src/styles/features/<feature>`, and reused utilities in `src/shared`. Each feature's `index.js` explicitly exports the functions needed by the application.
 
 | Owner             | Responsibilities                                                                                                                   |
 | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
@@ -37,7 +37,7 @@ Watchers use identity sets or document binding flags to avoid duplicate listener
 
 ## Styles and distribution
 
-`src/styles/index.css` preserves the cascade: variables, defaults, animations; header, panels, sidebar, wrappers; boxes, buttons, code, editor, LSBot, search, Settings, tables, tabs, text, toasts, TOC, togglers, tooltips; book and home overrides. Feature styles live beside feature code, with shared controls and layout under `src/styles/shared`.
+`src/styles/index.css` preserves the cascade: variables, defaults, animations; header, panels, sidebar, wrappers; boxes, buttons, code, editor, LSBot, search, Settings, tables, tabs, text, toasts, TOC, togglers, tooltips; book and home overrides. Feature styles live under `src/styles/features/<feature>`, with shared controls and layout under `src/styles/shared`.
 
 Esbuild bundles CSS through the virtual stylesheet module, embeds SVG assets, and appends userscript metadata and license notices. See [Contributing](../../CONTRIBUTING.md) for build commands and output paths.
 

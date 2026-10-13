@@ -36,7 +36,10 @@ test("settings switch is a named, keyboard-focusable checkbox with a visible lab
   assert.equal(description.innerText, "Shrink sidebar when collapsed");
   assert.equal(label.htmlFor, input.id);
 
-  const togglerStyles = readFileSync(new URL("../../../src/features/settings/toggler.css", import.meta.url), "utf8");
+  const togglerStyles = readFileSync(
+    new URL("../../../src/styles/features/settings/toggler.css", import.meta.url),
+    "utf8",
+  );
   assert.match(togglerStyles, /&:focus-visible\s*\+ label/);
   assert.doesNotMatch(togglerStyles, /input\s*\{\s*display:\s*none/);
 });

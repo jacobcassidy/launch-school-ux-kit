@@ -3,9 +3,9 @@ import { readFileSync } from "node:fs";
 import test from "node:test";
 
 const variables = readFileSync(new URL("../../src/styles/base/variables.css", import.meta.url), "utf8");
-const sidebar = readFileSync(new URL("../../src/features/sidebar/sidebar.css", import.meta.url), "utf8");
-const settings = readFileSync(new URL("../../src/features/settings/settings.css", import.meta.url), "utf8");
-const header = readFileSync(new URL("../../src/features/header/header.css", import.meta.url), "utf8");
+const sidebar = readFileSync(new URL("../../src/styles/features/sidebar/sidebar.css", import.meta.url), "utf8");
+const settings = readFileSync(new URL("../../src/styles/features/settings/settings.css", import.meta.url), "utf8");
+const header = readFileSync(new URL("../../src/styles/features/header/header.css", import.meta.url), "utf8");
 
 function luminance(token) {
   const match = variables.match(new RegExp(`${token}: oklch\\(([\\d.]+) 0 0\\)`));
