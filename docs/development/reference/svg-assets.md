@@ -2,7 +2,7 @@
 
 SVG files imported by source code live under [`src/svg`](../../../src/svg). Only referenced files are included in the userscript build.
 
-Lucide icons live in `src/svg/lucide/<feature>/`, using the owning feature's name from `src/features`. Icons reused across features, such as the editor and scratchpad code icon, live in `src/svg/lucide/shared/`; this folder also holds icons for shared styles, such as search. Modified variants remain under their feature's `modified/` subfolder. Update imports in `src/shared/icons.js` and any CSS asset references when moving an icon.
+Lucide icons are grouped by UI location under `src/svg/lucide`: `header/` for site-header controls, `sidebar/` for navigation items and section controls, `tabs/` for tab-strip icons, and `panels/` for content and editor controls. These locations match the icon groups in `src/shared/icons.js`. Icons reused across locations, such as the code icon in panels and the scratchpad tab, live in `shared/`; this folder also holds icons for shared styles, such as search. Modified variants stay in their location's `modified/` subfolder. Update JavaScript imports and any CSS asset references when moving an icon.
 
 The current project identity lives in [docs/design/branding](../../design/branding/README.md), with full logos for light and dark backgrounds, transparent PNG exports, and previews. Three ascending squares represent steady progress toward mastery and the kit's modular UI components. The SVGs combine vector squares with embedded raster lettering; the wordmark is not outlined vector text. No separate standalone mark is supplied.
 
