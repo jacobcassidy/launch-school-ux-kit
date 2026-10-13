@@ -15,8 +15,8 @@ An unofficial UX kit that modifies the LaunchSchool.com UI with a minimal design
 | [Demo](#demo)                         |
 | [Quickstart Guide](#quickstart-guide) |
 | [UX Kit Features](#ux-kit-features)   |
-| [Changelog](CHANGELOG.md)             |
 | [Notes](#notes)                       |
+| [Project Documentation](#project-documentation) |
 | [Issues?](#issues)                    |
 
 ## Demo
@@ -83,6 +83,10 @@ Shortcut modifiers in tooltips and settings use `⌘` (Command), `⌃` (Control)
 
 Keys displayed together, such as `⌘⌃C`, are pressed together. Numbered tab shortcuts follow the order of visible tabs. Open Settings to see the combinations available on your current page.
 
+## Project Documentation
+
+See the [Changelog](CHANGELOG.md), [Contributing](CONTRIBUTING.md) for development setup and checks, and the [documentation index](docs/README.md) for architecture, reference guides, and historical media.
+
 ## Notes
 
 - Shortcuts, the current-page shortcut list, and button tooltips automatically use macOS or Windows keys for your platform.
@@ -93,7 +97,3 @@ Keys displayed together, such as `⌘⌃C`, are pressed together. Numbered tab s
 ## Issues?
 
 If you come across any issues, please feel free to [report them here](https://github.com/jacobcassidy/launch-school-ux-kit/issues). You are also welcome to [create a pull request](https://github.com/jacobcassidy/launch-school-ux-kit/pulls). If your PR code is AI generated, please fully review the code and mention you have done so, otherwise it may be automatically closed without being reviewed/merged.
-
-## Project documentation
-
-See [Contributing](CONTRIBUTING.md) for development setup and checks, and the [documentation index](docs/README.md) for architecture, reference guides, and historical media.
