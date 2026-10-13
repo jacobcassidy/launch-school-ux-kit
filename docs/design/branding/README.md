@@ -1,10 +1,10 @@
 # Launch School UX Kit branding
 
-![Logo on a dark background](preview-dark.png)
+![Logo on a dark background](logo/preview-dark.png)
 
-- Light logo: [Transparent PNG](launch-school-ux-kit-logo.png) · [SVG](launch-school-ux-kit-logo.svg)
-- Dark logo: [Transparent PNG](launch-school-ux-kit-logo-dark.png) · [SVG](launch-school-ux-kit-logo-dark.svg)
-- [Light preview](preview-light.png): background `#F6F6F6`, Launch and School lettering in `#636363`, and squares and UX Kit lettering in `#F75C5F` with clean edges.
+- Light logo: [Transparent PNG](logo/launch-school-ux-kit-logo.png) · [SVG](logo/launch-school-ux-kit-logo.svg)
+- Dark logo: [Transparent PNG](logo/launch-school-ux-kit-logo-dark.png) · [SVG](logo/launch-school-ux-kit-logo-dark.svg)
+- [Light preview](logo/preview-light.png): background `#F6F6F6`, Launch and School lettering in `#636363`, and squares and UX Kit lettering in `#F75C5F` with clean edges.
 
 PNG previews show the dark version on charcoal (`#141821`) by default. Both logo variants have transparent backgrounds. The light logo uses gray (`#636363`) Launch and School lettering; the dark logo uses off-white (`#F2F2F0`). Squares and UX Kit lettering use coral (`#F75C5F`) in both variants, with clean edges and no gray outline.
 
