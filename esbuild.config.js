@@ -23,7 +23,7 @@ const cssTextPlugin = {
 
     build.onLoad({ filter: /.*/, namespace: "css-text" }, async () => {
       const result = await esbuild.build({
-        entryPoints: ["src/css/styles.css"],
+        entryPoints: ["src/styles/index.css"],
         bundle: true,
         write: false,
         minify: true,
@@ -53,7 +53,7 @@ async function createContext() {
   ]);
 
   return esbuild.context({
-    entryPoints: ["src/js/index.js"],
+    entryPoints: ["src/app/index.js"],
     bundle: true,
     outfile: isWatchMode ? watchBundlePath : stagingBundlePath,
     minify: !isWatchMode,

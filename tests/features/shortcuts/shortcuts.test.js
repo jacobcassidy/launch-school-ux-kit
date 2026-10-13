@@ -7,10 +7,10 @@ function fixture(shortcuts = { cmdOnly: {}, cmdShift: {}, cmdCtrl: {} }, platfor
   const windowListeners = {};
   const activated = [];
   const toasts = [];
-  const platformHelpers = sourceContext("src/js/modules/utils/helpers/shortcuts.js", {
+  const platformHelpers = sourceContext("src/features/shortcuts/platform.js", {
     navigator: { platform },
   });
-  const context = sourceContext("src/js/modules/utils/watch/events/shortcuts.js", {
+  const context = sourceContext("src/features/shortcuts/watch-shortcuts.js", {
     shortcuts,
     getShortcutModifier: platformHelpers.getShortcutModifier,
     window: {
@@ -27,7 +27,7 @@ function fixture(shortcuts = { cmdOnly: {}, cmdShift: {}, cmdCtrl: {} }, platfor
     activateShortcut: (modifier, code) => activated.push([modifier, code]),
     showToast: (text) => toasts.push(text),
   });
-  context.watchShortcuts();
+  context.watchShortcuts({ showToast: context.showToast });
   return {
     send: (event) =>
       listeners.keydown({ preventDefault() {}, stopPropagation() {}, stopImmediatePropagation() {}, ...event }),

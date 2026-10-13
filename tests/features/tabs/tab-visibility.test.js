@@ -48,12 +48,12 @@ test("a revealed tab gets its tooltip and no longer has the hidden marker", () =
     querySelectorAll: (selector) => (selector === ".tab-tooltip" ? [...tooltips] : [tabButton]),
   };
   const getComputedStyle = () => ({ display: isHidden ? "none" : "flex" });
-  const tabContext = sourceContext("src/js/modules/components/buttons/panels/tab.js", {
+  const tabContext = sourceContext("src/features/tabs/tab.js", {
     document,
     getComputedStyle,
     icons: { tabIcons: { instructions: () => ({ classList: { add() {} } }) } },
   });
-  const watcherContext = sourceContext("src/js/modules/utils/watch/buttons/tab.js", {
+  const watcherContext = sourceContext("src/features/tabs/watch-tab.js", {
     document,
     getComputedStyle,
     handleFocus() {},
@@ -70,7 +70,12 @@ test("a revealed tab gets its tooltip and no longer has the hidden marker", () =
   });
 
   tabContext.updateTabButtons();
-  watcherContext.watchTabBtns();
+  watcherContext.watchTabBtns({
+    refreshShortcuts: () => {
+      watcherContext.syncAvailableShortcuts();
+      watcherContext.injectShortcutsSection();
+    },
+  });
   assert.ok(classes.has("is-hidden"));
   assert.equal(tooltips.length, 0);
 

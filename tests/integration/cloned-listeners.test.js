@@ -16,12 +16,15 @@ for (const [file, property, flag, setter] of [
       },
     });
     const elements = { injected: { [property]: createButton() } };
-    const context = sourceContext(`src/js/modules/utils/watch/buttons/${file}`, {
-      elements,
-      toggleSettings() {},
-      toggleSidebar() {},
-      toggleTabsPanel() {},
-    });
+    const context = sourceContext(
+      `src/features/${{ "settings-toggle.js": "settings", "sidebar-toggle.js": "sidebar", "tabs-panel-toggle.js": "tabs" }[file]}/watch-${file}`,
+      {
+        elements,
+        toggleSettings() {},
+        toggleSidebar() {},
+        toggleTabsPanel() {},
+      },
+    );
     const restoredClone = createButton();
     elements.injected[property] = restoredClone;
 

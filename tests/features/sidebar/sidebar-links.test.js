@@ -16,7 +16,7 @@ test("sidebar link watcher tolerates missing Pages controls and binds them when 
     },
     classList: { toggle() {} },
   };
-  const context = sourceContext("src/js/modules/utils/watch/events/sidebar-links.js", {
+  const context = sourceContext("src/features/sidebar/watch-sidebar-links.js", {
     document: {
       querySelector(selector) {
         if (selector === ".sidebar.nav-drawer") return sidebar;

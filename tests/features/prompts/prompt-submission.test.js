@@ -30,7 +30,7 @@ function fixture({ promptInitiallyFocused = false } = {}) {
       listeners.delete(fn);
     },
   };
-  const context = sourceContext("src/js/modules/utils/watch/events/prompt-submission.js", {
+  const context = sourceContext("src/features/prompts/watch-prompt-submission.js", {
     document,
     MutationObserver: class {
       constructor(callback) {

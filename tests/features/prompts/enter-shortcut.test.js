@@ -5,7 +5,7 @@ import { sourceContext } from "../../support/source-context.js";
 for (const inputSelector of [".lsbot-question-input", ".lsbot-question-box-answer-input", null]) {
   test(`Enter shortcut listing with input: ${inputSelector}`, () => {
     const registered = [];
-    const context = sourceContext("src/js/modules/utils/sync/available-shortcuts.js", {
+    const context = sourceContext("src/app/shortcuts.js", {
       shortcuts: {},
       elements: { native: {}, injected: {} },
       document: {
@@ -27,7 +27,7 @@ for (const inputSelector of [".lsbot-question-input", ".lsbot-question-box-answe
 
     test("Enter shortcut is omitted until a chat submit control exists", () => {
       const registered = [];
-      const context = sourceContext("src/js/modules/utils/sync/available-shortcuts.js", {
+      const context = sourceContext("src/app/shortcuts.js", {
         shortcuts: {},
         elements: { native: {}, injected: {} },
         document: {

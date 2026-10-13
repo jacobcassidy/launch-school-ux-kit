@@ -22,7 +22,7 @@ test("unread badges handle delayed counts, updates, clearing, and replacement co
       return selector === ".unread-count" ? [...badges] : [...counts];
     },
   };
-  const context = sourceContext("src/js/modules/utils/watch/sidebar/unread-count.js", {
+  const context = sourceContext("src/features/sidebar/unread-count.js", {
     document: {
       createElement() {
         const classes = new Set();
@@ -96,7 +96,7 @@ test("unread count watcher follows sidebar replacement", () => {
       return selector === ".unread-count" ? this.badges : this.counts;
     },
   });
-  const context = sourceContext("src/js/modules/utils/watch/sidebar/unread-count.js", {
+  const context = sourceContext("src/features/sidebar/unread-count.js", {
     document: { createElement: () => ({ classList: { contains: () => false, toggle() {} }, remove() {} }) },
     MutationObserver: class {
       constructor(callback) {
@@ -145,7 +145,7 @@ test("unread count synchronization preserves an unrelated native sibling", () =>
       return selector === ".unread-count" ? badges.filter((badge) => children.includes(badge)) : [count];
     },
   };
-  const context = sourceContext("src/js/modules/utils/watch/sidebar/unread-count.js", {
+  const context = sourceContext("src/features/sidebar/unread-count.js", {
     document: {
       createElement() {
         const badge = {

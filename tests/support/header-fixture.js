@@ -136,18 +136,21 @@ export function headerFixture(options = {}) {
   const documentListeners = new Map();
   const window = { location: { pathname: "/course_catalog/example", search: "" } };
   const elements = { native: {} };
-  const setters = sourceContext("src/js/modules/utils/state/setters/dom.js", { elements });
-  const buttonHelpers = sourceContext("src/js/modules/utils/dom/buttons.js");
-  const sync = sourceContext("src/js/modules/utils/sync/native-elements-state.js", { document, ...setters });
+  const setters = sourceContext("src/shared/dom/setters.js", { elements });
+  const buttonHelpers = sourceContext("src/shared/dom/buttons.js");
+  const sync = sourceContext("src/shared/dom/native-elements-state.js", { document, ...setters });
   const icons = { headerIcons: new Proxy({}, { get: () => () => node("svg") }) };
   const component = (name) =>
-    sourceContext(`src/js/modules/components/buttons/header/${name}.js`, {
-      document,
-      elements,
-      icons,
-      setButtonProperties: buttonHelpers.setButtonProperties,
-    });
-  const context = sourceContext("src/js/modules/components/header.js", {
+    sourceContext(
+      `src/features/${{ "sidebar-toggle": "sidebar", "tabs-panel-toggle": "tabs", "toc-toggle": "toc", "settings-toggle": "settings" }[name]}/${name}.js`,
+      {
+        document,
+        elements,
+        icons,
+        setButtonProperties: buttonHelpers.setButtonProperties,
+      },
+    );
+  const context = sourceContext("src/features/header/header.js", {
     document,
     window,
     elements,
@@ -222,7 +225,7 @@ export function headerFixture(options = {}) {
   };
   const refresh = () => {
     sync.syncNativeElementsState();
-    context.injectHeader();
+    context.injectHeader(context);
     return document.querySelector(".site-header");
   };
   const native = render(options);

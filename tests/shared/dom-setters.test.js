@@ -4,7 +4,7 @@ import { sourceContext } from "../support/source-context.js";
 
 test("DOM state setters expose only elements that the runtime stores", () => {
   const elements = { injected: {} };
-  const setters = sourceContext("src/js/modules/utils/state/setters/dom.js", { elements });
+  const setters = sourceContext("src/shared/dom/setters.js", { elements });
   assert.equal("setElementInstructionsPanel" in setters, false);
   assert.equal("setElementSidebarHiddenHeadersToggler" in setters, false);
 });

@@ -1,6 +1,6 @@
 # Styles
 
-CSS custom properties are defined in [`src/css/base/variables.css`](../../src/css/base/variables.css). Use those definitions as the source of truth for exact values.
+CSS custom properties are defined in [`src/styles/base/variables.css`](../../src/styles/base/variables.css). Use those definitions as the source of truth for exact values.
 
 ## Color properties
 

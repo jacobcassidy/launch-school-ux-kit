@@ -124,7 +124,7 @@ function fixture() {
 test("run-code transitions keep one correct icon and preserve native content", () => {
   const f = fixture();
   f.injectIcons("run");
-  const context = sourceContext("src/js/modules/utils/watch/buttons/run-code.js", f.globals);
+  const context = sourceContext("src/features/editor/watch-run-code.js", f.globals);
   context.watchRunCodeBtn(
     f.button,
     () => f.node("run"),
@@ -155,7 +155,7 @@ test("run-code watcher handles initial stop state and native content replacement
   const f = fixture();
   f.injectIcons("run");
   f.button.classList.add("stop-button");
-  const context = sourceContext("src/js/modules/utils/watch/buttons/run-code.js", f.globals);
+  const context = sourceContext("src/features/editor/watch-run-code.js", f.globals);
   context.watchRunCodeBtn(
     f.button,
     () => f.node("run"),
@@ -174,7 +174,7 @@ test("run-code watcher handles initial stop state and native content replacement
 test("solution toggles retain one icon pair without altering native content", () => {
   const f = fixture();
   f.injectIcons("eye-off", "eye");
-  const context = sourceContext("src/js/modules/utils/watch/buttons/solution.js", f.globals);
+  const context = sourceContext("src/features/exercises/watch-solution.js", f.globals);
   const factories = [() => f.node("eye-off"), () => f.node("eye")];
   context.watchViewSolutionBtn(f.button, factories);
   context.watchViewSolutionBtn(f.button, factories);
@@ -194,7 +194,7 @@ test("solution toggles retain one icon pair without altering native content", ()
 test("solution icon pair is restored after partial removal or native content replacement", () => {
   const f = fixture();
   f.injectIcons("eye-off", "eye");
-  const context = sourceContext("src/js/modules/utils/watch/buttons/solution.js", f.globals);
+  const context = sourceContext("src/features/exercises/watch-solution.js", f.globals);
   context.watchViewSolutionBtn(f.button, [() => f.node("eye-off"), () => f.node("eye")]);
   f.icons()[0].remove();
   f.flush();

@@ -1,23 +1,50 @@
-import { injectHeader } from "../../src/js/modules/components/header.js";
-import { updateSidebar } from "../../src/js/modules/components/sidebar.js";
-import { updateTabButtons } from "../../src/js/modules/components/buttons/panels/tab.js";
-import { elements } from "../../src/js/modules/utils/state/dom.js";
-import { syncAvailableShortcuts } from "../../src/js/modules/utils/sync/available-shortcuts.js";
-import { syncShortcutTooltips } from "../../src/js/modules/utils/sync/shortcut-tooltips.js";
-import { syncNativeElementsState } from "../../src/js/modules/utils/sync/native-elements-state.js";
-import { syncInjectedElementsState } from "../../src/js/modules/utils/sync/injected-elements-state.js";
-import { setLoadUIHandler } from "../../src/js/modules/utils/helpers/reload.js";
-import { watchForUrlChange } from "../../src/js/modules/utils/watch/events/url-change.js";
-import { shortcuts } from "../../src/js/modules/utils/state/shortcuts.js";
-import { injectShortcutsSection } from "../../src/js/modules/components/shortcuts-menu.js";
-import { watchShortcuts } from "../../src/js/modules/utils/watch/events/shortcuts.js";
-import { watchShortcutElements } from "../../src/js/modules/utils/watch/events/shortcut-elements.js";
-import { watchPromptFocus } from "../../src/js/modules/utils/watch/events/prompt-focus.js";
-import { watchSettingsToggleBtn } from "../../src/js/modules/utils/watch/buttons/settings-toggle.js";
-import { watchSidebarLinks } from "../../src/js/modules/utils/watch/events/sidebar-links.js";
-import { watchSidebarToggleBtn } from "../../src/js/modules/utils/watch/buttons/sidebar-toggle.js";
-import { watchTabBtns } from "../../src/js/modules/utils/watch/buttons/tab.js";
-import { watchUnreadCounts } from "../../src/js/modules/utils/watch/sidebar/unread-count.js";
+import { injectHeader as renderHeader } from "../../src/features/header/index.js";
+import {
+  updateSidebar,
+  injectSidebarToggleButton,
+  watchSidebarLinks,
+  watchSidebarToggleBtn,
+  watchUnreadCounts,
+} from "../../src/features/sidebar/index.js";
+import {
+  updateTabButtons,
+  injectTabsPanelToggleButton,
+  watchTabBtns as watchTabs,
+} from "../../src/features/tabs/index.js";
+import {
+  injectSettingsMenu,
+  injectSettingsToggleButton,
+  injectShortcutsSection,
+  watchSettingsToggleBtn as watchSettings,
+} from "../../src/features/settings/index.js";
+import { moveTocBtnToHeader, hideTocMenu } from "../../src/features/toc/index.js";
+import { showToast } from "../../src/features/notifications/index.js";
+import {
+  shortcuts,
+  syncShortcutTooltips,
+  watchShortcuts as watchKeyboard,
+  watchShortcutElements as watchDynamicControls,
+} from "../../src/features/shortcuts/index.js";
+import { elements } from "../../src/shared/dom/dom.js";
+import { syncNativeElementsState } from "../../src/shared/dom/native-elements-state.js";
+import { syncInjectedElementsState } from "../../src/shared/dom/injected-elements-state.js";
+import { syncAvailableShortcuts, refreshShortcuts } from "../../src/app/shortcuts.js";
+import { setLoadUIHandler } from "../../src/app/reload.js";
+import { watchForUrlChange } from "../../src/app/navigation.js";
+import { watchPromptFocus } from "../../src/features/prompts/index.js";
+
+const injectHeader = () =>
+  renderHeader({
+    injectSettingsMenu,
+    injectSettingsToggleButton,
+    injectSidebarToggleButton,
+    injectTabsPanelToggleButton,
+    moveTocBtnToHeader,
+  });
+const watchSettingsToggleBtn = () => watchSettings({ hideTocMenu });
+const watchTabBtns = () => watchTabs({ refreshShortcuts });
+const watchShortcuts = () => watchKeyboard({ showToast });
+const watchShortcutElements = () => watchDynamicControls({ refreshShortcuts });
 
 globalThis.integration = {
   elements,

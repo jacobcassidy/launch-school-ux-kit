@@ -24,7 +24,7 @@ test("reloading shortcuts replaces the section with current entries", () => {
     },
   };
   const shortcuts = {};
-  const context = sourceContext("src/js/modules/components/shortcuts-menu.js", {
+  const context = sourceContext("src/features/settings/shortcuts-menu.js", {
     document: { querySelector: () => menu },
     shortcuts,
     createNewSettingsSection() {
@@ -80,7 +80,7 @@ test("repeated tab updates reuse tooltips and preserve the original label", () =
     },
   };
   buttons = [btn];
-  const context = sourceContext("src/js/modules/components/buttons/panels/tab.js", {
+  const context = sourceContext("src/features/tabs/tab.js", {
     icons: { tabIcons: { instructions: () => ({}) } },
     getComputedStyle: () => ({ display: "block" }),
     document,
@@ -142,7 +142,7 @@ test("unknown tab types keep their native label and content", () => {
     },
     body: { appendChild: (el) => tooltips.push(el) },
   };
-  const context = sourceContext("src/js/modules/components/buttons/panels/tab.js", {
+  const context = sourceContext("src/features/tabs/tab.js", {
     icons: { tabIcons: {} },
     getComputedStyle: () => ({ display: "block" }),
     document,

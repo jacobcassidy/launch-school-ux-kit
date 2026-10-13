@@ -12,12 +12,12 @@ const bundle = await esbuild.build({
 });
 const integrationScript = bundle.outputFiles[0].text;
 const tooltipStyles = await esbuild.build({
-  entryPoints: ["src/css/components/tooltips.css"],
+  entryPoints: ["src/styles/shared/tooltips.css"],
   write: false,
   target: "chrome100",
 });
 const settingsStyles = await esbuild.build({
-  entryPoints: ["src/css/components/settings.css"],
+  entryPoints: ["src/features/settings/settings.css"],
   write: false,
   target: "chrome100",
 });

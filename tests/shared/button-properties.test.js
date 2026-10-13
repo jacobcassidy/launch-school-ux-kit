@@ -25,7 +25,7 @@ test("button properties add one icon even when no extra classes are requested", 
       return children.filter((child) => child.classes?.has("is-new-icon"));
     },
   };
-  const helper = sourceContext("src/js/modules/utils/dom/buttons.js");
+  const helper = sourceContext("src/shared/dom/buttons.js");
   let createdIcons = 0;
   const iconFactory = () => {
     createdIcons++;
@@ -63,7 +63,7 @@ test("button properties restore icons after native content replacement", () => {
       return children.filter((child) => child.classes.has("is-new-icon"));
     },
   };
-  const helper = sourceContext("src/js/modules/utils/dom/buttons.js");
+  const helper = sourceContext("src/shared/dom/buttons.js");
   let createdIcons = 0;
   const iconFactory = () => {
     createdIcons++;

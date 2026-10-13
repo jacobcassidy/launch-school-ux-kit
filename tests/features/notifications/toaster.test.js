@@ -10,7 +10,7 @@ test("repeated toaster setup reuses the existing container", () => {
       return element;
     },
   };
-  const context = sourceContext("src/js/modules/components/toaster.js", {
+  const context = sourceContext("src/features/notifications/toaster.js", {
     document: {
       body,
       createElement(tagName) {

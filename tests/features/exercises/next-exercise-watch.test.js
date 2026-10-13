@@ -12,7 +12,7 @@ function setup() {
   const instructionsTab = {};
   const elements = { native: { nextExerciseButton: null } };
 
-  const context = sourceContext("src/js/modules/utils/watch/buttons/next-exercise.js", {
+  const context = sourceContext("src/features/exercises/watch-next-exercise.js", {
     document: {
       querySelector: () => instructionsTab,
       querySelectorAll: () => links,
@@ -58,7 +58,12 @@ function setup() {
 
 test("watcher observes before a next-exercise link exists and updates shortcut state on insertion and removal", () => {
   const fixture = setup();
-  fixture.context.watchNextExerciseBtn();
+  fixture.context.watchNextExerciseBtn({
+    refreshShortcuts: () => {
+      fixture.context.syncAvailableShortcuts();
+      fixture.context.injectShortcutsSection();
+    },
+  });
   assert.equal(fixture.counts.observeCount, 1);
   assert.equal(fixture.elements.native.nextExerciseButton, null);
 
@@ -78,8 +83,18 @@ test("watcher observes before a next-exercise link exists and updates shortcut s
 
 test("watcher refreshes replacements once and repeated setup does not add observers", () => {
   const fixture = setup();
-  fixture.context.watchNextExerciseBtn();
-  fixture.context.watchNextExerciseBtn();
+  fixture.context.watchNextExerciseBtn({
+    refreshShortcuts: () => {
+      fixture.context.syncAvailableShortcuts();
+      fixture.context.injectShortcutsSection();
+    },
+  });
+  fixture.context.watchNextExerciseBtn({
+    refreshShortcuts: () => {
+      fixture.context.syncAvailableShortcuts();
+      fixture.context.injectShortcutsSection();
+    },
+  });
   assert.equal(fixture.counts.observeCount, 1);
 
   const firstLink = { textContent: "Go to the next exercise" };

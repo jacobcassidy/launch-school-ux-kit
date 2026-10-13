@@ -13,7 +13,7 @@ test("shortcut display and event matching agree across current and fallback brow
     [undefined, false],
   ];
   browsers.forEach(([navigator, isMac]) => {
-    const helpers = sourceContext("src/js/modules/utils/helpers/shortcuts.js", { navigator });
+    const helpers = sourceContext("src/features/shortcuts/platform.js", { navigator });
     const modifiers = isMac ? { metaKey: true, ctrlKey: true } : { ctrlKey: true, altKey: true };
     const keys = Array.from(helpers.getShortcutKeys("cmdCtrl", ","));
     assert.deepEqual(keys, isMac ? ["⌘", "⌃", ","] : ["⌃", "⎇", ","]);

@@ -17,7 +17,7 @@ function fixture() {
   left.getBoundingClientRect = () => ({ width: sizes.left });
   right.getBoundingClientRect = () => ({ width: sizes.right });
   const observers = [];
-  const api = sourceContext("src/js/modules/components/header-layout.js", {
+  const api = sourceContext("src/features/header/header-layout.js", {
     getComputedStyle: () => ({ paddingInlineStart: "12px", paddingInlineEnd: "12px", columnGap: `${sizes.gap}px` }),
     ResizeObserver: class {
       constructor(callback) {

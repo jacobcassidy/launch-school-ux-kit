@@ -26,7 +26,7 @@ function fixture(transitions, transitionDuration = "0s") {
       this.children.push(element);
     },
   };
-  const context = sourceContext("src/js/modules/utils/helpers/show.js", {
+  const context = sourceContext("src/features/notifications/actions.js", {
     document: {
       querySelector: () => container,
       createElement: () => toast,

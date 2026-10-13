@@ -20,12 +20,22 @@ function fixture() {
     injected: { tabsPanelToggleButton: button },
   };
   const ui = { tabsPanel: { isHidden: false }, header: {}, sidebar: {} };
-  const context = sourceContext("src/js/modules/utils/state/setters/ui.js", {
+  const context = sourceContext("src/features/tabs/state.js", {
     elements,
     ui,
     sessionStorage: window.sessionStorage,
   });
-  return { window, content, panel, button, elements, ui, setHidden: context.setIsTabsPanelHidden };
+  ui.tabsPanel = context.tabsPanelState;
+  return {
+    window,
+    content,
+    panel,
+    button,
+    elements,
+    ui,
+    setHidden: context.setIsTabsPanelHidden,
+    restoreState: context.restoreTabsState,
+  };
 }
 
 function assertVisibility(f, hidden) {
@@ -64,13 +74,7 @@ for (const hidden of [true, false]) {
     const f = fixture();
     f.setHidden(!hidden);
     f.ui.tabsPanel.isHidden = hidden;
-    const loaded = sourceContext("src/js/modules/utils/sync/loaded-elements-state.js", {
-      elements: f.elements,
-      ui: f.ui,
-      setIsTabsPanelHidden: f.setHidden,
-      hideHeader() {},
-    });
-    loaded.syncLoadedElementsState();
+    f.restoreState();
     assertVisibility(f, hidden);
     f.window.close();
   });

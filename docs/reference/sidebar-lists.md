@@ -1,6 +1,6 @@
 # Sidebar Lists
 
-The sidebar groups and item order are configured in [`sidebar-lists.js`](../../src/js/modules/utils/configs/sidebar-lists.js).
+The sidebar groups and item order are configured in [`sidebar-lists.js`](../../src/features/sidebar/sidebar-lists.js).
 
 ## Study
 

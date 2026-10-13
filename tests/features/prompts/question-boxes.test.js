@@ -18,7 +18,7 @@ function fixture() {
     contains: (target) => target === button,
     querySelector: (selector) => (selector === ".lsbot-question-box-answer-input" ? input : button),
   };
-  const context = sourceContext("src/js/modules/utils/watch/events/question-boxes.js", {
+  const context = sourceContext("src/features/prompts/watch-question-boxes.js", {
     document: {
       activeElement: input,
       querySelectorAll: () => [box],
@@ -27,7 +27,7 @@ function fixture() {
     elements: { native: { tabsPanel: {} } },
     handleFocus: (target) => focusedTabs.push(target),
   });
-  context.watchQuestionBoxes();
+  context.watchQuestionBoxes({ handleFocus: context.handleFocus });
 
   return {
     send(event) {

@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { sidebarLists } from "../../../src/js/modules/utils/configs/sidebar-lists.js";
+import { sidebarLists } from "../../../src/features/sidebar/sidebar-lists.js";
 import { sourceContext } from "../../support/source-context.js";
 
 function node(tagName) {
@@ -114,20 +114,20 @@ function fixture() {
     },
   };
   const icons = { sidebarIcons: new Proxy({}, { get: () => () => node("svg") }) };
-  const listRenderer = sourceContext("src/js/modules/components/sidebar/lists.js", {
+  const listRenderer = sourceContext("src/features/sidebar/lists.js", {
     document,
     sidebarLists: config,
     icons,
   });
-  const headerRenderer = sourceContext("src/js/modules/components/sidebar/header.js", { document, icons });
-  const unreadCountWatcher = sourceContext("src/js/modules/utils/watch/sidebar/unread-count.js", {
+  const headerRenderer = sourceContext("src/features/sidebar/header.js", { document, icons });
+  const unreadCountWatcher = sourceContext("src/features/sidebar/unread-count.js", {
     document,
     MutationObserver: class {
       observe() {}
       disconnect() {}
     },
   });
-  const context = sourceContext("src/js/modules/components/sidebar.js", {
+  const context = sourceContext("src/features/sidebar/sidebar.js", {
     document,
     icons,
     syncActiveSidebarItem: () => activeSyncs++,

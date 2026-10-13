@@ -15,7 +15,7 @@ for (const readyState of ["loading", "interactive", "complete"]) {
         listener = callback;
       },
     };
-    sourceContext("src/js/index.js", {
+    sourceContext("src/app/index.js", {
       document,
       location: { origin: "https://launchschool.com", pathname: "/courses" },
       setLastUrl() {},

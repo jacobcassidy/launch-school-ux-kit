@@ -6,8 +6,8 @@ function fixture() {
   const frames = [];
   const ui = { load: { isReloadScheduled: false, lastUrl: "/old", previousBody: {} } };
   let loads = 0;
-  const context = sourceContext("src/js/modules/utils/helpers/reload.js", {
-    ui,
+  const context = sourceContext("src/app/reload.js", {
+    appState: ui.load,
     location: { origin: "https://launchschool.com", pathname: "/new", search: "?track=python" },
     document: { body: ui.load.previousBody },
     requestAnimationFrame(callback) {
@@ -53,8 +53,8 @@ for (const eventPrefix of ["turbo", "turbolinks"]) {
   test(`${eventPrefix} rendering after a history reload schedules a fresh pass at the same URL`, () => {
     const { context, frames, ui, loads } = fixture();
     const listeners = {};
-    const watcher = sourceContext("src/js/modules/utils/watch/events/url-change.js", {
-      ui,
+    const watcher = sourceContext("src/app/navigation.js", {
+      appState: ui.load,
       location: context.location,
       scheduleReload: context.scheduleReload,
       history: { pushState() {}, replaceState() {} },
@@ -91,8 +91,8 @@ test("query-only history navigation reloads page-specific UI state", () => {
       context.location.search = nextSearch;
     },
   };
-  const watcher = sourceContext("src/js/modules/utils/watch/events/url-change.js", {
-    ui,
+  const watcher = sourceContext("src/app/navigation.js", {
+    appState: ui.load,
     location: context.location,
     scheduleReload: context.scheduleReload,
     history,

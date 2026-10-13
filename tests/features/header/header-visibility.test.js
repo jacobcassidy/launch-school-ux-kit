@@ -31,13 +31,14 @@ function fixture() {
   };
   const ui = { header: {} };
   const saved = new Map();
-  const context = sourceContext("src/js/modules/utils/state/setters/ui.js", {
+  const context = sourceContext("src/features/header/state.js", {
     document: { activeElement: focusedElement },
     elements: { injected: { header }, native: {} },
     ui,
-    sessionStorage: { setItem: (key, value) => saved.set(key, value) },
+    sessionStorage: { getItem: () => null, setItem: (key, value) => saved.set(key, value) },
   });
 
+  ui.header = context.headerState;
   return { attributes, blurred: () => blurred, context, header, ui, saved };
 }
 
