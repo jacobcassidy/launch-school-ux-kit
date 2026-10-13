@@ -3,7 +3,7 @@ import { readFileSync } from "node:fs";
 import test from "node:test";
 import { Window } from "happy-dom";
 
-const bundle = readFileSync(new URL("../../dist/js/index.min.js", import.meta.url), "utf8");
+const bundle = readFileSync(new URL("../../dist/index.min.js", import.meta.url), "utf8");
 
 for (const hidden of [true, false]) {
   test(`feature-owned preferences restore ${hidden ? "hidden" : "default"} UI across repeated native renders`, async (t) => {

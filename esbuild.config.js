@@ -5,9 +5,9 @@ import path from "node:path";
 import process from "node:process";
 import { watchUserscriptMetadata } from "./scripts/watch-userscript-header.js";
 
-const releaseBundlePath = "./dist/js/index.min.js";
-const watchBundlePath = "./.dev-dist/js/index.js";
-const stagingBundlePath = "./.build-tmp/js/index.min.js";
+const releaseBundlePath = "./dist/index.min.js";
+const watchBundlePath = "./.dev-dist/index.js";
+const stagingBundlePath = "./.build-tmp/index.min.js";
 const headerFile = "./src/userscript/header.txt";
 const licenseFile = "./LICENSE";
 const thirdPartyNoticesFile = "./THIRD-PARTY-NOTICES.txt";

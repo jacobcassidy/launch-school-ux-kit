@@ -30,7 +30,7 @@ The 1920 × 1080 demo presents the Launch School PWA as an isolated window with 
 1. Install the [Tampermonkey](https://chromewebstore.google.com/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo) browser extension (or an equivalent extension).
 2. Open the Tampermonkey extension's dashboard.
 3. Click on the dashboard's `+` tab to create a new script.
-4. Copy the code from [/dist/js/index.min.js](https://github.com/jacobcassidy/launch-school-ux-kit/blob/main/dist/js/index.min.js), then paste it into the Tampermonkey editor and save it (`CMD S` on macOS or `CTRL S` on Windows).
+4. Copy the code from [/dist/index.min.js](https://github.com/jacobcassidy/launch-school-ux-kit/blob/main/dist/index.min.js), then paste it into the Tampermonkey editor and save it (`CMD S` on macOS or `CTRL S` on Windows).
 5. Go to [launchschool.com](https://launchschool.com) or refresh the page if you're already there and the script should now be active (if not, check your Tampermonkey extension settings to make sure it's active on launchschool.com).
 
 To update an existing installation, open its script in Tampermonkey, replace the contents with the latest code from step 4, save, and refresh Launch School.
