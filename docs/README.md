@@ -1,6 +1,7 @@
 # Documentation
 
 - [Contributing](../CONTRIBUTING.md): setup, checks, and release builds.
+- [Development quick guide](development/QUICK-GUIDE.md): source layout, edit loop, and the watch versus release builds.
 - [Architecture](development/architecture.md): feature ownership, callback wiring, initialization, and styles.
 - [Sidebar lists](development/reference/sidebar-lists.md): list configuration and ordering.
 - [Styles](development/reference/styles.md): CSS variables and visual conventions.
