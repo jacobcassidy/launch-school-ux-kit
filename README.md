@@ -30,7 +30,7 @@ The 1920 × 1080 demo presents the Launch School PWA as an isolated window with 
 1. Install the [Tampermonkey](https://chromewebstore.google.com/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo) browser extension (or an equivalent extension).
 2. Open the Tampermonkey extension's dashboard.
 3. Click on the dashboard's `+` tab to create a new script.
-4. Copy the code from [/dist/index.min.js](https://github.com/jacobcassidy/launch-school-ux-kit/blob/main/dist/index.min.js), then paste it into the Tampermonkey editor and save it (`⌘+S` on macOS or `⌃+S` on Windows).
+4. Copy the code from [/dist/index.min.js](https://github.com/jacobcassidy/launch-school-ux-kit/blob/main/dist/index.min.js), then paste it into the Tampermonkey editor and save it (`⌘` + `S` on macOS or `⌃` + `S` on Windows).
 5. Go to [launchschool.com](https://launchschool.com) or refresh the page if you're already there and the script should now be active (if not, check your Tampermonkey extension settings to make sure it's active on launchschool.com).
 
 To update an existing installation, open its script in Tampermonkey, replace the contents with the latest code from step 4, save, and refresh Launch School.
@@ -42,7 +42,7 @@ To update an existing installation, open its script in Tampermonkey, replace the
 > 2. Select `File > Add to Dock...`
 > 3. Make the title "Launch School" and click "Add".
 > 4. Open the new Launch School Safari app you just created.
-> 5. Open settings (in the menubar, click `Launch School > Settings` or use the `⌘+,` shortcut).
+> 5. Open settings (in the menubar, click `Launch School > Settings` or use the `⌘` + `,` shortcut).
 > 6. In the Setting's "General" tab, deselect "Show navigation controls".
 > 7. In the Setting's "Extensions" tab, click "Browse Extensions" and install "Tampermonkey" (or an equivalent extension).
 > 8. Then follow the rest of the [Quickstart Guide](#quickstart-guide) above to complete the setup.
@@ -66,18 +66,18 @@ To update an existing installation, open its script in Tampermonkey, replace the
 
   | macOS         | Windows        | Function                                                                   |
   | ------------- | -------------- | -------------------------------------------------------------------------- |
-  | `Enter`    | `Enter`    | Submit focused chat prompt                                                 |
-  | `⌘+B`      | `⌃+B`      | Toggles Sidebar visibility                                                 |
-  | `⌘+⇧+1`    | `⌃+⇧+1`    | Toggles Header visibility                                                  |
-  | `⌘+⇧+2`    | `⌃+⇧+2`    | Toggle Tabs Panel visibility                                               |
-  | `⌘+⌃+#`    | `⌃+⎇+#`    | Select tab by number order (such as 1 for the "Ask LSBot" tab)             |
-  | `⌘+⌃+C`    | `⌃+⎇+C`    | Copy Editor/Scratchpad Code                                                |
-  | `⌘+⌃+E`    | `⌃+⎇+E`    | Focus Editor/Scratchpad                                                    |
-  | `⌘+⌃+M`    | `⌃+⎇+M`    | Toggle the "Mark exercise complete/incomplete" _(active on exercise page)_ |
-  | `⌘+⌃+N`    | `⌃+⎇+N`    | Go to next exercise _(active on exercise page)_                            |
-  | `⌘+⌃+R`    | `⌃+⎇+R`    | Submit review to LSBot _(active on exercise page)_                         |
-  | `⌘+⌃+T`    | `⌃+⎇+T`    | Toggle Table of Contents visibility _(active on book page)_                |
-  | `⌘+⌃+,`    | `⌃+⎇+,`    | Toggle Settings visibility (include Current Page Shortcuts)                |
+  | `Enter` | `Enter` | Submit focused chat prompt |
+  | `⌘` + `B` | `⌃` + `B` | Toggles Sidebar visibility |
+  | `⌘` + `⇧` + `1` | `⌃` + `⇧` + `1` | Toggles Header visibility |
+  | `⌘` + `⇧` + `2` | `⌃` + `⇧` + `2` | Toggle Tabs Panel visibility |
+  | `⌘` + `⌃` + `#` | `⌃` + `⎇` + `#` | Select tab by number order (such as 1 for the "Ask LSBot" tab) |
+  | `⌘` + `⌃` + `C` | `⌃` + `⎇` + `C` | Copy Editor/Scratchpad Code |
+  | `⌘` + `⌃` + `E` | `⌃` + `⎇` + `E` | Focus Editor/Scratchpad |
+  | `⌘` + `⌃` + `M` | `⌃` + `⎇` + `M` | Toggle the "Mark exercise complete/incomplete" _(active on exercise page)_ |
+  | `⌘` + `⌃` + `N` | `⌃` + `⎇` + `N` | Go to next exercise _(active on exercise page)_ |
+  | `⌘` + `⌃` + `R` | `⌃` + `⎇` + `R` | Submit review to LSBot _(active on exercise page)_ |
+  | `⌘` + `⌃` + `T` | `⌃` + `⎇` + `T` | Toggle Table of Contents visibility _(active on book page)_ |
+  | `⌘` + `⌃` + `,` | `⌃` + `⎇` + `,` | Toggle Settings visibility (include Current Page Shortcuts) |
 
 Shortcut modifiers in tooltips and settings use `⌘` (Command), `⌃` (Control), `⇧` (Shift), and `⎇` (Alt).
 
