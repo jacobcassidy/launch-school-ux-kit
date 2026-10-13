@@ -3,26 +3,26 @@ import {
   injectTabsPanelToggleButton,
   restoreTabsState,
   updateTabButtons,
-  watchTabBtns,
-  watchTabsPanelToggleBtn,
+  watchTabButtons,
+  watchTabsPanelToggleButton,
 } from "../features/tabs/index.js";
-import { hideTocMenu, moveTocBtnToHeader } from "../features/toc/index.js";
+import { hideTocMenu, moveTocButtonToHeader } from "../features/toc/index.js";
 import {
   injectContentSolutionButtons,
   updateExerciseCompletionButton,
   updateNextExerciseButton,
-  updatePaginationButton,
-  updateSolutionButton,
-  watchNextExerciseBtn,
+  updatePaginationButtons,
+  updateSolutionButtons,
+  watchNextExerciseButton,
 } from "../features/exercises/index.js";
-import { injectHeader, restoreHeaderState, watchForMissingHeader } from "../features/header/index.js";
+import { injectHeader, restoreHeaderState, watchHeaderRemoval } from "../features/header/index.js";
 import {
   injectSettingsMenu,
   injectSettingsToggleButton,
   syncSettingsPreferences,
-  watchSettingSidebarHiddenHeadersToggler,
-  watchSettingSidebarShrinkToggler,
-  watchSettingsToggleBtn,
+  watchSidebarHiddenHeadersSetting,
+  watchSidebarShrinkSetting,
+  watchSettingsToggleButton,
 } from "../features/settings/index.js";
 import {
   injectSidebarToggleButton,
@@ -32,7 +32,7 @@ import {
   sidebarState,
   updateSidebar,
   watchSidebarLinks,
-  watchSidebarToggleBtn,
+  watchSidebarToggleButton,
 } from "../features/sidebar/index.js";
 import { injectStyles } from "../shared/styles.js";
 import { injectToaster, showToast } from "../features/notifications/index.js";
@@ -41,20 +41,20 @@ import { scheduleReload, setLoadUIHandler } from "./reload.js";
 import { syncInjectedElementsState } from "../shared/dom/injected-elements-state.js";
 import { syncNativeElementsState } from "../shared/dom/native-elements-state.js";
 import {
-  updateConversationHistoryButton,
-  updateConversationNewButton,
-  watchPromptFocus,
+  updateConversationHistoryButtons,
+  updateNewConversationButtons,
+  watchPromptEnterShortcut,
   watchPromptSubmission,
   watchQuestionBoxes,
 } from "../features/prompts/index.js";
 import {
-  updateCopyCodeButton,
-  updateCopyMarkupButton,
-  updateRunCodeButton,
-  updateWorkInEditorButton,
-  watchForNewCopyMarkupBtns,
+  updateCopyCodeButtons,
+  updateCopyMarkupButtons,
+  updateRunCodeButtons,
+  updateWorkInEditorButtons,
+  watchCopyMarkupButtons,
 } from "../features/editor/index.js";
-import { watchForUrlChange } from "./navigation.js";
+import { watchUrlChanges } from "./navigation.js";
 import { watchShortcutElements, watchShortcuts } from "../features/shortcuts/index.js";
 export function loadUI() {
   injectStyles();
@@ -64,45 +64,45 @@ export function loadUI() {
     injectSettingsToggleButton,
     injectSidebarToggleButton,
     injectTabsPanelToggleButton,
-    moveTocBtnToHeader,
+    moveTocButtonToHeader,
   });
   injectToaster();
   syncInjectedElementsState();
   syncSettingsPreferences({ sidebarState });
   updateSidebar();
   injectContentSolutionButtons();
-  updateConversationHistoryButton();
-  updateConversationNewButton();
-  updateCopyCodeButton();
-  updateCopyMarkupButton();
+  updateConversationHistoryButtons();
+  updateNewConversationButtons();
+  updateCopyCodeButtons();
+  updateCopyMarkupButtons();
   updateExerciseCompletionButton({ refreshShortcuts });
   updateNextExerciseButton();
-  updatePaginationButton();
-  updateRunCodeButton();
-  updateSolutionButton();
+  updatePaginationButtons();
+  updateRunCodeButtons();
+  updateSolutionButtons();
   updateTabButtons();
-  updateWorkInEditorButton();
+  updateWorkInEditorButtons();
   refreshShortcuts();
   restoreHeaderState();
   restoreTabsState();
   restoreSidebarState();
 
-  watchForMissingHeader({ scheduleReload });
-  watchForUrlChange();
+  watchHeaderRemoval({ scheduleReload });
+  watchUrlChanges();
   watchShortcuts({ showToast });
   watchShortcutElements({ refreshShortcuts });
-  watchPromptFocus();
+  watchPromptEnterShortcut();
   watchPromptSubmission();
   watchQuestionBoxes({ handleFocus });
-  watchSettingSidebarHiddenHeadersToggler({ setSettingSidebarHiddenHeaders });
-  watchSettingSidebarShrinkToggler({ setSettingSidebarShrink });
-  watchSettingsToggleBtn({ hideTocMenu });
+  watchSidebarHiddenHeadersSetting({ setSettingSidebarHiddenHeaders });
+  watchSidebarShrinkSetting({ setSettingSidebarShrink });
+  watchSettingsToggleButton({ hideTocMenu });
   watchSidebarLinks();
-  watchSidebarToggleBtn();
-  watchForNewCopyMarkupBtns();
-  watchTabBtns({ refreshShortcuts });
-  watchTabsPanelToggleBtn();
-  watchNextExerciseBtn({ refreshShortcuts });
+  watchSidebarToggleButton();
+  watchCopyMarkupButtons();
+  watchTabButtons({ refreshShortcuts });
+  watchTabsPanelToggleButton();
+  watchNextExerciseButton({ refreshShortcuts });
 }
 
 /**

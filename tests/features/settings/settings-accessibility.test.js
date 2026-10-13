@@ -26,7 +26,7 @@ test("settings switch is a named, keyboard-focusable checkbox with a visible lab
     },
   });
 
-  const setting = context.createNewSetting("Shrink sidebar when collapsed", "sidebar-shrink");
+  const setting = context.createSetting("Shrink sidebar when collapsed", "sidebar-shrink");
   const [toggler, description] = setting.children;
   const [input, label] = toggler.children;
 

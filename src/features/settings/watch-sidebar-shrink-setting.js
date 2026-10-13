@@ -1,6 +1,6 @@
 /**
  * WATCH SETTING SIDEBAR SHRINK TOGGLER
- * @module features/settings/toggler-sidebar-shrink
+ * @module features/settings/watch-sidebar-shrink-setting
  */
 
 const watchedSidebarShrinkTogglers = new WeakSet();
@@ -8,7 +8,7 @@ const watchedSidebarShrinkTogglers = new WeakSet();
 /**
  * Toggles the Sidebar's collapsed sizing (hidden or shrunken).
  */
-export function watchSettingSidebarShrinkToggler({ setSettingSidebarShrink }) {
+export function watchSidebarShrinkSetting({ setSettingSidebarShrink }) {
   const settingSidebarShrinkToggler = document.querySelector("#setting--sidebar-shrink");
   if (!settingSidebarShrinkToggler) {
     return;

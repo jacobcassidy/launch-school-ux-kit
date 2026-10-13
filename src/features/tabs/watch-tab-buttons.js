@@ -1,8 +1,8 @@
 import { handleFocus } from "./focus.js";
-import { updateTabButtons } from "./tab.js";
+import { updateTabButtons } from "./tab-buttons.js";
 /**
  * WATCH TAB BUTTONS
- * @module features/tabs/watch-tab
+ * @module features/tabs/watch-tab-buttons
  */
 
 const watchedTabButtons = new WeakSet();
@@ -11,7 +11,7 @@ const watchedTabNavigations = new WeakSet();
 /**
  * Run handleFocus() on each tab button click.
  */
-export function watchTabBtns({ refreshShortcuts }) {
+export function watchTabButtons({ refreshShortcuts }) {
   const tabButtons = document.querySelectorAll(".tab-button");
   if (tabButtons.length < 1) {
     return;
@@ -66,7 +66,7 @@ export function watchTabBtns({ refreshShortcuts }) {
     visibleTabs = nextVisibleTabs;
     updateTabButtons();
     refreshShortcuts();
-    watchTabBtns({ refreshShortcuts });
+    watchTabButtons({ refreshShortcuts });
   });
 
   observer.observe(tabNav, { childList: true, attributes: true, subtree: true, attributeFilter: ["class", "style"] });

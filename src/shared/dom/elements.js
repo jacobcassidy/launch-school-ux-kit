@@ -1,6 +1,6 @@
 /**
  * DOM STATE
- * @module shared/dom/dom
+ * @module shared/dom/elements
  */
 
 // DOM Elements State Object

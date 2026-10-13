@@ -125,12 +125,12 @@ test("run-code transitions keep one correct icon and preserve native content", (
   const f = fixture();
   f.injectIcons("run");
   const context = sourceContext("src/features/editor/watch-run-code.js", f.globals);
-  context.watchRunCodeBtn(
+  context.watchRunCodeButton(
     f.button,
     () => f.node("run"),
     () => f.node("stop"),
   );
-  context.watchRunCodeBtn(
+  context.watchRunCodeButton(
     f.button,
     () => f.node("run"),
     () => f.node("stop"),
@@ -156,7 +156,7 @@ test("run-code watcher handles initial stop state and native content replacement
   f.injectIcons("run");
   f.button.classList.add("stop-button");
   const context = sourceContext("src/features/editor/watch-run-code.js", f.globals);
-  context.watchRunCodeBtn(
+  context.watchRunCodeButton(
     f.button,
     () => f.node("run"),
     () => f.node("stop"),
@@ -176,8 +176,8 @@ test("solution toggles retain one icon pair without altering native content", ()
   f.injectIcons("eye-off", "eye");
   const context = sourceContext("src/features/exercises/watch-solution.js", f.globals);
   const factories = [() => f.node("eye-off"), () => f.node("eye")];
-  context.watchViewSolutionBtn(f.button, factories);
-  context.watchViewSolutionBtn(f.button, factories);
+  context.watchSolutionButton(f.button, factories);
+  context.watchSolutionButton(f.button, factories);
   assert.equal(f.observers.length, 1);
   const pair = f.icons();
   assert.deepEqual(pair.map((icon) => icon.kind).sort(), ["eye", "eye-off"]);
@@ -195,7 +195,7 @@ test("solution icon pair is restored after partial removal or native content rep
   const f = fixture();
   f.injectIcons("eye-off", "eye");
   const context = sourceContext("src/features/exercises/watch-solution.js", f.globals);
-  context.watchViewSolutionBtn(f.button, [() => f.node("eye-off"), () => f.node("eye")]);
+  context.watchSolutionButton(f.button, [() => f.node("eye-off"), () => f.node("eye")]);
   f.icons()[0].remove();
   f.flush();
   assert.deepEqual(

@@ -10,7 +10,7 @@
  * @param {function(): SVGElement} runIcon Creates the run code SVG icon.
  * @param {function(): SVGElement} stopIcon Creates the stop code SVG icon.
  */
-export function watchRunCodeBtn(btn, runIcon, stopIcon) {
+export function watchRunCodeButton(btn, runIcon, stopIcon) {
   if (!btn) return;
 
   if (watchedRunCodeButtons.has(btn)) return;

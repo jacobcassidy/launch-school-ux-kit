@@ -19,6 +19,12 @@ The userscript uses plain JavaScript modules. Application coordination lives in 
 | Application       | DOM-ready entry, UI loading, reload scheduling, navigation, shortcut registration and refresh                                      |
 | Shared            | DOM registry, setters and discovery, button helpers, icons, flash feedback, stylesheet injection                                   |
 
+## Naming
+
+Use filenames that identify the module's subject: `copy-code-buttons.js` updates button appearance, while `actions.js` contains the actual copy action. Use `watch-` for modules that register listeners or observers. Use `Button` in function names and plural names for functions that update collections, such as `updateCopyCodeButtons`.
+
+Choose verbs that describe the operation: `set` assigns a supplied value or element reference; `create` returns a new element; `inject` inserts an element into the DOM; `update` modifies existing UI; `sync` reconciles state with the current page; and `watch` registers ongoing reactions. `applyButtonAppearance` adds classes and manages icons, so it lives in `shared/dom/buttons.js`; `shared/dom/setters.js` holds the element-reference setters.
+
 ## Dependencies and callbacks
 
 Shared modules do not import features or application code. Features import shared utilities and their own modules. The application imports feature public exports and passes cross-feature actions as named callback options.

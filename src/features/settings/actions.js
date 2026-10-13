@@ -14,7 +14,7 @@ export function showSettings({ hideTocMenu }) {
   if (openedTocMenu) hideTocMenu();
 
   document.addEventListener("pointerdown", handleOutsideSettingsMenuClick);
-  document.addEventListener("keydown", handleSettingsEsc);
+  document.addEventListener("keydown", handleSettingsEscape);
 }
 
 export function hideSettings() {
@@ -29,7 +29,7 @@ export function hideSettings() {
   settingsToggleBtn.setAttribute("aria-expanded", "false");
 
   document.removeEventListener("pointerdown", handleOutsideSettingsMenuClick);
-  document.removeEventListener("keydown", handleSettingsEsc);
+  document.removeEventListener("keydown", handleSettingsEscape);
 }
 
 export function handleOutsideSettingsMenuClick(e) {
@@ -40,7 +40,7 @@ export function handleOutsideSettingsMenuClick(e) {
   hideSettings();
 }
 
-export function handleSettingsEsc(e) {
+export function handleSettingsEscape(e) {
   if (e.key === "Escape") hideSettings();
 }
 

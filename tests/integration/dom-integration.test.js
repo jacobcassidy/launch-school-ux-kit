@@ -202,7 +202,7 @@ for (const { name, platform, primary, actions, modifiers } of [
     document.head.appendChild(style);
     const originalLabelSize = window.getComputedStyle(document.querySelector(".tab-tooltip-instructions")).fontSize;
     api.syncAvailableShortcuts();
-    api.watchTabBtns();
+    api.watchTabButtons();
     api.watchShortcuts();
     assert.equal(document.querySelector(".tab-tooltip-instructions").textContent, `Instructions (${actions}1)`);
     assert.equal(
@@ -265,12 +265,12 @@ test("cloned settings controls bind even when the clone retains old data flags",
   const menu = document.querySelector(".settings-menu");
   api.elements.injected.settingsToggleButton = original;
   api.elements.injected.settingsMenu = menu;
-  api.watchSettingsToggleBtn();
+  api.watchSettingsToggleButton();
 
   const clone = original.cloneNode(true);
   original.replaceWith(clone);
   api.elements.injected.settingsToggleButton = clone;
-  api.watchSettingsToggleBtn();
+  api.watchSettingsToggleButton();
   clone.click();
 
   assert.equal(menu.classList.contains("active"), true);
@@ -335,7 +335,7 @@ test("hidden headers leave the tab order and settings expose expanded state", ()
   const { window, document, api } = createPage('<nav class="nav-drawer"></nav>');
   api.injectHeader();
   api.syncInjectedElementsState();
-  api.watchSettingsToggleBtn();
+  api.watchSettingsToggleButton();
   const header = document.querySelector(".site-header");
   const settingsButton = header.querySelector(".btn--toggle-settings");
   const settingsMenu = header.querySelector(".settings-container");
@@ -418,7 +418,7 @@ test("initially focused prompts submit on Enter and refocus after re-enable", as
   let submissions = 0;
   submit.addEventListener("click", () => submissions++);
   prompt.focus();
-  api.watchPromptFocus();
+  api.watchPromptEnterShortcut();
   prompt.dispatchEvent(new window.KeyboardEvent("keydown", { key: "Enter", bubbles: true, cancelable: true }));
   assert.equal(submissions, 1);
 
@@ -465,14 +465,14 @@ test("tab visibility updates rebind clones and remove tooltips for deleted tabs"
   `);
   const tab = document.querySelector(".tab-button");
   api.updateTabButtons();
-  api.watchTabBtns();
+  api.watchTabButtons();
   tab.dispatchEvent(new window.MouseEvent("mouseenter"));
   assert.equal(document.querySelector(".tab-tooltip").classList.contains("active"), true);
 
   const clone = tab.cloneNode(true);
   tab.replaceWith(clone);
   clone.classList.add("is-hidden");
-  api.watchTabBtns();
+  api.watchTabButtons();
   clone.style.display = "block";
   await window.happyDOM.whenAsyncComplete();
   assert.equal(clone.classList.contains("is-hidden"), false);
@@ -527,7 +527,7 @@ for (const [framework, eventPrefix] of [
         api.syncAvailableShortcuts();
       };
       api.setLoadUIHandler(refresh);
-      api.watchForUrlChange();
+      api.watchUrlChanges();
       api.watchShortcuts();
       refresh();
       const originalButton = document.querySelector(".site-header .toc-toggle-button");
@@ -608,7 +608,7 @@ test("Command+B and the sidebar button both toggle the native sidebar", () => {
   api.elements.injected.sidebarToggleButton = document.querySelector(".btn--toggle-sidebar");
   api.syncAvailableShortcuts();
   api.watchShortcuts();
-  api.watchSidebarToggleBtn();
+  api.watchSidebarToggleButton();
 
   const event = new window.KeyboardEvent("keydown", {
     key: "b",

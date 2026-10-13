@@ -1,7 +1,7 @@
-import { updateCopyMarkupButton } from "./copy-markup.js";
+import { updateCopyMarkupButtons } from "./copy-markup-buttons.js";
 /**
  * WATCH FOR NEW COPY MARKUP BUTTONS
- * @module features/editor/watch-new-copy-markup
+ * @module features/editor/watch-copy-markup-buttons
  */
 
 const watchedTabContents = new WeakSet();
@@ -9,7 +9,7 @@ const watchedTabContents = new WeakSet();
 /**
  * Adds the copy markup button classes when new copy markup buttons are added to .tab-content in the DOM
  */
-export function watchForNewCopyMarkupBtns() {
+export function watchCopyMarkupButtons() {
   const tabContent = document.querySelector(".tab-content");
   if (!tabContent) return;
 
@@ -31,7 +31,7 @@ export function watchForNewCopyMarkupBtns() {
       });
     });
 
-    updateCopyMarkupButton(btns);
+    updateCopyMarkupButtons(btns);
   });
 
   observer.observe(tabContent, {

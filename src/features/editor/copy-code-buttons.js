@@ -1,19 +1,19 @@
 import { icons } from "../../shared/icons.js";
-import { setButtonProperties } from "../../shared/dom/buttons.js";
+import { applyButtonAppearance } from "../../shared/dom/buttons.js";
 /**
  * COPY CODE BUTTON
- * @module features/editor/copy-code
+ * @module features/editor/copy-code-buttons
  */
 
 /**
  * Updates the copy code button styles and icon.
  */
-export function updateCopyCodeButton() {
+export function updateCopyCodeButtons() {
   const btns = document.querySelectorAll(".btn-copy-code");
   if (btns.length < 1) return;
 
   const newIcons = [() => icons.panelIcons.copy()];
   const btnClasses = ["btn--plain"];
 
-  setButtonProperties(btns, newIcons, btnClasses);
+  applyButtonAppearance(btns, newIcons, btnClasses);
 }

@@ -1,5 +1,5 @@
 import { icons } from "../../shared/icons.js";
-import { setButtonProperties } from "../../shared/dom/buttons.js";
+import { applyButtonAppearance } from "../../shared/dom/buttons.js";
 /**
  * TABLE OF CONTENTS TOGGLE BUTTON
  * @module features/toc/toc-toggle
@@ -12,7 +12,7 @@ import { setButtonProperties } from "../../shared/dom/buttons.js";
  * @param {HTMLElement} containerEl The container to which the TOC button will be appended.
  * @param {HTMLElement} bookTocBtn The current native TOC button, defaulting to the first match in the document.
  */
-export function moveTocBtnToHeader(containerEl, bookTocBtn = document.querySelector(".toc-toggle-button")) {
+export function moveTocButtonToHeader(containerEl, bookTocBtn = document.querySelector(".toc-toggle-button")) {
   if (!bookTocBtn) return;
 
   bookTocBtn.classList.add("site-header__button", "btn--toggle-toc", "has-dropdown");
@@ -32,5 +32,5 @@ function updateTocButton(tocBtn) {
   const btns = [tocBtn];
   const newIcons = [() => icons.headerIcons.toc()];
 
-  setButtonProperties(btns, newIcons);
+  applyButtonAppearance(btns, newIcons);
 }

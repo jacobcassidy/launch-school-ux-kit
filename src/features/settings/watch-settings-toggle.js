@@ -10,7 +10,7 @@ const watchedSettingsToggleButtons = new WeakSet();
 /**
  * Toggles the Settings Menu visibility when the settings toggle button is clicked.
  */
-export function watchSettingsToggleBtn(options) {
+export function watchSettingsToggleButton(options) {
   const settingsToggleBtn = elements.injected.settingsToggleButton;
   if (!settingsToggleBtn) {
     return;

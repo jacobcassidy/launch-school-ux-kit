@@ -7,12 +7,12 @@ test("next-exercise state follows navigation and clears when the destination has
   let panel = {};
   let links = [{ textContent: "Go to the next exercise", href: "/next" }];
   let styled = 0;
-  const context = sourceContext("src/features/exercises/next-exercise.js", {
+  const context = sourceContext("src/features/exercises/next-exercise-button.js", {
     document: { querySelector: () => panel, querySelectorAll: () => links },
     setElementNextExerciseButton(el) {
       elements.native.nextExerciseButton = el;
     },
-    setButtonProperties() {
+    applyButtonAppearance() {
       styled++;
     },
   });

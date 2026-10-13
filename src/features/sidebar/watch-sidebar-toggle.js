@@ -10,7 +10,7 @@ const watchedSidebarToggleButtons = new WeakSet();
 /**
  * Toggles the sidebar when the sidebar toggle button is clicked.
  */
-export function watchSidebarToggleBtn() {
+export function watchSidebarToggleButton() {
   const sidebarToggleBtn = elements.injected.sidebarToggleButton;
   if (!sidebarToggleBtn) {
     return;

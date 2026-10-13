@@ -1,18 +1,18 @@
 import { icons } from "../../shared/icons.js";
-import { setButtonProperties } from "../../shared/dom/buttons.js";
+import { applyButtonAppearance } from "../../shared/dom/buttons.js";
 /**
  * COPY MARKUP BUTTON
- * @module features/editor/copy-markup
+ * @module features/editor/copy-markup-buttons
  */
 
 /**
  * Updates the copy markup button styles and icon.
  */
-export function updateCopyMarkupButton(btns = document.querySelectorAll(".markup-copy-block button")) {
+export function updateCopyMarkupButtons(btns = document.querySelectorAll(".markup-copy-block button")) {
   if (btns.length < 1) return;
 
   const newIcons = [() => icons.panelIcons.copy(), () => icons.panelIcons.checkmark()];
   const btnClasses = ["btn--plain", "btn--copy-markup"];
 
-  setButtonProperties(btns, newIcons, btnClasses);
+  applyButtonAppearance(btns, newIcons, btnClasses);
 }

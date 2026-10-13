@@ -14,4 +14,4 @@ export {
 } from "./state.js";
 export { watchUnreadCounts } from "./unread-count.js";
 export { watchSidebarLinks } from "./watch-sidebar-links.js";
-export { watchSidebarToggleBtn } from "./watch-sidebar-toggle.js";
+export { watchSidebarToggleButton } from "./watch-sidebar-toggle.js";

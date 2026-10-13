@@ -13,7 +13,7 @@ export function setElementSettingsMenu(el) {
   elements.injected.settingsMenu = el;
 }
 
-export function setElementSettingsToggleBtn(el) {
+export function setElementSettingsToggleButton(el) {
   elements.injected.settingsToggleButton = el;
 }
 

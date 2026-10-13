@@ -1,6 +1,6 @@
 /**
  * WATCH SETTING SIDEBAR HIDDEN HEADERS TOGGLER
- * @module features/settings/toggler-sidebar-hidden-headers
+ * @module features/settings/watch-sidebar-hidden-headers-setting
  */
 
 const watchedHiddenHeadersTogglers = new WeakSet();
@@ -8,7 +8,7 @@ const watchedHiddenHeadersTogglers = new WeakSet();
 /**
  * Toggles the Sidebar's Hidden Section Headers setting.
  */
-export function watchSettingSidebarHiddenHeadersToggler({ setSettingSidebarHiddenHeaders }) {
+export function watchSidebarHiddenHeadersSetting({ setSettingSidebarHiddenHeaders }) {
   const settingSidebarHiddenHeadersToggler = document.querySelector("#setting--sidebar-hidden-headers");
   if (!settingSidebarHiddenHeadersToggler) {
     return;

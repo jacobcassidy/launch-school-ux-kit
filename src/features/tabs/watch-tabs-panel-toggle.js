@@ -10,7 +10,7 @@ const watchedTabsPanelToggleButtons = new WeakSet();
 /**
  * Toggles the Tabs Panel visibility on button click.
  */
-export function watchTabsPanelToggleBtn() {
+export function watchTabsPanelToggleButton() {
   const tabsPanelToggleBtn = elements.injected.tabsPanelToggleButton;
   if (!tabsPanelToggleBtn) {
     return;

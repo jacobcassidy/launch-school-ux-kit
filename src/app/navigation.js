@@ -8,7 +8,7 @@ import { appState } from "./state.js";
 /**
  * Reloads the custom UI when the URL changes.
  */
-export function watchForUrlChange() {
+export function watchUrlChanges() {
   if (document.documentElement.dataset.watchPageBound) {
     return;
   }

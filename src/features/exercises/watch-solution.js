@@ -7,7 +7,7 @@
  * Preserves the solution icon pair when native code updates the button.
  * CSS selects the visible icon based on the collapse state.
  */
-export function watchViewSolutionBtn(btn, svgIcons) {
+export function watchSolutionButton(btn, svgIcons) {
   const parent = document.querySelector("#exercise_analysis .markup-collapse");
   if (!parent) {
     return;

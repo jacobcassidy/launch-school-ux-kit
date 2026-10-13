@@ -1,46 +1,46 @@
 import { icons } from "../../shared/icons.js";
-import { setButtonProperties } from "../../shared/dom/buttons.js";
+import { applyButtonAppearance } from "../../shared/dom/buttons.js";
 /**
  * PAGINATION BUTTON
- * @module features/exercises/pagination
+ * @module features/exercises/pagination-buttons
  */
 
 /**
  * Updates the pagination button styles and icons.
  */
-export function updatePaginationButton() {
-  const nextPageBtns = paginationNextBtns();
-  const prevPageBtns = paginationPrevBtns();
+export function updatePaginationButtons() {
+  const nextPageBtns = getNextPaginationButtons();
+  const prevPageBtns = getPreviousPaginationButtons();
   const paginationBtnClasses = ["btn", "btn--outline", "btn--pagination"];
 
   if (nextPageBtns.length > 0) {
     const btns = nextPageBtns;
     const newIcons = [() => icons.panelIcons.arrowRight()];
     const btnClasses = [...paginationBtnClasses, "btn--pagination-next"];
-    setButtonProperties(btns, newIcons, btnClasses, true);
+    applyButtonAppearance(btns, newIcons, btnClasses, true);
   }
 
   if (prevPageBtns.length > 0) {
     const btns = prevPageBtns;
     const newIcons = [() => icons.panelIcons.arrowLeft()];
     const btnClasses = [...paginationBtnClasses, "btn--pagination-prev"];
-    setButtonProperties(btns, newIcons, btnClasses);
+    applyButtonAppearance(btns, newIcons, btnClasses);
   }
 }
 
-function paginationNextBtns() {
+function getNextPaginationButtons() {
   const assignmentSelector = ".footer-nav a:has(.fa-chevron-right)";
   const chapterSelector = ".next-chapter a";
-  return paginationBtns(assignmentSelector, chapterSelector);
+  return getPaginationButtons(assignmentSelector, chapterSelector);
 }
 
-function paginationPrevBtns() {
+function getPreviousPaginationButtons() {
   const assignmentSelector = ".footer-nav a:has(.fa-chevron-left)";
   const chapterSelector = ".previous-chapter a";
-  return paginationBtns(assignmentSelector, chapterSelector);
+  return getPaginationButtons(assignmentSelector, chapterSelector);
 }
 
-function paginationBtns(assignmentSelector, chapterSelector) {
+function getPaginationButtons(assignmentSelector, chapterSelector) {
   const assignmentBtns = document.querySelectorAll(assignmentSelector);
   const chapterBtns = document.querySelectorAll(chapterSelector);
   let btns = [];

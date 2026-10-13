@@ -31,9 +31,9 @@ export function injectSettingsMenu(containerEl) {
 }
 
 /**
- * CREATE NEW SETTINGS SECTION
+ * CREATE SETTINGS SECTION
  */
-export function createNewSettingsSection(sectionTitle) {
+export function createSettingsSection(sectionTitle) {
   const sectionEl = document.createElement("section");
 
   const sectionTitleSlug = sectionTitle.trim().replace(/\s+/g, "-").toLowerCase();
@@ -53,9 +53,9 @@ export function createNewSettingsSection(sectionTitle) {
 }
 
 /**
- * CREATE NEW SETTING
+ * CREATE SETTING
  */
-export function createNewSetting(settingDesc, settingTogglerId) {
+export function createSetting(settingDesc, settingTogglerId) {
   const settingListItemEl = document.createElement("li");
   settingListItemEl.className = "settings-list__item";
 
@@ -64,7 +64,7 @@ export function createNewSetting(settingDesc, settingTogglerId) {
   settingTextEl.id = `${settingTogglerId}--description`;
   settingTextEl.innerText = settingDesc;
 
-  const settingTogglerEl = createNewSettingToggler(settingTogglerId);
+  const settingTogglerEl = createSettingToggle(settingTogglerId);
 
   settingListItemEl.append(settingTogglerEl);
   settingListItemEl.append(settingTextEl);
@@ -73,9 +73,9 @@ export function createNewSetting(settingDesc, settingTogglerId) {
 }
 
 /**
- * CREATE NEW SETTING TOGGLER
+ * CREATE SETTING TOGGLE
  */
-export function createNewSettingToggler(id) {
+export function createSettingToggle(id) {
   const togglerEl = document.createElement("span");
   togglerEl.className = "toggler setting-status";
   const togglerInputEl = document.createElement("input");
@@ -109,19 +109,19 @@ export function createNewSettingToggler(id) {
  */
 function injectUISettingsSection(containerEl) {
   const createUISettingsSection = () => {
-    const uiSettingsSectionEl = createNewSettingsSection("UI Options");
+    const uiSettingsSectionEl = createSettingsSection("UI Options");
     const uiSettingsListEl = uiSettingsSectionEl.querySelector(".settings-list");
 
     const createSettingSidebarHiddenHeadersEl = () => {
       const settingDesc = "Hide expanded sidebar's section headers";
       const settingTogglerId = "setting--sidebar-hidden-headers";
-      return createNewSetting(settingDesc, settingTogglerId);
+      return createSetting(settingDesc, settingTogglerId);
     };
 
     const createSettingSidebarShrinkEl = () => {
       const settingDesc = "Shrink sidebar instead of hiding it when collapsed";
       const settingTogglerId = "setting--sidebar-shrink";
-      return createNewSetting(settingDesc, settingTogglerId);
+      return createSetting(settingDesc, settingTogglerId);
     };
 
     uiSettingsListEl.append(createSettingSidebarHiddenHeadersEl());

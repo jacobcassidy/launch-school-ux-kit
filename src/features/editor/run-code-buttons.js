@@ -1,15 +1,15 @@
 import { icons } from "../../shared/icons.js";
-import { setButtonProperties } from "../../shared/dom/buttons.js";
-import { watchRunCodeBtn } from "./watch-run-code.js";
+import { applyButtonAppearance } from "../../shared/dom/buttons.js";
+import { watchRunCodeButton } from "./watch-run-code.js";
 /**
  * RUN CODE BUTTON
- * @module features/editor/run-code
+ * @module features/editor/run-code-buttons
  */
 
 /**
  * Updates the run code button styles and icons.
  */
-export function updateRunCodeButton() {
+export function updateRunCodeButtons() {
   const btns = document.querySelectorAll(".btn-run-code");
   if (btns.length < 1) return;
 
@@ -18,9 +18,9 @@ export function updateRunCodeButton() {
   const newIcons = [runIcon];
   const btnClasses = ["btn--outline", "btn--run-code"];
 
-  setButtonProperties(btns, newIcons, btnClasses);
+  applyButtonAppearance(btns, newIcons, btnClasses);
 
   btns.forEach((btn) => {
-    watchRunCodeBtn(btn, runIcon, stopIcon);
+    watchRunCodeButton(btn, runIcon, stopIcon);
   });
 }

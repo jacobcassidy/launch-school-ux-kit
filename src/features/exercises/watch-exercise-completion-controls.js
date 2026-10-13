@@ -1,6 +1,6 @@
 /**
  * WATCH EXERCISE COMPLETION TOGGLE BUTTON
- * @module features/exercises/watch-exercise-completion-toggle
+ * @module features/exercises/watch-exercise-completion-controls
  */
 
 const observedPanels = new WeakSet();
@@ -9,7 +9,7 @@ const observedPanels = new WeakSet();
  * Updates the exercise completion button icon based on the current status the button holds.
  * @param {function} handleCompletionControlsChange The callback for changed completion controls.
  */
-export function watchExerciseCompletionToggleBtn(handleCompletionControlsChange) {
+export function watchExerciseCompletionControls(handleCompletionControlsChange) {
   const instructionsPanel = document.querySelector(".instructions-panel");
   if (!instructionsPanel || observedPanels.has(instructionsPanel)) return;
   observedPanels.add(instructionsPanel);

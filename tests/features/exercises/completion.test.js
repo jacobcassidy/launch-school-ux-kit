@@ -7,12 +7,12 @@ test("missing completion form does not abort initialization and can appear later
   let styled = 0;
   let shortcutsSynced = 0;
   let settingsRefreshed = 0;
-  const context = sourceContext("src/features/exercises/exercise-completion.js", {
+  const context = sourceContext("src/features/exercises/exercise-completion-button.js", {
     document: { querySelector: () => ({ querySelector: () => null }) },
-    watchExerciseCompletionToggleBtn(fn) {
+    watchExerciseCompletionControls(fn) {
       callback = fn;
     },
-    setButtonProperties() {
+    applyButtonAppearance() {
       styled++;
     },
     syncAvailableShortcuts() {
@@ -47,7 +47,7 @@ test("completion watcher binds once per panel and handles replacement forms", ()
   let currentPanel = panel;
   const observers = [];
   let updates = 0;
-  const context = sourceContext("src/features/exercises/watch-exercise-completion-toggle.js", {
+  const context = sourceContext("src/features/exercises/watch-exercise-completion-controls.js", {
     document: { querySelector: () => currentPanel },
     MutationObserver: class {
       constructor(callback) {
@@ -60,8 +60,8 @@ test("completion watcher binds once per panel and handles replacement forms", ()
   const update = () => {
     updates++;
   };
-  context.watchExerciseCompletionToggleBtn(update);
-  context.watchExerciseCompletionToggleBtn(update);
+  context.watchExerciseCompletionControls(update);
+  context.watchExerciseCompletionControls(update);
   assert.equal(observers.length, 1);
   observers[0].callback();
   assert.equal(updates, 0);
@@ -80,6 +80,6 @@ test("completion watcher binds once per panel and handles replacement forms", ()
   observers[0].callback();
   assert.equal(updates, 4);
   currentPanel = { querySelector: () => null };
-  context.watchExerciseCompletionToggleBtn(update);
+  context.watchExerciseCompletionControls(update);
   assert.equal(observers.length, 2);
 });

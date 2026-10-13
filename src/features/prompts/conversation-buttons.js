@@ -1,32 +1,32 @@
 import { icons } from "../../shared/icons.js";
-import { setButtonProperties } from "../../shared/dom/buttons.js";
+import { applyButtonAppearance } from "../../shared/dom/buttons.js";
 /**
  * CONVERSATION BUTTONS
- * @module features/prompts/conversation
+ * @module features/prompts/conversation-buttons
  */
 
 /**
  * Updates the conversation history button styles and icon.
  */
-export function updateConversationHistoryButton() {
+export function updateConversationHistoryButtons() {
   const btns = document.querySelectorAll(".conversation-history-button");
   if (btns.length < 1) return;
 
   const newIcons = [() => icons.panelIcons.conversationHistory()];
   const btnClasses = ["btn--plain"];
 
-  setButtonProperties(btns, newIcons, btnClasses);
+  applyButtonAppearance(btns, newIcons, btnClasses);
 }
 
 /**
  * Updates the new conversation button styles and icon.
  */
-export function updateConversationNewButton() {
+export function updateNewConversationButtons() {
   const btns = document.querySelectorAll(".new-conversation-button");
   if (btns.length < 1) return;
 
   const newIcons = [() => icons.panelIcons.conversationNew()];
   const btnClasses = ["btn--plain"];
 
-  setButtonProperties(btns, newIcons, btnClasses);
+  applyButtonAppearance(btns, newIcons, btnClasses);
 }

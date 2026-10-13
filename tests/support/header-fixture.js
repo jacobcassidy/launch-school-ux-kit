@@ -147,7 +147,7 @@ export function headerFixture(options = {}) {
         document,
         elements,
         icons,
-        setButtonProperties: buttonHelpers.setButtonProperties,
+        applyButtonAppearance: buttonHelpers.applyButtonAppearance,
       },
     );
   const context = sourceContext("src/features/header/header.js", {

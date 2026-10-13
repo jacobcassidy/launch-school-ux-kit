@@ -3,21 +3,21 @@ import {
   updateSidebar,
   injectSidebarToggleButton,
   watchSidebarLinks,
-  watchSidebarToggleBtn,
+  watchSidebarToggleButton,
   watchUnreadCounts,
 } from "../../src/features/sidebar/index.js";
 import {
   updateTabButtons,
   injectTabsPanelToggleButton,
-  watchTabBtns as watchTabs,
+  watchTabButtons as watchTabs,
 } from "../../src/features/tabs/index.js";
 import {
   injectSettingsMenu,
   injectSettingsToggleButton,
   injectShortcutsSection,
-  watchSettingsToggleBtn as watchSettings,
+  watchSettingsToggleButton as watchSettings,
 } from "../../src/features/settings/index.js";
-import { moveTocBtnToHeader, hideTocMenu } from "../../src/features/toc/index.js";
+import { moveTocButtonToHeader, hideTocMenu } from "../../src/features/toc/index.js";
 import { showToast } from "../../src/features/notifications/index.js";
 import {
   shortcuts,
@@ -30,8 +30,8 @@ import { syncNativeElementsState } from "../../src/shared/dom/native-elements-st
 import { syncInjectedElementsState } from "../../src/shared/dom/injected-elements-state.js";
 import { syncAvailableShortcuts, refreshShortcuts } from "../../src/app/shortcuts.js";
 import { setLoadUIHandler } from "../../src/app/reload.js";
-import { watchForUrlChange } from "../../src/app/navigation.js";
-import { watchPromptFocus } from "../../src/features/prompts/index.js";
+import { watchUrlChanges } from "../../src/app/navigation.js";
+import { watchPromptEnterShortcut } from "../../src/features/prompts/index.js";
 
 const injectHeader = () =>
   renderHeader({
@@ -39,10 +39,10 @@ const injectHeader = () =>
     injectSettingsToggleButton,
     injectSidebarToggleButton,
     injectTabsPanelToggleButton,
-    moveTocBtnToHeader,
+    moveTocButtonToHeader,
   });
-const watchSettingsToggleBtn = () => watchSettings({ hideTocMenu });
-const watchTabBtns = () => watchTabs({ refreshShortcuts });
+const watchSettingsToggleButton = () => watchSettings({ hideTocMenu });
+const watchTabButtons = () => watchTabs({ refreshShortcuts });
 const watchShortcuts = () => watchKeyboard({ showToast });
 const watchShortcutElements = () => watchDynamicControls({ refreshShortcuts });
 
@@ -56,14 +56,14 @@ globalThis.integration = {
   syncNativeElementsState,
   syncInjectedElementsState,
   setLoadUIHandler,
-  watchForUrlChange,
+  watchUrlChanges,
   shortcuts,
   injectShortcutsSection,
-  watchPromptFocus,
-  watchSettingsToggleBtn,
+  watchPromptEnterShortcut,
+  watchSettingsToggleButton,
   watchSidebarLinks,
-  watchSidebarToggleBtn,
-  watchTabBtns,
+  watchSidebarToggleButton,
+  watchTabButtons,
   watchUnreadCounts,
   watchShortcuts,
   watchShortcutElements,

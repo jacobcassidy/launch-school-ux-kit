@@ -1,7 +1,7 @@
 import { icons } from "../../shared/icons.js";
 /**
  * TAB BUTTON
- * @module features/tabs/tab
+ * @module features/tabs/tab-buttons
  */
 
 /**
@@ -68,10 +68,10 @@ function updateTabButton(btn) {
   btn.setAttribute("aria-label", tabTooltipText);
   if (tabIconEl) btn.replaceChildren(tabIconEl);
 
-  createTabTooltip(tabTooltipText, btnDataTab);
+  injectTabTooltip(tabTooltipText, btnDataTab);
 }
 
-function createTabTooltip(tooltipText, btnDataTab) {
+function injectTabTooltip(tooltipText, btnDataTab) {
   const tooltipEl = document.querySelector(`.tab-tooltip-${btnDataTab}`) || document.createElement("div");
   tooltipEl.classList.add("tooltip", "tab-tooltip", `tab-tooltip-${btnDataTab}`);
   tooltipEl.dataset.tabTooltipId = btnDataTab;

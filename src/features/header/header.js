@@ -89,7 +89,7 @@ function injectHeaderContainers(headerEl, { injectSettingsMenu, injectSettingsTo
  * REFRESH HEADER
  * Reconciles page controls without replacing settings or their event handlers.
  */
-function refreshHeader(header, { injectSidebarToggleButton, injectTabsPanelToggleButton, moveTocBtnToHeader }) {
+function refreshHeader(header, { injectSidebarToggleButton, injectTabsPanelToggleButton, moveTocButtonToHeader }) {
   const left = header.querySelector(".container-1");
   const center = header.querySelector(".container-2");
   const right = header.querySelector(".container-3");
@@ -116,7 +116,7 @@ function refreshHeader(header, { injectSidebarToggleButton, injectTabsPanelToggl
     injectTabsPanelToggleButton,
   );
   const tocButton = refreshNativeElement(".toc-toggle-button", right, {
-    onMove: (button) => moveTocBtnToHeader(right, button),
+    onMove: (button) => moveTocButtonToHeader(right, button),
   });
   setElementTocButton(tocButton);
 

@@ -1,9 +1,9 @@
 import { icons } from "../../shared/icons.js";
-import { setButtonProperties } from "../../shared/dom/buttons.js";
-import { watchExerciseCompletionToggleBtn } from "./watch-exercise-completion-toggle.js";
+import { applyButtonAppearance } from "../../shared/dom/buttons.js";
+import { watchExerciseCompletionControls } from "./watch-exercise-completion-controls.js";
 /**
  * EXERCISE COMPLETION BUTTON
- * @module features/exercises/exercise-completion
+ * @module features/exercises/exercise-completion-button
  */
 
 /**
@@ -14,19 +14,19 @@ export function updateExerciseCompletionButton({ refreshShortcuts }) {
   if (!instructionsPanel) return;
 
   const exerciseCompletionForm = instructionsPanel.querySelector(".gray-links form");
-  handleNewExerciseCompletionForm(exerciseCompletionForm);
+  updateExerciseCompletionForm(exerciseCompletionForm);
 
-  watchExerciseCompletionToggleBtn((form) => {
-    handleNewExerciseCompletionForm(form);
+  watchExerciseCompletionControls((form) => {
+    updateExerciseCompletionForm(form);
     refreshShortcuts();
   });
 }
 
 /**
- * Handle New Exercise Completion Form
+ * Update exercise completion form appearance
  * @param {HTMLFormElement} exerciseCompletionForm
  */
-function handleNewExerciseCompletionForm(exerciseCompletionForm) {
+function updateExerciseCompletionForm(exerciseCompletionForm) {
   if (!exerciseCompletionForm) return;
   const btns = exerciseCompletionForm.querySelectorAll("button[type=submit]");
   if (btns.length < 1) return;
@@ -39,5 +39,5 @@ function handleNewExerciseCompletionForm(exerciseCompletionForm) {
   const hasDeleteInput = exerciseCompletionForm.querySelector("input[value=delete]");
   hasDeleteInput ? newIcons.push(incompleteIcon) : newIcons.push(completeIcon);
 
-  setButtonProperties(btns, newIcons, btnClasses);
+  applyButtonAppearance(btns, newIcons, btnClasses);
 }

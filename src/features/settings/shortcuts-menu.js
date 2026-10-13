@@ -1,4 +1,4 @@
-import { createNewSettingsSection } from "./settings-menu.js";
+import { createSettingsSection } from "./settings-menu.js";
 import { shortcuts, getShortcutKeys } from "../shortcuts/index.js";
 /**
  * SHORTCUTS
@@ -23,7 +23,7 @@ export function injectShortcutsSection() {
  * @returns {HTMLElement} The shortcuts settings section element
  */
 function createShortcutsSection() {
-  const shortcutsSectionEl = createNewSettingsSection("Current Page Added Shortcuts");
+  const shortcutsSectionEl = createSettingsSection("Current Page Added Shortcuts");
   const shortcutsListEl = shortcutsSectionEl.querySelector(".settings-list");
 
   for (const [modifierListKey, modifierListObj] of Object.entries(shortcuts)) {

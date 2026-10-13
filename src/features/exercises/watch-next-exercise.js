@@ -1,4 +1,4 @@
-import { updateNextExerciseButton } from "./next-exercise.js";
+import { updateNextExerciseButton } from "./next-exercise-button.js";
 import { elements } from "../../shared/dom/elements.js";
 /**
  * WATCH NEXT EXERCISE BUTTON
@@ -10,7 +10,7 @@ const observedInstructionsTabs = new WeakSet();
 /**
  * Updates the "Go to next exercise" button when the dom element changes.
  */
-export function watchNextExerciseBtn({ refreshShortcuts }) {
+export function watchNextExerciseButton({ refreshShortcuts }) {
   const instructionsTab = document.querySelector("#tab-instructions");
   if (!instructionsTab) return;
   if (observedInstructionsTabs.has(instructionsTab)) return;

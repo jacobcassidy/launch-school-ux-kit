@@ -13,7 +13,7 @@ export function watchSidebarLinks() {
     return;
   }
 
-  const toggleSidebarListSection = () => {
+  const watchSidebarListSections = () => {
     const listHeaderBtns = document.querySelectorAll(".sidebar-list-toggle-btn");
 
     listHeaderBtns.forEach((btn) => {
@@ -25,7 +25,7 @@ export function watchSidebarLinks() {
     });
   };
 
-  const toggleSidebarPagesDropdown = () => {
+  const watchSidebarPagesDropdown = () => {
     const pagesLink = document.querySelector(".sidebar-list__item .pages");
     const pagesDropdown = document.querySelector(".sidebar-list__item .pages + .dropdown");
 
@@ -41,7 +41,7 @@ export function watchSidebarLinks() {
     watchedPagesLinks.add(pagesLink);
   };
 
-  const toggleSidebarTooltip = () => {
+  const watchSidebarTooltips = () => {
     const sidebarToggle = document.querySelector("#navbar-collapsor");
     const sidebarLinks = document.querySelectorAll(".sidebar-lists a");
     if (sidebarLinks.length < 1 || !sidebarToggle) return;
@@ -73,9 +73,9 @@ export function watchSidebarLinks() {
     });
   };
 
-  toggleSidebarListSection();
-  toggleSidebarPagesDropdown();
-  toggleSidebarTooltip();
+  watchSidebarListSections();
+  watchSidebarPagesDropdown();
+  watchSidebarTooltips();
 }
 const watchedSidebarListButtons = new WeakSet();
 const watchedPagesLinks = new WeakSet();

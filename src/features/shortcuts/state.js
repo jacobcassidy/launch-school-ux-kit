@@ -1,6 +1,6 @@
 /**
  * SHORTCUTS STATE
- * @module utils/state/shortcuts
+ * @module features/shortcuts/state
  */
 
 // Logical shortcut groups; platform helpers choose the actual modifier keys.

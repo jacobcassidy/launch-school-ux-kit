@@ -66,7 +66,7 @@ for (const eventPrefix of ["turbo", "turbolinks"]) {
         },
       },
     });
-    watcher.watchForUrlChange();
+    watcher.watchUrlChanges();
     watcher.history.pushState();
     frames.shift()();
     assert.equal(loads(), 1);
@@ -100,7 +100,7 @@ test("query-only history navigation reloads page-specific UI state", () => {
     document: { documentElement: { dataset: {} }, addEventListener() {} },
   });
 
-  watcher.watchForUrlChange();
+  watcher.watchUrlChanges();
   watcher.history.replaceState({}, "", "?track=javascript");
 
   assert.equal(frames.length, 1);

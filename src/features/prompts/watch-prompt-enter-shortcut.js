@@ -1,12 +1,12 @@
 /**
- * WATCH PROMPT FOCUS
- * @module features/prompts/watch-prompt-focus
+ * WATCH PROMPT ENTER SHORTCUT
+ * @module features/prompts/watch-prompt-enter-shortcut
  */
 
 /**
  * Adds the "Enter" shortcut to focused chat prompts
  */
-export function watchPromptFocus() {
+export function watchPromptEnterShortcut() {
   if (document.documentElement.dataset.promptFocusBound) return;
   document.documentElement.dataset.promptFocusBound = "true";
   const watchedChatInputs = new WeakSet();

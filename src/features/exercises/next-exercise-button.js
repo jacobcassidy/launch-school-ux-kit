@@ -1,9 +1,9 @@
 import { icons } from "../../shared/icons.js";
 import { setElementNextExerciseButton } from "../../shared/dom/setters.js";
-import { setButtonProperties } from "../../shared/dom/buttons.js";
+import { applyButtonAppearance } from "../../shared/dom/buttons.js";
 /**
  * NEXT EXERCISE BUTTON
- * @module features/exercises/next-exercise
+ * @module features/exercises/next-exercise-button
  */
 
 // Import component
@@ -28,5 +28,5 @@ export function updateNextExerciseButton() {
   const newIcons = [() => icons.panelIcons.arrowNext()];
   const btnClasses = ["btn", "btn--outline", "btn--next-exercise"];
 
-  setButtonProperties(btns, newIcons, btnClasses);
+  applyButtonAppearance(btns, newIcons, btnClasses);
 }

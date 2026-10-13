@@ -3,9 +3,9 @@ import test from "node:test";
 import { sourceContext } from "../support/source-context.js";
 
 for (const [file, property, flag, setter] of [
-  ["settings-toggle.js", "settingsToggleButton", "settingsToggleBtnEventBound", "watchSettingsToggleBtn"],
-  ["sidebar-toggle.js", "sidebarToggleButton", "sidebarToggleBtnEventBound", "watchSidebarToggleBtn"],
-  ["tabs-panel-toggle.js", "tabsPanelToggleButton", "tabsPanelToggleBtnEventBound", "watchTabsPanelToggleBtn"],
+  ["settings-toggle.js", "settingsToggleButton", "settingsToggleBtnEventBound", "watchSettingsToggleButton"],
+  ["sidebar-toggle.js", "sidebarToggleButton", "sidebarToggleBtnEventBound", "watchSidebarToggleButton"],
+  ["tabs-panel-toggle.js", "tabsPanelToggleButton", "tabsPanelToggleBtnEventBound", "watchTabsPanelToggleButton"],
 ]) {
   test(`${property} cloned with its old data flag receives a fresh listener`, () => {
     const createButton = () => ({

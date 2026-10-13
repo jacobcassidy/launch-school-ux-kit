@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { sourceContext } from "../support/source-context.js";
 
-test("button properties add one icon even when no extra classes are requested", () => {
+test("button appearance adds one icon even when no extra classes are requested", () => {
   const classes = new Set();
   const children = [];
   const button = {
@@ -33,15 +33,15 @@ test("button properties add one icon even when no extra classes are requested", 
     return { classes, classList: { add: (...names) => names.forEach((name) => classes.add(name)) } };
   };
 
-  helper.setButtonProperties([button], [iconFactory]);
-  helper.setButtonProperties([button], [iconFactory]);
+  helper.applyButtonAppearance([button], [iconFactory]);
+  helper.applyButtonAppearance([button], [iconFactory]);
 
   assert.equal(createdIcons, 1);
   assert.equal(children.length, 1);
   assert.ok(classes.has("has-new-icon"));
 });
 
-test("button properties restore icons after native content replacement", () => {
+test("button appearance restores icons after native content replacement", () => {
   const children = [];
   const classes = new Set();
   const button = {
@@ -71,9 +71,9 @@ test("button properties restore icons after native content replacement", () => {
     return { classes: iconClasses, classList: { add: (...names) => names.forEach((name) => iconClasses.add(name)) } };
   };
 
-  helper.setButtonProperties([button], [iconFactory]);
+  helper.applyButtonAppearance([button], [iconFactory]);
   children.length = 0;
-  helper.setButtonProperties([button], [iconFactory]);
+  helper.applyButtonAppearance([button], [iconFactory]);
 
   assert.equal(createdIcons, 2);
   assert.equal(children.length, 1);

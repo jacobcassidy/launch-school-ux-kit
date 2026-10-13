@@ -1,12 +1,12 @@
 /**
- * WATCH FOR MISSING HEADER
- * @module features/header/watch-missing-header
+ * WATCH HEADER REMOVAL
+ * @module features/header/watch-header-removal
  */
 
 /**
  * Reloads the UI when the header is removed from the DOM by the native code.
  */
-export function watchForMissingHeader({ scheduleReload }) {
+export function watchHeaderRemoval({ scheduleReload }) {
   if (document.documentElement.dataset.headerObserverBound) {
     return;
   }

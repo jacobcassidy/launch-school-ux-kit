@@ -2,18 +2,13 @@ export {
   showSettings,
   hideSettings,
   handleOutsideSettingsMenuClick,
-  handleSettingsEsc,
+  handleSettingsEscape,
   toggleSettings,
 } from "./actions.js";
 export { syncSettingsPreferences } from "./preferences.js";
-export {
-  injectSettingsMenu,
-  createNewSettingsSection,
-  createNewSetting,
-  createNewSettingToggler,
-} from "./settings-menu.js";
+export { injectSettingsMenu, createSettingsSection, createSetting, createSettingToggle } from "./settings-menu.js";
 export { injectSettingsToggleButton } from "./settings-toggle.js";
 export { injectShortcutsSection } from "./shortcuts-menu.js";
-export { watchSettingSidebarHiddenHeadersToggler } from "./toggler-sidebar-hidden-headers.js";
-export { watchSettingSidebarShrinkToggler } from "./toggler-sidebar-shrink.js";
-export { watchSettingsToggleBtn } from "./watch-settings-toggle.js";
+export { watchSidebarHiddenHeadersSetting } from "./watch-sidebar-hidden-headers-setting.js";
+export { watchSidebarShrinkSetting } from "./watch-sidebar-shrink-setting.js";
+export { watchSettingsToggleButton } from "./watch-settings-toggle.js";

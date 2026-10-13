@@ -58,7 +58,7 @@ function setup() {
 
 test("watcher observes before a next-exercise link exists and updates shortcut state on insertion and removal", () => {
   const fixture = setup();
-  fixture.context.watchNextExerciseBtn({
+  fixture.context.watchNextExerciseButton({
     refreshShortcuts: () => {
       fixture.context.syncAvailableShortcuts();
       fixture.context.injectShortcutsSection();
@@ -83,13 +83,13 @@ test("watcher observes before a next-exercise link exists and updates shortcut s
 
 test("watcher refreshes replacements once and repeated setup does not add observers", () => {
   const fixture = setup();
-  fixture.context.watchNextExerciseBtn({
+  fixture.context.watchNextExerciseButton({
     refreshShortcuts: () => {
       fixture.context.syncAvailableShortcuts();
       fixture.context.injectShortcutsSection();
     },
   });
-  fixture.context.watchNextExerciseBtn({
+  fixture.context.watchNextExerciseButton({
     refreshShortcuts: () => {
       fixture.context.syncAvailableShortcuts();
       fixture.context.injectShortcutsSection();

@@ -1,7 +1,7 @@
 import {
   setElementHeader,
   setElementSettingsMenu,
-  setElementSettingsToggleBtn,
+  setElementSettingsToggleButton,
   setElementSidebarToggleButton,
   setElementTabsPanelToggleButton,
 } from "./setters.js";
@@ -22,7 +22,7 @@ export function syncInjectedElementsState() {
 
   setElementHeader(header);
   setElementSettingsMenu(settingsMenu);
-  setElementSettingsToggleBtn(settingsToggleBtn);
+  setElementSettingsToggleButton(settingsToggleBtn);
   setElementSidebarToggleButton(sidebarToggleBtn);
   setElementTabsPanelToggleButton(tabsPanelToggleBtn);
 }

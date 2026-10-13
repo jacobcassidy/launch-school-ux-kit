@@ -6,31 +6,31 @@
 /**
  * Add icons and optional classes to a collection of buttons.
  *
- * @param {Array} btnEls Button elements to update.
- * @param {Array} newIcons Icon factories to insert.
- * @param {Array} btnClasses Classes to add to each button.
- * @param {Boolean} append Append icons instead of prepending them.
+ * @param {Array} buttons Button elements to update.
+ * @param {Array} iconFactories Icon factories to insert.
+ * @param {Array} classes Classes to add to each button.
+ * @param {Boolean} appendIcons Append icons instead of prepending them.
  */
-export function setButtonProperties(btnEls, newIcons, btnClasses = [], append = false) {
-  if (btnEls.length < 1 || newIcons.length < 1) return;
+export function applyButtonAppearance(buttons, iconFactories, classes = [], appendIcons = false) {
+  if (buttons.length < 1 || iconFactories.length < 1) return;
 
-  btnEls.forEach((btn) => {
-    if (!btn) return;
+  buttons.forEach((button) => {
+    if (!button) return;
 
-    const existingIcons = [...btn.querySelectorAll(":scope > .is-new-icon")];
-    if (btn.classList.contains("has-new-icon") && existingIcons.length === newIcons.length) return;
+    const existingIcons = [...button.querySelectorAll(":scope > .is-new-icon")];
+    if (button.classList.contains("has-new-icon") && existingIcons.length === iconFactories.length) return;
 
     existingIcons.forEach((icon) => icon.remove());
 
-    btn.classList.add(...btnClasses, "has-new-icon");
+    button.classList.add(...classes, "has-new-icon");
 
-    newIcons.forEach((icon) => {
-      const iconEl = icon();
+    iconFactories.forEach((createIcon) => {
+      const iconEl = createIcon();
       iconEl.classList.add("is-new-icon");
-      if (append) {
-        btn.append(iconEl);
+      if (appendIcons) {
+        button.append(iconEl);
       } else {
-        btn.prepend(iconEl);
+        button.prepend(iconEl);
       }
     });
   });
