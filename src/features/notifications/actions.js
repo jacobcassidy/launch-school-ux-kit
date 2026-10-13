@@ -1,3 +1,8 @@
+/**
+ * NOTIFICATIONS ACTIONS
+ * @module features/notifications/actions
+ */
+
 export function showToast(message, styleClass = null, duration = 2500) {
   const toastContainer = document.querySelector(".toast-container");
   toastContainer.setAttribute("role", "status");

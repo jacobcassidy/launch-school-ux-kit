@@ -1,10 +1,11 @@
-import { icons } from "../../shared/icons.js";
-import { applyButtonAppearance } from "../../shared/dom/buttons.js";
-import { watchExerciseCompletionControls } from "./watch-exercise-completion-controls.js";
 /**
  * EXERCISE COMPLETION BUTTON
  * @module features/exercises/exercise-completion-button
  */
+
+import { icons } from "../../shared/icons.js";
+import { applyButtonAppearance } from "../../shared/dom/buttons.js";
+import { watchExerciseCompletionControls } from "./watch-exercise-completion-controls.js";
 
 /**
  * Updates the exercise completion button styles and icons.

@@ -1,5 +1,5 @@
 /**
- * STYLE
+ * STYLES
  * @module shared/styles
  */
 

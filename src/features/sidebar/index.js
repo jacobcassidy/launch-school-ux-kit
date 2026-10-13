@@ -1,3 +1,8 @@
+/**
+ * SIDEBAR EXPORTS
+ * @module features/sidebar/index
+ */
+
 export { showSidebar, hideSidebar, toggleSidebar } from "./actions.js";
 export { syncActiveSidebarItem } from "./active-sidebar-item.js";
 export { injectSidebarHeader } from "./header.js";

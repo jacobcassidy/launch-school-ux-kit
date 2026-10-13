@@ -1,5 +1,5 @@
 /**
- * DOM button helpers.
+ * DOM BUTTON APPEARANCE
  * @module shared/dom/buttons
  */
 

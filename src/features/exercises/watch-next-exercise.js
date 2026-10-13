@@ -1,9 +1,10 @@
-import { updateNextExerciseButton } from "./next-exercise-button.js";
-import { elements } from "../../shared/dom/elements.js";
 /**
  * WATCH NEXT EXERCISE BUTTON
  * @module features/exercises/watch-next-exercise
  */
+
+import { updateNextExerciseButton } from "./next-exercise-button.js";
+import { elements } from "../../shared/dom/elements.js";
 
 const observedInstructionsTabs = new WeakSet();
 

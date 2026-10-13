@@ -1,9 +1,10 @@
-import { icons } from "../../shared/icons.js";
-import { applyButtonAppearance } from "../../shared/dom/buttons.js";
 /**
  * CONVERSATION BUTTONS
  * @module features/prompts/conversation-buttons
  */
+
+import { icons } from "../../shared/icons.js";
+import { applyButtonAppearance } from "../../shared/dom/buttons.js";
 
 /**
  * Updates the conversation history button styles and icon.

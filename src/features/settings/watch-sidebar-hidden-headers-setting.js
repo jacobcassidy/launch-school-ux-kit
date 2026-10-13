@@ -1,5 +1,5 @@
 /**
- * WATCH SETTING SIDEBAR HIDDEN HEADERS TOGGLER
+ * WATCH SIDEBAR HIDDEN HEADERS SETTING
  * @module features/settings/watch-sidebar-hidden-headers-setting
  */
 

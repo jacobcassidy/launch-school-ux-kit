@@ -1,9 +1,10 @@
-import { elements } from "../../shared/dom/elements.js";
-import { toggleSidebar } from "./actions.js";
 /**
  * WATCH SIDEBAR TOGGLE BUTTON
  * @module features/sidebar/watch-sidebar-toggle
  */
+
+import { elements } from "../../shared/dom/elements.js";
+import { toggleSidebar } from "./actions.js";
 
 const watchedSidebarToggleButtons = new WeakSet();
 

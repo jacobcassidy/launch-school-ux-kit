@@ -1,3 +1,8 @@
+/**
+ * TABS EXPORTS
+ * @module features/tabs/index
+ */
+
 export { showTabsPanel, hideTabsPanel, toggleTabsPanel, activateTab, getVisibleTabShortcuts } from "./actions.js";
 export { handleFocus } from "./focus.js";
 export { tabsPanelState, setIsTabsPanelHidden, restoreTabsState } from "./state.js";

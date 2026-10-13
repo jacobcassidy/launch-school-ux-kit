@@ -1,3 +1,8 @@
+/**
+ * SETTINGS ACTIONS
+ * @module features/settings/actions
+ */
+
 import { elements } from "../../shared/dom/elements.js";
 export function showSettings({ hideTocMenu }) {
   const settingsMenu = elements.injected.settingsMenu;

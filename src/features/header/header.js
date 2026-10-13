@@ -1,10 +1,11 @@
-import { watchHeaderLayout, disconnectHeaderLayout } from "./header-layout.js";
-import { elements } from "../../shared/dom/elements.js";
-import { setElementTocButton } from "../../shared/dom/setters.js";
 /**
  * HEADER
  * @module features/header/header
  */
+
+import { watchHeaderLayout, disconnectHeaderLayout } from "./header-layout.js";
+import { elements } from "../../shared/dom/elements.js";
+import { setElementTocButton } from "../../shared/dom/setters.js";
 
 const headerElementSources = new WeakMap();
 

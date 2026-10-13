@@ -1,3 +1,8 @@
+/**
+ * EDITOR EXPORTS
+ * @module features/editor/index
+ */
+
 export { copyCode, focusEditor } from "./actions.js";
 export { updateCopyCodeButtons } from "./copy-code-buttons.js";
 export { updateCopyMarkupButtons } from "./copy-markup-buttons.js";

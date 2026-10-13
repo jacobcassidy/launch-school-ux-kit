@@ -1,9 +1,10 @@
-import { elements } from "../../shared/dom/elements.js";
-import { toggleTabsPanel } from "./actions.js";
 /**
  * WATCH TABS PANEL TOGGLE BUTTON
  * @module features/tabs/watch-tabs-panel-toggle
  */
+
+import { elements } from "../../shared/dom/elements.js";
+import { toggleTabsPanel } from "./actions.js";
 
 const watchedTabsPanelToggleButtons = new WeakSet();
 

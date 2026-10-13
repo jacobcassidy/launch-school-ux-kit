@@ -1,10 +1,11 @@
+/**
+ * RUN CODE BUTTONS
+ * @module features/editor/run-code-buttons
+ */
+
 import { icons } from "../../shared/icons.js";
 import { applyButtonAppearance } from "../../shared/dom/buttons.js";
 import { watchRunCodeButton } from "./watch-run-code.js";
-/**
- * RUN CODE BUTTON
- * @module features/editor/run-code-buttons
- */
 
 /**
  * Updates the run code button styles and icons.

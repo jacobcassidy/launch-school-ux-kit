@@ -1,8 +1,9 @@
-import { icons } from "../../shared/icons.js";
 /**
  * SIDEBAR TOGGLE BUTTON
  * @module features/sidebar/sidebar-toggle
  */
+
+import { icons } from "../../shared/icons.js";
 
 /**
  * INJECT SIDEBAR TOGGLE BUTTON

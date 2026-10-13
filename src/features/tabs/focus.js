@@ -1,10 +1,11 @@
-import { flashActiveElement } from "../../shared/flash.js";
-import { showTabsPanel } from "./actions.js";
-import { tabsPanelState } from "./state.js";
 /**
  * FOCUS
  * @module features/tabs/focus
  */
+
+import { flashActiveElement } from "../../shared/flash.js";
+import { showTabsPanel } from "./actions.js";
+import { tabsPanelState } from "./state.js";
 
 /**
  * HANDLE FOCUS

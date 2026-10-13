@@ -1,9 +1,10 @@
-import { icons } from "../../shared/icons.js";
-import { elements } from "../../shared/dom/elements.js";
 /**
  * TABS PANEL TOGGLE BUTTON
  * @module features/tabs/tabs-panel-toggle
  */
+
+import { icons } from "../../shared/icons.js";
+import { elements } from "../../shared/dom/elements.js";
 
 /**
  * INJECT TABS PANEL TOGGLE BUTTON

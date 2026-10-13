@@ -1,8 +1,9 @@
-import { elements } from "./elements.js";
 /**
  * DOM SETTERS
  * @module shared/dom/setters
  */
+
+import { elements } from "./elements.js";
 
 // SET INJECTED ELEMENTS
 export function setElementHeader(el) {

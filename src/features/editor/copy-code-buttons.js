@@ -1,9 +1,10 @@
-import { icons } from "../../shared/icons.js";
-import { applyButtonAppearance } from "../../shared/dom/buttons.js";
 /**
- * COPY CODE BUTTON
+ * COPY CODE BUTTONS
  * @module features/editor/copy-code-buttons
  */
+
+import { icons } from "../../shared/icons.js";
+import { applyButtonAppearance } from "../../shared/dom/buttons.js";
 
 /**
  * Updates the copy code button styles and icon.

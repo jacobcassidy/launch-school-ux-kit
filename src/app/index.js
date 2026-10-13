@@ -1,8 +1,10 @@
-import { setLastUrl } from "./state.js";
-import { loadUI } from "./load-ui.js";
 /**
  * SCRIPT INITIALIZATION
+ * @module app/index
  */
+
+import { setLastUrl } from "./state.js";
+import { loadUI } from "./load-ui.js";
 
 if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", init, { once: true });

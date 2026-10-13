@@ -1,8 +1,9 @@
-import { appState, setIsReloadScheduled, setLastUrl } from "./state.js";
 /**
  * RELOAD
  * @module app/reload
  */
+
+import { appState, setIsReloadScheduled, setLastUrl } from "./state.js";
 
 let loadUI = () => {};
 

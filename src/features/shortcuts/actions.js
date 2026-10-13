@@ -1,3 +1,8 @@
+/**
+ * SHORTCUTS ACTIONS
+ * @module features/shortcuts/actions
+ */
+
 import { shortcuts } from "./state.js";
 export function activateShortcut(modifier, eventCode) {
   const keyEvents = shortcuts[modifier];

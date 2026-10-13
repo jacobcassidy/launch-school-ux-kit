@@ -1,3 +1,8 @@
+/**
+ * LOAD UI
+ * @module app/load-ui
+ */
+
 import {
   handleFocus,
   injectTabsPanelToggleButton,

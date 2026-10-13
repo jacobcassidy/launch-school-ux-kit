@@ -1,9 +1,10 @@
-import { elements } from "../../shared/dom/elements.js";
-import { toggleSettings } from "./actions.js";
 /**
  * WATCH SETTINGS TOGGLE BUTTON
  * @module features/settings/watch-settings-toggle
  */
+
+import { elements } from "../../shared/dom/elements.js";
+import { toggleSettings } from "./actions.js";
 
 const watchedSettingsToggleButtons = new WeakSet();
 

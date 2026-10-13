@@ -1,3 +1,8 @@
+/**
+ * APPLICATION STATE
+ * @module app/state
+ */
+
 export const appState = { isReloadScheduled: false, lastUrl: null };
 
 export function setIsReloadScheduled(value) {

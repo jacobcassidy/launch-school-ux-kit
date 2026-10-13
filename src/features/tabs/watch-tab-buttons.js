@@ -1,9 +1,10 @@
-import { handleFocus } from "./focus.js";
-import { updateTabButtons } from "./tab-buttons.js";
 /**
  * WATCH TAB BUTTONS
  * @module features/tabs/watch-tab-buttons
  */
+
+import { handleFocus } from "./focus.js";
+import { updateTabButtons } from "./tab-buttons.js";
 
 const watchedTabButtons = new WeakSet();
 const watchedTabNavigations = new WeakSet();

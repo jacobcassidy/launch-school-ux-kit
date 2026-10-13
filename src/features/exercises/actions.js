@@ -1,3 +1,8 @@
+/**
+ * EXERCISES ACTIONS
+ * @module features/exercises/actions
+ */
+
 import { elements } from "../../shared/dom/elements.js";
 export function toggleExerciseCompletionStatus({ showToast }) {
   const statusToggleButton = document.querySelector(".edit_exercise_submission .button");

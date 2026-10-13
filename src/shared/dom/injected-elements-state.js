@@ -1,3 +1,8 @@
+/**
+ * SYNC INJECTED ELEMENTS STATE
+ * @module shared/dom/injected-elements-state
+ */
+
 import {
   setElementHeader,
   setElementSettingsMenu,
@@ -5,10 +10,6 @@ import {
   setElementSidebarToggleButton,
   setElementTabsPanelToggleButton,
 } from "./setters.js";
-/**
- * SYNC INJECTED ELEMENTS STATE
- * @module shared/dom/injected-elements-state
- */
 
 /**
  * Sets the states properties for the script's injected DOM elements.

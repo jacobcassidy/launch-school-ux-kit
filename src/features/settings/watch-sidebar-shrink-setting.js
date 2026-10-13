@@ -1,5 +1,5 @@
 /**
- * WATCH SETTING SIDEBAR SHRINK TOGGLER
+ * WATCH SIDEBAR SHRINK SETTING
  * @module features/settings/watch-sidebar-shrink-setting
  */
 

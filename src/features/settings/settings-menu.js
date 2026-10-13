@@ -1,7 +1,8 @@
 /**
- * SETTINGS
+ * SETTINGS MENU
  * @module features/settings/settings-menu
  */
+
 /**
  * INJECT SETTINGS MENU
  * Injects the settings menu element into the .site-header

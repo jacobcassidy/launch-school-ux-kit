@@ -1,8 +1,9 @@
-import { icons } from "../../shared/icons.js";
 /**
  * SETTINGS TOGGLE BUTTON
  * @module features/settings/settings-toggle
  */
+
+import { icons } from "../../shared/icons.js";
 
 /**
  * INJECT SETTINGS TOGGLE BUTTON

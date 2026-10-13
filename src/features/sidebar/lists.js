@@ -1,9 +1,10 @@
-import { icons } from "../../shared/icons.js";
-import { sidebarLists } from "./sidebar-lists.js";
 /**
  * SIDEBAR LIST RENDERING
  * @module features/sidebar/lists
  */
+
+import { icons } from "../../shared/icons.js";
+import { sidebarLists } from "./sidebar-lists.js";
 
 /**
  * REORDER SIDEBAR LISTS

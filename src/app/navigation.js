@@ -1,9 +1,10 @@
-import { scheduleReload } from "./reload.js";
-import { appState } from "./state.js";
 /**
- * WATCH FOR URL CHANGE
+ * WATCH URL CHANGES
  * @module app/navigation
  */
+
+import { scheduleReload } from "./reload.js";
+import { appState } from "./state.js";
 
 /**
  * Reloads the custom UI when the URL changes.

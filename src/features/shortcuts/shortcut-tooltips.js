@@ -1,9 +1,10 @@
-import { shortcuts } from "./state.js";
-import { getShortcutKeys } from "./platform.js";
 /**
  * SHORTCUT TOOLTIPS
  * @module features/shortcuts/shortcut-tooltips
  */
+
+import { shortcuts } from "./state.js";
+import { getShortcutKeys } from "./platform.js";
 
 const previousTooltips = new Map();
 

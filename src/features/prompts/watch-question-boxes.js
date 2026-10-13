@@ -1,8 +1,9 @@
-import { elements } from "../../shared/dom/elements.js";
 /**
  * WATCH QUESTION BOXES
  * @module features/prompts/watch-question-boxes
  */
+
+import { elements } from "../../shared/dom/elements.js";
 
 const watchedQuestionBoxes = new WeakSet();
 

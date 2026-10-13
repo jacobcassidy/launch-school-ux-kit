@@ -1,8 +1,9 @@
-import { icons } from "../../shared/icons.js";
 /**
  * SIDEBAR HEADER RENDERING
  * @module features/sidebar/header
  */
+
+import { icons } from "../../shared/icons.js";
 
 /**
  * INJECT SIDEBAR HEADER

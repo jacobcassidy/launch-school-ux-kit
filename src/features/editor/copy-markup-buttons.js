@@ -1,9 +1,10 @@
-import { icons } from "../../shared/icons.js";
-import { applyButtonAppearance } from "../../shared/dom/buttons.js";
 /**
- * COPY MARKUP BUTTON
+ * COPY MARKUP BUTTONS
  * @module features/editor/copy-markup-buttons
  */
+
+import { icons } from "../../shared/icons.js";
+import { applyButtonAppearance } from "../../shared/dom/buttons.js";
 
 /**
  * Updates the copy markup button styles and icon.

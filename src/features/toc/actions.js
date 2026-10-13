@@ -1,3 +1,8 @@
+/**
+ * TOC ACTIONS
+ * @module features/toc/actions
+ */
+
 import { elements } from "../../shared/dom/elements.js";
 export function showTocMenu({ hideSettings }) {
   const tocBtn = elements.native.tocButton;

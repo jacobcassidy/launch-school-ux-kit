@@ -1,9 +1,10 @@
-import { createSettingsSection } from "./settings-menu.js";
-import { shortcuts, getShortcutKeys } from "../shortcuts/index.js";
 /**
- * SHORTCUTS
+ * SHORTCUTS MENU
  * @module features/settings/shortcuts-menu
  */
+
+import { createSettingsSection } from "./settings-menu.js";
+import { shortcuts, getShortcutKeys } from "../shortcuts/index.js";
 
 /**
  * INJECT SHORTCUTS SECTION

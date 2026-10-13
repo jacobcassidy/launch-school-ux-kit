@@ -1,9 +1,10 @@
-import { icons } from "../../shared/icons.js";
-import { applyButtonAppearance } from "../../shared/dom/buttons.js";
 /**
- * WORK IN EDITOR BUTTON
+ * WORK IN EDITOR BUTTONS
  * @module features/editor/work-in-editor-buttons
  */
+
+import { icons } from "../../shared/icons.js";
+import { applyButtonAppearance } from "../../shared/dom/buttons.js";
 
 /**
  * Updates the work-in-editor button styles and icon.

@@ -1,3 +1,8 @@
+/**
+ * TABS ACTIONS
+ * @module features/tabs/actions
+ */
+
 import { tabsPanelState, setIsTabsPanelHidden } from "./state.js";
 export function showTabsPanel() {
   setIsTabsPanelHidden(false);

@@ -1,8 +1,9 @@
-import { updateCopyMarkupButtons } from "./copy-markup-buttons.js";
 /**
- * WATCH FOR NEW COPY MARKUP BUTTONS
+ * WATCH COPY MARKUP BUTTONS
  * @module features/editor/watch-copy-markup-buttons
  */
+
+import { updateCopyMarkupButtons } from "./copy-markup-buttons.js";
 
 const watchedTabContents = new WeakSet();
 

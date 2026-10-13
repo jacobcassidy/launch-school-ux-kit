@@ -1,9 +1,10 @@
-import { icons } from "../../shared/icons.js";
-import { applyButtonAppearance } from "../../shared/dom/buttons.js";
 /**
  * TABLE OF CONTENTS TOGGLE BUTTON
  * @module features/toc/toc-toggle
  */
+
+import { icons } from "../../shared/icons.js";
+import { applyButtonAppearance } from "../../shared/dom/buttons.js";
 
 /**
  * MOVE TOC BUTTON TO HEADER

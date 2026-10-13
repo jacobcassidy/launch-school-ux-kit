@@ -1,3 +1,8 @@
+/**
+ * SYNC AVAILABLE SHORTCUTS
+ * @module app/shortcuts
+ */
+
 import { copyCode, focusEditor } from "../features/editor/index.js";
 import { goToNextExercise, submitReview, toggleExerciseCompletionStatus } from "../features/exercises/index.js";
 import { getVisibleTabShortcuts, activateTab, handleFocus, toggleTabsPanel } from "../features/tabs/index.js";
@@ -8,10 +13,6 @@ import { toggleHeader } from "../features/header/index.js";
 import { toggleSidebar } from "../features/sidebar/index.js";
 import { elements } from "../shared/dom/elements.js";
 import { shortcuts, setAvailableShortcut, syncShortcutTooltips } from "../features/shortcuts/index.js";
-/**
- * SYNC AVAILABLE SHORTCUTS
- * @module app/shortcuts
- */
 
 /**
  * Syncs the shortcuts available on the current page.

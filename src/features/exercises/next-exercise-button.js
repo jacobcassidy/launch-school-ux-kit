@@ -1,10 +1,11 @@
-import { icons } from "../../shared/icons.js";
-import { setElementNextExerciseButton } from "../../shared/dom/setters.js";
-import { applyButtonAppearance } from "../../shared/dom/buttons.js";
 /**
  * NEXT EXERCISE BUTTON
  * @module features/exercises/next-exercise-button
  */
+
+import { icons } from "../../shared/icons.js";
+import { setElementNextExerciseButton } from "../../shared/dom/setters.js";
+import { applyButtonAppearance } from "../../shared/dom/buttons.js";
 
 // Import component
 

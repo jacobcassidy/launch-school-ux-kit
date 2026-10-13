@@ -1,3 +1,8 @@
+/**
+ * SETTINGS EXPORTS
+ * @module features/settings/index
+ */
+
 export {
   showSettings,
   hideSettings,

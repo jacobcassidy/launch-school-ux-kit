@@ -1,3 +1,8 @@
+/**
+ * SYNC SETTINGS PREFERENCES
+ * @module features/settings/preferences
+ */
+
 export function syncSettingsPreferences({ sidebarState }) {
   // Sync setting togglers
   const isSettingSidebarShrinkOn = sidebarState.isSettingSidebarShrinkOn;

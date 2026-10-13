@@ -1,3 +1,8 @@
+/**
+ * EDITOR ACTIONS
+ * @module features/editor/actions
+ */
+
 import { elements } from "../../shared/dom/elements.js";
 export function copyCode({ showToast }) {
   const copyBtn = document.querySelector(".btn-copy-code");

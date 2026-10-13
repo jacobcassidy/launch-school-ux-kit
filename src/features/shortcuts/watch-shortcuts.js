@@ -1,10 +1,11 @@
-import { activateShortcut } from "./actions.js";
-import { shortcuts } from "./state.js";
-import { getShortcutModifier } from "./platform.js";
 /**
  * WATCH SHORTCUTS
  * @module features/shortcuts/watch-shortcuts
  */
+
+import { activateShortcut } from "./actions.js";
+import { shortcuts } from "./state.js";
+import { getShortcutModifier } from "./platform.js";
 
 /**
  * Activates the triggered shortcut.

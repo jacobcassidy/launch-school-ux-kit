@@ -1,8 +1,9 @@
-import { icons } from "../../shared/icons.js";
 /**
- * TAB BUTTON
+ * TAB BUTTONS
  * @module features/tabs/tab-buttons
  */
+
+import { icons } from "../../shared/icons.js";
 
 /**
  * Replaces tab buttons native text and icons with new icons and tooltips.

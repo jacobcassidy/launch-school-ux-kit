@@ -1,3 +1,8 @@
+/**
+ * TABS STATE
+ * @module features/tabs/state
+ */
+
 import { elements } from "../../shared/dom/elements.js";
 export const tabsPanelState = { isHidden: sessionStorage.getItem("isTabsPanelHidden") === "true" };
 

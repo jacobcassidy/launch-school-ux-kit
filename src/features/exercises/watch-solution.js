@@ -1,5 +1,5 @@
 /**
- * WATCH VIEW SOLUTIONS BUTTON
+ * WATCH SOLUTION BUTTON
  * @module features/exercises/watch-solution
  */
 

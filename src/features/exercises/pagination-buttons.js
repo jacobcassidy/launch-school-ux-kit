@@ -1,9 +1,10 @@
-import { icons } from "../../shared/icons.js";
-import { applyButtonAppearance } from "../../shared/dom/buttons.js";
 /**
- * PAGINATION BUTTON
+ * PAGINATION BUTTONS
  * @module features/exercises/pagination-buttons
  */
+
+import { icons } from "../../shared/icons.js";
+import { applyButtonAppearance } from "../../shared/dom/buttons.js";
 
 /**
  * Updates the pagination button styles and icons.

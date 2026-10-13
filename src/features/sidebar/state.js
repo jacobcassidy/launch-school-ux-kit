@@ -1,3 +1,8 @@
+/**
+ * SIDEBAR STATE
+ * @module features/sidebar/state
+ */
+
 import { elements } from "../../shared/dom/elements.js";
 export const sidebarState = {
   isSettingSidebarHiddenHeadersOn: sessionStorage.getItem("isSettingSidebarHiddenHeadersOn") === "true",

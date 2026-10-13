@@ -1,3 +1,8 @@
+/**
+ * SHORTCUTS EXPORTS
+ * @module features/shortcuts/index
+ */
+
 export { activateShortcut } from "./actions.js";
 export { getShortcutKeys, getShortcutModifier } from "./platform.js";
 export { syncShortcutTooltips } from "./shortcut-tooltips.js";

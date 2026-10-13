@@ -1,12 +1,13 @@
+/**
+ * SIDEBAR
+ * @module features/sidebar/sidebar
+ */
+
 import { icons } from "../../shared/icons.js";
 import { syncActiveSidebarItem } from "./active-sidebar-item.js";
 import { injectSidebarHeader } from "./header.js";
 import { reorderSidebarLists } from "./lists.js";
 import { watchUnreadCounts } from "./unread-count.js";
-/**
- * SIDEBAR
- * @module features/sidebar/sidebar
- */
 
 let activeSidebar = null;
 let sidebarTooltips = [];

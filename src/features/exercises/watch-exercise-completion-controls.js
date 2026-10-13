@@ -1,5 +1,5 @@
 /**
- * WATCH EXERCISE COMPLETION TOGGLE BUTTON
+ * WATCH EXERCISE COMPLETION CONTROLS
  * @module features/exercises/watch-exercise-completion-controls
  */
 

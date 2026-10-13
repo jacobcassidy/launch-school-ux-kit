@@ -1,10 +1,11 @@
+/**
+ * SOLUTION BUTTONS
+ * @module features/exercises/solution-buttons
+ */
+
 import { icons } from "../../shared/icons.js";
 import { applyButtonAppearance } from "../../shared/dom/buttons.js";
 import { watchSolutionButton } from "./watch-solution.js";
-/**
- * SOLUTION BUTTON
- * @module features/exercises/solution-buttons
- */
 
 /**
  * Updates the view solution button styles and icons.

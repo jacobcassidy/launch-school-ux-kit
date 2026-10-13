@@ -1,3 +1,8 @@
+/**
+ * SIDEBAR ACTIONS
+ * @module features/sidebar/actions
+ */
+
 import { setIsSidebarCollapsed } from "./state.js";
 export function showSidebar() {
   setIsSidebarCollapsed(false);

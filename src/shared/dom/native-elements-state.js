@@ -1,3 +1,8 @@
+/**
+ * SYNC NATIVE ELEMENTS STATE
+ * @module shared/dom/native-elements-state
+ */
+
 import {
   setElementContentPanel,
   setElementEditorPanel,
@@ -7,10 +12,6 @@ import {
   setElementTabsPanel,
   setElementTocButton,
 } from "./setters.js";
-/**
- * SYNC NATIVE ELEMENTS STATE
- * @module shared/dom/native-elements-state
- */
 
 /**
  * SYNC NATIVE ELEMENTS STATE

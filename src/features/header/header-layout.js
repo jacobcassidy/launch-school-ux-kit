@@ -1,6 +1,7 @@
 /**
  * HEADER LAYOUT
  * Keeps the title centered while reserving equal space for the outer controls.
+ * @module features/header/header-layout
  */
 
 const headerLayouts = new WeakMap();

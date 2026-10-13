@@ -1,3 +1,8 @@
+/**
+ * PROMPTS EXPORTS
+ * @module features/prompts/index
+ */
+
 export { updateConversationHistoryButtons, updateNewConversationButtons } from "./conversation-buttons.js";
 export { watchPromptEnterShortcut } from "./watch-prompt-enter-shortcut.js";
 export { watchPromptSubmission } from "./watch-prompt-submission.js";

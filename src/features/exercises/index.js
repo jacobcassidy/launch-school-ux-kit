@@ -1,3 +1,8 @@
+/**
+ * EXERCISES EXPORTS
+ * @module features/exercises/index
+ */
+
 export { toggleExerciseCompletionStatus, goToNextExercise, submitReview } from "./actions.js";
 export { updateExerciseCompletionButton } from "./exercise-completion-button.js";
 export { updateNextExerciseButton } from "./next-exercise-button.js";
