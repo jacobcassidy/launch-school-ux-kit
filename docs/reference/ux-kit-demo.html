@@ -13,7 +13,7 @@
         font-family: system-ui, sans-serif;
       }
       main {
-        max-width: 1706px;
+        max-width: 1920px;
         margin: auto;
       }
       h1 {
@@ -27,6 +27,7 @@
       video {
         display: block;
         width: 100%;
+        height: auto;
         max-height: calc(100dvh - 100px);
         background: #fff;
       }
@@ -35,8 +36,11 @@
   <body>
     <main>
       <h1>Launch School UX Kit demo</h1>
-      <p>1706 × 1417 · 30 fps · 35 seconds · <a href="ux-kit-demo.webm" download>Download video</a></p>
-      <video controls preload="metadata" playsinline>
+      <p>
+        1920 × 1080 · 30 fps · 2 minutes · Launch School PWA · <a href="ux-kit-demo.webm" download>Download video</a>
+      </p>
+      <p>Five seconds per action, with centered descriptions, shortcuts, and on/off setting captions.</p>
+      <video controls preload="metadata" playsinline width="1920" height="1080">
         <source src="ux-kit-demo.webm" type="video/webm" />
         <a href="ux-kit-demo.webm">Open the demo video</a>
       </video>
