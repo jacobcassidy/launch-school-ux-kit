@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1632" height="750" viewBox="-11 106 1632 750" fill="none" role="img" aria-labelledby="title description">
+<svg xmlns="http://www.w3.org/2000/svg" width="1635" height="750" viewBox="-14 106 1635 750" fill="none" role="img" aria-labelledby="title description">
   <title id="title">Launch School UX Kit</title>
   <desc id="description">Original foundational lettering with three precisely aligned coral squares. Lettering is embedded raster content; blocks are vector shapes.</desc>
   <defs>
@@ -30,7 +30,7 @@
     </filter>
   </defs>
   <g fill="#F75C5F">
-    <rect x="84.916813" y="609.291020" width="150.708980" height="150.708980" rx="13.563808" />
+    <rect x="81.751925" y="609.291020" width="150.708980" height="150.708980" rx="13.563808" />
     <rect x="244.668332" y="435.975692" width="203.457124" height="203.457124" rx="18.311141" />
     <rect x="460.332883" y="202.000000" width="274.667117" height="274.667117" rx="24.720041" />
   </g>
