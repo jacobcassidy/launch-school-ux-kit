@@ -1,5 +1,7 @@
 # Simplify the repository and make docs easier to navigate
 
+> Status: This incremental approach was not selected. The feature-based plan was implemented instead. This file is retained as a historical alternative; use the [current architecture guide](../architecture.md) and [development quick guide](../QUICK-GUIDE.md) for the implemented layout and workflow.
+
 ## Summary
 
 Organize documentation by purpose, separate media from technical references, and simplify JavaScript nesting. Keep installation, features, and shortcuts in the root README.

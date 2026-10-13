@@ -1,5 +1,7 @@
 # Organize the repository by features
 
+> Status: This plan was selected and implemented. It is retained as a planning record; use the [current architecture guide](../architecture.md) and [development quick guide](../QUICK-GUIDE.md) for the implemented layout and workflow. The steps and acceptance criteria below describe the original migration plan.
+
 ## Summary
 
 Group each feature’s UI, actions, state, and event watchers together. Keep styles for all features under `src/styles/features/<feature>/`, with application initialization and coordination separate from features and a small shared layer for reused DOM and visual utilities.

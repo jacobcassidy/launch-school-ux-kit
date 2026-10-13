@@ -64,8 +64,8 @@ To update an existing installation, open its script in Tampermonkey, replace the
 
 - Added shortcuts:
 
-  | macOS         | Windows        | Function                                                                   |
-  | ------------- | -------------- | -------------------------------------------------------------------------- |
+  | macOS | Windows | Function |
+  | --- | --- | --- |
   | `Enter` | `Enter` | Submit focused chat prompt |
   | `⌘B` | `⌃B` | Toggles Sidebar visibility |
   | `⌘⇧1` | `⌃⇧1` | Toggles Header visibility |
