@@ -137,12 +137,12 @@ function injectUISettingsSection(containerEl) {
     const uiSettingsListEl = uiSettingsSectionEl.querySelector(".settings-list");
 
     /**
-     * Builds the setting for hiding expanded-sidebar section headers.
+     * Builds the setting for hiding sidebar section headers.
      *
      * @returns {HTMLLIElement} Detached preference list item.
      */
     const createSettingSidebarHiddenHeadersEl = () => {
-      const settingDesc = "Hide expanded sidebar's section headers";
+      const settingDesc = "Hide sidebar's section headers";
       const settingTogglerId = "setting--sidebar-hidden-headers";
       return createSetting(settingDesc, settingTogglerId);
     };
@@ -153,7 +153,7 @@ function injectUISettingsSection(containerEl) {
      * @returns {HTMLLIElement} Detached preference list item.
      */
     const createSettingSidebarShrinkEl = () => {
-      const settingDesc = "Shrink sidebar instead of hiding it when collapsed";
+      const settingDesc = "Shrink sidebar instead of hiding it when closed";
       const settingTogglerId = "setting--sidebar-shrink";
       return createSetting(settingDesc, settingTogglerId);
     };
