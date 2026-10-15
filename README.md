@@ -13,6 +13,7 @@ An unofficial UX kit that modifies the LaunchSchool.com UI with a minimal design
 | Index                           |
 | ------------------------------- |
 | [Demo](#demo)                   |
+| [Screenshots](#screenshots)     |
 | [Quickstart](#quickstart-guide) |
 | [Features](#features)           |
 | [Notes](#notes)                 |
@@ -26,6 +27,29 @@ An unofficial UX kit that modifies the LaunchSchool.com UI with a minimal design
 https://github.com/user-attachments/assets/14481f07-509f-40ba-b998-d61e6d0efdc1
 
 <!-- markdownlint-enable MD034 -->
+
+## Screenshots
+
+**With all panels showing on a book page:**
+![All Panels Open](docs/media/screenshots/v1.5.0/01-full-ui.png)
+
+**With the Sidebar panel shrunk:**
+![Sidebar Shrunk](docs/media/screenshots/v1.5.0/02-sidebar-shrunk.png)
+
+**With the Sidebar panel hidden:**
+![Sidebar Hidden](docs/media/screenshots/v1.5.0/03-sidebar-hidden.png)
+
+**With the Header panel hidden:**
+![Header Hidden](docs/media/screenshots/v1.5.0/04-header-hidden.png)
+
+**With the Header, Sidebar, and Tabs panels hidden (only content visible for no distractions):**
+![Content Only](docs/media/screenshots/v1.5.0/05-content-only.png)
+
+**With Table of Contents menu open:**
+![Table of Contents Menu](docs/media/screenshots/v1.5.0/06-toc-menu.png)
+
+**With Settings menu open:**
+![Settings Menu](docs/media/screenshots/v1.5.0/07-settings-menu.png)
 
 ## Quickstart Guide
 
