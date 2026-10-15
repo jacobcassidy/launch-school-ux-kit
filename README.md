@@ -1,6 +1,4 @@
-# Launch School UX Kit
-
-An unofficial UX kit that modifies the LaunchSchool.com UI with a minimal design and added shortcuts for productivity (shortcuts that toggle the header, menus, sidebar, tabs, and more).
+# Launch School UX Kit README
 
 <!-- markdownlint-disable MD033 -->
 <picture>
@@ -10,17 +8,19 @@ An unofficial UX kit that modifies the LaunchSchool.com UI with a minimal design
 </picture>
 <!-- markdownlint-enable MD033 -->
 
-| Index                                 |
-| ------------------------------------- |
-| [Demo](#demo)                         |
-| [Screenshots](#screenshots)           |
-| [Quickstart Guide](#quickstart-guide) |
-| [Features](#features)                 |
-| [Notes](#notes)                       |
-| [Documentation](#documentation)       |
-| [Issues?](#issues)                    |
+An unofficial UX kit that modifies the LaunchSchool.com UI with a minimal design and added shortcuts for productivity (shortcuts that toggle the header, menus, sidebar, tabs, and more).
 
-## Demo
+| Index                                   |
+| --------------------------------------- |
+| [Walkthrough Video](#walkthrough-video) |
+| [Screenshots](#screenshots)             |
+| [Quickstart Guide](#quickstart-guide)   |
+| [Features](#features)                   |
+| [Notes](#notes)                         |
+| [Documentation](#documentation)         |
+| [Issues?](#issues)                      |
+
+## Walkthrough Video
 
 <!-- markdownlint-disable MD034 -->
 
