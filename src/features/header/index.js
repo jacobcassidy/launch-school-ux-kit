@@ -1,0 +1,10 @@
+/**
+ * HEADER EXPORTS
+ * @module features/header/index
+ */
+
+export { showHeader, hideHeader, toggleHeader } from "./actions.js";
+export { watchHeaderLayout, disconnectHeaderLayout } from "./header-layout.js";
+export { injectHeader } from "./header.js";
+export { headerState, setIsHeaderHidden, restoreHeaderState } from "./state.js";
+export { watchHeaderRemoval } from "./watch-header-removal.js";

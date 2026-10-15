@@ -1,4 +1,5 @@
 node_modules
 .dev-dist/
 .build-tmp/
-docs/dev/TODO.md
+docs/development/TODO.md
+.capture-source/

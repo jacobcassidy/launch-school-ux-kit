@@ -5,18 +5,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.9.0] - 2026-10-12
+## [1.9.0] - 2026-10-15 (Codex Refactor Edition)
 
 ### Added
 
 - Added platform-aware Windows shortcuts: Ctrl replaces Cmd, and Ctrl Alt replaces Cmd Ctrl.
 - Added available shortcuts to button and tab tooltips, including alternate bindings and updates when page controls change.
 - Added accessible shortcut labels and polite screen-reader announcements for toast notifications.
-- Added a panel and shortcut demo video with a local HTML video player.
+- Added an 88-second, silent 1920 × 1080 demo at 30 fps, animating native Safari PWA captures with a macOS-style window, action captions, shortcut keycaps, red control circles, and yellow highlights. The walkthrough includes settings, panel shortcuts, all three tabs, a real LSBot response, Scratchpad execution, and scrolling.
+- Added a reproducible Remotion project with checked-in captures, a capture-preparation script, a separate package and lockfile, and root commands to install, preview, check, and render the demo.
+- Added H.264 MP4 and VP9 WebM demo exports, a title-card poster, a local HTML player, and the demo specification and capture workflow documentation.
 - Added a three-square project logo, transparent PNG and SVG variants for light and dark backgrounds, balanced previews, and branding documentation.
 - Added automatic light/dark logo selection to the README and GitHub links to the final logo assets.
 - Added DOM lifecycle integration tests with happy-dom and regression coverage for shortcuts, navigation, cloned controls, panel visibility, accessibility, contrast, and toast cleanup.
-- Added repository guidance for separate task commits that exclude unrelated edits.
+- Added repository guidance for separate task commits that exclude unrelated edits and preserve the established capitalized imperative commit-message style without Conventional Commit prefixes.
+- Added a development quick guide, repository organization plans, and architecture documentation.
 
 ### Changed
 
@@ -24,10 +27,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Refined shortcut displays with modifier symbols, consistent keycaps, natural widths for longer key names, smaller tooltip bindings, and "or" between alternate shortcuts.
 - Improved contrast for settings headings, header titles and breadcrumbs, sidebar labels, and section headings.
 - Centered header titles and breadcrumbs while preserving control spacing; long titles truncate or hide when space is limited.
-- Rebuilt the distribution userscript with the runtime fixes and updated its date-based version to 2026-10-10.
+- Rebuilt the distribution userscript with the runtime fixes at version 2026-10-13; subsequently updated the source userscript metadata to 2026-10-15. The committed distribution bundle still carries version 2026-10-13.
+- Reorganized source code by feature, moved feature styles under `src/styles`, flattened release and watch bundle paths, grouped tests by ownership, and enabled recursive test discovery.
+- Reorganized documentation, design references, media, and branding assets; grouped source icons by UI location and consuming feature.
+- Archived the repository organization plans under development references and marked their implementation status.
+- Moved the custom Launch School sidebar logo into the dedicated `src/svg/custom/logo` directory and updated its import.
+- Refined logo spacing and vector lettering with straight edges and smooth Bézier curves, matched the light and dark variants, and regenerated the transparent PNGs and previews from the final SVGs.
+- Clarified source module and function names, added first-position JSDoc headers, documented source functions, corrected stale JSDoc and import comments, and updated stylesheet imports.
+- Updated the README for current shortcuts and features, formatted shortcut combinations with platform symbols, simplified its layout, and restored the seven v1.5.0 screenshots in a dedicated section after Demo.
+- Simplified the Settings descriptions for hiding sidebar section headers and shrinking the sidebar when closed.
 
 ### Fixed
 
+- Fixed inline demo playback in the GitHub README by replacing linked previews with a published GitHub video attachment under the browser upload size limit.
+- Corrected relative source links in the sidebar and styles reference guides and switched README asset links to repository-relative paths.
 - Fixed cloned buttons, tabs, sidebar links, settings controls, and chat inputs losing their handlers after cached page restoration.
 - Preserved native breadcrumbs, logged-out navigation, and book table-of-contents controls through Turbo and Turbolinks caching and Back/Forward navigation, including renders that finish after history changes.
 - Fixed sidebar toggle state handling and preserved content offsets when the sidebar is shrunk.
@@ -40,30 +53,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Prevented registered UX Kit shortcuts from also triggering the page's native keyboard handlers.
 - Made hidden header, settings, and tabs-panel controls inaccessible to keyboard and assistive navigation, and restored focus when Settings closes.
 - Fixed expired toasts remaining in the DOM when transitions are absent, canceled, or do not emit completion events.
+- Fixed custom button icons disappearing when page content resets, stale unread badges after sidebar replacement, and question-box controls added after initialization not handling submissions.
+- Preserved native labels and content for unrecognized tab types, refreshed the UI after query-only navigation, removed stale sidebar tooltips after replacement, fixed the next pagination selector, and kept userscript watch mode current after atomic metadata replacements.
 
 ### Removed
 
 - Removed plus separators from displayed shortcut combinations.
 - Removed tabs-panel, content-panel, and divider transitions so panel visibility changes are immediate.
-- Moved the unused panel-left sidebar icon out of the active asset folder and into references.
 - Removed obsolete developer bug, dependency, and review notes; stopped tracking the local TODO file and added it to `.gitignore`.
-
-## [1.8.2] - 2026-10-08
-
-### Fixed
-
-- Fixed custom button icons disappearing when the page resets their contents.
-- Fixed unread count badges becoming stale when the sidebar is replaced.
-- Fixed question-box controls inserted after initialization not handling submissions.
-- Preserved native labels and content for unrecognized tab types.
-- Kept userscript watch mode current after atomic metadata file replacements.
-- Refreshed the UI after query-only navigation.
-- Removed stale sidebar tooltips after sidebar replacement.
-- Fixed the next pagination selector.
-
-### Removed
-
-- Removed unused sidebar and native DOM state and an unused sidebar icon.
+- Removed unused sidebar and native DOM state, an unused sidebar icon, draft logo assets, and an unused logo preview.
 
 ## [1.8.1] - 2026-09-22 (Codex Fixes Edition)
 

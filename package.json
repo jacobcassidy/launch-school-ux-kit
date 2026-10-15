@@ -45,15 +45,19 @@
     }
   },
   "scripts": {
+    "demo:install": "npm --prefix remotion-demo ci",
+    "demo:studio": "npm --prefix remotion-demo run dev",
+    "demo:render": "npm --prefix remotion-demo run render",
+    "demo:check": "npm --prefix remotion-demo run lint",
     "check": "npx prettier . --check",
     "format": "npx prettier . --write",
     "lint:docs": "npx markdownlint-cli2 \"**/*.md\"",
     "lint:docs:fix": "npx markdownlint-cli2 \"**/*.md\" --fix",
-    "lint:scripts": "npx eslint",
-    "lint:scripts:fix": "npx eslint --fix",
+    "lint:scripts": "npx eslint --config eslint.config.js",
+    "lint:scripts:fix": "npx eslint --config eslint.config.js --fix",
     "lint:styles": "npx stylelint \"**/*.css\" --ignore-path .gitignore",
     "lint:styles:fix": "npx stylelint \"**/*.css\" --ignore-path .gitignore --fix",
-    "test": "npm run build && node --test tests/*.test.js",
+    "test": "npm run build && node --test",
     "build": "node ./esbuild.config.js",
     "watch": "node ./esbuild.config.js --watch"
   }
