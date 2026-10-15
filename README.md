@@ -10,14 +10,14 @@
 
 An unofficial UX kit that modifies the LaunchSchool.com UI with a minimal design and added shortcuts for productivity (shortcuts that toggle the header, menus, sidebar, tabs, and more).
 
-| Index                                 |
-| ------------------------------------- |
-| [Demo](#demo)                         |
-| [Quickstart Guide](#quickstart-guide) |
-| [UX Kit Features](#ux-kit-features)   |
-| [Notes](#notes)                       |
+| Index                                           |
+| ----------------------------------------------- |
+| [Demo](#demo)                                   |
+| [Quickstart Guide](#quickstart-guide)           |
+| [UX Kit Features](#ux-kit-features)             |
+| [Notes](#notes)                                 |
 | [Project Documentation](#project-documentation) |
-| [Issues?](#issues)                    |
+| [Issues?](#issues)                              |
 
 ## Demo
 
@@ -64,28 +64,24 @@ To update an existing installation, open its script in Tampermonkey, replace the
 
 - Added shortcuts:
 
-  | macOS | Windows | Function |
-  | --- | --- | --- |
-  | `Enter` | `Enter` | Submit focused chat prompt |
-  | `⌘B` | `⌃B` | Toggles Sidebar visibility |
-  | `⌘⇧1` | `⌃⇧1` | Toggles Header visibility |
-  | `⌘⇧2` | `⌃⇧2` | Toggle Tabs Panel visibility |
-  | `⌘⌃#` | `⌃⎇#` | Select tab by number order (such as 1 for the "Ask LSBot" tab) |
-  | `⌘⌃C` | `⌃⎇C` | Copy Editor/Scratchpad Code |
-  | `⌘⌃E` | `⌃⎇E` | Focus Editor/Scratchpad |
-  | `⌘⌃M` | `⌃⎇M` | Toggle the "Mark exercise complete/incomplete" _(active on exercise page)_ |
-  | `⌘⌃N` | `⌃⎇N` | Go to next exercise _(active on exercise page)_ |
-  | `⌘⌃R` | `⌃⎇R` | Submit review to LSBot _(active on exercise page)_ |
-  | `⌘⌃T` | `⌃⎇T` | Toggle Table of Contents visibility _(active on book page)_ |
-  | `⌘⌃,` | `⌃⎇,` | Toggle Settings visibility (include Current Page Shortcuts) |
+  | macOS   | Windows | Function                                                                   |
+  | ------- | ------- | -------------------------------------------------------------------------- |
+  | `Enter` | `Enter` | Submit focused chat prompt                                                 |
+  | `⌘B`    | `⌃B`    | Toggles Sidebar visibility                                                 |
+  | `⌘⇧1`   | `⌃⇧1`   | Toggles Header visibility                                                  |
+  | `⌘⇧2`   | `⌃⇧2`   | Toggle Tabs Panel visibility                                               |
+  | `⌘⌃#`   | `⌃⎇#`   | Select tab by number order (such as 1 for the "Ask LSBot" tab)             |
+  | `⌘⌃C`   | `⌃⎇C`   | Copy Editor/Scratchpad Code                                                |
+  | `⌘⌃E`   | `⌃⎇E`   | Focus Editor/Scratchpad                                                    |
+  | `⌘⌃M`   | `⌃⎇M`   | Toggle the "Mark exercise complete/incomplete" _(active on exercise page)_ |
+  | `⌘⌃N`   | `⌃⎇N`   | Go to next exercise _(active on exercise page)_                            |
+  | `⌘⌃R`   | `⌃⎇R`   | Submit review to LSBot _(active on exercise page)_                         |
+  | `⌘⌃T`   | `⌃⎇T`   | Toggle Table of Contents visibility _(active on book page)_                |
+  | `⌘⌃,`   | `⌃⎇,`   | Toggle Settings visibility (include Current Page Shortcuts)                |
 
 Shortcut modifiers in tooltips and settings use `⌘` (Command), `⌃` (Control), `⇧` (Shift), and `⎇` (Alt).
 
 Keys displayed together, such as `⌘⌃C`, are pressed together. Numbered tab shortcuts follow the order of visible tabs. Open Settings to see the combinations available on your current page.
-
-## Project Documentation
-
-See the [Changelog](CHANGELOG.md), [Contributing](CONTRIBUTING.md) for development setup and checks, and the [documentation index](docs/README.md) for architecture, reference guides, and historical media.
 
 ## Notes
 
@@ -93,6 +89,10 @@ See the [Changelog](CHANGELOG.md), [Contributing](CONTRIBUTING.md) for developme
 - This kit only works for desktop views. The UI will break on screen sizes narrower than 1025px wide.
 - You can toggle the userscript off at anytime and reload the page to get the original UX back.
 - This kit modifies the existing DOM of launchschool.com. If the launchschool.com DOM changes in the future, this kit may cease to function. If that happens, please [report the issue](https://github.com/jacobcassidy/launch-school-ux-kit/issues).
+
+## Project Documentation
+
+See the [Changelog](CHANGELOG.md), [Contributing](CONTRIBUTING.md) for development setup and checks, and the [documentation index](docs/README.md) for architecture, reference guides, and historical media.
 
 ## Issues?
 
