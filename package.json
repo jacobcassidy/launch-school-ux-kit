@@ -45,6 +45,10 @@
     }
   },
   "scripts": {
+    "demo:install": "npm --prefix remotion-demo ci",
+    "demo:studio": "npm --prefix remotion-demo run dev",
+    "demo:render": "npm --prefix remotion-demo run render",
+    "demo:check": "npm --prefix remotion-demo run lint",
     "check": "npx prettier . --check",
     "format": "npx prettier . --write",
     "lint:docs": "npx markdownlint-cli2 \"**/*.md\"",
