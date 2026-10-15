@@ -21,6 +21,8 @@ An unofficial UX kit that modifies the LaunchSchool.com UI with a minimal design
 
 ## Demo
 
+[![Watch the Launch School UX Kit demo on YouTube](https://img.youtube.com/vi/a_eNRPMKrLk/hqdefault.jpg)](https://www.youtube.com/watch?v=a_eNRPMKrLk)
+
 The 88-second, 1920 × 1080 demo presents captures from the Launch School PWA as an isolated window with rounded corners, padding, and a macOS-style shadow. Centered action descriptions fade in before each action, with shortcut key boxes, red control circles, and yellow highlights. It shows the settings toggles, panel visibility shortcuts, and all three tabs in order, including a real LSBot response and Scratchpad execution. Remotion animates the native captures, typing, and scrolling.
 
 [Watch or download the demo video](docs/media/demo/ux-kit-demo.mp4), open the [demo player](docs/media/demo/ux-kit-demo.html), or [edit and render the Remotion project](remotion-demo/README.md).
