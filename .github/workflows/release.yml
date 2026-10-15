@@ -1,0 +1,85 @@
+name: Release
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, reopened, synchronize, edited, ready_for_review, closed]
+
+permissions:
+  contents: read
+
+jobs:
+  changelog:
+    name: Changelog version
+    if: github.event.action != 'closed' && github.event.pull_request.head.ref == 'dev' && github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out proposed merge
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Require a new changelog version
+        run: node scripts/release.js check
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+
+  publish:
+    name: Publish release
+    if: github.event.action == 'closed' && github.event.pull_request.merged == true && github.event.pull_request.head.ref == 'dev' && github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    concurrency:
+      group: release-${{ github.event.pull_request.merge_commit_sha }}
+      cancel-in-progress: false
+    steps:
+      - name: Check out merged commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.merge_commit_sha }}
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Prepare release from changelog
+        id: release
+        run: node scripts/release.js publish
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          RELEASE_NOTES_PATH: ${{ runner.temp }}/release-notes.md
+
+      - name: Publish GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          RELEASE_TAG: ${{ steps.release.outputs.tag }}
+          RELEASE_TITLE: ${{ steps.release.outputs.title }}
+          MERGE_SHA: ${{ github.event.pull_request.merge_commit_sha }}
+        run: |
+          if gh release view "$RELEASE_TAG" --json isDraft --jq '.isDraft' > "$RUNNER_TEMP/release-draft.txt"; then
+            if [ "$(cat "$RUNNER_TEMP/release-draft.txt")" = "true" ]; then
+              gh release edit "$RELEASE_TAG" \
+                --target "$MERGE_SHA" \
+                --title "$RELEASE_TITLE" \
+                --notes-file "$RUNNER_TEMP/release-notes.md" \
+                --draft=false
+            else
+              echo "Release $RELEASE_TAG is already published."
+            fi
+          else
+            gh release create "$RELEASE_TAG" \
+              --target "$MERGE_SHA" \
+              --title "$RELEASE_TITLE" \
+              --notes-file "$RUNNER_TEMP/release-notes.md"
+          fi
