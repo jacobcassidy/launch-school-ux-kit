@@ -23,7 +23,7 @@ An unofficial UX kit that modifies the LaunchSchool.com UI with a minimal design
 
 <!-- markdownlint-disable MD034 -->
 
-https://github.com/user-attachments/assets/039dfb49-a356-44d9-8709-f2a068484162
+https://github.com/user-attachments/assets/14481f07-509f-40ba-b998-d61e6d0efdc1
 
 <!-- markdownlint-enable MD034 -->
 
