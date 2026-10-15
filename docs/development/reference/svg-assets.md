@@ -1,0 +1,11 @@
+# SVG assets
+
+SVG files imported by source code live under [`src/svg`](../../../src/svg). Only referenced files are included in the userscript build.
+
+Lucide icons are grouped by UI location under `src/svg/lucide`: `header/` for site-header controls, `sidebar/` for navigation items and section controls, `tabs/` for tab-strip icons, and `panels/` for content and editor controls. These locations match the icon groups in `src/shared/icons.js`. Icons reused across locations, such as the code icon in panels and the scratchpad tab, live in `shared/`; this folder also holds icons for shared styles, such as search. Modified variants stay in their location's `modified/` subfolder. Update JavaScript imports and any CSS asset references when moving an icon.
+
+The current project identity lives in [docs/design/branding](../../design/branding/README.md), with full logos for light and dark backgrounds, transparent PNG exports, and previews. Three ascending squares represent steady progress toward mastery and the kit's modular UI components. The SVGs are fully vector, with rounded-rectangle squares and outlined lettering traced from the original logo. They contain no embedded images or font dependencies. No separate standalone mark is supplied.
+
+Unused icon alternatives and older assets live in the [design reference assets](../../design/README.md) under [`docs/design/svg-reference`](../../design/svg-reference). Move an asset into `src/svg` and update its source reference when adopting it.
+
+The archive includes the Launch School logo asset and unused Lucide icons. The project does not record the exact source revision for the vendored Lucide files; see [third-party notices](../../../THIRD-PARTY-NOTICES.txt) for license details.

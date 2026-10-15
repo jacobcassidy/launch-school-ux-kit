@@ -1,0 +1,65 @@
+/**
+ * HEADER LAYOUT
+ * Keeps the title centered while reserving equal space for the outer controls.
+ * @module features/header/header-layout
+ */
+
+const headerLayouts = new WeakMap();
+
+/**
+ * Measures symmetric side space and observes header controls for layout changes; existing observers are reused.
+ *
+ * @param {HTMLElement} header Custom site header to measure and observe.
+ * @returns {void}
+ */
+export function watchHeaderLayout(header) {
+  const existingLayout = headerLayouts.get(header);
+  if (existingLayout) {
+    existingLayout.update();
+    return;
+  }
+
+  const left = header.querySelector(".container-1");
+  const right = header.querySelector(".container-3");
+  if (!left || !right || typeof ResizeObserver === "undefined") return;
+
+  /**
+   * Updates reserved header side width and crowding state, or disconnects observation when the header is detached.
+   *
+   * @returns {void}
+   */
+  const update = () => {
+    if (!header.isConnected) {
+      disconnectHeaderLayout(header);
+      return;
+    }
+    const sideWidth = Math.ceil(Math.max(left.getBoundingClientRect().width, right.getBoundingClientRect().width));
+    const styles = getComputedStyle(header);
+    const contentWidth =
+      header.clientWidth - (parseFloat(styles.paddingInlineStart) || 0) - (parseFloat(styles.paddingInlineEnd) || 0);
+    const gap = parseFloat(styles.columnGap) || 0;
+    const widthValue = `${sideWidth}px`;
+
+    if (header.style.getPropertyValue("--header-side-width") !== widthValue) {
+      header.style.setProperty("--header-side-width", widthValue);
+    }
+    // When even an empty center cannot fit, keep only the separated controls.
+    header.classList.toggle("is-crowded", contentWidth <= sideWidth * 2 + gap * 2);
+  };
+
+  const observer = new ResizeObserver(update);
+  headerLayouts.set(header, { observer, update });
+  for (const element of [header, left, right]) observer.observe(element);
+  update();
+}
+
+/**
+ * Disconnects and removes the layout observer associated with a header.
+ *
+ * @param {HTMLElement} header Header whose layout observation should stop.
+ * @returns {void}
+ */
+export function disconnectHeaderLayout(header) {
+  headerLayouts.get(header)?.observer.disconnect();
+  headerLayouts.delete(header);
+}

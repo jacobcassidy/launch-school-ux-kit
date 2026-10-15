@@ -1,10 +1,16 @@
 import { readFile } from "node:fs/promises";
 import * as esbuild from "esbuild";
 import fs from "node:fs";
+import path from "node:path";
 import process from "node:process";
+import { watchUserscriptMetadata } from "./scripts/watch-userscript-header.js";
 
-const distDir = "./dist/";
+const releaseBundlePath = "./dist/index.min.js";
+const watchBundlePath = "./.dev-dist/index.js";
+const stagingBundlePath = "./.build-tmp/index.min.js";
 const headerFile = "./src/userscript/header.txt";
+const licenseFile = "./LICENSE";
+const thirdPartyNoticesFile = "./THIRD-PARTY-NOTICES.txt";
 const isWatchMode = process.argv.includes("--watch");
 
 const cssTextPlugin = {
@@ -17,7 +23,7 @@ const cssTextPlugin = {
 
     build.onLoad({ filter: /.*/, namespace: "css-text" }, async () => {
       const result = await esbuild.build({
-        entryPoints: ["src/css/styles.css"],
+        entryPoints: ["src/styles/index.css"],
         bundle: true,
         write: false,
         minify: true,
@@ -40,12 +46,16 @@ const cssTextPlugin = {
 };
 
 async function createContext() {
-  const userscriptHeader = await readFile(headerFile, "utf8");
+  const [userscriptHeader, projectLicense, thirdPartyNotices] = await Promise.all([
+    readFile(headerFile, "utf8"),
+    readFile(licenseFile, "utf8"),
+    readFile(thirdPartyNoticesFile, "utf8"),
+  ]);
 
   return esbuild.context({
-    entryPoints: ["src/js/index.js"],
+    entryPoints: ["src/app/index.js"],
     bundle: true,
-    outfile: `${distDir}/js/index.min.js`,
+    outfile: isWatchMode ? watchBundlePath : stagingBundlePath,
     minify: !isWatchMode,
     logLevel: "info",
     plugins: [cssTextPlugin],
@@ -55,38 +65,34 @@ async function createContext() {
     banner: {
       js: userscriptHeader,
     },
+    footer: {
+      js: `\n/*\n${projectLicense}\n\n${thirdPartyNotices}\n*/`,
+    },
   });
 }
 
-if (fs.existsSync(distDir)) {
-  fs.rmSync(distDir, { recursive: true, force: true });
-}
+const outputBundlePath = isWatchMode ? watchBundlePath : stagingBundlePath;
+const outputDirectory = path.dirname(outputBundlePath);
+fs.rmSync(outputDirectory, { recursive: true, force: true });
+fs.mkdirSync(outputDirectory, { recursive: true });
 
 let ctx = await createContext();
 
 if (isWatchMode) {
   await ctx.watch();
 
-  let headerMtimeMs = fs.statSync(headerFile).mtimeMs;
-  let headerChangeTimeout;
-
-  fs.watch(headerFile, () => {
-    clearTimeout(headerChangeTimeout);
-
-    headerChangeTimeout = setTimeout(async () => {
-      const nextMtimeMs = fs.statSync(headerFile).mtimeMs;
-      if (nextMtimeMs === headerMtimeMs) return;
-      headerMtimeMs = nextMtimeMs;
-
-      console.log(`Build started (change: "${headerFile}")`);
-      await ctx.dispose();
-      ctx = await createContext();
-      await ctx.watch();
-    }, 100);
+  watchUserscriptMetadata([headerFile, licenseFile, thirdPartyNoticesFile], async () => {
+    console.log("Build started (change: userscript metadata)");
+    await ctx.dispose();
+    ctx = await createContext();
+    await ctx.watch();
   });
 
   console.log("Watching source files. Press Ctrl-C to stop.");
 } else {
   await ctx.rebuild();
   await ctx.dispose();
+  fs.mkdirSync(path.dirname(releaseBundlePath), { recursive: true });
+  fs.renameSync(stagingBundlePath, releaseBundlePath);
+  fs.rmSync("./.build-tmp", { recursive: true, force: true });
 }

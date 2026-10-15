@@ -5,6 +5,64 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.9.0] - 2026-10-15 (Codex Refactor Edition)
+
+### Added
+
+- Added platform-aware Windows shortcuts: Ctrl replaces Cmd, and Ctrl Alt replaces Cmd Ctrl.
+- Added available shortcuts to button and tab tooltips, including alternate bindings and updates when page controls change.
+- Added accessible shortcut labels and polite screen-reader announcements for toast notifications.
+- Added an 88-second, silent 1920 × 1080 demo at 30 fps, animating native Safari PWA captures with a macOS-style window, action captions, shortcut keycaps, red control circles, and yellow highlights. The walkthrough includes settings, panel shortcuts, all three tabs, a real LSBot response, Scratchpad execution, and scrolling.
+- Added a reproducible Remotion project with checked-in captures, a capture-preparation script, a separate package and lockfile, and root commands to install, preview, check, and render the demo.
+- Added H.264 MP4 and VP9 WebM demo exports, a title-card poster, a local HTML player, and the demo specification and capture workflow documentation.
+- Added a three-square project logo, transparent PNG and SVG variants for light and dark backgrounds, balanced previews, and branding documentation.
+- Added automatic light/dark logo selection to the README and GitHub links to the final logo assets.
+- Added DOM lifecycle integration tests with happy-dom and regression coverage for shortcuts, navigation, cloned controls, panel visibility, accessibility, contrast, and toast cleanup.
+- Added repository guidance for separate task commits that exclude unrelated edits and preserve the established capitalized imperative commit-message style without Conventional Commit prefixes.
+- Added a development quick guide, repository organization plans, and architecture documentation.
+
+### Changed
+
+- Standardized "hotkeys" to "shortcuts" throughout the interface, source, tests, and documentation.
+- Refined shortcut displays with modifier symbols, consistent keycaps, natural widths for longer key names, smaller tooltip bindings, and "or" between alternate shortcuts.
+- Improved contrast for settings headings, header titles and breadcrumbs, sidebar labels, and section headings.
+- Centered header titles and breadcrumbs while preserving control spacing; long titles truncate or hide when space is limited.
+- Rebuilt the distribution userscript with the runtime fixes at version 2026-10-13; subsequently updated the source userscript metadata to 2026-10-15. The committed distribution bundle still carries version 2026-10-13.
+- Reorganized source code by feature, moved feature styles under `src/styles`, flattened release and watch bundle paths, grouped tests by ownership, and enabled recursive test discovery.
+- Reorganized documentation, design references, media, and branding assets; grouped source icons by UI location and consuming feature.
+- Archived the repository organization plans under development references and marked their implementation status.
+- Moved the custom Launch School sidebar logo into the dedicated `src/svg/custom/logo` directory and updated its import.
+- Refined logo spacing and vector lettering with straight edges and smooth Bézier curves, matched the light and dark variants, and regenerated the transparent PNGs and previews from the final SVGs.
+- Clarified source module and function names, added first-position JSDoc headers, documented source functions, corrected stale JSDoc and import comments, and updated stylesheet imports.
+- Updated the README for current shortcuts and features, formatted shortcut combinations with platform symbols, simplified its layout, and restored the seven v1.5.0 screenshots in a dedicated section after Demo.
+- Simplified the Settings descriptions for hiding sidebar section headers and shrinking the sidebar when closed.
+
+### Fixed
+
+- Fixed inline demo playback in the GitHub README by replacing linked previews with a published GitHub video attachment under the browser upload size limit.
+- Corrected relative source links in the sidebar and styles reference guides and switched README asset links to repository-relative paths.
+- Fixed cloned buttons, tabs, sidebar links, settings controls, and chat inputs losing their handlers after cached page restoration.
+- Preserved native breadcrumbs, logged-out navigation, and book table-of-contents controls through Turbo and Turbolinks caching and Back/Forward navigation, including renders that finish after history changes.
+- Fixed sidebar toggle state handling and preserved content offsets when the sidebar is shrunk.
+- Preserved native content beside unread counts, reattached count observers to restored sidebars, and stopped observing when the sidebar is absent.
+- Fixed tabs revealed after initialization retaining hidden state, missing icons, or stale labels and shortcuts.
+- Removed stale tab tooltips and reset active sidebar tooltips before page caching and restoration.
+- Fixed LSBot submission focus tracking when its prompt is already focused during initialization.
+- Prevented review shortcuts from submitting disabled or detached controls or targeting another page after navigation.
+- Prevented shortcuts from interfering with IME composition and AltGr text entry.
+- Prevented registered UX Kit shortcuts from also triggering the page's native keyboard handlers.
+- Made hidden header, settings, and tabs-panel controls inaccessible to keyboard and assistive navigation, and restored focus when Settings closes.
+- Fixed expired toasts remaining in the DOM when transitions are absent, canceled, or do not emit completion events.
+- Fixed custom button icons disappearing when page content resets, stale unread badges after sidebar replacement, and question-box controls added after initialization not handling submissions.
+- Preserved native labels and content for unrecognized tab types, refreshed the UI after query-only navigation, removed stale sidebar tooltips after replacement, fixed the next pagination selector, and kept userscript watch mode current after atomic metadata replacements.
+
+### Removed
+
+- Removed plus separators from displayed shortcut combinations.
+- Removed tabs-panel, content-panel, and divider transitions so panel visibility changes are immediate.
+- Removed obsolete developer bug, dependency, and review notes; stopped tracking the local TODO file and added it to `.gitignore`.
+- Removed unused sidebar and native DOM state, an unused sidebar icon, draft logo assets, and an unused logo preview.
+
 ## [1.8.1] - 2026-09-22 (Codex Fixes Edition)
 
 ### Fixed
@@ -13,11 +71,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fixed initialization when the userscript runs after the document has already loaded.
 - Fixed page navigation waiting for the body element to be replaced before reloading the UI.
 - Fixed missing exercise completion forms aborting UI initialization.
-- Fixed duplicate completion observers, hotkey sections, and tab tooltips during repeated UI loads.
+- Fixed duplicate completion observers, shortcut sections, and tab tooltips during repeated UI loads.
 - Fixed sidebar settings throwing errors when no sidebar exists.
 - Fixed stale next-exercise state after navigating away from an exercise.
 - Fixed sidebar toggling using stale collapsed state after navigation.
-- Fixed tab shortcuts beyond the fifth tab and prevented Cmd+B from being intercepted without a sidebar.
+- Fixed tab shortcuts beyond the fifth tab and prevented Cmd B from being intercepted without a sidebar.
 - Fixed the Enter shortcut listing for question-box answer inputs.
 - Fixed unread sidebar badges becoming stale or disappearing when counts load later.
 - Fixed LSBot response handling stealing focus from another control.
@@ -38,7 +96,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Added back function to move logged-out nav to `.site-header`.
-- Added `Enter` hotkey note to README.md.
+- Added `Enter` shortcut note to README.md.
 
 ### Fixed
 
@@ -57,8 +115,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Added `#btn-book-lsbot-review` to "Submit Review" hotkey selectors.
-- Added `enterOnly` hotkey for chat prompt submissions.
+- Added `#btn-book-lsbot-review` to "Submit Review" shortcut selectors.
+- Added `enterOnly` shortcut for chat prompt submissions.
 - Added a Lucide SVG icon to replace the search icon on the forum page.
 - Added an SVG loader to the esbuild script so it can be inline CSS SVG assets.
 - Added pagination button styles to match the LS UX Kit theme.
@@ -176,8 +234,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fixed an issue with the header.txt causing a watch build loop
 - Reorganized all files
 - Updated the colorLog styles with oklch colors
-- Replaced the Hotkeys menu and toggle button with a Settings menu and toggle button. The hotkeys menu remains inside the settings menu.
-- Updated the hotkeys with new bindings
+- Replaced the Shortcuts menu and toggle button with a Settings menu and toggle button. The shortcuts menu remains inside the settings menu.
+- Updated the shortcuts with new bindings
 - Refactored icons element creation functions
 
 ## [1.0.0] - 2026-07-23
@@ -210,30 +268,30 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     - Button to show the Sidebar.
     - Button to toggle a book's Table of Contents menu visibility.
     - Button to toggle the Tabs Panel visibility,
-    - Button to toggle the Current Page Hotkeys/Settings menu visibility.
+    - Button to toggle the Current Page Shortcuts/Settings menu visibility.
     - Breadcrumbs placed center in the header.
     - If the page has no breadcrumbs, the page title is place center in the header instead.
     - Moved the logged-out nav to the header for logged-out users.
-  - Added a blue background flash to an already active tab/textarea that is activated again via a hotkey so you can quickly see where the active focus is.
-  - Added an automatic textbox focus when a tab or editor is selected via button click or hotkey.
+  - Added a blue background flash to an already active tab/textarea that is activated again via a shortcut so you can quickly see where the active focus is.
+  - Added an automatic textbox focus when a tab or editor is selected via button click or shortcut.
   - Added the ability to completely hide the sidebar from view.
-  - Added a toaster that will display messages for different actions, such as activating the Copy Editor Code via hotkey.
+  - Added a toaster that will display messages for different actions, such as activating the Copy Editor Code via shortcut.
   - Added automatic LSBot tab focus when a question box answer is submitted in the content panel.
   - Added automatic refocus of the LSBot prompt textarea after a prompt submission completes.
-  - Added a container that displays the current page's hotkeys in the Settings Menu.
-  - Added hotkeys:
+  - Added a container that displays the current page's shortcuts in the Settings Menu.
+  - Added shortcuts:
 
-    | Hotkey            | Function                                                                   |
-    | ----------------- | -------------------------------------------------------------------------- |
-    | `CMD + SHIFT + 1` | Toggle Header visibility                                                   |
-    | `CMD + SHIFT + 2` | Toggle Tabs Panel visibility _(only active on pages with a Tabs Panel)_    |
-    | `CMD + SHIFT + E` | Focus Editor/Scratchpad                                                    |
-    | `CMD + CTRL + #`  | Select tab by number order (such as 1 for the "Ask LSBot" tab)             |
-    | `CMD + CTRL + B`  | Toggle Sidebar visibility                                                  |
-    | `CMD + CTRL + C`  | Copy Editor/Scratchpad Code                                                |
-    | `CMD + CTRL + E`  | Focus Editor/Scratchpad                                                    |
-    | `CMD + CTRL + M`  | Toggle the "Mark exercise complete/incomplete" _(active on exercise page)_ |
-    | `CMD + CTRL + N`  | Go to next exercise _(active on exercise page)_                            |
-    | `CMD + CTRL + R`  | Submit review to LSBot _(active on exercise page)_                         |
-    | `CMD + CTRL + T`  | Toggle Table of Contents Menu visibility _(active on book page)_           |
-    | `CMD + CTRL + ,`  | Toggle Current Page Hotkeys/Settings Menu visibility                       |
+    | Shortcut      | Function                                                                   |
+    | ------------- | -------------------------------------------------------------------------- |
+    | `CMD SHIFT 1` | Toggle Header visibility                                                   |
+    | `CMD SHIFT 2` | Toggle Tabs Panel visibility _(only active on pages with a Tabs Panel)_    |
+    | `CMD SHIFT E` | Focus Editor/Scratchpad                                                    |
+    | `CMD CTRL #`  | Select tab by number order (such as 1 for the "Ask LSBot" tab)             |
+    | `CMD CTRL B`  | Toggle Sidebar visibility                                                  |
+    | `CMD CTRL C`  | Copy Editor/Scratchpad Code                                                |
+    | `CMD CTRL E`  | Focus Editor/Scratchpad                                                    |
+    | `CMD CTRL M`  | Toggle the "Mark exercise complete/incomplete" _(active on exercise page)_ |
+    | `CMD CTRL N`  | Go to next exercise _(active on exercise page)_                            |
+    | `CMD CTRL R`  | Submit review to LSBot _(active on exercise page)_                         |
+    | `CMD CTRL T`  | Toggle Table of Contents Menu visibility _(active on book page)_           |
+    | `CMD CTRL ,`  | Toggle Current Page Shortcuts/Settings Menu visibility                     |
