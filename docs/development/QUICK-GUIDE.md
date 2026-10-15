@@ -17,6 +17,8 @@ Both bundles include the userscript header from `src/userscript/header.txt`, bun
 
 The release build first writes to `.build-tmp/index.min.js`. Only after esbuild succeeds does it move the result to `dist/index.min.js`, so a failed build leaves the previous release bundle intact. The temporary staging directory is removed after success.
 
+Merging a pull request from `dev` into `main` automatically publishes a new GitHub release based on the version and release notes in [CHANGELOG.md](../../CHANGELOG.md). Add a new version greater than the latest version on `main` and all existing version tags before merging; the required `Changelog version` check blocks the merge otherwise.
+
 ## Typical edit loop
 
 1. Install the project dependencies with `npm ci` (Node.js 24 or later).
