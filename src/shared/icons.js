@@ -33,7 +33,7 @@ import courses from "../svg/lucide/sidebar/courses/book-open.svg";
 import events from "../svg/lucide/sidebar/events/calendar-days.svg";
 import exercises from "../svg/lucide/sidebar/exercises/clipboard-check.svg";
 import forum from "../svg/lucide/sidebar/forums/megaphone.svg";
-import modifiedLogo from "../svg/custom/modified/ls-logo.svg";
+import modifiedLogo from "../svg/custom/logo/ls-logo.svg";
 import myAccount from "../svg/lucide/sidebar/my-account/user-round.svg";
 import myAssessments from "../svg/lucide/sidebar/my-assessments/shield-check.svg";
 import myExercises from "../svg/lucide/sidebar/my-exercises/star-check.svg";
