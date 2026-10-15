@@ -10,14 +10,14 @@
 
 An unofficial UX kit that modifies the LaunchSchool.com UI with a minimal design and added shortcuts for productivity (shortcuts that toggle the header, menus, sidebar, tabs, and more).
 
-| Index                                           |
-| ----------------------------------------------- |
-| [Demo](#demo)                                   |
-| [Quickstart Guide](#quickstart-guide)           |
-| [UX Kit Features](#ux-kit-features)             |
-| [Notes](#notes)                                 |
-| [Project Documentation](#project-documentation) |
-| [Issues?](#issues)                              |
+| Index                           |
+| ------------------------------- |
+| [Demo](#demo)                   |
+| [Quickstart](#quickstart-guide) |
+| [Features](#features)           |
+| [Notes](#notes)                 |
+| [Documentation](#documentation) |
+| [Issues?](#issues)              |
 
 ## Demo
 
@@ -26,10 +26,6 @@ An unofficial UX kit that modifies the LaunchSchool.com UI with a minimal design
 https://github.com/user-attachments/assets/14481f07-509f-40ba-b998-d61e6d0efdc1
 
 <!-- markdownlint-enable MD034 -->
-
-The 88-second, 1920 × 1080 demo presents captures from the Launch School PWA as an isolated window with rounded corners, padding, and a macOS-style shadow. Centered action descriptions fade in before each action, with shortcut key boxes, red control circles, and yellow highlights. It shows the settings toggles, panel visibility shortcuts, and all three tabs in order, including a real LSBot response and Scratchpad execution. Remotion animates the native captures, typing, and scrolling.
-
-[Watch on YouTube](https://www.youtube.com/watch?v=a_eNRPMKrLk), [download the demo video](docs/media/demo/ux-kit-demo.mp4), open the [demo player](docs/media/demo/ux-kit-demo.html), or [edit and render the Remotion project](remotion-demo/README.md).
 
 ## Quickstart Guide
 
@@ -53,7 +49,7 @@ To update an existing installation, open its script in Tampermonkey, replace the
 > 7. In the Setting's "Extensions" tab, click "Browse Extensions" and install "Tampermonkey" (or an equivalent extension).
 > 8. Then follow the rest of the [Quickstart Guide](#quickstart-guide) above to complete the setup.
 
-## UX Kit Features
+## Features
 
 - Refines the UI for a more minimal style, especially when closing panels such as the sidebar or tabs panel.
 - Adds a toggleable page header panel with the page's breadcrumbs/title and buttons to control the visibility of other panels (settings, sidebar, tabs, and table of contents).
@@ -96,7 +92,7 @@ Keys displayed together, such as `⌘⌃C`, are pressed together. Numbered tab s
 - You can toggle the userscript off at anytime and reload the page to get the original UX back.
 - This kit modifies the existing DOM of launchschool.com. If the launchschool.com DOM changes in the future, this kit may cease to function. If that happens, please [report the issue](https://github.com/jacobcassidy/launch-school-ux-kit/issues).
 
-## Project Documentation
+## Documentation
 
 See the [Changelog](CHANGELOG.md), [Contributing](CONTRIBUTING.md) for development setup and checks, and the [documentation index](docs/README.md) for architecture, reference guides, and historical media.
 
