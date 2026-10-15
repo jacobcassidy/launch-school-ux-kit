@@ -1,5 +1,6 @@
 import { spawnSync } from "node:child_process";
-import { fileURLToPath } from "node:url";
+import console from "node:console";
+import { fileURLToPath, URL } from "node:url";
 
 const media = fileURLToPath(new URL("../../docs/media/demo/", import.meta.url));
 const run = (args) => {
