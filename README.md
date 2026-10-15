@@ -8,17 +8,17 @@
 </picture>
 <!-- markdownlint-enable MD033 -->
 
-An unofficial UX kit that modifies the LaunchSchool.com UI with a minimal design and added shortcuts for productivity (shortcuts that toggle the header, menus, sidebar, tabs, and more).
+| Index                                 |
+| ------------------------------------- |
+| [Demo](#demo)                         |
+| [Screenshots](#screenshots)           |
+| [Quickstart Guide](#quickstart-guide) |
+| [Features](#features)                 |
+| [Notes](#notes)                       |
+| [Documentation](#documentation)       |
+| [Issues?](#issues)                    |
 
-| Index                           |
-| ------------------------------- |
-| [Demo](#demo)                   |
-| [Screenshots](#screenshots)     |
-| [Quickstart](#quickstart-guide) |
-| [Features](#features)           |
-| [Notes](#notes)                 |
-| [Documentation](#documentation) |
-| [Issues?](#issues)              |
+An unofficial UX kit that modifies the LaunchSchool.com UI with a minimal design and added shortcuts for productivity (shortcuts that toggle the header, menus, sidebar, tabs, and more).
 
 ## Demo
 
